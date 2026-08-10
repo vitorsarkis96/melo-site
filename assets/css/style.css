@@ -899,6 +899,11 @@ body.menu-open {
   line-height: 1.4;
   text-align: center;
 }
+.clients-viewport {
+  max-width: var(--max-width);
+  width: 100%;
+  overflow: hidden;
+}
 .clients-row {
   max-width: var(--max-width);
   width: 100%;
@@ -907,6 +912,11 @@ body.menu-open {
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 16px;
+}
+@media (min-width: 901px) {
+  .clients-row .client-logo[aria-hidden="true"] {
+    display: none;
+  }
 }
 .client-logo {
   display: flex;
@@ -1100,6 +1110,9 @@ body.menu-open {
   .portfolio-card:hover .card-bg {
     transform: none;
   }
+  .clients-row {
+    animation: none !important;
+  }
 }
 
 /* ============================================================
@@ -1184,7 +1197,21 @@ body.menu-open {
     font-size: 56px;
   }
   .clients-row {
-    justify-content: center;
+    max-width: none;
+    width: max-content;
+    flex-wrap: nowrap;
+    animation: clients-marquee 24s linear infinite;
+  }
+  .clients-row:hover,
+  .clients-row:focus-within {
+    animation-play-state: paused;
+  }
+  .client-logo {
+    flex-shrink: 0;
+  }
+  @keyframes clients-marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
   }
   .deliver-left {
     max-width: 100%;
