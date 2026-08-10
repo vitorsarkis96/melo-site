@@ -108,8 +108,8 @@ button {
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  padding: 8px 10px;
+  gap: 6px;
+  padding: 10px 18px;
   border-radius: var(--radius-pill);
   font-weight: 700;
   font-size: 14px;
@@ -364,6 +364,12 @@ body.menu-open {
   overflow: hidden;
   min-height: 758px;
   padding: 56px;
+}
+/* Main top hero fits the first screen exactly: viewport height minus the
+   sticky header and the hero-wrap's own padding. */
+.hero-wrap .hero-card {
+  height: calc(100vh - 74px);
+  min-height: 0;
 }
 .hero-card::after {
   content: "";
@@ -1150,9 +1156,11 @@ body.menu-open {
   .portfolio-card {
     min-height: 420px;
   }
-  .hero-card,
   .hero-photo {
     min-height: 480px;
+  }
+  .hero-wrap .hero-card {
+    height: calc(100vh - 72px);
   }
   .hero-headline {
     font-size: 30px;
