@@ -295,6 +295,9 @@ button {
   color: var(--orange-600);
   padding-left: 12px;
 }
+.mobile-menu__links a.is-active {
+  color: var(--orange-600);
+}
 .mobile-menu__cta {
   margin-top: auto;
   justify-content: center;
@@ -972,6 +975,10 @@ body.menu-open {
   background: rgba(255, 255, 255, 0.08);
   color: var(--pure-white);
 }
+.footer-nav .menu-link.is-active {
+  color: var(--orange-600);
+  background: transparent;
+}
 .footer-divider {
   height: 1px;
   background: rgba(255, 255, 255, 0.15);
@@ -987,6 +994,11 @@ body.menu-open {
 .footer-logo {
   height: 30px;
   width: auto;
+  display: block;
+  transition: opacity 0.2s var(--ease);
+}
+.footer-bottom a:hover .footer-logo {
+  opacity: 0.7;
 }
 .footer-contact {
   color: var(--gray-500);
