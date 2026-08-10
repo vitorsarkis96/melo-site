@@ -7,6 +7,27 @@
   const mobileMenuClose = document.getElementById("mobile-menu-close");
   const mobileLinks = mobileMenu ? mobileMenu.querySelectorAll("a") : [];
   const body = document.body;
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  /* ---------------- Same-page anchor links: smooth scroll ----------------
+     No CSS `scroll-behavior: smooth` on <html> on purpose — that also
+     animates the browser's own on-load scroll when arriving from another
+     page with a #hash in the URL, which crawls for several seconds on a
+     long page. Cross-page arrivals should jump straight there; only clicks
+     on a link that targets an element already in THIS document get an
+     animated scroll. */
+  document.querySelectorAll('a[href^="#"], a[href^="/#"]').forEach((link) => {
+    link.addEventListener("click", (e) => {
+      const hash = link.getAttribute("href").split("#")[1];
+      const target = hash ? document.getElementById(hash) : null;
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: prefersReducedMotion ? "auto" : "smooth", block: "start" });
+      history.pushState(null, "", `#${hash}`);
+    });
+  });
 
   /* ---------------- Header shadow on scroll ---------------- */
   const onScroll = () => {
@@ -64,10 +85,6 @@
   }
 
   /* ---------------- Count-up numbers ---------------- */
-  const prefersReducedMotion = window.matchMedia(
-    "(prefers-reduced-motion: reduce)"
-  ).matches;
-
   const formatNumber = (value, format) => {
     const rounded = Math.round(value);
     if (format === "thousand") return rounded.toLocaleString("pt-BR");

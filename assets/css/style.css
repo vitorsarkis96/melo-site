@@ -42,8 +42,12 @@
   padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
+/* Offsets in-page anchor targets so the sticky header never covers them */
+#atuamos,
+#cases,
+#sobre,
+#contato {
+  scroll-margin-top: 80px;
 }
 
 body {
@@ -1020,9 +1024,6 @@ body.menu-open {
 .reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 400ms; }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
   .reveal,
   .reveal-stagger > * {
     opacity: 1 !important;
