@@ -345,6 +345,7 @@ body.menu-open {
 .hero-card__content {
   position: relative;
   z-index: 1;
+  margin-bottom: 96px;
 }
 .hero-headline {
   font-family: var(--font-hero);
@@ -1119,6 +1120,9 @@ body.menu-open {
   }
   .hero-headline {
     font-size: 30px;
+  }
+  .hero-card__content {
+    margin-bottom: 40px;
   }
   .stats-row {
     flex-direction: column;
