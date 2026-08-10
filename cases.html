@@ -1,25 +1,28 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Todos os cases | Melo</title>
-<meta name="description" content="Confira todos os projetos de estratégia, marca, sites e sistemas desenvolvidos pela Melo Creative." />
+<title>All Case Studies | Melo Creative</title>
+<meta name="description" content="Browse every strategy, brand, website and systems project developed by Melo Creative." />
 <link rel="canonical" href="https://www.melocreative.com.br/cases" />
 <link rel="icon" href="/favicon.ico" sizes="any" />
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png" />
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png" />
 <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png" />
+<link rel="alternate" hreflang="en" href="https://www.melocreative.com.br/cases" />
+<link rel="alternate" hreflang="pt-BR" href="https://www.melocreative.com.br/pt/cases" />
+<link rel="alternate" hreflang="x-default" href="https://www.melocreative.com.br/cases" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Melo Creative" />
-<meta property="og:locale" content="pt_BR" />
-<meta property="og:title" content="Todos os Cases | Melo Creative" />
-<meta property="og:description" content="Confira todos os projetos de estratégia, marca, sites e sistemas desenvolvidos pela Melo Creative." />
+<meta property="og:locale" content="en_US" />
+<meta property="og:title" content="All Case Studies | Melo Creative" />
+<meta property="og:description" content="Browse every strategy, brand, website and systems project developed by Melo Creative." />
 <meta property="og:url" content="https://www.melocreative.com.br/cases" />
 <meta property="og:image" content="https://www.melocreative.com.br/assets/img/aromatici.png" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Todos os Cases | Melo Creative" />
-<meta name="twitter:description" content="Confira todos os projetos de estratégia, marca, sites e sistemas desenvolvidos pela Melo Creative." />
+<meta name="twitter:title" content="All Case Studies | Melo Creative" />
+<meta name="twitter:description" content="Browse every strategy, brand, website and systems project developed by Melo Creative." />
 <meta name="twitter:image" content="https://www.melocreative.com.br/assets/img/aromatici.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,12 +34,15 @@
 <header class="site-header" id="site-header">
   <a href="/"><img class="logo-melo" src="assets/icons/logo-melo.svg" alt="Melo" /></a>
   <nav class="nav-links">
-    <a class="menu-link" href="/#atuamos">Como atuamos</a>
+    <a class="menu-link" href="/#atuamos">How we work</a>
     <a class="menu-link is-active" href="/cases">Cases</a>
-    <a class="menu-link" href="/#sobre">Sobre a Melo</a>
-    <a class="menu-link" href="/#contato">Contato</a>
+    <a class="menu-link" href="/#sobre">About Melo</a>
+    <a class="menu-link" href="/#contato">Contact</a>
+    <a class="lang-switch" href="/pt/cases" aria-label="Ver em português">
+      <img src="assets/icons/flag-br.svg" alt="" width="20" height="20" />
+    </a>
   </nav>
-  <button class="nav-toggle" id="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+  <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
     <span></span><span></span><span></span>
   </button>
 </header>
@@ -44,16 +50,20 @@
 <div class="mobile-menu" id="mobile-menu">
   <div class="mobile-menu__top">
     <img class="mobile-menu__logo" src="assets/icons/melo-mark-small.svg" alt="Melo" />
-    <button class="mobile-menu__close" id="mobile-menu-close" aria-label="Fechar menu">✕</button>
+    <button class="mobile-menu__close" id="mobile-menu-close" aria-label="Close menu">✕</button>
   </div>
   <nav class="mobile-menu__links">
-    <a href="/#atuamos">Como atuamos</a>
+    <a href="/#atuamos">How we work</a>
     <a href="/cases" class="is-active">Cases</a>
-    <a href="/#sobre">Sobre a Melo</a>
-    <a href="/#contato">Contato</a>
+    <a href="/#sobre">About Melo</a>
+    <a href="/#contato">Contact</a>
+    <a class="mobile-menu__lang" href="/pt/cases">
+      <img src="assets/icons/flag-br.svg" alt="" width="20" height="20" />
+      Ver em português
+    </a>
   </nav>
   <a class="btn btn-orange btn-lg mobile-menu__cta" href="https://wa.me/5511954387151" target="_blank" rel="noopener noreferrer">
-    Vamos conversar
+    Let's talk
     <img class="btn-icon" src="assets/icons/arrow-right.svg" alt="" />
   </a>
 </div>
@@ -62,84 +72,84 @@
 
   <section class="case-hero-header reveal">
     <div>
-      <h1>Todos os cases</h1>
+      <h1>All case studies</h1>
     </div>
   </section>
 
-  <div class="case-filter reveal" role="group" aria-label="Filtrar cases por tipo de projeto">
-    <button class="case-filter__btn is-active" data-filter="todos">Todos</button>
-    <button class="case-filter__btn" data-filter="estrategia">Estratégia</button>
-    <button class="case-filter__btn" data-filter="marca">Marca</button>
-    <button class="case-filter__btn" data-filter="sites-sistemas">Sites &amp; Sistemas</button>
-    <button class="case-filter__btn" data-filter="audiovisual">Audiovisual</button>
+  <div class="case-filter reveal" role="group" aria-label="Filter cases by project type">
+    <button class="case-filter__btn is-active" data-filter="todos">All</button>
+    <button class="case-filter__btn" data-filter="estrategia">Strategy</button>
+    <button class="case-filter__btn" data-filter="marca">Brand</button>
+    <button class="case-filter__btn" data-filter="sites-sistemas">Websites &amp; Systems</button>
+    <button class="case-filter__btn" data-filter="audiovisual">Motion</button>
   </div>
 
   <div class="portfolio-grid reveal-stagger">
 
     <a class="portfolio-card" data-service="marca sites-sistemas" href="/aromatici">
-      <img class="card-bg" src="assets/img/aromatici.png" alt="Case Aromatici - Branding" loading="lazy" />
+      <img class="card-bg" src="assets/img/aromatici.png" alt="Aromatici case study - Branding" loading="lazy" />
       <div class="portfolio-card__content">
         <div class="project-label">
-          <p class="title">Aromatici - Branding</p>
-          <p class="desc">Rebranding e e-commerce para dermocosméticos naturais com base científica.</p>
+          <p class="title">Aromatici – Branding</p>
+          <p class="desc">Rebrand and e-commerce for a science-based natural dermocosmetics brand.</p>
         </div>
       </div>
     </a>
 
     <a class="portfolio-card" data-service="marca sites-sistemas" href="/khs">
-      <img class="card-bg" src="assets/img/khs.jpg" alt="Case KHS Advocacia - Branding Boutique" loading="lazy" />
+      <img class="card-bg" src="assets/img/khs.jpg" alt="KHS Advocacia case study - Boutique Branding" loading="lazy" />
       <div class="portfolio-card__content">
         <div class="project-label">
-          <p class="title">KHS Advocacia - Branding Boutique</p>
-          <p class="desc">Identidade de marca e plataforma web para boutique jurídica especializada em direito da saúde.</p>
+          <p class="title">KHS Advocacia – Boutique Branding</p>
+          <p class="desc">Brand identity and web platform for a boutique law firm specialized in health law.</p>
         </div>
       </div>
     </a>
 
     <a class="portfolio-card" data-service="estrategia marca sites-sistemas" href="/4research">
-      <img class="card-bg" src="assets/img/4research.png" alt="Case 4Research - Identidade Visual" loading="lazy" />
+      <img class="card-bg" src="assets/img/4research.png" alt="4Research case study - Visual Identity" loading="lazy" />
       <div class="portfolio-card__content">
         <div class="project-label">
-          <p class="title">4Research - Identidade Visual</p>
-          <p class="desc">Reposicionamento de marca e identidade para empresa de dados e tecnologia em saúde.</p>
+          <p class="title">4Research – Visual Identity</p>
+          <p class="desc">Brand repositioning and identity for a health data and technology company.</p>
         </div>
       </div>
     </a>
 
     <a class="portfolio-card" data-service="estrategia marca" href="/ekoenergy">
-      <img class="card-bg" src="assets/img/ekoenergy-brand.png" alt="Case Ekoenergy - Identidade Visual" loading="lazy" />
+      <img class="card-bg" src="assets/img/ekoenergy-brand.png" alt="Ekoenergy case study - Visual Identity" loading="lazy" />
       <div class="portfolio-card__content">
         <div class="project-label">
-          <p class="title">Ekoenergy - Identidade Visual</p>
-          <p class="desc">Estratégia de marca e identidade digital para empresa de energia renovável.</p>
+          <p class="title">Ekoenergy – Visual Identity</p>
+          <p class="desc">Brand strategy and digital identity for a renewable energy company.</p>
         </div>
       </div>
     </a>
 
     <a class="portfolio-card" data-service="estrategia marca" href="/redcap">
-      <img class="card-bg" src="assets/img/redcap.png" alt="Case REDCap - Identidade Visual" loading="lazy" />
+      <img class="card-bg" src="assets/img/redcap.png" alt="REDCap case study - Visual Identity" loading="lazy" />
       <div class="portfolio-card__content">
         <div class="project-label">
-          <p class="title">REDCap - Identidade Visual</p>
-          <p class="desc">Identidade visual e sistema gráfico para plataforma científica de dados.</p>
+          <p class="title">REDCap – Visual Identity</p>
+          <p class="desc">Visual identity and graphic system for a scientific data platform.</p>
         </div>
       </div>
     </a>
 
   </div>
 
-  <p class="case-empty-state">Ainda não temos cases publicados nessa categoria — em breve por aqui.</p>
+  <p class="case-empty-state">No case studies in this category yet — check back soon.</p>
 
   <!-- FOOTER / FINAL CTA -->
   <div class="footer-wrap" id="contato">
     <footer class="footer-card reveal">
       <div class="footer-top">
         <div class="footer-headline">
-          <p class="line1">Qual é a dor da sua</p>
+          <p class="line1">What's the pain in your</p>
           <div class="line2-row">
-            <p class="line2">operação?</p>
+            <p class="line2">operation?</p>
             <a class="btn btn-orange btn-lg" href="https://wa.me/5511954387151" target="_blank" rel="noopener noreferrer">
-              Vamos conversar
+              Let's talk
               <img class="btn-icon" src="assets/icons/arrow-right.svg" alt="" />
             </a>
           </div>
@@ -150,10 +160,10 @@
             <a href="https://www.linkedin.com/company/melocreativeteam" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><img src="assets/icons/social-linkedin.svg" alt="LinkedIn" /></a>
           </div>
           <nav class="footer-nav">
-            <a class="menu-link" href="/#atuamos">O que fazemos</a>
+            <a class="menu-link" href="/#atuamos">What we do</a>
             <a class="menu-link is-active" href="/cases">Cases</a>
-            <a class="menu-link" href="/#sobre">Sobre a Melo</a>
-            <a class="menu-link" href="/#contato">Contato</a>
+            <a class="menu-link" href="/#sobre">About Melo</a>
+            <a class="menu-link" href="/#contato">Contact</a>
           </nav>
         </div>
       </div>
@@ -164,7 +174,7 @@
         <a href="/"><img class="footer-logo" src="assets/icons/melo-mark-small.svg" alt="Melo" /></a>
         <p class="footer-contact">
           +55 11 95438-7151<br />
-          Rua Conde do Pinhal 8 - Liberdade - São Paulo - SP<br />
+          Rua Conde do Pinhal 8 - Liberdade - São Paulo - SP - Brazil<br />
           contato@melocreative.com.br
         </p>
       </div>
