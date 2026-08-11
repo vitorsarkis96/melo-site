@@ -1185,6 +1185,9 @@ body.menu-open {
     gap: 16px;
     align-items: flex-start;
   }
+  .service-content {
+    gap: 16px;
+  }
   .service-title {
     font-size: 36px;
   }
