@@ -5,7 +5,8 @@
         {
           "type": "image",
           "src": "https://github.com/vitorsarkis96/melo-site/blob/main/assets/img/cases/b4c_makinf_off.jpeg?raw=true",
-          "fit": "cover"
+          "fit": "cover",
+          "filter": "bw-classic"
         }
       ],
       "layout": "single"
@@ -58,7 +59,8 @@
   "heroMedia": {
     "type": "image",
     "src": "/assets/img/cases/brain4care_dublin.png",
-    "fit": "contain"
+    "fit": "contain",
+    "filter": null
   },
   "cardImage": "https://github.com/vitorsarkis96/melo-site/blob/main/assets/img/cases/Brain4Care_DUBLIN.png?raw=true",
   "rowsAfterApproach": [
