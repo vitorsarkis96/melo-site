@@ -21,11 +21,17 @@
     "challengeDetail": "O desafio era transmitir toda a tecnologia, autoridade e inovação que a brain4care vem desenvolvendo nos últimos 10 anos.",
     "challengeTag": "Traduzir e Guiar",
     "metaDescription": "Produção de vídeo, identidade visual, motion graphics e design.",
+    "tags": [
+      "Identidade Visual",
+      "Motion Design",
+      "Branding",
+      "Neurotecnologia",
+      "2026"
+    ],
     "approachDetail": "Primeiramente, precisamos considerar que dois públicos interagem com o conteúdo B2C: B2B e B2C. Portanto, nosso foco foi entender o cliente ideal para cada conteúdo e traduzir esse entendimento para alcançar os melhores resultados possíveis.",
     "approachHeading": "Quem é o cliente ideal? (ICP)",
     "challengeHeading": "Tecnologia, Inovação e Autoridade",
-    "heroTitleLine1": "brain4care | Audiovisual",
-    "tags": ["Identidade Visual", "Motion Design", "Branding", "Neurotecnologia", "2026"]
+    "heroTitleLine1": "brain4care | Audiovisual"
   },
   "en": {
     "heroTitleLine2": "Audiovisual Design Identity Motion",
@@ -37,18 +43,24 @@
     "challengeDetail": "The challenge was to convey all the technology, authority, and innovation that brain4care has been developing over the past 10 years.",
     "challengeTag": "Was to bring",
     "metaDescription": "Video production, Visual Identity, Motion Graphics and Design",
+    "tags": [
+      "Visual Identity",
+      "Motion Design",
+      "Branding",
+      "Neurotechnology",
+      "2026"
+    ],
     "approachDetail": "First of all, we have to consider that two audiences interact with B2C content: B2B and B2C. Therefore, our focus was on understanding the ideal customer for each piece of content and translating that understanding to achieve the best possible results.",
     "approachHeading": "Who're the ICP?",
     "challengeHeading": "Tech, Innovation and Authority",
-    "heroTitleLine1": "brain4care | Video Production",
-    "tags": ["Visual Identity", "Motion Design", "Branding", "Neurotechnology", "2026"]
+    "heroTitleLine1": "brain4care | Video Production"
   },
   "heroMedia": {
     "type": "image",
     "src": "/assets/img/cases/brain4care_dublin.png",
     "fit": "contain"
   },
-  "cardImage": "/assets/img/b4c_makinf_off.jpeg",
+  "cardImage": "https://github.com/vitorsarkis96/melo-site/blob/main/assets/img/cases/Brain4Care_DUBLIN.png?raw=true",
   "rowsAfterApproach": [
     {
       "items": [
@@ -61,7 +73,7 @@
     }
   ],
   "slug": "brain4care",
-  "dataService": "marca audiovisual",
+  "dataService": "Audiovisual, Motion",
   "order": 6,
   "otherCases": [
     "4research",
