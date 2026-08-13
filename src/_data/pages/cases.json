@@ -1,0 +1,25 @@
+{
+  "ogImage": "/assets/img/aromatici.png",
+  "en": {
+    "metaTitle": "All Case Studies | Melo Creative",
+    "metaDescription": "Browse every strategy, brand, website and systems project developed by Melo Creative.",
+    "heroTitle": "All case studies",
+    "filterAll": "All",
+    "filterEstrategia": "Strategy",
+    "filterMarca": "Brand",
+    "filterSites": "Websites & Systems",
+    "filterAudiovisual": "Motion",
+    "emptyState": "No case studies in this category yet — check back soon."
+  },
+  "pt": {
+    "metaTitle": "Todos os cases | Melo",
+    "metaDescription": "Confira todos os projetos de estratégia, marca, sites e sistemas desenvolvidos pela Melo Creative.",
+    "heroTitle": "Todos os cases",
+    "filterAll": "Todos",
+    "filterEstrategia": "Estratégia",
+    "filterMarca": "Marca",
+    "filterSites": "Sites & Sistemas",
+    "filterAudiovisual": "Audiovisual",
+    "emptyState": "Ainda não temos cases publicados nessa categoria — em breve por aqui."
+  }
+}

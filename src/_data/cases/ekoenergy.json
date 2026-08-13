@@ -1,0 +1,71 @@
+{
+  "slug": "ekoenergy",
+  "order": 4,
+  "year": "2026",
+  "dataService": "estrategia marca",
+  "cardImage": "/assets/img/ekoenergy-brand.png",
+  "otherCases": ["aromatici", "khs"],
+  "heroMedia": { "type": "image", "src": "/assets/img/cases/eko-hero.jpg" },
+  "rowsBeforeApproach": [
+    {
+      "layout": "double",
+      "items": [
+        { "type": "image", "src": "/assets/img/cases/eko-2img-a.jpg" },
+        { "type": "image", "src": "/assets/img/cases/eko-2img-b.jpg" }
+      ]
+    },
+    {
+      "layout": "single",
+      "items": [{ "type": "image", "src": "/assets/img/cases/eko-yellow-full.jpg", "fit": "contain", "bg": "#f2edab" }]
+    }
+  ],
+  "rowsAfterApproach": [
+    {
+      "layout": "double",
+      "items": [
+        { "type": "image", "src": "/assets/img/cases/eko-2img2-a.jpg" },
+        { "type": "image", "src": "/assets/img/cases/eko-2img2-b.jpg" }
+      ]
+    },
+    {
+      "layout": "triple",
+      "items": [
+        { "type": "image", "src": "/assets/img/cases/eko-3img-a.jpg" },
+        { "type": "image", "src": "/assets/img/cases/eko-3img-b.jpg" },
+        { "type": "image", "src": "/assets/img/cases/eko-3img-c.jpg" }
+      ]
+    }
+  ],
+  "en": {
+    "metaTitle": "Ekoenergy – Brand Strategy & Identity | Melo",
+    "metaDescription": "Melo created brand strategy and digital identity for Ekoenergy, a renewable energy company.",
+    "heroTitleLine1": "Ekoenergy",
+    "heroTitleLine2": "Brand Strategy & Identity",
+    "heroAlt": "Ekoenergy - brand identity",
+    "tags": ["Visual Identity", "Brand Strategy", "Social Media", "Renewable Energy", "2026"],
+    "challengeTag": "Melo's challenge",
+    "challengeHeading": "Our challenge was to translate the engineering and disruption of a sustainable-solutions leader into a brand that's strong, modern and inspiring.",
+    "challengeDetail": "How do you communicate authority and innovation in a technical sector without losing clarity and purpose? Ekoenergy needed a positioning that could connect technology, nature and efficiency, strengthening its role in Brazil's energy and water transition.",
+    "approachTag": "Our approach",
+    "approachHeading": "We dove into the brand's positioning and visual world to create a proprietary identity — alive and connected to the future.",
+    "approachDetail": "We built a complete brand ecosystem, structuring the new brand around an integrated graphic language, expansive visual patterns and a verbal positioning that balances technical precision, authority and environmental awareness.",
+    "cardTitle": "Ekoenergy – Visual Identity",
+    "cardDesc": "Brand strategy and digital identity for a renewable energy company."
+  },
+  "pt": {
+    "metaTitle": "Ekoenergy Brasil – Estratégia e Identidade de Marca | Melo",
+    "metaDescription": "Melo criou estratégia de marca e identidade digital para a Ekoenergy, empresa de energia renovável.",
+    "heroTitleLine1": "Ekoenergy Brasil",
+    "heroTitleLine2": "Estratégia e Identidade de Marca",
+    "heroAlt": "Ekoenergy - identidade de marca",
+    "tags": ["Identidade Visual", "Estratégia de Marca", "Redes Sociais", "Energia Renovável", "2026"],
+    "challengeTag": "O desafio da Melo",
+    "challengeHeading": "Nosso desafio era traduzir a engenharia e a disrupção de uma referência em soluções sustentáveis em uma marca forte, moderna e inspiradora.",
+    "challengeDetail": "Como comunicar autoridade e inovação em um setor técnico sem perder a clareza e o propósito? A Ekoenergy precisava de um posicionamento capaz de conectar tecnologia, natureza e eficiência, fortalecendo sua atuação na transição energética e hídrica no Brasil.",
+    "approachTag": "Nossa abordagem",
+    "approachHeading": "Mergulhamos no posicionamento e no universo visual da marca para criar uma identidade proprietária, viva e conectada ao futuro.",
+    "approachDetail": "Construímos um ecossistema de marca completo. Estruturamos a nova marca a partir de uma linguagem gráfica integrada, padrões visuais expansivos e um posicionamento verbal que equilibra precisão técnica, autoridade e consciência ambiental.",
+    "cardTitle": "Ekoenergy - Identidade Visual",
+    "cardDesc": "Estratégia de marca e identidade digital para empresa de energia renovável."
+  }
+}

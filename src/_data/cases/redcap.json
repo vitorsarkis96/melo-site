@@ -1,0 +1,68 @@
+{
+  "slug": "redcap",
+  "order": 5,
+  "year": "2026",
+  "dataService": "estrategia marca",
+  "cardImage": "/assets/img/redcap.png",
+  "otherCases": ["aromatici", "khs"],
+  "heroMedia": { "type": "image", "src": "/assets/img/cases/red-hero.jpg" },
+  "rowsBeforeApproach": [
+    {
+      "layout": "double",
+      "items": [
+        { "type": "image", "src": "/assets/img/cases/red-2img-a.jpg" },
+        { "type": "image", "src": "/assets/img/cases/red-2img-b.jpg" }
+      ]
+    },
+    {
+      "layout": "single",
+      "items": [{ "type": "image", "src": "/assets/img/cases/red-full.jpg" }]
+    }
+  ],
+  "rowsAfterApproach": [
+    {
+      "layout": "triple",
+      "items": [
+        { "type": "image", "src": "/assets/img/cases/red-3img-a.jpg" },
+        { "type": "image", "src": "/assets/img/cases/red-3img-b.png", "bg": "#b31921" },
+        { "type": "image", "src": "/assets/img/cases/red-3img-c.png", "bg": "#eaeaea" }
+      ]
+    },
+    {
+      "layout": "single",
+      "items": [{ "type": "image", "src": "/assets/img/cases/red-last.jpg" }]
+    }
+  ],
+  "en": {
+    "metaTitle": "REDCap Brazil – Repositioning & Graphic System | Melo",
+    "metaDescription": "Local positioning and graphic system for REDCap, a global scientific data management platform.",
+    "heroTitleLine1": "REDCap Brazil",
+    "heroTitleLine2": "Repositioning & Graphic System",
+    "heroAlt": "REDCap Brazil - graphic system",
+    "tags": ["Visual Identity", "Communication Strategy", "Original Illustration", "Science & Health", "2026"],
+    "challengeTag": "Melo's challenge",
+    "challengeHeading": "Our challenge was to position REDCap in Brazil in a way that matched its prestige and relevance on the global scientific stage.",
+    "challengeDetail": "Internationally recognized as one of the most modern and robust platforms for electronic data collection and management, REDCap needed an identity in Brazil that conveyed its true academic, institutional and technological importance.",
+    "approachTag": "Our approach",
+    "approachHeading": "We dove into the brand's conceptual territory to build a language that's institutional, dynamic and deeply human.",
+    "approachDetail": "We aligned the pillars of expansion, education, modernity and data to bring a flexible graphic system to life — turning the logotype's own structure into cuts, layers and overlays that bring movement to the entire visual communication.",
+    "cardTitle": "REDCap – Visual Identity",
+    "cardDesc": "Visual identity and graphic system for a scientific data platform."
+  },
+  "pt": {
+    "metaTitle": "REDCap Brasil – Redirecionamento e Sistema Gráfico | Melo",
+    "metaDescription": "Posicionamento local e sistema gráfico para o REDCap, plataforma científica global de gestão de dados.",
+    "heroTitleLine1": "REDCap Brasil",
+    "heroTitleLine2": "Redirecionamento e Sistema Gráfico",
+    "heroAlt": "REDCap Brasil - sistema gráfico",
+    "tags": ["Identidade Visual", "Estratégia de Comunicação", "Ilustração Autoral", "Ciência & Saúde", "2026"],
+    "challengeTag": "O desafio da Melo",
+    "challengeHeading": "Nosso desafio era posicionar o REDCap no Brasil de forma alinhada ao seu prestígio e relevância no cenário científico mundial.",
+    "challengeDetail": "Reconhecido internacionalmente como uma das plataformas mais modernas e robustas para coleta e gerenciamento eletrônico de dados, o REDCap precisava de uma identidade no Brasil que transmitisse sua real importância acadêmica, institucional e tecnológica.",
+    "approachTag": "Nossa abordagem",
+    "approachHeading": "Mergulhamos no território conceitual da marca para construir uma linguagem institucional, dinâmica e profundamente humana.",
+    "approachDetail": "Alinhamos os pilares de expansão, ensino, modernidade e dados para dar vida a um sistema gráfico flexível, transformando a própria estrutura do logotipo em recortes, camadas e sobreposições que trazem movimento a toda a comunicação visual.",
+    "cardTitle": "REDCap - Identidade Visual",
+    "cardDesc": "Identidade visual e sistema gráfico para plataforma científica de dados."
+  }
+}

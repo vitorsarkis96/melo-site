@@ -1,0 +1,79 @@
+---
+pagination:
+  data: cases
+  size: 1
+  alias: item
+permalink: "pt/{{ item.slug }}.html"
+layout: layouts/base.njk
+lang: pt
+navActive: cases
+isHome: false
+ogType: article
+eleventyComputed:
+  slug: "{{ item.slug }}"
+  metaTitle: "{{ item.pt.metaTitle }}"
+  metaDescription: "{{ item.pt.metaDescription }}"
+  ogImage: "{{ item.heroMedia.src }}"
+---
+{% from "partials/media-row.njk" import mediaRow %}
+{% from "partials/portfolio-card.njk" import card %}
+  <section class="case-hero-header reveal">
+    <div>
+      <h1>{{ item.pt.heroTitleLine1 }}<br />{{ item.pt.heroTitleLine2 }}</h1>
+    </div>
+    <div class="case-tags">
+      {% for tag in item.pt.tags %}<span class="case-tag">{{ tag }}</span>
+      {% endfor %}
+    </div>
+  </section>
+
+  <div class="case-media-row single">
+    <div class="case-media">
+      <img src="{{ item.heroMedia.src }}" alt="{{ item.pt.heroAlt }}" loading="lazy" />
+    </div>
+  </div>
+
+  <section class="section-about">
+    <div class="case-text-row reveal">
+      <div class="tag">
+        <span class="tag-text">{{ item.pt.challengeTag }}</span>
+        <img class="tag-dot" src="/assets/icons/ellipse-tag.svg" alt="" />
+      </div>
+      <div class="case-text-content">
+        <p class="case-text-heading">{{ item.pt.challengeHeading }}</p>
+        <p class="case-text-detail">{{ item.pt.challengeDetail }}</p>
+      </div>
+    </div>
+  </section>
+
+  {% for row in item.rowsBeforeApproach %}{{ mediaRow(row) }}{% endfor %}
+
+  <section class="section-about">
+    <div class="case-text-row reveal">
+      <div class="tag">
+        <span class="tag-text">{{ item.pt.approachTag }}</span>
+        <img class="tag-dot" src="/assets/icons/ellipse-tag.svg" alt="" />
+      </div>
+      <div class="case-text-content">
+        <p class="case-text-heading">{{ item.pt.approachHeading }}</p>
+        <p class="case-text-detail">{{ item.pt.approachDetail }}</p>
+      </div>
+    </div>
+  </section>
+
+  {% for row in item.rowsAfterApproach %}{{ mediaRow(row) }}{% endfor %}
+
+  <!-- OUTROS CASES -->
+  <section class="section-portfolio-intro">
+    <div class="portfolio-intro-row reveal">
+      <h2>{{ i18n.pt.moreCases }}</h2>
+      <a class="btn btn-dark" href="/pt/cases">
+        {{ i18n.pt.allCases }}
+        <img class="btn-icon" src="/assets/icons/arrow-right.svg" alt="" />
+      </a>
+    </div>
+  </section>
+
+  <div class="portfolio-grid reveal-stagger">
+    {% for otherSlug in item.otherCases %}{{ card(cases | findCase(otherSlug), "pt", "/pt", false) }}{% endfor %}
+  </div>
