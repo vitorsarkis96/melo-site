@@ -325,7 +325,7 @@ collections:
           - { label: "Título — linha 1", name: heroTitleLine1, widget: string }
           - { label: "Título — linha 2", name: heroTitleLine2, widget: string }
           - { label: "Texto alternativo da imagem principal", name: heroAlt, widget: string }
-          - { label: "Tags (chips abaixo do título)", name: tags, widget: list }
+          - { label: "Tags (chips abaixo do título)", name: tags, widget: list, hint: "Separe por VÍRGULA, tudo numa linha só — ex: Identidade Visual, Estratégia de Marca, Motion, 2026. Uma por linha não funciona." }
           - { label: "Rótulo \"O desafio\"", name: challengeTag, widget: string }
           - { label: "Título do desafio", name: challengeHeading, widget: text }
           - { label: "Detalhe do desafio", name: challengeDetail, widget: text }
@@ -343,7 +343,7 @@ collections:
           - { label: "Título — linha 1", name: heroTitleLine1, widget: string }
           - { label: "Título — linha 2", name: heroTitleLine2, widget: string }
           - { label: "Texto alternativo da imagem principal", name: heroAlt, widget: string }
-          - { label: "Tags (chips abaixo do título)", name: tags, widget: list }
+          - { label: "Tags (chips abaixo do título)", name: tags, widget: list, hint: "Separe por VÍRGULA, tudo numa linha só — ex: Identidade Visual, Estratégia de Marca, Motion, 2026. Uma por linha não funciona." }
           - { label: "Rótulo \"O desafio\"", name: challengeTag, widget: string }
           - { label: "Título do desafio", name: challengeHeading, widget: text }
           - { label: "Detalhe do desafio", name: challengeDetail, widget: text }
