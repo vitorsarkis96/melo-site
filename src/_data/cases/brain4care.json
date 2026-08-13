@@ -1,0 +1,66 @@
+{
+  "rowsBeforeApproach": [
+    {
+      "items": [
+        {
+          "type": "video",
+          "src": "https://youtu.be/ae6OpMcvCCQ",
+          "fit": "contain"
+        }
+      ],
+      "layout": "double"
+    }
+  ],
+  "pt": {
+    "heroTitleLine2": "Audiovisual Design Identity Motion",
+    "cardDesc": "Audiovisual Design Identidade Motion Graphics",
+    "cardTitle": "brain4care",
+    "heroAlt": "b4c produção audiovisual",
+    "approachTag": "First Things First",
+    "metaTitle": "brain4care | Video",
+    "challengeDetail": "O desafio era transmitir toda a tecnologia, autoridade e inovação que a brain4care vem desenvolvendo nos últimos 10 anos.",
+    "challengeTag": "Traduzir e Guiar",
+    "metaDescription": "Produção de vídeo, identidade visual, motion graphics e design.",
+    "approachDetail": "Primeiramente, precisamos considerar que dois públicos interagem com o conteúdo B2C: B2B e B2C. Portanto, nosso foco foi entender o cliente ideal para cada conteúdo e traduzir esse entendimento para alcançar os melhores resultados possíveis.",
+    "approachHeading": "Quem é o cliente ideal? (ICP)",
+    "challengeHeading": "Tecnologia, Inovação e Autoridade",
+    "heroTitleLine1": "brain4care | Audiovisual"
+  },
+  "en": {
+    "heroTitleLine2": "Audiovisual Design Identity Motion",
+    "cardDesc": "Audiovisual Design Identity Motion",
+    "cardTitle": "brain4care",
+    "heroAlt": "b4c video production",
+    "approachTag": "First Things First",
+    "metaTitle": "brain4care | Video",
+    "challengeDetail": "The challenge was to convey all the technology, authority, and innovation that brain4care has been developing over the past 10 years.",
+    "challengeTag": "Was to bring ",
+    "metaDescription": "Video production, Visual Identity, Motion Graphics and Design",
+    "approachDetail": "First of all, we have to consider that two audiences interact with B2C content: B2B and B2C. Therefore, our focus was on understanding the ideal customer for each piece of content and translating that understanding to achieve the best possible results.",
+    "approachHeading": "Who're the ICP? ",
+    "challengeHeading": "Tech, Innovation and Authority",
+    "heroTitleLine1": "brain4care | Video Production"
+  },
+  "heroMedia": {
+    "type": "image",
+    "src": "/assets/img/cases/brain4care_dublin.png",
+    "fit": "contain"
+  },
+  "cardImage": "https://github.com/vitorsarkis96/melo-site/blob/main/assets/img/cases/Brain4Care_DUBLIN.png?raw=true",
+  "rowsAfterApproach": [
+    {
+      "items": [
+        {
+          "type": "image",
+          "src": "https://github.com/vitorsarkis96/melo-site/blob/main/assets/img/cases/b4c_makinf_off.jpeg?raw=true"
+        }
+      ],
+      "layout": "double"
+    }
+  ],
+  "slug": "brain4care",
+  "dataService": "Audiovisual Design Identidade Motion",
+  "order": 5,
+  "otherCases": [],
+  "year": "2026"
+}
