@@ -28,7 +28,7 @@ eleventyComputed:
   </section>
 
   <div class="case-media-row single">
-    <div class="case-media">
+    <div class="case-media{{ ' contain' if item.heroMedia.fit == 'contain' }}{{ ' ' + item.heroMedia.filter if item.heroMedia.filter }}">
       <img src="{{ item.heroMedia.src }}" alt="{{ item.en.heroAlt }}" loading="lazy" />
     </div>
   </div>

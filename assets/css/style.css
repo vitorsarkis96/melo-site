@@ -1416,6 +1416,18 @@ body.menu-open {
 .case-media:hover video {
   transform: scale(1.04);
 }
+.case-media.bw-classic img,
+.case-media.bw-classic video {
+  filter: grayscale(100%);
+}
+.case-media.bw-contrast img,
+.case-media.bw-contrast video {
+  filter: grayscale(100%) contrast(1.25);
+}
+.case-media.bw-soft img,
+.case-media.bw-soft video {
+  filter: grayscale(100%) contrast(0.85) brightness(1.1);
+}
 .case-media.brand-block {
   display: flex;
   align-items: center;

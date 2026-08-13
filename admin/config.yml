@@ -288,6 +288,15 @@ collections:
           - { label: "Arquivo (foto ou vídeo)", name: src, widget: file, media_folder: "/assets/img/cases", public_folder: "/assets/img/cases" }
           - { label: "Cor de fundo (opcional, hex)", name: bg, widget: string, required: false }
           - { label: "Ajuste da imagem", name: fit, widget: select, options: [cover, contain], required: false }
+          - label: "Filtro preto e branco (opcional)"
+            name: filter
+            widget: select
+            required: false
+            options:
+              - { label: "Nenhum (cor normal)", value: "" }
+              - { label: "P&B clássico", value: "bw-classic" }
+              - { label: "P&B alto contraste", value: "bw-contrast" }
+              - { label: "P&B suave/claro", value: "bw-soft" }
           - { label: "Imagem de capa (só p/ vídeo, opcional)", name: poster, widget: file, required: false, media_folder: "/assets/img/cases", public_folder: "/assets/img/cases" }
       - label: "Fotos e vídeos — antes de 'Nossa abordagem'"
         name: rowsBeforeApproach

@@ -14,7 +14,7 @@
 {% macro mediaRow(row) %}
   <div class="case-media-row{{ ' single' if row.layout == 'single' }}">
     {% for item in row.items %}
-    <div class="case-media{{ ' contain' if item.fit == 'contain' }}"{% if item.bg %} style="background:{{ item.bg }}"{% endif %}>
+    <div class="case-media{{ ' contain' if item.fit == 'contain' }}{{ ' ' + item.filter if item.filter }}"{% if item.bg %} style="background:{{ item.bg }}"{% endif %}>
       {{ mediaItem(item) }}
     </div>
     {% endfor %}
