@@ -3,11 +3,6 @@
     {
       "items": [
         {
-          "type": "video",
-          "src": "https://youtu.be/ae6OpMcvCCQ",
-          "fit": "contain"
-        },
-        {
           "type": "image",
           "src": "https://github.com/vitorsarkis96/melo-site/blob/main/assets/img/cases/b4c_makinf_off.jpeg?raw=true"
         }
@@ -69,8 +64,8 @@
     {
       "items": [
         {
-          "type": "image",
-          "src": "/assets/img/cases/b4c_makinf_off.jpeg"
+          "type": "video",
+          "src": "https://youtu.be/ae6OpMcvCCQ"
         }
       ],
       "layout": "single"
