@@ -274,7 +274,7 @@ collections:
       - { label: "Posição na grade", name: order, widget: number, value_type: int, hint: "Controla a ordem deste case na página /cases e, se marcado abaixo, na Home (menor = aparece antes)." }
       - { label: "Mostrar na Home?", name: showOnHome, widget: boolean, default: true, hint: "Todo case criado aqui já aparece automaticamente em /cases. Este botão controla só se ele também aparece na grade da Home." }
       - { label: "Ano", name: year, widget: string }
-      - { label: "Tags de filtro (avançado)", name: dataService, widget: string, required: false, hint: "separado por espaço: estrategia marca sites-sistemas audiovisual" }
+      - { label: "Categoria p/ filtro em /cases (avançado — NÃO é a mesma coisa que as Tags lá embaixo, e não aparece na página do case)", name: dataService, widget: string, required: false, hint: "separado por espaço, só estas 4 palavras: estrategia marca sites-sistemas audiovisual" }
       - { label: "Imagem do card (grade de cases)", name: cardImage, widget: image, media_folder: "/assets/img", public_folder: "/assets/img" }
       - label: "Cases relacionados (mostrados no rodapé da página)"
         name: otherCases
