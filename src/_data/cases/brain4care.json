@@ -6,6 +6,10 @@
           "type": "video",
           "src": "https://youtu.be/ae6OpMcvCCQ",
           "fit": "contain"
+        },
+        {
+          "type": "image",
+          "src": "/assets/img/cases/b4c_makinf_off.jpeg"
         }
       ],
       "layout": "single"
