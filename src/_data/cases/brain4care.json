@@ -24,8 +24,7 @@
     "approachDetail": "Primeiramente, precisamos considerar que dois públicos interagem com o conteúdo B2C: B2B e B2C. Portanto, nosso foco foi entender o cliente ideal para cada conteúdo e traduzir esse entendimento para alcançar os melhores resultados possíveis.",
     "approachHeading": "Quem é o cliente ideal? (ICP)",
     "challengeHeading": "Tecnologia, Inovação e Autoridade",
-    "heroTitleLine1": "brain4care | Audiovisual",
-    "tags": ["Identidade Visual", "Motion Design", "Branding", "Neurotecnologia", "2026"]
+    "heroTitleLine1": "brain4care | Audiovisual"
   },
   "en": {
     "heroTitleLine2": "Audiovisual Design Identity Motion",
@@ -40,15 +39,14 @@
     "approachDetail": "First of all, we have to consider that two audiences interact with B2C content: B2B and B2C. Therefore, our focus was on understanding the ideal customer for each piece of content and translating that understanding to achieve the best possible results.",
     "approachHeading": "Who're the ICP?",
     "challengeHeading": "Tech, Innovation and Authority",
-    "heroTitleLine1": "brain4care | Video Production",
-    "tags": ["Visual Identity", "Motion Design", "Branding", "Neurotechnology", "2026"]
+    "heroTitleLine1": "brain4care | Video Production"
   },
   "heroMedia": {
     "type": "image",
     "src": "/assets/img/cases/brain4care_dublin.png",
     "fit": "contain"
   },
-  "cardImage": "/assets/img/cases/Brain4Care_DUBLIN.png",
+  "cardImage": "/assets/img/b4c_makinf_off.jpeg",
   "rowsAfterApproach": [
     {
       "items": [
@@ -61,12 +59,12 @@
     }
   ],
   "slug": "brain4care",
-  "dataService": "Audiovisual Design Identidade Motion",
+  "dataService": "",
   "order": 6,
-  "showOnHome": true,
   "otherCases": [
     "redcap",
     "khs"
   ],
+  "showOnHome": true,
   "year": "2026"
 }
