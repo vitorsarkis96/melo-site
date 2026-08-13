@@ -1,0 +1,132 @@
+{%- set t = i18n[lang] -%}
+{%- set currentPath = (t.prefix + "/" + (slug or "")) | replace("//", "/") -%}
+{%- set altPathPrefix = "/" if lang == "pt" else "/pt" -%}
+{%- set altPath = (altPathPrefix + "/" + (slug or "")) | replace("//", "/") -%}
+{%- set canonicalUrl = site.baseUrl + currentPath -%}
+{%- set enUrl = site.baseUrl + (("/" + (slug or "")) | replace("//", "/")) -%}
+{%- set ptUrl = site.baseUrl + (("/pt/" + (slug or "")) | replace("//", "/")) -%}
+<!DOCTYPE html>
+<html lang="{{ t.htmlLang }}">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{{ metaTitle | safe }}</title>
+<meta name="description" content="{{ metaDescription | safe }}" />
+<link rel="canonical" href="{{ canonicalUrl }}" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png" />
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png" />
+<link rel="alternate" hreflang="en" href="{{ enUrl }}" />
+<link rel="alternate" hreflang="pt-BR" href="{{ ptUrl }}" />
+<link rel="alternate" hreflang="x-default" href="{{ enUrl }}" />
+<meta property="og:type" content="{{ ogType or 'website' }}" />
+<meta property="og:site_name" content="Melo Creative" />
+<meta property="og:locale" content="{{ t.ogLocale }}" />
+<meta property="og:title" content="{{ metaTitle | safe }}" />
+<meta property="og:description" content="{{ metaDescription | safe }}" />
+<meta property="og:url" content="{{ canonicalUrl }}" />
+<meta property="og:image" content="{{ site.baseUrl }}{{ ogImage | safe }}" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ metaTitle | safe }}" />
+<meta name="twitter:description" content="{{ metaDescription | safe }}" />
+<meta name="twitter:image" content="{{ site.baseUrl }}{{ ogImage | safe }}" />
+{% if structuredData %}
+<script type="application/ld+json">
+{{ structuredData | dump | safe }}
+</script>
+{% endif %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+
+<header class="site-header" id="site-header">
+  <a href="{{ '#top' if isHome else (t.prefix + '/') | replace('//','/') }}"><img class="logo-melo" src="/assets/icons/logo-melo.svg" alt="Melo" /></a>
+  <nav class="nav-links">
+    <a class="menu-link{{ ' is-active' if navActive == 'how' }}" href="{{ (t.prefix + '/#atuamos') | replace('//','/') }}">{{ t.navHowWeWork }}</a>
+    <a class="menu-link{{ ' is-active' if navActive == 'cases' }}" href="{{ (t.prefix + '/cases') | replace('//','/') }}">{{ t.navCases }}</a>
+    <a class="menu-link{{ ' is-active' if navActive == 'about' }}" href="{{ (t.prefix + '/sobre') | replace('//','/') }}">{{ t.navAbout }}</a>
+    <a class="menu-link{{ ' is-active' if navActive == 'contact' }}" href="{{ (t.prefix + '/#contato') | replace('//','/') }}">{{ t.navContact }}</a>
+    <a class="lang-switch" href="{{ altPath }}" aria-label="{{ t.langSwitchAria }}">
+      <img src="{{ t.flagIcon }}" alt="" width="20" height="20" />
+    </a>
+  </nav>
+  <button class="nav-toggle" id="nav-toggle" aria-label="{{ t.navOpenMenu }}" aria-expanded="false" aria-controls="mobile-menu">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<div class="mobile-menu" id="mobile-menu">
+  <div class="mobile-menu__top">
+    <img class="mobile-menu__logo" src="/assets/icons/melo-mark-small.svg" alt="Melo" />
+    <button class="mobile-menu__close" id="mobile-menu-close" aria-label="{{ t.navCloseMenu }}">✕</button>
+  </div>
+  <nav class="mobile-menu__links">
+    <a href="{{ (t.prefix + '/#atuamos') | replace('//','/') }}">{{ t.navHowWeWork }}</a>
+    <a href="{{ (t.prefix + '/cases') | replace('//','/') }}"{{ ' class="is-active"' | safe if navActive == 'cases' }}>{{ t.navCases }}</a>
+    <a href="{{ (t.prefix + '/sobre') | replace('//','/') }}"{{ ' class="is-active"' | safe if navActive == 'about' }}>{{ t.navAbout }}</a>
+    <a href="{{ (t.prefix + '/#contato') | replace('//','/') }}">{{ t.navContact }}</a>
+    <a class="mobile-menu__lang" href="{{ altPath }}">
+      <img src="{{ t.flagIcon }}" alt="" width="20" height="20" />
+      {{ t.langSwitchLabel }}
+    </a>
+  </nav>
+  <a class="btn btn-orange btn-lg mobile-menu__cta" href="{{ site.whatsapp }}" target="_blank" rel="noopener noreferrer">
+    {{ t.ctaTalk }}
+    <img class="btn-icon" src="/assets/icons/arrow-right.svg" alt="" />
+  </a>
+</div>
+
+<main id="top">
+
+{{ content | safe }}
+
+  <!-- FOOTER / FINAL CTA -->
+  <div class="footer-wrap" id="contato">
+    <footer class="footer-card reveal">
+      <div class="footer-top">
+        <div class="footer-headline">
+          <p class="line1">{{ t.footerLine1 }}</p>
+          <div class="line2-row">
+            <p class="line2">{{ t.footerLine2 }}</p>
+            <a class="btn btn-orange btn-lg" href="{{ site.whatsapp }}" target="_blank" rel="noopener noreferrer">
+              {{ t.ctaTalk }}
+              <img class="btn-icon" src="/assets/icons/arrow-right.svg" alt="" />
+            </a>
+          </div>
+        </div>
+        <div class="footer-right">
+          <div class="socials">
+            <a href="{{ site.instagram }}" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><img src="/assets/icons/social-instagram.svg" alt="Instagram" /></a>
+            <a href="{{ site.linkedin }}" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><img src="/assets/icons/social-linkedin.svg" alt="LinkedIn" /></a>
+          </div>
+          <nav class="footer-nav">
+            <a class="menu-link{{ ' is-active' if navActive == 'how' }}" href="{{ (t.prefix + '/#atuamos') | replace('//','/') }}">{{ t.footerWhatWeDo }}</a>
+            <a class="menu-link{{ ' is-active' if navActive == 'cases' }}" href="{{ (t.prefix + '/cases') | replace('//','/') }}">{{ t.navCases }}</a>
+            <a class="menu-link{{ ' is-active' if navActive == 'about' }}" href="{{ (t.prefix + '/sobre') | replace('//','/') }}">{{ t.navAbout }}</a>
+            <a class="menu-link{{ ' is-active' if navActive == 'contact' }}" href="{{ (t.prefix + '/#contato') | replace('//','/') }}">{{ t.navContact }}</a>
+          </nav>
+        </div>
+      </div>
+
+      <div class="footer-divider"></div>
+
+      <div class="footer-bottom">
+        <a href="{{ (t.prefix + '/') | replace('//','/') }}"><img class="footer-logo" src="/assets/icons/melo-mark-small.svg" alt="Melo" /></a>
+        <p class="footer-contact">
+          {{ site.phone }}<br />
+          {{ site.addressLine }}{{ ' - Brazil' if lang == 'en' }}<br />
+          {{ site.email }}
+        </p>
+      </div>
+    </footer>
+  </div>
+
+</main>
+
+<script src="/assets/js/main.js" defer></script>
+</body>
+</html>

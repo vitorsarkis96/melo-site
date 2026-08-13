@@ -1,0 +1,343 @@
+backend:
+  name: github
+  repo: vitorsarkis96/melo-site
+  branch: main
+  base_url: https://www.melocreative.com.br
+  auth_endpoint: api/auth
+
+local_backend: true
+
+media_folder: "assets/img"
+public_folder: "/assets/img"
+
+collections:
+  - name: cases
+    label: "Cases"
+    label_singular: "Case"
+    folder: "src/_data/cases"
+    create: true
+    delete: false
+    slug: "{{fields.slug}}"
+    extension: json
+    format: json
+    identifier_field: slug
+    summary: "{{order}} — {{slug}}"
+    fields:
+      - { label: "URL slug", name: slug, widget: string, hint: "Sem espaços/acentos, minúsculo. Define a URL da página — ex: 'redcap' → melocreative.com.br/redcap. NÃO altere num case já publicado sem avisar o dev, os links quebram." }
+      - { label: "Posição na grade", name: order, widget: number, value_type: int, hint: "Controla a ordem deste case na página /cases (menor = aparece antes)." }
+      - { label: "Ano", name: year, widget: string }
+      - { label: "Tags de filtro (avançado)", name: dataService, widget: string, required: false, hint: "separado por espaço: estrategia marca sites-sistemas audiovisual" }
+      - { label: "Imagem do card (grade de cases)", name: cardImage, widget: image, media_folder: "/assets/img", public_folder: "/assets/img" }
+      - label: "Cases relacionados (mostrados no rodapé da página)"
+        name: otherCases
+        widget: list
+        hint: "Slugs de 2 outros cases, ex: aromatici, khs"
+      - label: "Mídia principal (topo da página)"
+        name: heroMedia
+        widget: object
+        fields: &mediaItemFields
+          - { label: "Tipo", name: type, widget: select, options: [image, video], default: image }
+          - { label: "Arquivo (foto ou vídeo)", name: src, widget: file, media_folder: "/assets/img/cases", public_folder: "/assets/img/cases" }
+          - { label: "Cor de fundo (opcional, hex)", name: bg, widget: string, required: false }
+          - { label: "Ajuste da imagem", name: fit, widget: select, options: [cover, contain], required: false }
+          - { label: "Imagem de capa (só p/ vídeo, opcional)", name: poster, widget: file, required: false, media_folder: "/assets/img/cases", public_folder: "/assets/img/cases" }
+      - label: "Linhas de mídia — antes de 'Nossa abordagem'"
+        name: rowsBeforeApproach
+        widget: list
+        fields:
+          - { label: "Layout", name: layout, widget: select, options: [single, double, triple], hint: "single = 1 imagem/vídeo em largura total, double = 2 lado a lado, triple = 3 lado a lado" }
+          - label: "Itens"
+            name: items
+            widget: list
+            fields: *mediaItemFields
+      - label: "Linhas de mídia — depois de 'Nossa abordagem'"
+        name: rowsAfterApproach
+        widget: list
+        required: false
+        fields:
+          - { label: "Layout", name: layout, widget: select, options: [single, double, triple] }
+          - label: "Itens"
+            name: items
+            widget: list
+            fields: *mediaItemFields
+      - label: "Conteúdo em Inglês"
+        name: en
+        widget: object
+        fields:
+          - { label: "Título SEO", name: metaTitle, widget: string }
+          - { label: "Descrição SEO", name: metaDescription, widget: text }
+          - { label: "Título — linha 1", name: heroTitleLine1, widget: string }
+          - { label: "Título — linha 2", name: heroTitleLine2, widget: string }
+          - { label: "Texto alternativo da imagem principal", name: heroAlt, widget: string }
+          - { label: "Tags (chips abaixo do título)", name: tags, widget: list }
+          - { label: "Rótulo \"O desafio\"", name: challengeTag, widget: string }
+          - { label: "Título do desafio", name: challengeHeading, widget: text }
+          - { label: "Detalhe do desafio", name: challengeDetail, widget: text }
+          - { label: "Rótulo \"A abordagem\"", name: approachTag, widget: string }
+          - { label: "Título da abordagem", name: approachHeading, widget: text }
+          - { label: "Detalhe da abordagem", name: approachDetail, widget: text }
+          - { label: "Título do card (grade de cases)", name: cardTitle, widget: string }
+          - { label: "Descrição do card (grade de cases)", name: cardDesc, widget: text }
+      - label: "Conteúdo em Português"
+        name: pt
+        widget: object
+        fields:
+          - { label: "Título SEO", name: metaTitle, widget: string }
+          - { label: "Descrição SEO", name: metaDescription, widget: text }
+          - { label: "Título — linha 1", name: heroTitleLine1, widget: string }
+          - { label: "Título — linha 2", name: heroTitleLine2, widget: string }
+          - { label: "Texto alternativo da imagem principal", name: heroAlt, widget: string }
+          - { label: "Tags (chips abaixo do título)", name: tags, widget: list }
+          - { label: "Rótulo \"O desafio\"", name: challengeTag, widget: string }
+          - { label: "Título do desafio", name: challengeHeading, widget: text }
+          - { label: "Detalhe do desafio", name: challengeDetail, widget: text }
+          - { label: "Rótulo \"A abordagem\"", name: approachTag, widget: string }
+          - { label: "Título da abordagem", name: approachHeading, widget: text }
+          - { label: "Detalhe da abordagem", name: approachDetail, widget: text }
+          - { label: "Título do card (grade de cases)", name: cardTitle, widget: string }
+          - { label: "Descrição do card (grade de cases)", name: cardDesc, widget: text }
+
+  - name: pages
+    label: "Páginas do site"
+    files:
+      - name: home
+        label: "Home"
+        file: "src/_data/pages/home.json"
+        fields:
+          - { label: "Imagem de fundo do hero", name: heroImage, widget: image, media_folder: "/assets/img", public_folder: "/assets/img" }
+          - { label: "Imagem da seção de fotografia", name: photoHeroImage, widget: image, media_folder: "/assets/img", public_folder: "/assets/img" }
+          - label: "Logos de clientes"
+            name: clientLogos
+            widget: list
+            fields:
+              - { label: "Classe CSS (avançado, não altere)", name: class, widget: string }
+              - { label: "Imagem do logo", name: src, widget: image, media_folder: "/assets/img", public_folder: "/assets/img" }
+              - { label: "Texto alternativo (Inglês)", name: altEn, widget: string }
+              - { label: "Texto alternativo (Português)", name: altPt, widget: string }
+          - label: "Card extra na grade (sem página própria, ex: Hendrik)"
+            name: staticCard
+            widget: object
+            fields:
+              - { label: "Imagem", name: image, widget: image, media_folder: "/assets/img", public_folder: "/assets/img" }
+              - { label: "Título (EN)", name: titleEn, widget: string }
+              - { label: "Descrição (EN)", name: descEn, widget: string }
+              - { label: "Título (PT)", name: titlePt, widget: string }
+              - { label: "Descrição (PT)", name: descPt, widget: string }
+          - label: "Conteúdo em Inglês"
+            name: en
+            widget: object
+            fields:
+              - { label: "Título SEO", name: metaTitle, widget: string }
+              - { label: "Descrição SEO", name: metaDescription, widget: text }
+              - { label: "Imagem de compartilhamento (redes sociais)", name: ogImage, widget: image, media_folder: "/assets/img", public_folder: "/assets/img" }
+              - { label: "Descrição para dados estruturados (SEO, avançado)", name: structuredDataDescription, widget: text }
+              - { label: "Texto alternativo da imagem do hero", name: heroAlt, widget: string }
+              - { label: "Título principal (headline)", name: heroHeadline, widget: text }
+              - { label: "Rótulo \"Empresas que confiam na Melo\" (topo)", name: clientsTopLabel, widget: string }
+              - { label: "Tag \"Como atuamos\"", name: atuamosTag, widget: string }
+              - { label: "Texto de introdução", name: introStatement, widget: text }
+              - { label: "Texto alternativo da foto", name: photoHeroAlt, widget: string }
+              - { label: "Título da seção de fotografia", name: photoHeroTitle, widget: string }
+              - { label: "Descrição da seção de fotografia", name: photoHeroDesc, widget: string }
+              - { label: "Tag \"O que fazemos\"", name: whatWeDoTag, widget: string }
+              - label: "Serviços"
+                name: services
+                widget: list
+                fields:
+                  - { label: "Título", name: title, widget: string }
+                  - { label: "Descrição", name: desc, widget: text }
+              - { label: "Tag \"Nossos números\"", name: numbersTag, widget: string }
+              - { label: "Valor do número grande", name: bigNumberValue, widget: string, hint: "ex: 3000" }
+              - { label: "Formato do número grande", name: bigNumberFormat, widget: select, options: ["", thousand], required: false, hint: "'thousand' mostra 3.000 em vez de 3000" }
+              - { label: "Rótulo do número grande", name: bigNumberLabel, widget: string }
+              - { label: "Descrição dos números", name: numbersDesc, widget: text }
+              - label: "Estatísticas pequenas (3)"
+                name: stats
+                widget: list
+                fields:
+                  - { label: "Valor", name: value, widget: string }
+                  - { label: "Sufixo (ex: ' years' ou '%')", name: suffix, widget: string, required: false }
+                  - { label: "Classe do sufixo (avançado — use 'pct' só para %)", name: suffixClass, widget: string, required: false }
+                  - { label: "Mostrar prefixo '+'", name: showPlus, widget: boolean, default: true, required: false }
+                  - { label: "Rótulo", name: label, widget: string }
+                  - { label: "Descrição", name: desc, widget: text }
+                  - { label: "Destacar em laranja", name: orange, widget: boolean, default: false, required: false }
+              - { label: "Título da seção de portfólio", name: portfolioIntroTitle, widget: string }
+              - { label: "Título \"Conheça a Melo\"", name: aboutMeloHeading, widget: string }
+              - { label: "Texto do botão \"Mais sobre nós\"", name: aboutMeloMoreLabel, widget: string }
+              - { label: "Texto do botão \"Nossa apresentação\"", name: aboutMeloDeckLabel, widget: string }
+              - { label: "Sobre a Melo — parágrafo 1", name: aboutMeloText1, widget: text }
+              - { label: "Sobre a Melo — parágrafo 2", name: aboutMeloText2, widget: text }
+              - { label: "Título da seção de entregas", name: deliverHeading, widget: string }
+              - label: "Etapas de entrega (6)"
+                name: deliverSteps
+                widget: list
+                fields:
+                  - { label: "Título", name: title, widget: string }
+                  - { label: "Descrição", name: desc, widget: text }
+              - { label: "Rótulo \"Empresas que confiam na Melo\" (rodapé)", name: clientsBottomLabel, widget: string }
+          - label: "Conteúdo em Português"
+            name: pt
+            widget: object
+            fields:
+              - { label: "Título SEO", name: metaTitle, widget: string }
+              - { label: "Descrição SEO", name: metaDescription, widget: text }
+              - { label: "Imagem de compartilhamento (redes sociais)", name: ogImage, widget: image, media_folder: "/assets/img", public_folder: "/assets/img" }
+              - { label: "Descrição para dados estruturados (SEO, avançado)", name: structuredDataDescription, widget: text }
+              - { label: "Texto alternativo da imagem do hero", name: heroAlt, widget: string }
+              - { label: "Título principal (headline)", name: heroHeadline, widget: text }
+              - { label: "Rótulo \"Empresas que confiaram na Melo\" (topo)", name: clientsTopLabel, widget: string }
+              - { label: "Tag \"Como atuamos\"", name: atuamosTag, widget: string }
+              - { label: "Texto de introdução", name: introStatement, widget: text }
+              - { label: "Texto alternativo da foto", name: photoHeroAlt, widget: string }
+              - { label: "Título da seção de fotografia", name: photoHeroTitle, widget: string }
+              - { label: "Descrição da seção de fotografia", name: photoHeroDesc, widget: string }
+              - { label: "Tag \"Onde atuamos\"", name: whatWeDoTag, widget: string }
+              - label: "Serviços"
+                name: services
+                widget: list
+                fields:
+                  - { label: "Título", name: title, widget: string }
+                  - { label: "Descrição", name: desc, widget: text }
+              - { label: "Tag \"Nossos números\"", name: numbersTag, widget: string }
+              - { label: "Valor do número grande", name: bigNumberValue, widget: string }
+              - { label: "Formato do número grande", name: bigNumberFormat, widget: select, options: ["", thousand], required: false }
+              - { label: "Rótulo do número grande", name: bigNumberLabel, widget: string }
+              - { label: "Descrição dos números", name: numbersDesc, widget: text }
+              - label: "Estatísticas pequenas (3)"
+                name: stats
+                widget: list
+                fields:
+                  - { label: "Valor", name: value, widget: string }
+                  - { label: "Sufixo", name: suffix, widget: string, required: false }
+                  - { label: "Classe do sufixo (avançado)", name: suffixClass, widget: string, required: false }
+                  - { label: "Mostrar prefixo '+'", name: showPlus, widget: boolean, default: true, required: false }
+                  - { label: "Rótulo", name: label, widget: string }
+                  - { label: "Descrição", name: desc, widget: text }
+                  - { label: "Destacar em laranja", name: orange, widget: boolean, default: false, required: false }
+              - { label: "Título da seção de portfólio", name: portfolioIntroTitle, widget: string }
+              - { label: "Título \"Conheça a Melo\"", name: aboutMeloHeading, widget: string }
+              - { label: "Texto do botão \"Mais sobre nós\"", name: aboutMeloMoreLabel, widget: string }
+              - { label: "Texto do botão \"Nossa apresentação\"", name: aboutMeloDeckLabel, widget: string }
+              - { label: "Sobre a Melo — parágrafo 1", name: aboutMeloText1, widget: text }
+              - { label: "Sobre a Melo — parágrafo 2", name: aboutMeloText2, widget: text }
+              - { label: "Título da seção de entregas", name: deliverHeading, widget: string }
+              - label: "Etapas de entrega (6)"
+                name: deliverSteps
+                widget: list
+                fields:
+                  - { label: "Título", name: title, widget: string }
+                  - { label: "Descrição", name: desc, widget: text }
+              - { label: "Rótulo \"Empresas que confiaram na Melo\" (rodapé)", name: clientsBottomLabel, widget: string }
+
+      - name: cases_page
+        label: "Cases (página de listagem)"
+        file: "src/_data/pages/cases.json"
+        fields:
+          - { label: "Imagem de compartilhamento (redes sociais)", name: ogImage, widget: image, media_folder: "/assets/img", public_folder: "/assets/img" }
+          - label: "Conteúdo em Inglês"
+            name: en
+            widget: object
+            fields:
+              - { label: "Título SEO", name: metaTitle, widget: string }
+              - { label: "Descrição SEO", name: metaDescription, widget: text }
+              - { label: "Título da página", name: heroTitle, widget: string }
+              - { label: "Filtro: Todos", name: filterAll, widget: string }
+              - { label: "Filtro: Estratégia", name: filterEstrategia, widget: string }
+              - { label: "Filtro: Marca", name: filterMarca, widget: string }
+              - { label: "Filtro: Sites & Sistemas", name: filterSites, widget: string }
+              - { label: "Filtro: Audiovisual", name: filterAudiovisual, widget: string }
+              - { label: "Mensagem de lista vazia", name: emptyState, widget: text }
+          - label: "Conteúdo em Português"
+            name: pt
+            widget: object
+            fields:
+              - { label: "Título SEO", name: metaTitle, widget: string }
+              - { label: "Descrição SEO", name: metaDescription, widget: text }
+              - { label: "Título da página", name: heroTitle, widget: string }
+              - { label: "Filtro: Todos", name: filterAll, widget: string }
+              - { label: "Filtro: Estratégia", name: filterEstrategia, widget: string }
+              - { label: "Filtro: Marca", name: filterMarca, widget: string }
+              - { label: "Filtro: Sites & Sistemas", name: filterSites, widget: string }
+              - { label: "Filtro: Audiovisual", name: filterAudiovisual, widget: string }
+              - { label: "Mensagem de lista vazia", name: emptyState, widget: text }
+
+      - name: sobre_page
+        label: "Sobre a Melo"
+        file: "src/_data/pages/sobre.json"
+        fields:
+          - { label: "Imagem de compartilhamento (redes sociais)", name: ogImage, widget: image, media_folder: "/assets/img", public_folder: "/assets/img" }
+          - label: "Conteúdo em Inglês"
+            name: en
+            widget: object
+            fields:
+              - { label: "Título SEO", name: metaTitle, widget: string }
+              - { label: "Descrição SEO", name: metaDescription, widget: text }
+              - { label: "Título — linha 1", name: heroLine1, widget: string }
+              - { label: "Título — linha 2", name: heroLine2, widget: string }
+              - { label: "Tag \"Why Melo\"", name: whyMeloTag, widget: string }
+              - { label: "Texto de introdução", name: introStatement, widget: text }
+              - { label: "Corpo da introdução", name: introBody, widget: text }
+              - { label: "Tag \"Nossos números\"", name: numbersTag, widget: string }
+              - { label: "Valor do número grande", name: bigNumberValue, widget: string }
+              - { label: "Rótulo do número grande", name: bigNumberLabel, widget: string }
+              - { label: "Descrição dos números", name: numbersDesc, widget: text }
+              - label: "Estatísticas (3)"
+                name: stats
+                widget: list
+                fields:
+                  - { label: "Valor", name: value, widget: string }
+                  - { label: "Formato", name: format, widget: select, options: ["", thousand], required: false }
+                  - { label: "Sufixo", name: suffix, widget: string, required: false }
+                  - { label: "Rótulo", name: label, widget: string }
+                  - { label: "Descrição", name: desc, widget: text }
+                  - { label: "Destacar em laranja", name: orange, widget: boolean, default: false, required: false }
+              - { label: "Tag \"Ecossistema unificado\"", name: ecosystemTag, widget: string }
+              - { label: "Texto do ecossistema", name: ecosystemStatement, widget: text }
+              - { label: "Tag \"O que fazemos\"", name: whatWeDoTag, widget: string }
+              - label: "Serviços"
+                name: services
+                widget: list
+                fields:
+                  - { label: "Título", name: title, widget: string }
+                  - { label: "Descrição", name: desc, widget: text }
+              - { label: "Tag \"Como voamos\"", name: howTag, widget: string }
+              - { label: "Frase \"Como voamos\"", name: howStatement, widget: string }
+              - { label: "Corpo \"Como voamos\"", name: howBody, widget: text }
+          - label: "Conteúdo em Português"
+            name: pt
+            widget: object
+            fields:
+              - { label: "Título SEO", name: metaTitle, widget: string }
+              - { label: "Descrição SEO", name: metaDescription, widget: text }
+              - { label: "Título — linha 1", name: heroLine1, widget: string }
+              - { label: "Título — linha 2", name: heroLine2, widget: string }
+              - { label: "Tag \"Por que a Melo\"", name: whyMeloTag, widget: string }
+              - { label: "Texto de introdução", name: introStatement, widget: text }
+              - { label: "Corpo da introdução", name: introBody, widget: text }
+              - { label: "Tag \"Nossos números\"", name: numbersTag, widget: string }
+              - { label: "Valor do número grande", name: bigNumberValue, widget: string }
+              - { label: "Rótulo do número grande", name: bigNumberLabel, widget: string }
+              - { label: "Descrição dos números", name: numbersDesc, widget: text }
+              - label: "Estatísticas (3)"
+                name: stats
+                widget: list
+                fields:
+                  - { label: "Valor", name: value, widget: string }
+                  - { label: "Formato", name: format, widget: select, options: ["", thousand], required: false }
+                  - { label: "Sufixo", name: suffix, widget: string, required: false }
+                  - { label: "Rótulo", name: label, widget: string }
+                  - { label: "Descrição", name: desc, widget: text }
+                  - { label: "Destacar em laranja", name: orange, widget: boolean, default: false, required: false }
+              - { label: "Tag \"Ecossistema unificado\"", name: ecosystemTag, widget: string }
+              - { label: "Texto do ecossistema", name: ecosystemStatement, widget: text }
+              - { label: "Tag \"O que fazemos\"", name: whatWeDoTag, widget: string }
+              - label: "Serviços"
+                name: services
+                widget: list
+                fields:
+                  - { label: "Título", name: title, widget: string }
+                  - { label: "Descrição", name: desc, widget: text }
+              - { label: "Tag \"Como voamos\"", name: howTag, widget: string }
+              - { label: "Frase \"Como voamos\"", name: howStatement, widget: string }
+              - { label: "Corpo \"Como voamos\"", name: howBody, widget: text }

@@ -1,0 +1,33 @@
+---
+permalink: "pt/cases.html"
+layout: layouts/base.njk
+lang: pt
+slug: cases
+navActive: cases
+isHome: false
+ogType: website
+eleventyComputed:
+  metaTitle: "{{ pages.cases.pt.metaTitle }}"
+  metaDescription: "{{ pages.cases.pt.metaDescription }}"
+  ogImage: "{{ pages.cases.ogImage }}"
+---
+{% from "partials/portfolio-card.njk" import card %}
+  <section class="case-hero-header reveal">
+    <div>
+      <h1>{{ pages.cases.pt.heroTitle }}</h1>
+    </div>
+  </section>
+
+  <div class="case-filter reveal" role="group" aria-label="Filtrar cases por tipo de projeto">
+    <button class="case-filter__btn is-active" data-filter="todos">{{ pages.cases.pt.filterAll }}</button>
+    <button class="case-filter__btn" data-filter="estrategia">{{ pages.cases.pt.filterEstrategia }}</button>
+    <button class="case-filter__btn" data-filter="marca">{{ pages.cases.pt.filterMarca }}</button>
+    <button class="case-filter__btn" data-filter="sites-sistemas">{{ pages.cases.pt.filterSites }}</button>
+    <button class="case-filter__btn" data-filter="audiovisual">{{ pages.cases.pt.filterAudiovisual }}</button>
+  </div>
+
+  <div class="portfolio-grid reveal-stagger">
+    {% for c in cases %}{{ card(c, "pt", "/pt", true) }}{% endfor %}
+  </div>
+
+  <p class="case-empty-state">{{ pages.cases.pt.emptyState }}</p>

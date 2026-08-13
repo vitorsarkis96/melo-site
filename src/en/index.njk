@@ -1,0 +1,209 @@
+---
+permalink: "index.html"
+layout: layouts/base.njk
+lang: en
+slug: ""
+navActive: home
+isHome: true
+ogType: website
+eleventyComputed:
+  metaTitle: "{{ pages.home.en.metaTitle }}"
+  metaDescription: "{{ pages.home.en.metaDescription }}"
+  ogImage: "{{ pages.home.en.ogImage }}"
+---
+{% from "partials/portfolio-card.njk" import card, staticCard %}
+{% set h = pages.home.en %}
+{% set orgSchema = { "@context": "https://schema.org", "@type": "Organization", "name": "Melo Creative", "url": site.baseUrl + "/", "logo": site.baseUrl + "/assets/icons/logo-melo.svg", "image": site.baseUrl + h.ogImage, "description": h.structuredDataDescription, "email": site.email, "telephone": "+5511954387151", "address": { "@type": "PostalAddress", "streetAddress": "Rua Conde do Pinhal 8 - Liberdade", "addressLocality": "São Paulo", "addressRegion": "SP", "addressCountry": "BR" }, "sameAs": [site.instagram, site.linkedin] } %}
+<script type="application/ld+json">
+{{ orgSchema | dump | safe }}
+</script>
+  <!-- HERO -->
+  <div class="hero-wrap">
+    <section class="hero-card">
+      <img class="card-bg" src="{{ pages.home.heroImage }}" alt="{{ h.heroAlt }}" loading="eager" />
+      <div class="hero-card__content reveal">
+        <h1 class="hero-headline">{{ h.heroHeadline }}</h1>
+      </div>
+      <a class="btn btn-orange hero-card__cta" href="/cases">
+        {{ i18n.en.allCases }}
+        <img class="btn-icon" src="/assets/icons/arrow-right.svg" alt="" />
+      </a>
+    </section>
+  </div>
+
+  <!-- CLIENT LOGOS (top) -->
+  <section class="section-clients section-clients--top reveal">
+    <p>{{ h.clientsTopLabel }}</p>
+    <div class="clients-viewport">
+      <div class="clients-row reveal-stagger">
+      {% for logo in pages.home.clientLogos %}<div class="client-logo"><img class="{{ logo.class }}" src="{{ logo.src }}" alt="{{ logo.altEn }}" loading="lazy" /></div>
+      {% endfor %}{% for logo in pages.home.clientLogos %}<div class="client-logo" aria-hidden="true"><img class="{{ logo.class }}" src="{{ logo.src }}" alt="{{ logo.altEn }}" loading="lazy" /></div>
+      {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO STATEMENT -->
+  <section class="section-about" id="atuamos">
+    <div class="intro-row reveal">
+      <div class="tag">
+        <span class="tag-text">{{ h.atuamosTag }}</span>
+        <img class="tag-dot" src="/assets/icons/ellipse-tag.svg" alt="" />
+      </div>
+      <p class="intro-statement">{{ h.introStatement }}</p>
+    </div>
+  </section>
+
+  <!-- PHOTO HERO -->
+  <section class="hero-card hero-photo">
+    <img class="card-bg" src="{{ pages.home.photoHeroImage }}" alt="{{ h.photoHeroAlt }}" loading="lazy" />
+    <div class="project-label reveal">
+      <p class="title">{{ h.photoHeroTitle }}</p>
+      <p class="desc">{{ h.photoHeroDesc }}</p>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section-about">
+    <div class="services reveal-stagger">
+      {% for service in h.services %}
+      <div class="service-row">
+        {% if loop.first %}
+        <div class="tag">
+          <span class="tag-text">{{ h.whatWeDoTag }}</span>
+          <img class="tag-dot" src="/assets/icons/ellipse-tag.svg" alt="" />
+        </div>
+        {% else %}
+        <div class="tag" style="visibility:hidden"><span class="tag-text">&nbsp;</span></div>
+        {% endif %}
+        <div class="service-content">
+          <h2 class="service-title">{{ service.title }}</h2>
+          <div class="service-aside">
+            <p class="service-desc">{{ service.desc }}</p>
+            <a class="btn btn-orange service-row__cta" href="{{ site.whatsapp }}" target="_blank" rel="noopener noreferrer">
+            {{ i18n.en.ctaTalk }}
+            <img class="btn-icon" src="/assets/icons/arrow-right.svg" alt="" />
+          </a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <!-- BIG NUMBERS -->
+  <section class="section-numbers">
+    <div class="numbers-inner">
+      <div class="tag reveal">
+        <span class="tag-text">{{ h.numbersTag }}</span>
+        <img class="tag-dot" src="/assets/icons/ellipse-tag.svg" alt="" />
+      </div>
+
+      <div class="numbers-headline-row reveal">
+        <div class="big-number">
+          <p class="big-number__value"><span class="plus">+</span><span class="count-up" data-target="{{ h.bigNumberValue }}" data-format="{{ h.bigNumberFormat }}">{{ h.bigNumberValue | formatNumber(h.bigNumberFormat) }}</span></p>
+          <p class="big-number__label">{{ h.bigNumberLabel }}</p>
+        </div>
+        <p class="numbers-desc">{{ h.numbersDesc }}</p>
+      </div>
+
+      <div class="numbers-divider"></div>
+
+      <div class="stats-row reveal-stagger">
+        {% for stat in h.stats %}
+        <div class="stat">
+          <div>
+            <p class="stat__value{{ ' orange-value' if stat.orange }}">{% if stat.showPlus != false %}<span class="accent">+</span>{% endif %}<span class="count-up" data-target="{{ stat.value }}">{{ stat.value | formatNumber(stat.format) }}</span>{% if stat.suffixClass %}<span class="{{ stat.suffixClass }}">{{ stat.suffix }}</span>{% else %}{{ stat.suffix }}{% endif %}</p>
+            <p class="stat__label">{{ stat.label }}</p>
+          </div>
+          <p class="stat__desc">{{ stat.desc }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO INTRO -->
+  <section class="section-portfolio-intro" id="cases">
+    <div class="portfolio-intro-row reveal">
+      <h2>{{ h.portfolioIntroTitle }}</h2>
+      <a class="btn btn-dark" href="/cases">
+        {{ i18n.en.allCases }}
+        <img class="btn-icon" src="/assets/icons/arrow-right.svg" alt="" />
+      </a>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO GRID -->
+  <div class="portfolio-grid reveal-stagger">
+    {% for slug in homeLayout.portfolioOrder %}{% if slug == "__static__" %}{{ staticCard({ image: pages.home.staticCard.image, title: pages.home.staticCard.titleEn, desc: pages.home.staticCard.descEn }) }}{% else %}{{ card(cases | findCase(slug), "en", "", false) }}{% endif %}{% endfor %}
+  </div>
+
+  <!-- ABOUT MELO -->
+  <section class="section-about section-about-melo" id="sobre">
+    <div class="intro-row2 reveal">
+      <div class="about-melo-left">
+        <h2>{{ h.aboutMeloHeading }}</h2>
+        <div class="button-row">
+          <a class="btn btn-orange" href="/sobre">
+            {{ h.aboutMeloMoreLabel }}
+            <img class="btn-icon" src="/assets/icons/arrow-right.svg" alt="" />
+          </a>
+          <a class="btn btn-dark" href="{{ site.deckUrl }}" target="_blank" rel="noopener noreferrer">
+            {{ h.aboutMeloDeckLabel }}
+            <img class="btn-icon" src="/assets/icons/external-link.svg" alt="" />
+          </a>
+        </div>
+      </div>
+      <div class="about-melo-text">
+        <p>{{ h.aboutMeloText1 }}</p>
+        <p>{{ h.aboutMeloText2 }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE DELIVER -->
+  <section class="section-about section-deliver">
+    <div class="deliver-row">
+      <div class="deliver-left reveal">
+        <div class="deliver-left__top">
+          <h2>{{ h.deliverHeading }}</h2>
+          <div class="button-row">
+            <a class="btn btn-orange" href="{{ site.whatsapp }}" target="_blank" rel="noopener noreferrer">
+              {{ i18n.en.ctaTalk }}
+              <img class="btn-icon" src="/assets/icons/arrow-right.svg" alt="" />
+            </a>
+          </div>
+        </div>
+        <img class="melo-mark" src="/assets/icons/melo-mark-big.svg" alt="" />
+      </div>
+
+      <div class="deliver-steps reveal-stagger">
+        {% for step in h.deliverSteps %}
+        <div class="step">
+          <div class="step-number">
+            <span class="step-number__badge">0{{ loop.index }}</span>
+            <img class="tag-dot" src="/assets/icons/ellipse-tag-dark.svg" alt="" />
+          </div>
+          <div class="step-text">
+            <h3>{{ step.title }}</h3>
+            <p>{{ step.desc }}</p>
+          </div>
+        </div>
+        {% if not loop.last %}<div class="step-divider"></div>{% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- CLIENTS (footer) -->
+  <section class="section-clients reveal">
+    <p>{{ h.clientsBottomLabel }}</p>
+    <div class="clients-viewport">
+      <div class="clients-row reveal-stagger">
+      {% for logo in pages.home.clientLogos %}<div class="client-logo"><img class="{{ logo.class }}" src="{{ logo.src }}" alt="{{ logo.altEn }}" loading="lazy" /></div>
+      {% endfor %}{% for logo in pages.home.clientLogos %}<div class="client-logo" aria-hidden="true"><img class="{{ logo.class }}" src="{{ logo.src }}" alt="{{ logo.altEn }}" loading="lazy" /></div>
+      {% endfor %}
+      </div>
+    </div>
+  </section>

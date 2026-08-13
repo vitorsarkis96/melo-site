@@ -1,0 +1,61 @@
+{
+  "ogImage": "/assets/img/hero-container.png",
+  "en": {
+    "metaTitle": "About Melo | One Partner, Every Solution",
+    "metaDescription": "Melo unifies strategy, design and production under one team — no more fragmented vendors. 150+ clients served across 25+ niches, all over Brazil.",
+    "heroLine1": "One partner.",
+    "heroLine2": "Every solution.",
+    "whyMeloTag": "Why Melo",
+    "introStatement": "Vendor fragmentation is the invisible enemy of your profit. When design doesn't talk to traffic, and video doesn't follow strategy, your brand loses strength and authority.",
+    "introBody": "Sound familiar? Your team overwhelmed managing freelancers. Your brand looking like a visual Frankenstein. Missed opportunities because the timing never quite lined up.",
+    "numbersTag": "Our numbers",
+    "bigNumberValue": "150",
+    "bigNumberLabel": "Clients served",
+    "numbersDesc": "Across more than 25 different niches, all around Brazil.",
+    "stats": [
+      { "value": "3000", "format": "thousand", "suffix": "", "label": "Deliveries", "desc": "Building visual assets that last, project after project." },
+      { "value": "6", "format": "", "suffix": " years", "label": "In business", "desc": "Consolidating brands since 2020." },
+      { "value": "25", "format": "", "suffix": "", "label": "Niches served", "desc": "From health to energy, law to retail — nationwide.", "orange": true }
+    ],
+    "ecosystemTag": "Unified ecosystem",
+    "ecosystemStatement": "We unify strategy, design and production under one single command. One partner. Every solution.",
+    "whatWeDoTag": "What we do",
+    "services": [
+      { "title": "Branding, Websites & Visual Identity", "desc": "We create visual identities that align perceived value with what you actually deliver." },
+      { "title": "Strategy, Design & Marketing", "desc": "Attract the right leads for your sales team through a digital presence that converts." },
+      { "title": "Pre & Post Audiovisual Production", "desc": "An in-house video studio: corporate videos, motion, edits, events, courses, podcasts and more." }
+    ],
+    "howTag": "How we operate",
+    "howStatement": "Transparent, real-time management.",
+    "howBody": "We take the weight of communication off your shoulders — clear process tracking and dashboards for every stage. You focus on the business, we take care of the image."
+  },
+  "pt": {
+    "metaTitle": "Sobre a Melo | Um Único Parceiro, Todas as Soluções",
+    "metaDescription": "A Melo unifica estratégia, design e produção sob um único time — chega de fornecedores fragmentados. +150 clientes atendidos em mais de 25 nichos, em todo o Brasil.",
+    "heroLine1": "Um único parceiro.",
+    "heroLine2": "Todas as soluções.",
+    "whyMeloTag": "Por que a Melo",
+    "introStatement": "Fragmentação de fornecedores é o inimigo invisível do seu lucro. Quando o design não fala com o tráfego, e o vídeo não segue a estratégia, sua marca perde força e autoridade.",
+    "introBody": "Isso soa familiar? Sua equipe sobrecarregada gerenciando \"freelas\". Sua marca parecendo um \"frankenstein\" visual. Oportunidades perdidas por falta de timing.",
+    "numbersTag": "Nossos números",
+    "bigNumberValue": "150",
+    "bigNumberLabel": "Clientes atendidos",
+    "numbersDesc": "Em mais de 25 nichos diferentes, em todo o Brasil.",
+    "stats": [
+      { "value": "3000", "format": "thousand", "suffix": "", "label": "Entregas", "desc": "Construindo patrimônios visuais, projeto após projeto." },
+      { "value": "6", "format": "", "suffix": " anos", "label": "De mercado", "desc": "Consolidando marcas desde 2020." },
+      { "value": "25", "format": "", "suffix": "", "label": "Nichos atendidos", "desc": "Da saúde à energia, do direito ao varejo — em todo o país.", "orange": true }
+    ],
+    "ecosystemTag": "Ecossistema unificado",
+    "ecosystemStatement": "Unificamos estratégia, design e produção sob um comando único. Um único parceiro. Todas as soluções.",
+    "whatWeDoTag": "O que fazemos",
+    "services": [
+      { "title": "Branding, Sites & Identidades Visuais", "desc": "Criamos identidades visuais que nivelam a percepção de valor à realidade da sua entrega." },
+      { "title": "Estratégia, Design e Marketing", "desc": "Atraia o lead certo para sua equipe comercial através de uma presença digital que converte." },
+      { "title": "Pré e Pós Produção Audiovisual", "desc": "Produtora interna de vídeos corporativos, motion, edições, eventos, cursos, podcasts e mais." }
+    ],
+    "howTag": "Como voamos",
+    "howStatement": "Gestão transparente e em tempo real.",
+    "howBody": "Tiramos o peso da comunicação das suas costas — acompanhamento de processos e dashboards claros de cada etapa. Você foca no negócio, nós cuidamos da imagem."
+  }
+}
