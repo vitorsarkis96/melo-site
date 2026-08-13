@@ -11,92 +11,6 @@ media_folder: "assets/img"
 public_folder: "/assets/img"
 
 collections:
-  - name: cases
-    label: "Cases"
-    label_singular: "Case"
-    folder: "src/_data/cases"
-    create: true
-    delete: false
-    slug: "{{fields.slug}}"
-    extension: json
-    format: json
-    identifier_field: slug
-    summary: "{{order}} — {{slug}}"
-    fields:
-      - { label: "URL slug", name: slug, widget: string, hint: "Sem espaços/acentos, minúsculo. Define a URL da página — ex: 'redcap' → melocreative.com.br/redcap. NÃO altere num case já publicado sem avisar o dev, os links quebram." }
-      - { label: "Posição na grade", name: order, widget: number, value_type: int, hint: "Controla a ordem deste case na página /cases (menor = aparece antes)." }
-      - { label: "Ano", name: year, widget: string }
-      - { label: "Tags de filtro (avançado)", name: dataService, widget: string, required: false, hint: "separado por espaço: estrategia marca sites-sistemas audiovisual" }
-      - { label: "Imagem do card (grade de cases)", name: cardImage, widget: image, media_folder: "/assets/img", public_folder: "/assets/img" }
-      - label: "Cases relacionados (mostrados no rodapé da página)"
-        name: otherCases
-        widget: list
-        hint: "Slugs de 2 outros cases, ex: aromatici, khs"
-      - label: "Mídia principal (topo da página)"
-        name: heroMedia
-        widget: object
-        fields: &mediaItemFields
-          - { label: "Tipo", name: type, widget: select, options: [image, video], default: image }
-          - { label: "Arquivo (foto ou vídeo)", name: src, widget: file, media_folder: "/assets/img/cases", public_folder: "/assets/img/cases" }
-          - { label: "Cor de fundo (opcional, hex)", name: bg, widget: string, required: false }
-          - { label: "Ajuste da imagem", name: fit, widget: select, options: [cover, contain], required: false }
-          - { label: "Imagem de capa (só p/ vídeo, opcional)", name: poster, widget: file, required: false, media_folder: "/assets/img/cases", public_folder: "/assets/img/cases" }
-      - label: "Linhas de mídia — antes de 'Nossa abordagem'"
-        name: rowsBeforeApproach
-        widget: list
-        fields:
-          - { label: "Layout", name: layout, widget: select, options: [single, double, triple], hint: "single = 1 imagem/vídeo em largura total, double = 2 lado a lado, triple = 3 lado a lado" }
-          - label: "Itens"
-            name: items
-            widget: list
-            fields: *mediaItemFields
-      - label: "Linhas de mídia — depois de 'Nossa abordagem'"
-        name: rowsAfterApproach
-        widget: list
-        required: false
-        fields:
-          - { label: "Layout", name: layout, widget: select, options: [single, double, triple] }
-          - label: "Itens"
-            name: items
-            widget: list
-            fields: *mediaItemFields
-      - label: "Conteúdo em Inglês"
-        name: en
-        widget: object
-        fields:
-          - { label: "Título SEO", name: metaTitle, widget: string }
-          - { label: "Descrição SEO", name: metaDescription, widget: text }
-          - { label: "Título — linha 1", name: heroTitleLine1, widget: string }
-          - { label: "Título — linha 2", name: heroTitleLine2, widget: string }
-          - { label: "Texto alternativo da imagem principal", name: heroAlt, widget: string }
-          - { label: "Tags (chips abaixo do título)", name: tags, widget: list }
-          - { label: "Rótulo \"O desafio\"", name: challengeTag, widget: string }
-          - { label: "Título do desafio", name: challengeHeading, widget: text }
-          - { label: "Detalhe do desafio", name: challengeDetail, widget: text }
-          - { label: "Rótulo \"A abordagem\"", name: approachTag, widget: string }
-          - { label: "Título da abordagem", name: approachHeading, widget: text }
-          - { label: "Detalhe da abordagem", name: approachDetail, widget: text }
-          - { label: "Título do card (grade de cases)", name: cardTitle, widget: string }
-          - { label: "Descrição do card (grade de cases)", name: cardDesc, widget: text }
-      - label: "Conteúdo em Português"
-        name: pt
-        widget: object
-        fields:
-          - { label: "Título SEO", name: metaTitle, widget: string }
-          - { label: "Descrição SEO", name: metaDescription, widget: text }
-          - { label: "Título — linha 1", name: heroTitleLine1, widget: string }
-          - { label: "Título — linha 2", name: heroTitleLine2, widget: string }
-          - { label: "Texto alternativo da imagem principal", name: heroAlt, widget: string }
-          - { label: "Tags (chips abaixo do título)", name: tags, widget: list }
-          - { label: "Rótulo \"O desafio\"", name: challengeTag, widget: string }
-          - { label: "Título do desafio", name: challengeHeading, widget: text }
-          - { label: "Detalhe do desafio", name: challengeDetail, widget: text }
-          - { label: "Rótulo \"A abordagem\"", name: approachTag, widget: string }
-          - { label: "Título da abordagem", name: approachHeading, widget: text }
-          - { label: "Detalhe da abordagem", name: approachDetail, widget: text }
-          - { label: "Título do card (grade de cases)", name: cardTitle, widget: string }
-          - { label: "Descrição do card (grade de cases)", name: cardDesc, widget: text }
-
   - name: pages
     label: "Páginas do site"
     files:
@@ -109,6 +23,8 @@ collections:
           - label: "Logos de clientes"
             name: clientLogos
             widget: list
+            collapsed: false
+            summary: "{{altEn}}"
             fields:
               - { label: "Classe CSS (avançado, não altere)", name: class, widget: string }
               - { label: "Imagem do logo", name: src, widget: image, media_folder: "/assets/img", public_folder: "/assets/img" }
@@ -341,3 +257,97 @@ collections:
               - { label: "Tag \"Como voamos\"", name: howTag, widget: string }
               - { label: "Frase \"Como voamos\"", name: howStatement, widget: string }
               - { label: "Corpo \"Como voamos\"", name: howBody, widget: text }
+
+  - name: cases
+    label: "Cases"
+    label_singular: "Case"
+    folder: "src/_data/cases"
+    create: true
+    delete: false
+    slug: "{{fields.slug}}"
+    extension: json
+    format: json
+    identifier_field: slug
+    summary: "{{order}} — {{slug}}"
+    fields:
+      - { label: "URL slug", name: slug, widget: string, hint: "Sem espaços/acentos, minúsculo. Define a URL da página — ex: 'redcap' → melocreative.com.br/redcap. NÃO altere num case já publicado sem avisar o dev, os links quebram." }
+      - { label: "Posição na grade", name: order, widget: number, value_type: int, hint: "Controla a ordem deste case na página /cases (menor = aparece antes)." }
+      - { label: "Ano", name: year, widget: string }
+      - { label: "Tags de filtro (avançado)", name: dataService, widget: string, required: false, hint: "separado por espaço: estrategia marca sites-sistemas audiovisual" }
+      - { label: "Imagem do card (grade de cases)", name: cardImage, widget: image, media_folder: "/assets/img", public_folder: "/assets/img" }
+      - label: "Cases relacionados (mostrados no rodapé da página)"
+        name: otherCases
+        widget: list
+        hint: "Slugs de 2 outros cases, ex: aromatici, khs"
+      - label: "Mídia principal (topo da página)"
+        name: heroMedia
+        widget: object
+        fields: &mediaItemFields
+          - { label: "Tipo", name: type, widget: select, options: [image, video], default: image }
+          - { label: "Arquivo (foto ou vídeo)", name: src, widget: file, media_folder: "/assets/img/cases", public_folder: "/assets/img/cases" }
+          - { label: "Cor de fundo (opcional, hex)", name: bg, widget: string, required: false }
+          - { label: "Ajuste da imagem", name: fit, widget: select, options: [cover, contain], required: false }
+          - { label: "Imagem de capa (só p/ vídeo, opcional)", name: poster, widget: file, required: false, media_folder: "/assets/img/cases", public_folder: "/assets/img/cases" }
+      - label: "Fotos e vídeos — antes de 'Nossa abordagem'"
+        name: rowsBeforeApproach
+        widget: list
+        collapsed: false
+        summary: "{{layout}}"
+        fields:
+          - { label: "Layout", name: layout, widget: select, options: [single, double, triple], hint: "single = 1 imagem/vídeo em largura total, double = 2 lado a lado, triple = 3 lado a lado" }
+          - label: "Fotos/vídeos desta linha"
+            name: items
+            widget: list
+            collapsed: false
+            summary: "{{type}} — {{src}}"
+            fields: *mediaItemFields
+      - label: "Fotos e vídeos — depois de 'Nossa abordagem'"
+        name: rowsAfterApproach
+        widget: list
+        required: false
+        collapsed: false
+        summary: "{{layout}}"
+        fields:
+          - { label: "Layout", name: layout, widget: select, options: [single, double, triple] }
+          - label: "Fotos/vídeos desta linha"
+            name: items
+            widget: list
+            collapsed: false
+            summary: "{{type}} — {{src}}"
+            fields: *mediaItemFields
+      - label: "Conteúdo em Inglês"
+        name: en
+        widget: object
+        fields:
+          - { label: "Título SEO", name: metaTitle, widget: string }
+          - { label: "Descrição SEO", name: metaDescription, widget: text }
+          - { label: "Título — linha 1", name: heroTitleLine1, widget: string }
+          - { label: "Título — linha 2", name: heroTitleLine2, widget: string }
+          - { label: "Texto alternativo da imagem principal", name: heroAlt, widget: string }
+          - { label: "Tags (chips abaixo do título)", name: tags, widget: list }
+          - { label: "Rótulo \"O desafio\"", name: challengeTag, widget: string }
+          - { label: "Título do desafio", name: challengeHeading, widget: text }
+          - { label: "Detalhe do desafio", name: challengeDetail, widget: text }
+          - { label: "Rótulo \"A abordagem\"", name: approachTag, widget: string }
+          - { label: "Título da abordagem", name: approachHeading, widget: text }
+          - { label: "Detalhe da abordagem", name: approachDetail, widget: text }
+          - { label: "Título do card (grade de cases)", name: cardTitle, widget: string }
+          - { label: "Descrição do card (grade de cases)", name: cardDesc, widget: text }
+      - label: "Conteúdo em Português"
+        name: pt
+        widget: object
+        fields:
+          - { label: "Título SEO", name: metaTitle, widget: string }
+          - { label: "Descrição SEO", name: metaDescription, widget: text }
+          - { label: "Título — linha 1", name: heroTitleLine1, widget: string }
+          - { label: "Título — linha 2", name: heroTitleLine2, widget: string }
+          - { label: "Texto alternativo da imagem principal", name: heroAlt, widget: string }
+          - { label: "Tags (chips abaixo do título)", name: tags, widget: list }
+          - { label: "Rótulo \"O desafio\"", name: challengeTag, widget: string }
+          - { label: "Título do desafio", name: challengeHeading, widget: text }
+          - { label: "Detalhe do desafio", name: challengeDetail, widget: text }
+          - { label: "Rótulo \"A abordagem\"", name: approachTag, widget: string }
+          - { label: "Título da abordagem", name: approachHeading, widget: text }
+          - { label: "Detalhe da abordagem", name: approachDetail, widget: text }
+          - { label: "Título do card (grade de cases)", name: cardTitle, widget: string }
+          - { label: "Descrição do card (grade de cases)", name: cardDesc, widget: text }
