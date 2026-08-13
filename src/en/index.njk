@@ -136,7 +136,7 @@ eleventyComputed:
 
   <!-- PORTFOLIO GRID -->
   <div class="portfolio-grid reveal-stagger">
-    {% for slug in homeLayout.portfolioOrder %}{% if slug == "__static__" %}{{ staticCard({ image: pages.home.staticCard.image, title: pages.home.staticCard.titleEn, desc: pages.home.staticCard.descEn }) }}{% else %}{{ card(cases | findCase(slug), "en", "", false) }}{% endif %}{% endfor %}
+    {% for c in cases %}{% if c.showOnHome %}{{ card(c, "en", "", false) }}{% endif %}{% endfor %}{{ staticCard({ image: pages.home.staticCard.image, title: pages.home.staticCard.titleEn, desc: pages.home.staticCard.descEn }) }}
   </div>
 
   <!-- ABOUT MELO -->

@@ -1,36 +1,70 @@
 {
   "slug": "redcap",
   "order": 5,
+  "showOnHome": true,
   "year": "2026",
   "dataService": "estrategia marca",
   "cardImage": "/assets/img/redcap.png",
-  "otherCases": ["aromatici", "khs"],
-  "heroMedia": { "type": "image", "src": "/assets/img/cases/red-hero.jpg" },
+  "otherCases": [
+    "aromatici",
+    "khs"
+  ],
+  "heroMedia": {
+    "type": "image",
+    "src": "/assets/img/cases/red-hero.jpg"
+  },
   "rowsBeforeApproach": [
     {
       "layout": "double",
       "items": [
-        { "type": "image", "src": "/assets/img/cases/red-2img-a.jpg" },
-        { "type": "image", "src": "/assets/img/cases/red-2img-b.jpg" }
+        {
+          "type": "image",
+          "src": "/assets/img/cases/red-2img-a.jpg"
+        },
+        {
+          "type": "image",
+          "src": "/assets/img/cases/red-2img-b.jpg"
+        }
       ]
     },
     {
       "layout": "single",
-      "items": [{ "type": "image", "src": "/assets/img/cases/red-full.jpg" }]
+      "items": [
+        {
+          "type": "image",
+          "src": "/assets/img/cases/red-full.jpg"
+        }
+      ]
     }
   ],
   "rowsAfterApproach": [
     {
       "layout": "triple",
       "items": [
-        { "type": "image", "src": "/assets/img/cases/red-3img-a.jpg" },
-        { "type": "image", "src": "/assets/img/cases/red-3img-b.png", "bg": "#b31921" },
-        { "type": "image", "src": "/assets/img/cases/red-3img-c.png", "bg": "#eaeaea" }
+        {
+          "type": "image",
+          "src": "/assets/img/cases/red-3img-a.jpg"
+        },
+        {
+          "type": "image",
+          "src": "/assets/img/cases/red-3img-b.png",
+          "bg": "#b31921"
+        },
+        {
+          "type": "image",
+          "src": "/assets/img/cases/red-3img-c.png",
+          "bg": "#eaeaea"
+        }
       ]
     },
     {
       "layout": "single",
-      "items": [{ "type": "image", "src": "/assets/img/cases/red-last.jpg" }]
+      "items": [
+        {
+          "type": "image",
+          "src": "/assets/img/cases/red-last.jpg"
+        }
+      ]
     }
   ],
   "en": {
@@ -39,7 +73,13 @@
     "heroTitleLine1": "REDCap Brazil",
     "heroTitleLine2": "Repositioning & Graphic System",
     "heroAlt": "REDCap Brazil - graphic system",
-    "tags": ["Visual Identity", "Communication Strategy", "Original Illustration", "Science & Health", "2026"],
+    "tags": [
+      "Visual Identity",
+      "Communication Strategy",
+      "Original Illustration",
+      "Science & Health",
+      "2026"
+    ],
     "challengeTag": "Melo's challenge",
     "challengeHeading": "Our challenge was to position REDCap in Brazil in a way that matched its prestige and relevance on the global scientific stage.",
     "challengeDetail": "Internationally recognized as one of the most modern and robust platforms for electronic data collection and management, REDCap needed an identity in Brazil that conveyed its true academic, institutional and technological importance.",
@@ -55,7 +95,13 @@
     "heroTitleLine1": "REDCap Brasil",
     "heroTitleLine2": "Redirecionamento e Sistema Gráfico",
     "heroAlt": "REDCap Brasil - sistema gráfico",
-    "tags": ["Identidade Visual", "Estratégia de Comunicação", "Ilustração Autoral", "Ciência & Saúde", "2026"],
+    "tags": [
+      "Identidade Visual",
+      "Estratégia de Comunicação",
+      "Ilustração Autoral",
+      "Ciência & Saúde",
+      "2026"
+    ],
     "challengeTag": "O desafio da Melo",
     "challengeHeading": "Nosso desafio era posicionar o REDCap no Brasil de forma alinhada ao seu prestígio e relevância no cenário científico mundial.",
     "challengeDetail": "Reconhecido internacionalmente como uma das plataformas mais modernas e robustas para coleta e gerenciamento eletrônico de dados, o REDCap precisava de uma identidade no Brasil que transmitisse sua real importância acadêmica, institucional e tecnológica.",

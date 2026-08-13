@@ -1,36 +1,72 @@
 {
   "slug": "aromatici",
   "order": 1,
+  "showOnHome": true,
   "year": "2024",
   "dataService": "marca sites-sistemas",
   "cardImage": "/assets/img/aromatici.png",
-  "otherCases": ["aromatici", "khs"],
-  "heroMedia": { "type": "image", "src": "/assets/img/cases/aro-hero.jpg" },
+  "otherCases": [
+    "aromatici",
+    "khs"
+  ],
+  "heroMedia": {
+    "type": "image",
+    "src": "/assets/img/cases/aro-hero.jpg"
+  },
   "rowsBeforeApproach": [
     {
       "layout": "double",
       "items": [
-        { "type": "image", "src": "/assets/img/cases/aro-2img-a.jpg" },
-        { "type": "image", "src": "/assets/img/cases/aro-2img-b.jpg" }
+        {
+          "type": "image",
+          "src": "/assets/img/cases/aro-2img-a.jpg"
+        },
+        {
+          "type": "image",
+          "src": "/assets/img/cases/aro-2img-b.jpg"
+        }
       ]
     },
     {
       "layout": "single",
-      "items": [{ "type": "image", "src": "/assets/img/cases/aro-full1.jpg" }]
+      "items": [
+        {
+          "type": "image",
+          "src": "/assets/img/cases/aro-full1.jpg"
+        }
+      ]
     }
   ],
   "rowsAfterApproach": [
     {
       "layout": "triple",
       "items": [
-        { "type": "image", "src": "/assets/img/cases/aro-phone1.jpg", "fit": "contain", "bg": "#5e7927" },
-        { "type": "image", "src": "/assets/img/cases/aro-middle.jpg" },
-        { "type": "image", "src": "/assets/img/cases/aro-phone2.jpg", "fit": "contain", "bg": "#5e7927" }
+        {
+          "type": "image",
+          "src": "/assets/img/cases/aro-phone1.jpg",
+          "fit": "contain",
+          "bg": "#5e7927"
+        },
+        {
+          "type": "image",
+          "src": "/assets/img/cases/aro-middle.jpg"
+        },
+        {
+          "type": "image",
+          "src": "/assets/img/cases/aro-phone2.jpg",
+          "fit": "contain",
+          "bg": "#5e7927"
+        }
       ]
     },
     {
       "layout": "single",
-      "items": [{ "type": "image", "src": "/assets/img/cases/aro-full2.jpg" }]
+      "items": [
+        {
+          "type": "image",
+          "src": "/assets/img/cases/aro-full2.jpg"
+        }
+      ]
     }
   ],
   "en": {
@@ -39,7 +75,13 @@
     "heroTitleLine1": "Aromatici",
     "heroTitleLine2": "Visual Identity & E-commerce",
     "heroAlt": "Aromatici - visual identity",
-    "tags": ["Visual Identity", "Packaging Design", "UI/UX Design", "Dermocosmetics", "2024"],
+    "tags": [
+      "Visual Identity",
+      "Packaging Design",
+      "UI/UX Design",
+      "Dermocosmetics",
+      "2024"
+    ],
     "challengeTag": "Melo's challenge",
     "challengeHeading": "Our main challenge was to reposition a specialized dermocosmetics brand — translating its essence of care, science and innovation more clearly, and presenting its technical expertise through a brand that's contemporary, approachable and ready to grow.",
     "challengeDetail": "Beyond showcasing a technical portfolio, the challenge was turning Aromatici's scientific expertise into a brand capable of building understanding, trust and connection. We had to balance precision and sensitivity, making its communication clearer and more contemporary without losing the depth behind its products.",
@@ -55,7 +97,13 @@
     "heroTitleLine1": "Aromatici",
     "heroTitleLine2": "Identidade Visual e E-commerce",
     "heroAlt": "Aromatici - identidade visual",
-    "tags": ["Identidade Visual", "Design de Embalagem", "Design UI/UX", "Dermocosméticos", "2024"],
+    "tags": [
+      "Identidade Visual",
+      "Design de Embalagem",
+      "Design UI/UX",
+      "Dermocosméticos",
+      "2024"
+    ],
     "challengeTag": "O desafio da Melo",
     "challengeHeading": "Nosso principal desafio era reposicionar uma marca dermocosmética especializada para traduzir sua essência de cuidado, ciência e inovação com mais clareza e apresentar sua expertise técnica em uma marca contemporânea, acessível e preparada para crescer.",
     "challengeDetail": "Mais do que apresentar um portfólio técnico, o desafio era transformar a expertise científica da Aromatici em uma marca capaz de gerar compreensão, confiança e conexão. Era preciso equilibrar precisão e sensibilidade, tornando sua comunicação mais clara, contemporânea e acessível, sem perder a profundidade que sustenta seus produtos.",

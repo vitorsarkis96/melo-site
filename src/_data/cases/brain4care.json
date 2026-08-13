@@ -61,6 +61,10 @@
   "slug": "brain4care",
   "dataService": "Audiovisual Design Identidade Motion",
   "order": 6,
-  "otherCases": ["redcap", "khs"],
+  "showOnHome": true,
+  "otherCases": [
+    "redcap",
+    "khs"
+  ],
   "year": "2026"
 }

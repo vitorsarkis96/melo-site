@@ -1,31 +1,63 @@
 {
   "slug": "4research",
   "order": 3,
+  "showOnHome": true,
   "year": "2025",
   "dataService": "estrategia marca sites-sistemas",
   "cardImage": "/assets/img/4research.jpg",
-  "otherCases": ["aromatici", "khs"],
-  "heroMedia": { "type": "image", "src": "/assets/img/cases/4r-hero-v2.jpg" },
+  "otherCases": [
+    "aromatici",
+    "khs"
+  ],
+  "heroMedia": {
+    "type": "image",
+    "src": "/assets/img/cases/4r-hero-v2.jpg"
+  },
   "rowsBeforeApproach": [
     {
       "layout": "double",
       "items": [
-        { "type": "image", "src": "/assets/img/cases/4r-2img-a.jpg", "bg": "#2563eb" },
-        { "type": "image", "src": "/assets/img/cases/4r-laptop.jpg" }
+        {
+          "type": "image",
+          "src": "/assets/img/cases/4r-2img-a.jpg",
+          "bg": "#2563eb"
+        },
+        {
+          "type": "image",
+          "src": "/assets/img/cases/4r-laptop.jpg"
+        }
       ]
     },
     {
       "layout": "single",
-      "items": [{ "type": "image", "src": "/assets/img/cases/4r-1img-v2.jpg" }]
+      "items": [
+        {
+          "type": "image",
+          "src": "/assets/img/cases/4r-1img-v2.jpg"
+        }
+      ]
     }
   ],
   "rowsAfterApproach": [
     {
       "layout": "triple",
       "items": [
-        { "type": "image", "src": "/assets/img/cases/4r-2img-b.jpg", "fit": "contain", "bg": "#2563eb" },
-        { "type": "image", "src": "/assets/img/cases/4r-totebag.jpg" },
-        { "type": "image", "src": "/assets/img/cases/4r-2img-a.jpg", "fit": "contain", "bg": "#2563eb" }
+        {
+          "type": "image",
+          "src": "/assets/img/cases/4r-2img-b.jpg",
+          "fit": "contain",
+          "bg": "#2563eb"
+        },
+        {
+          "type": "image",
+          "src": "/assets/img/cases/4r-totebag.jpg"
+        },
+        {
+          "type": "image",
+          "src": "/assets/img/cases/4r-2img-a.jpg",
+          "fit": "contain",
+          "bg": "#2563eb"
+        }
       ]
     }
   ],
@@ -35,7 +67,13 @@
     "heroTitleLine1": "4Research",
     "heroTitleLine2": "Repositioning & Digital Presence",
     "heroAlt": "4Research - brand repositioning",
-    "tags": ["Brand Strategy", "Verbal Identity", "Web Development", "Data & Health", "2025"],
+    "tags": [
+      "Brand Strategy",
+      "Verbal Identity",
+      "Web Development",
+      "Data & Health",
+      "2025"
+    ],
     "challengeTag": "Melo's challenge",
     "challengeHeading": "Our challenge was to reposition a health data company to communicate technology, intelligence and trust with clarity — creating a strategic brand backed by a ready digital presence.",
     "challengeDetail": "4Research needed to communicate its expertise in health data and technology more clearly and accessibly. We integrated strategy, visual identity and digital presence to translate complex solutions into communication that's objective, trustworthy and connected to its audience.",
@@ -51,7 +89,13 @@
     "heroTitleLine1": "4Research",
     "heroTitleLine2": "Reposicionamento e Presença Digital",
     "heroAlt": "4Research - reposicionamento de marca",
-    "tags": ["Estratégia de Marca", "Identidade Verbal", "Desenvolvimento Web", "Dados & Saúde", "2025"],
+    "tags": [
+      "Estratégia de Marca",
+      "Identidade Verbal",
+      "Desenvolvimento Web",
+      "Dados & Saúde",
+      "2025"
+    ],
     "challengeTag": "O desafio da Melo",
     "challengeHeading": "Nosso desafio era reposicionar uma empresa de dados em saúde para comunicar tecnologia, inteligência e confiança com clareza. Criamos uma marca estratégica com uma presença digital preparada.",
     "challengeDetail": "A 4Research precisava comunicar sua expertise em dados e tecnologia para a saúde de forma mais acessível e clara. Integramos estratégia, identidade visual e presença digital para traduzir soluções complexas em uma comunicação objetiva, confiável e conectada ao seu público.",

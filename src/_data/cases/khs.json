@@ -1,31 +1,62 @@
 {
   "slug": "khs",
   "order": 2,
+  "showOnHome": true,
   "year": "2025",
   "dataService": "marca sites-sistemas",
   "cardImage": "/assets/img/khs.jpg",
-  "otherCases": ["aromatici", "redcap"],
-  "heroMedia": { "type": "image", "src": "/assets/img/cases/khs-hero.jpg" },
+  "otherCases": [
+    "aromatici",
+    "redcap"
+  ],
+  "heroMedia": {
+    "type": "image",
+    "src": "/assets/img/cases/khs-hero.jpg"
+  },
   "rowsBeforeApproach": [
     {
       "layout": "double",
       "items": [
-        { "type": "image", "src": "/assets/img/cases/khs-2img-a.jpg" },
-        { "type": "image", "src": "/assets/img/cases/khs-2img-b.jpg" }
+        {
+          "type": "image",
+          "src": "/assets/img/cases/khs-2img-a.jpg"
+        },
+        {
+          "type": "image",
+          "src": "/assets/img/cases/khs-2img-b.jpg"
+        }
       ]
     },
     {
       "layout": "single",
-      "items": [{ "type": "image", "src": "/assets/img/cases/khs-full.jpg", "fit": "contain", "bg": "#f1f0d7" }]
+      "items": [
+        {
+          "type": "image",
+          "src": "/assets/img/cases/khs-full.jpg",
+          "fit": "contain",
+          "bg": "#f1f0d7"
+        }
+      ]
     }
   ],
   "rowsAfterApproach": [
     {
       "layout": "triple",
       "items": [
-        { "type": "image", "src": "/assets/img/cases/khs-3img-a.jpg", "bg": "#f2f0d7" },
-        { "type": "image", "src": "/assets/img/cases/khs-3img-b.jpg", "bg": "#f2f0d7" },
-        { "type": "image", "src": "/assets/img/cases/khs-3img-c.jpg" }
+        {
+          "type": "image",
+          "src": "/assets/img/cases/khs-3img-a.jpg",
+          "bg": "#f2f0d7"
+        },
+        {
+          "type": "image",
+          "src": "/assets/img/cases/khs-3img-b.jpg",
+          "bg": "#f2f0d7"
+        },
+        {
+          "type": "image",
+          "src": "/assets/img/cases/khs-3img-c.jpg"
+        }
       ]
     }
   ],
@@ -35,7 +66,13 @@
     "heroTitleLine1": "KHS Advocacia",
     "heroTitleLine2": "Boutique Branding & Web Platform",
     "heroAlt": "KHS Advocacia - boutique branding",
-    "tags": ["Visual Identity", "UI/UX Design", "Web Development", "Health Law", "2025"],
+    "tags": [
+      "Visual Identity",
+      "UI/UX Design",
+      "Web Development",
+      "Health Law",
+      "2025"
+    ],
     "challengeTag": "Melo's challenge",
     "challengeHeading": "Our challenge was to position a specialized law firm as an indispensable boutique practice for entrepreneurs in the health sector.",
     "challengeDetail": "How do you communicate technical authority and regulatory compliance without feeling rigid or distant? KHS needed a brand presence able to convey sophistication, clarity and warmth — connecting the rigor of Law to the sensibilities of the medical and hospital sector.",
@@ -51,7 +88,13 @@
     "heroTitleLine1": "KHS Advocacia",
     "heroTitleLine2": "Branding Boutique e Plataforma Web",
     "heroAlt": "KHS Advocacia - branding boutique",
-    "tags": ["Identidade Visual", "Design UI/UX", "Desenvolvimento Web", "Direito da Saúde", "2025"],
+    "tags": [
+      "Identidade Visual",
+      "Design UI/UX",
+      "Desenvolvimento Web",
+      "Direito da Saúde",
+      "2025"
+    ],
     "challengeTag": "O desafio da Melo",
     "challengeHeading": "Nosso desafio era posicionar uma advocacia especializada como uma boutique jurídica indispensável para quem empreende na área da saúde.",
     "challengeDetail": "Como comunicar autoridade técnica e conformidade regulatória sem parecer rígido ou distante? A KHS precisava de uma presença de marca capaz de transmitir sofisticação, clareza e acolhimento, conectando o rigor do Direito às sensibilidades do setor médico e hospitalar.",
