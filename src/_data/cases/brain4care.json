@@ -72,6 +72,15 @@
         }
       ],
       "layout": "single"
+    },
+    {
+      "layout": "single",
+      "items": [
+        {
+          "type": "video",
+          "src": "https://youtu.be/-X9lr9uMajs"
+        }
+      ]
     }
   ],
   "slug": "brain4care",
