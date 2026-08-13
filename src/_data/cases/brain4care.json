@@ -8,7 +8,7 @@
           "fit": "contain"
         }
       ],
-      "layout": "double"
+      "layout": "single"
     }
   ],
   "pt": {
@@ -34,10 +34,10 @@
     "approachTag": "First Things First",
     "metaTitle": "brain4care | Video",
     "challengeDetail": "The challenge was to convey all the technology, authority, and innovation that brain4care has been developing over the past 10 years.",
-    "challengeTag": "Was to bring ",
+    "challengeTag": "Was to bring",
     "metaDescription": "Video production, Visual Identity, Motion Graphics and Design",
     "approachDetail": "First of all, we have to consider that two audiences interact with B2C content: B2B and B2C. Therefore, our focus was on understanding the ideal customer for each piece of content and translating that understanding to achieve the best possible results.",
-    "approachHeading": "Who're the ICP? ",
+    "approachHeading": "Who're the ICP?",
     "challengeHeading": "Tech, Innovation and Authority",
     "heroTitleLine1": "brain4care | Video Production"
   },
@@ -46,21 +46,21 @@
     "src": "/assets/img/cases/brain4care_dublin.png",
     "fit": "contain"
   },
-  "cardImage": "https://github.com/vitorsarkis96/melo-site/blob/main/assets/img/cases/Brain4Care_DUBLIN.png?raw=true",
+  "cardImage": "/assets/img/cases/Brain4Care_DUBLIN.png",
   "rowsAfterApproach": [
     {
       "items": [
         {
           "type": "image",
-          "src": "https://github.com/vitorsarkis96/melo-site/blob/main/assets/img/cases/b4c_makinf_off.jpeg?raw=true"
+          "src": "/assets/img/cases/b4c_makinf_off.jpeg"
         }
       ],
-      "layout": "double"
+      "layout": "single"
     }
   ],
   "slug": "brain4care",
   "dataService": "Audiovisual Design Identidade Motion",
-  "order": 5,
-  "otherCases": [],
+  "order": 6,
+  "otherCases": ["redcap", "khs"],
   "year": "2026"
 }

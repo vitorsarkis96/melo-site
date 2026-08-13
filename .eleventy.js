@@ -11,6 +11,21 @@ module.exports = function (eleventyConfig) {
     return map[ext] || "video/mp4";
   });
 
+  eleventyConfig.addFilter("youtubeId", function (url) {
+    if (!url) return null;
+    const patterns = [
+      /youtu\.be\/([a-zA-Z0-9_-]{11})/,
+      /youtube\.com\/watch\?v=([a-zA-Z0-9_-]{11})/,
+      /youtube\.com\/embed\/([a-zA-Z0-9_-]{11})/,
+      /youtube\.com\/shorts\/([a-zA-Z0-9_-]{11})/,
+    ];
+    for (const p of patterns) {
+      const m = url.match(p);
+      if (m) return m[1];
+    }
+    return null;
+  });
+
   eleventyConfig.addFilter("findCase", function (cases, slug) {
     return (cases || []).find((c) => c.slug === slug);
   });
