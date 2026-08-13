@@ -4,7 +4,8 @@
       "items": [
         {
           "type": "image",
-          "src": "https://github.com/vitorsarkis96/melo-site/blob/main/assets/img/cases/b4c_makinf_off.jpeg?raw=true"
+          "src": "https://github.com/vitorsarkis96/melo-site/blob/main/assets/img/cases/b4c_makinf_off.jpeg?raw=true",
+          "fit": "cover"
         }
       ],
       "layout": "single"
