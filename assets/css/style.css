@@ -467,7 +467,8 @@ body.menu-open {
   .hero-tokens {
     flex-direction: column;
     align-items: flex-start;
-    min-height: 0;
+    justify-content: flex-end;
+    min-height: 480px;
     padding: 32px;
   }
   .hero-tokens__cta {
