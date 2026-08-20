@@ -11,6 +11,22 @@ media_folder: "assets/img"
 public_folder: "/assets/img"
 
 collections:
+  - name: site
+    label: "Configurações do site"
+    files:
+      - name: settings
+        label: "Contatos e links"
+        file: "src/_data/site.json"
+        fields:
+          - { label: "URL do formulário de orçamento", name: quoteForm, widget: string, hint: "Link externo aberto pelos botões 'Solicitar orçamento'." }
+          - { label: "WhatsApp", name: whatsapp, widget: string }
+          - { label: "Instagram", name: instagram, widget: string }
+          - { label: "LinkedIn", name: linkedin, widget: string }
+          - { label: "E-mail", name: email, widget: string }
+          - { label: "Telefone", name: phone, widget: string }
+          - { label: "Endereço", name: addressLine, widget: string }
+          - { label: "Link da apresentação", name: deckUrl, widget: string }
+
   - name: pages
     label: "Páginas do site"
     files:
