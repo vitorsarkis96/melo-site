@@ -139,6 +139,27 @@ eleventyComputed:
     {% for c in cases %}{% if c.showOnHome %}{{ card(c, "pt", "/pt", false) }}{% endif %}{% endfor %}{{ staticCard({ image: pages.home.staticCard.image, title: pages.home.staticCard.titlePt, desc: pages.home.staticCard.descPt }) }}
   </div>
 
+  <!-- MELO TOKENS -->
+  <section class="hero-wrap">
+    <div class="hero-card hero-tokens">
+      <video class="card-bg" autoplay muted loop playsinline>
+        <source src="/assets/video/melo-tokens.mp4" type="video/mp4" />
+      </video>
+      <div class="hero-tokens__content reveal">
+        <div class="tag">
+          <span class="tag-text">{{ h.tokensTag }}</span>
+          <img class="tag-dot" src="/assets/icons/ellipse-tag.svg" alt="" />
+        </div>
+        <h2 class="hero-tokens__heading">{{ h.tokensHeading }}</h2>
+        <p class="hero-tokens__desc">{{ h.tokensDesc }}</p>
+      </div>
+      <a class="btn btn-orange hero-tokens__cta" href="https://tokens.melocreative.com.br" target="_blank" rel="noopener noreferrer">
+        {{ h.tokensCtaLabel }}
+        <img class="btn-icon" src="/assets/icons/arrow-right.svg" alt="" />
+      </a>
+    </div>
+  </section>
+
   <!-- ABOUT MELO -->
   <section class="section-about section-about-melo" id="sobre">
     <div class="intro-row2 reveal">
