@@ -1,18 +1,4 @@
 {
-  "slug": "aromatici",
-  "order": 1,
-  "showOnHome": true,
-  "year": "2024",
-  "dataService": "marca sites-sistemas",
-  "cardImage": "/assets/img/aromatici.png",
-  "otherCases": [
-    "aromatici",
-    "khs"
-  ],
-  "heroMedia": {
-    "type": "image",
-    "src": "/assets/img/cases/aro-hero.jpg"
-  },
   "rowsBeforeApproach": [
     {
       "layout": "double",
@@ -37,6 +23,55 @@
       ]
     }
   ],
+  "pt": {
+    "heroTitleLine2": "Identidade Visual e E-commerce",
+    "cardDesc": "Rebranding e e-commerce para dermocosméticos naturais com base científica.",
+    "cardTitle": "Aromatici - Branding",
+    "heroAlt": "Aromatici - identidade visual",
+    "approachTag": "Nossa abordagem",
+    "metaTitle": "Aromatici – Identidade Visual e E-commerce | Melo",
+    "challengeDetail": "Mais do que apresentar um portfólio técnico, o desafio era transformar a expertise científica da Aromatici em uma marca capaz de gerar compreensão, confiança e conexão. Era preciso equilibrar precisão e sensibilidade, tornando sua comunicação mais clara, contemporânea e acessível, sem perder a profundidade que sustenta seus produtos.",
+    "challengeTag": "O desafio da Melo",
+    "metaDescription": "Rebranding e e-commerce para a Aromatici, marca dermocosmética especializada em cuidado e ciência.",
+    "tags": [
+      "Identidade Visual",
+      "Design de Embalagem",
+      "Design UI/UX",
+      "Dermocosméticos",
+      "2024"
+    ],
+    "approachDetail": "Também assumimos a presença contínua da marca nos veículos digitais, desenvolvendo planejamento, conteúdos e peças para as mídias sociais, ampliando sua visibilidade e fortalecendo a conexão com profissionais e consumidores.",
+    "approachHeading": "Partimos de uma imersão estratégica para reorganizar o posicionamento da Aromatici e traduzir sua expertise científica em uma identidade mais clara e próxima.",
+    "challengeHeading": "Nosso principal desafio era reposicionar uma marca dermocosmética especializada para traduzir sua essência de cuidado, ciência e inovação com mais clareza e apresentar sua expertise técnica em uma marca contemporânea, acessível e preparada para crescer.",
+    "heroTitleLine1": "Aromatici"
+  },
+  "en": {
+    "heroTitleLine2": "Visual Identity & E-commerce",
+    "cardDesc": "Rebrand and e-commerce for a science-based natural dermocosmetics brand.",
+    "cardTitle": "Aromatici – Branding",
+    "heroAlt": "Aromatici - visual identity",
+    "approachTag": "Our approach",
+    "metaTitle": "Aromatici – Visual Identity & E-commerce | Melo",
+    "challengeDetail": "Beyond showcasing a technical portfolio, the challenge was turning Aromatici's scientific expertise into a brand capable of building understanding, trust and connection. We had to balance precision and sensitivity, making its communication clearer and more contemporary without losing the depth behind its products.",
+    "challengeTag": "Melo's challenge",
+    "metaDescription": "Rebrand and e-commerce for Aromatici, a dermocosmetics brand specialized in science-based skincare.",
+    "tags": [
+      "Visual Identity",
+      "Packaging Design",
+      "UI/UX Design",
+      "Dermocosmetics",
+      "2024"
+    ],
+    "approachDetail": "We also took over the brand's ongoing presence across digital channels, developing planning, content and assets for social media — expanding its visibility and strengthening its connection with professionals and consumers.",
+    "approachHeading": "We started with a strategic immersion to reorganize Aromatici's positioning and translate its scientific expertise into a clearer, more approachable identity.",
+    "challengeHeading": "Our main challenge was to reposition a specialized dermocosmetics brand — translating its essence of care, science and innovation more clearly, and presenting its technical expertise through a brand that's contemporary, approachable and ready to grow.",
+    "heroTitleLine1": "Aromatici"
+  },
+  "heroMedia": {
+    "type": "image",
+    "src": "/assets/img/cases/aro-hero.jpg"
+  },
+  "cardImage": "/assets/img/aromatici.png",
   "rowsAfterApproach": [
     {
       "layout": "triple",
@@ -69,48 +104,13 @@
       ]
     }
   ],
-  "en": {
-    "metaTitle": "Aromatici – Visual Identity & E-commerce | Melo",
-    "metaDescription": "Rebrand and e-commerce for Aromatici, a dermocosmetics brand specialized in science-based skincare.",
-    "heroTitleLine1": "Aromatici",
-    "heroTitleLine2": "Visual Identity & E-commerce",
-    "heroAlt": "Aromatici - visual identity",
-    "tags": [
-      "Visual Identity",
-      "Packaging Design",
-      "UI/UX Design",
-      "Dermocosmetics",
-      "2024"
-    ],
-    "challengeTag": "Melo's challenge",
-    "challengeHeading": "Our main challenge was to reposition a specialized dermocosmetics brand — translating its essence of care, science and innovation more clearly, and presenting its technical expertise through a brand that's contemporary, approachable and ready to grow.",
-    "challengeDetail": "Beyond showcasing a technical portfolio, the challenge was turning Aromatici's scientific expertise into a brand capable of building understanding, trust and connection. We had to balance precision and sensitivity, making its communication clearer and more contemporary without losing the depth behind its products.",
-    "approachTag": "Our approach",
-    "approachHeading": "We started with a strategic immersion to reorganize Aromatici's positioning and translate its scientific expertise into a clearer, more approachable identity.",
-    "approachDetail": "We also took over the brand's ongoing presence across digital channels, developing planning, content and assets for social media — expanding its visibility and strengthening its connection with professionals and consumers.",
-    "cardTitle": "Aromatici – Branding",
-    "cardDesc": "Rebrand and e-commerce for a science-based natural dermocosmetics brand."
-  },
-  "pt": {
-    "metaTitle": "Aromatici – Identidade Visual e E-commerce | Melo",
-    "metaDescription": "Rebranding e e-commerce para a Aromatici, marca dermocosmética especializada em cuidado e ciência.",
-    "heroTitleLine1": "Aromatici",
-    "heroTitleLine2": "Identidade Visual e E-commerce",
-    "heroAlt": "Aromatici - identidade visual",
-    "tags": [
-      "Identidade Visual",
-      "Design de Embalagem",
-      "Design UI/UX",
-      "Dermocosméticos",
-      "2024"
-    ],
-    "challengeTag": "O desafio da Melo",
-    "challengeHeading": "Nosso principal desafio era reposicionar uma marca dermocosmética especializada para traduzir sua essência de cuidado, ciência e inovação com mais clareza e apresentar sua expertise técnica em uma marca contemporânea, acessível e preparada para crescer.",
-    "challengeDetail": "Mais do que apresentar um portfólio técnico, o desafio era transformar a expertise científica da Aromatici em uma marca capaz de gerar compreensão, confiança e conexão. Era preciso equilibrar precisão e sensibilidade, tornando sua comunicação mais clara, contemporânea e acessível, sem perder a profundidade que sustenta seus produtos.",
-    "approachTag": "Nossa abordagem",
-    "approachHeading": "Partimos de uma imersão estratégica para reorganizar o posicionamento da Aromatici e traduzir sua expertise científica em uma identidade mais clara e próxima.",
-    "approachDetail": "Também assumimos a presença contínua da marca nos veículos digitais, desenvolvendo planejamento, conteúdos e peças para as mídias sociais, ampliando sua visibilidade e fortalecendo a conexão com profissionais e consumidores.",
-    "cardTitle": "Aromatici - Branding",
-    "cardDesc": "Rebranding e e-commerce para dermocosméticos naturais com base científica."
-  }
+  "slug": "aromatici",
+  "dataService": "marca sites-sistemas",
+  "order": 1,
+  "otherCases": [
+    "aromatici",
+    "khs"
+  ],
+  "showOnHome": false,
+  "year": "2024"
 }

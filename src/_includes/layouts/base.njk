@@ -48,7 +48,6 @@
   <nav class="nav-links">
     <a class="menu-link{{ ' is-active' if navActive == 'how' }}" href="{{ (t.prefix + '/#atuamos') | replace('//','/') }}">{{ t.navHowWeWork }}</a>
     <a class="menu-link{{ ' is-active' if navActive == 'cases' }}" href="{{ (t.prefix + '/cases') | replace('//','/') }}">{{ t.navCases }}</a>
-    <a class="menu-link{{ ' is-active' if navActive == 'about' }}" href="{{ (t.prefix + '/sobre') | replace('//','/') }}">{{ t.navAbout }}</a>
     <a class="menu-link{{ ' is-active' if navActive == 'contact' }}" href="{{ (t.prefix + '/#contato') | replace('//','/') }}">{{ t.navContact }}</a>
     <a class="lang-switch" href="{{ altPath }}" aria-label="{{ t.langSwitchAria }}">
       <img src="{{ t.flagIcon }}" alt="" width="20" height="20" />
@@ -67,7 +66,6 @@
   <nav class="mobile-menu__links">
     <a href="{{ (t.prefix + '/#atuamos') | replace('//','/') }}">{{ t.navHowWeWork }}</a>
     <a href="{{ (t.prefix + '/cases') | replace('//','/') }}"{{ ' class="is-active"' | safe if navActive == 'cases' }}>{{ t.navCases }}</a>
-    <a href="{{ (t.prefix + '/sobre') | replace('//','/') }}"{{ ' class="is-active"' | safe if navActive == 'about' }}>{{ t.navAbout }}</a>
     <a href="{{ (t.prefix + '/#contato') | replace('//','/') }}">{{ t.navContact }}</a>
     <a class="mobile-menu__lang" href="{{ altPath }}">
       <img src="{{ t.flagIcon }}" alt="" width="20" height="20" />
@@ -106,7 +104,6 @@
           <nav class="footer-nav">
             <a class="menu-link{{ ' is-active' if navActive == 'how' }}" href="{{ (t.prefix + '/#atuamos') | replace('//','/') }}">{{ t.footerWhatWeDo }}</a>
             <a class="menu-link{{ ' is-active' if navActive == 'cases' }}" href="{{ (t.prefix + '/cases') | replace('//','/') }}">{{ t.navCases }}</a>
-            <a class="menu-link{{ ' is-active' if navActive == 'about' }}" href="{{ (t.prefix + '/sobre') | replace('//','/') }}">{{ t.navAbout }}</a>
             <a class="menu-link{{ ' is-active' if navActive == 'contact' }}" href="{{ (t.prefix + '/#contato') | replace('//','/') }}">{{ t.navContact }}</a>
           </nav>
         </div>

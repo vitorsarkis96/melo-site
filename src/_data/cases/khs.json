@@ -1,18 +1,4 @@
 {
-  "slug": "khs",
-  "order": 2,
-  "showOnHome": true,
-  "year": "2025",
-  "dataService": "marca sites-sistemas",
-  "cardImage": "/assets/img/khs.jpg",
-  "otherCases": [
-    "aromatici",
-    "redcap"
-  ],
-  "heroMedia": {
-    "type": "image",
-    "src": "/assets/img/cases/khs-hero.jpg"
-  },
   "rowsBeforeApproach": [
     {
       "layout": "double",
@@ -39,6 +25,55 @@
       ]
     }
   ],
+  "pt": {
+    "heroTitleLine2": "Branding Boutique e Plataforma Web",
+    "cardDesc": "Identidade de marca e plataforma web para boutique jurídica especializada em direito da saúde.",
+    "cardTitle": "KHS Advocacia - Branding Boutique",
+    "heroAlt": "KHS Advocacia - branding boutique",
+    "approachTag": "Nossa abordagem",
+    "metaTitle": "KHS Advocacia – Branding Boutique e Plataforma Web | Melo",
+    "challengeDetail": "Como comunicar autoridade técnica e conformidade regulatória sem parecer rígido ou distante? A KHS precisava de uma presença de marca capaz de transmitir sofisticação, clareza e acolhimento, conectando o rigor do Direito às sensibilidades do setor médico e hospitalar.",
+    "challengeTag": "O desafio da Melo",
+    "metaDescription": "Identidade de marca e plataforma web para a KHS, boutique jurídica especializada em direito da saúde.",
+    "tags": [
+      "Identidade Visual",
+      "Design UI/UX",
+      "Desenvolvimento Web",
+      "Direito da Saúde",
+      "2025"
+    ],
+    "approachDetail": "Criamos um sistema de identidade e um ecossistema digital que refletem a maturidade do escritório. Cada decisão de design — do símbolo minimalista ao layout do site — foi pensada para posicionar a KHS como parceira estratégica de clínicas e hospitais que buscam crescer de forma segura.",
+    "approachHeading": "Conectamos o rigor do Direito à sensibilidade da medicina para desenhar uma presença de marca única.",
+    "challengeHeading": "Nosso desafio era posicionar uma advocacia especializada como uma boutique jurídica indispensável para quem empreende na área da saúde.",
+    "heroTitleLine1": "KHS Advocacia"
+  },
+  "en": {
+    "heroTitleLine2": "Boutique Branding & Web Platform",
+    "cardDesc": "Brand identity and web platform for a boutique law firm specialized in health law.",
+    "cardTitle": "KHS Advocacia – Boutique Branding",
+    "heroAlt": "KHS Advocacia - boutique branding",
+    "approachTag": "Our approach",
+    "metaTitle": "KHS Advocacia – Boutique Branding & Web Platform | Melo",
+    "challengeDetail": "How do you communicate technical authority and regulatory compliance without feeling rigid or distant? KHS needed a brand presence able to convey sophistication, clarity and warmth — connecting the rigor of Law to the sensibilities of the medical and hospital sector.",
+    "challengeTag": "Melo's challenge",
+    "metaDescription": "Brand identity and web platform for KHS, a boutique law firm specialized in health law.",
+    "tags": [
+      "Visual Identity",
+      "UI/UX Design",
+      "Web Development",
+      "Health Law",
+      "2025"
+    ],
+    "approachDetail": "We created an identity system and digital ecosystem that reflect the firm's maturity. Every design decision — from the minimalist symbol to the website layout — was made to position KHS as a strategic partner for clinics and hospitals looking to grow safely.",
+    "approachHeading": "We connected the rigor of Law to the sensibility of medicine to design a singular brand presence.",
+    "challengeHeading": "Our challenge was to position a specialized law firm as an indispensable boutique practice for entrepreneurs in the health sector.",
+    "heroTitleLine1": "KHS Advocacia"
+  },
+  "heroMedia": {
+    "type": "image",
+    "src": "/assets/img/cases/khs-hero.jpg"
+  },
+  "cardImage": "/assets/img/khs.jpg",
   "rowsAfterApproach": [
     {
       "layout": "triple",
@@ -60,48 +95,13 @@
       ]
     }
   ],
-  "en": {
-    "metaTitle": "KHS Advocacia – Boutique Branding & Web Platform | Melo",
-    "metaDescription": "Brand identity and web platform for KHS, a boutique law firm specialized in health law.",
-    "heroTitleLine1": "KHS Advocacia",
-    "heroTitleLine2": "Boutique Branding & Web Platform",
-    "heroAlt": "KHS Advocacia - boutique branding",
-    "tags": [
-      "Visual Identity",
-      "UI/UX Design",
-      "Web Development",
-      "Health Law",
-      "2025"
-    ],
-    "challengeTag": "Melo's challenge",
-    "challengeHeading": "Our challenge was to position a specialized law firm as an indispensable boutique practice for entrepreneurs in the health sector.",
-    "challengeDetail": "How do you communicate technical authority and regulatory compliance without feeling rigid or distant? KHS needed a brand presence able to convey sophistication, clarity and warmth — connecting the rigor of Law to the sensibilities of the medical and hospital sector.",
-    "approachTag": "Our approach",
-    "approachHeading": "We connected the rigor of Law to the sensibility of medicine to design a singular brand presence.",
-    "approachDetail": "We created an identity system and digital ecosystem that reflect the firm's maturity. Every design decision — from the minimalist symbol to the website layout — was made to position KHS as a strategic partner for clinics and hospitals looking to grow safely.",
-    "cardTitle": "KHS Advocacia – Boutique Branding",
-    "cardDesc": "Brand identity and web platform for a boutique law firm specialized in health law."
-  },
-  "pt": {
-    "metaTitle": "KHS Advocacia – Branding Boutique e Plataforma Web | Melo",
-    "metaDescription": "Identidade de marca e plataforma web para a KHS, boutique jurídica especializada em direito da saúde.",
-    "heroTitleLine1": "KHS Advocacia",
-    "heroTitleLine2": "Branding Boutique e Plataforma Web",
-    "heroAlt": "KHS Advocacia - branding boutique",
-    "tags": [
-      "Identidade Visual",
-      "Design UI/UX",
-      "Desenvolvimento Web",
-      "Direito da Saúde",
-      "2025"
-    ],
-    "challengeTag": "O desafio da Melo",
-    "challengeHeading": "Nosso desafio era posicionar uma advocacia especializada como uma boutique jurídica indispensável para quem empreende na área da saúde.",
-    "challengeDetail": "Como comunicar autoridade técnica e conformidade regulatória sem parecer rígido ou distante? A KHS precisava de uma presença de marca capaz de transmitir sofisticação, clareza e acolhimento, conectando o rigor do Direito às sensibilidades do setor médico e hospitalar.",
-    "approachTag": "Nossa abordagem",
-    "approachHeading": "Conectamos o rigor do Direito à sensibilidade da medicina para desenhar uma presença de marca única.",
-    "approachDetail": "Criamos um sistema de identidade e um ecossistema digital que refletem a maturidade do escritório. Cada decisão de design — do símbolo minimalista ao layout do site — foi pensada para posicionar a KHS como parceira estratégica de clínicas e hospitais que buscam crescer de forma segura.",
-    "cardTitle": "KHS Advocacia - Branding Boutique",
-    "cardDesc": "Identidade de marca e plataforma web para boutique jurídica especializada em direito da saúde."
-  }
+  "slug": "khs",
+  "dataService": "marca sites-sistemas",
+  "order": 5,
+  "otherCases": [
+    "aromatici",
+    "redcap"
+  ],
+  "showOnHome": true,
+  "year": "2025"
 }
