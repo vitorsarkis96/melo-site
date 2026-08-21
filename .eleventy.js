@@ -30,6 +30,10 @@ module.exports = function (eleventyConfig) {
     return (cases || []).find((c) => c.slug === slug);
   });
 
+  eleventyConfig.addFilter("onHome", function (cases) {
+    return (cases || []).filter((c) => c.showOnHome);
+  });
+
   eleventyConfig.addFilter("formatNumber", function (value, format) {
     if (format === "thousand") return Number(value).toLocaleString("pt-BR");
     return value;

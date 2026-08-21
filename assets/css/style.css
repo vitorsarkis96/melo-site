@@ -415,6 +415,45 @@ body.menu-open {
   }
 }
 
+/* Hero carousel (featured cases rotating in the main banner) */
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  display: block;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1.1s var(--ease);
+}
+.hero-slide.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.hero-carousel__dots {
+  position: absolute;
+  left: 56px;
+  bottom: 56px;
+  z-index: 2;
+  display: flex;
+  gap: 8px;
+}
+.hero-dot {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: background 0.3s var(--ease), transform 0.3s var(--ease);
+}
+.hero-dot:hover {
+  background: rgba(255, 255, 255, 0.7);
+}
+.hero-dot.is-active {
+  background: var(--pure-white);
+  transform: scale(1.25);
+}
+
 /* Photo hero (photographer) */
 .hero-photo {
   min-height: 600px;
@@ -1238,6 +1277,8 @@ body.menu-open {
   .nav-toggle span,
   .portfolio-card__content,
   .portfolio-card::after,
+  .hero-slide,
+  .hero-dot,
   .socials a {
     transition: none !important;
   }
