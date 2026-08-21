@@ -1,6 +1,6 @@
 {
   "heroImage": "/assets/img/4research.jpg",
-  "heroCarouselAutoplaySeconds": 6,
+  "heroCarouselAutoplaySeconds": 3,
   "photoHeroImage": "/assets/img/photographer.png",
   "showreelUrl": "https://www.youtube.com/embed/-8lLYKxtYHM?si=I4yL0Uv9ArmuMw49&controls=1&playsinline=1&rel=0&autoplay=1&mute=1&loop=1&playlist=-8lLYKxtYHM",
   "clientLogos": [
