@@ -1,15 +1,45 @@
 {
-  "heroImage": "/assets/img/hero-container.png",
+  "heroImage": "/assets/img/4research.jpg",
   "heroCarouselAutoplaySeconds": 6,
   "photoHeroImage": "/assets/img/photographer.png",
   "showreelUrl": "https://www.youtube.com/embed/-8lLYKxtYHM?si=I4yL0Uv9ArmuMw49&controls=1&playsinline=1&rel=0&autoplay=1&mute=1&loop=1&playlist=-8lLYKxtYHM",
   "clientLogos": [
-    { "class": "logo-fleury", "src": "/assets/img/logo-fleury.png", "altEn": "Fleury", "altPt": "Fleury" },
-    { "class": "logo-client2", "src": "/assets/img/logo-client2.png", "altEn": "Client", "altPt": "Cliente" },
-    { "class": "logo-clube-autores", "src": "/assets/img/logo-clube-autores.png", "altEn": "Clube de Autores", "altPt": "Clube de Autores" },
-    { "class": "logo-gupy", "src": "/assets/img/logo-gupy.png", "altEn": "Gupy", "altPt": "Gupy" },
-    { "class": "logo-client5", "src": "/assets/img/logo-client5.png", "altEn": "Client", "altPt": "Cliente" },
-    { "class": "logo-client6", "src": "/assets/img/logo-client6.png", "altEn": "Client", "altPt": "Cliente" }
+    {
+      "class": "logo-fleury",
+      "src": "/assets/img/logo-fleury.png",
+      "altEn": "Fleury",
+      "altPt": "Fleury"
+    },
+    {
+      "class": "logo-client2",
+      "src": "/assets/img/logo-client2.png",
+      "altEn": "Client",
+      "altPt": "Cliente"
+    },
+    {
+      "class": "logo-clube-autores",
+      "src": "/assets/img/logo-clube-autores.png",
+      "altEn": "Clube de Autores",
+      "altPt": "Clube de Autores"
+    },
+    {
+      "class": "logo-gupy",
+      "src": "/assets/img/logo-gupy.png",
+      "altEn": "Gupy",
+      "altPt": "Gupy"
+    },
+    {
+      "class": "logo-client5",
+      "src": "/assets/img/logo-client5.png",
+      "altEn": "Client",
+      "altPt": "Cliente"
+    },
+    {
+      "class": "logo-client6",
+      "src": "/assets/img/logo-client6.png",
+      "altEn": "Client",
+      "altPt": "Cliente"
+    }
   ],
   "staticCard": {
     "image": "/assets/img/hendrik.png",
@@ -19,111 +49,207 @@
     "descPt": "Loja online para marca de cuidados masculinos, do catálogo ao checkout."
   },
   "en": {
-    "metaTitle": "Melo Creative | Strategy, Brand, Web & Motion Agency",
-    "metaDescription": "A creative agency connecting strategy, brand, web and motion under one unified vision. See our work and talk to Melo.",
-    "ogImage": "/assets/img/hero-container.png",
+    "bigNumberFormat": "thousand",
+    "tokensTag": "Melo Tokens",
+    "clientsBottomLabel": "Companies that trust Melo",
     "structuredDataDescription": "A creative agency connecting strategy, brand, web and motion under one unified vision.",
-    "heroAlt": "Ekoenergy shipping container suspended in the air, representing a Melo brand project",
-    "heroHeadline": "Business translated into brand, product and image.",
+    "showreelTitle": "Ideas in motion",
+    "deliverSteps": [
+      {
+        "title": "Pain mapping",
+        "desc": "We understand the business problem before we talk about design."
+      },
+      {
+        "title": "Solution alignment",
+        "desc": "We define what will be solved and how it will be measured."
+      },
+      {
+        "title": "Creation",
+        "desc": "Strategy becomes brand, product and content."
+      },
+      {
+        "title": "Delivery",
+        "desc": "We implement and document what was done."
+      },
+      {
+        "title": "Measurement",
+        "desc": "We track results against the goal set at the start."
+      },
+      {
+        "title": "Correction",
+        "desc": "We adjust based on data."
+      }
+    ],
+    "introStatement": "We connect strategy, design and motion under one unified vision, making sure every touchpoint of your brand communicates the same impact.",
+    "showreelTag": "Showreel",
+    "ogImage": "/assets/img/hero-container.png",
+    "aboutMeloDeckLabel": "Our deck",
     "clientsTopLabel": "Companies that trust Melo",
     "atuamosTag": "How we work",
-    "introStatement": "We connect strategy, design and motion under one unified vision, making sure every touchpoint of your brand communicates the same impact.",
-    "photoHeroAlt": "Melo photographer setting up an image capture shoot",
-    "photoHeroTitle": "IPVM - Image Capture",
-    "photoHeroDesc": "Media support across capture, editing and animation.",
-    "showreelTag": "Showreel",
-    "showreelTitle": "Ideas in motion",
     "showreelDesc": "A selection of films, identities and visual worlds created by Melo.",
-    "whatWeDoTag": "What we do",
-    "services": [
-      { "title": "Strategy", "desc": "Clear, intelligent direction for your business. We chart consistent paths that align brand objectives with measurable market results." },
-      { "title": "Brand", "desc": "Creating proprietary visual and verbal worlds. We build everything from positioning to visual identity systems that make your brand stand out at every touchpoint." },
-      { "title": "Websites & Systems", "desc": "Websites, platforms and proprietary tools, built to perform — not just to exist." },
-      { "title": "Motion", "desc": "Full production, from script to final frame. We combine filming, art direction, motion and post-production to craft visual narratives that give your message rhythm and power." }
-    ],
-    "numbersTag": "Our numbers",
     "bigNumberValue": "3000",
-    "bigNumberFormat": "thousand",
-    "bigNumberLabel": "Projects delivered",
-    "numbersDesc": "End-to-end solutions, from strategic design to high-impact post-production.",
-    "stats": [
-      { "value": "6", "suffix": " years", "label": "In business", "desc": "Building brands and turning ideas into memorable visual narratives since 2020." },
-      { "value": "50", "suffix": "", "label": "Brands accelerated.", "desc": "Partners who transformed their visual communication and market positioning.", "orange": true },
-      { "value": "100", "suffix": "%", "suffixClass": "pct", "showPlus": false, "label": "In-house.", "desc": "From initial strategy to final render. Full control over your project's quality." }
-    ],
-    "portfolioIntroTitle": "Ideas that took shape, motion and impact",
-    "tokensTag": "Melo Tokens",
     "tokensHeading": "Your creative demand, fully under control",
+    "bigNumberLabel": "Projects delivered",
     "tokensDesc": "Cost forecasting, demand tracking, change history, briefing redirects and custom quotes — all handled inside the platform.",
-    "tokensCtaLabel": "Start a free trial",
-    "aboutMeloHeading": "Get to know Melo",
+    "photoHeroTitle": "IPVM - Image Capture",
+    "heroHeadline": "Business translated into brand, product and image.",
+    "heroAlt": "Ekoenergy shipping container suspended in the air, representing a Melo brand project",
+    "numbersTag": "Our numbers",
+    "metaTitle": "Melo Creative | Strategy, Brand, Web & Motion Agency",
+    "portfolioIntroTitle": "Ideas that took shape, motion and impact",
+    "metaDescription": "A creative agency connecting strategy, brand, web and motion under one unified vision. See our work and talk to Melo.",
     "aboutMeloMoreLabel": "More about us",
-    "aboutMeloDeckLabel": "Our deck",
+    "aboutMeloHeading": "Get to know Melo",
+    "numbersDesc": "End-to-end solutions, from strategic design to high-impact post-production.",
     "aboutMeloText1": "Melo was born to redefine delivery in the creative market. We believe brilliant ideas only create real value when paired with clear processes, documented strategic decisions and flawless execution.",
-    "aboutMeloText2": "We build predictable, sustainable solutions, tailored to each partner's business rules and real growth goals.",
+    "photoHeroAlt": "Melo photographer setting up an image capture shoot",
     "deliverHeading": "What we deliver on every project",
-    "deliverSteps": [
-      { "title": "Pain mapping", "desc": "We understand the business problem before we talk about design." },
-      { "title": "Solution alignment", "desc": "We define what will be solved and how it will be measured." },
-      { "title": "Creation", "desc": "Strategy becomes brand, product and content." },
-      { "title": "Delivery", "desc": "We implement and document what was done." },
-      { "title": "Measurement", "desc": "We track results against the goal set at the start." },
-      { "title": "Correction", "desc": "We adjust based on data." }
+    "whatWeDoTag": "What we do",
+    "photoHeroDesc": "Media support across capture, editing and animation.",
+    "aboutMeloText2": "We build predictable, sustainable solutions, tailored to each partner's business rules and real growth goals.",
+    "services": [
+      {
+        "title": "Strategy",
+        "desc": "Clear, intelligent direction for your business. We chart consistent paths that align brand objectives with measurable market results."
+      },
+      {
+        "title": "Brand",
+        "desc": "Creating proprietary visual and verbal worlds. We build everything from positioning to visual identity systems that make your brand stand out at every touchpoint."
+      },
+      {
+        "title": "Websites & Systems",
+        "desc": "Websites, platforms and proprietary tools, built to perform — not just to exist."
+      },
+      {
+        "title": "Motion",
+        "desc": "Full production, from script to final frame. We combine filming, art direction, motion and post-production to craft visual narratives that give your message rhythm and power."
+      }
     ],
-    "clientsBottomLabel": "Companies that trust Melo"
+    "tokensCtaLabel": "Start a free trial",
+    "stats": [
+      {
+        "value": "6",
+        "suffix": " years",
+        "label": "In business",
+        "desc": "Building brands and turning ideas into memorable visual narratives since 2020."
+      },
+      {
+        "value": "50",
+        "suffix": "",
+        "label": "Brands accelerated.",
+        "desc": "Partners who transformed their visual communication and market positioning.",
+        "orange": true
+      },
+      {
+        "value": "100",
+        "suffix": "%",
+        "suffixClass": "pct",
+        "showPlus": false,
+        "label": "In-house.",
+        "desc": "From initial strategy to final render. Full control over your project's quality."
+      }
+    ]
   },
   "pt": {
-    "metaTitle": "Melo Creative | Agência de Estratégia, Marca, Sites e Audiovisual",
-    "metaDescription": "Agência criativa que conecta estratégia, marca, sites e audiovisual sob uma visão unificada. Confira nossos cases e fale com a Melo.",
-    "ogImage": "/assets/img/hero-container.png",
+    "bigNumberFormat": "thousand",
+    "tokensTag": "Melo Tokens",
+    "clientsBottomLabel": "Empresas que confiaram na Melo",
     "structuredDataDescription": "Agência criativa que conecta estratégia, marca, sites e audiovisual sob uma visão unificada.",
-    "heroAlt": "Container ekoenergy suspenso, representando um projeto de marca da Melo",
-    "heroHeadline": "Negócios traduzidos em marca, produto e imagem.",
+    "showreelTitle": "Ideias em movimento",
+    "deliverSteps": [
+      {
+        "title": "Mapeamento da dor",
+        "desc": "Entendemos o problema de negócio antes de falar em design."
+      },
+      {
+        "title": "Alinhamento da solução",
+        "desc": "Definimos o que será resolvido e como será medido."
+      },
+      {
+        "title": "Criação",
+        "desc": "Estratégia vira marca, produto e conteúdo."
+      },
+      {
+        "title": "Entrega",
+        "desc": "Implementamos e documentamos o que foi feito."
+      },
+      {
+        "title": "Medição",
+        "desc": "Acompanhamos o resultado contra o objetivo definido no início."
+      },
+      {
+        "title": "Correção",
+        "desc": "Ajustamos com base em dados"
+      }
+    ],
+    "introStatement": "Conectamos estratégia, design e audiovisual sob uma visão unificada, garantindo que cada ponto de contato da sua marca comunique o mesmo impacto.",
+    "showreelTag": "Showreel",
+    "ogImage": "/assets/img/hero-container.png",
+    "aboutMeloDeckLabel": "Nossa apresentação",
     "clientsTopLabel": "Empresas que confiaram na Melo",
     "atuamosTag": "Como atuamos",
-    "introStatement": "Conectamos estratégia, design e audiovisual sob uma visão unificada, garantindo que cada ponto de contato da sua marca comunique o mesmo impacto.",
-    "photoHeroAlt": "Fotógrafo da Melo preparando um set de captação de imagem",
-    "photoHeroTitle": "IPVM - Captação de Imagem",
-    "photoHeroDesc": "Apoio de mídia em captação, edição e animação.",
-    "showreelTag": "Showreel",
-    "showreelTitle": "Ideias em movimento",
     "showreelDesc": "Uma seleção de filmes, identidades e universos visuais criados pela Melo.",
-    "whatWeDoTag": "Onde atuamos",
-    "services": [
-      { "title": "Estratégia", "desc": "Direcionamento claro e inteligente para o seu negócio. Traçamos caminhos consistentes que alinham os objetivos da marca a resultados mensuráveis de mercado." },
-      { "title": "Marca", "desc": "Criação de universos visuais e verbais proprietários. Desenvolvemos desde o posicionamento até sistemas de identidade visual que destacam sua marca em qualquer ponto de contato." },
-      { "title": "Sites & Sistemas", "desc": "Sites, plataformas e ferramentas próprias, construídos para operar — não apenas para existir." },
-      { "title": "Audiovisual", "desc": "Produção completa, do roteiro ao frame final. Unimos captação, direção de arte, motion e pós-produção para criar narrativas visuais que dão ritmo e potência à sua mensagem." }
-    ],
-    "numbersTag": "Nossos números",
     "bigNumberValue": "3000",
-    "bigNumberFormat": "thousand",
-    "bigNumberLabel": "Projetos entregues",
-    "numbersDesc": "Soluções completas de ponta a ponta, do design estratégico à pós-produção de alto impacto.",
-    "stats": [
-      { "value": "6", "suffix": " anos", "label": "De mercado", "desc": "Consolidando marcas e transformando ideias em narrativas visuais memoráveis desde 2020." },
-      { "value": "50", "suffix": "", "label": "Marcas aceleradas.", "desc": "Parceiros que transformaram sua comunicação visual e posicionamento de mercado.", "orange": true },
-      { "value": "100", "suffix": "%", "suffixClass": "pct", "showPlus": false, "label": "In-house.", "desc": "Da estratégia inicial à renderização final. Controle total da qualidade do seu projeto." }
-    ],
-    "portfolioIntroTitle": "Ideias que ganharam forma, movimento e impacto",
-    "tokensTag": "Melo Tokens",
     "tokensHeading": "Sua demanda criativa, sob controle total",
+    "bigNumberLabel": "Projetos entregues",
     "tokensDesc": "Previsão de custo, acompanhamento da demanda, histórico de alterações, redirecionamento de briefing e orçamentos personalizados — tudo resolvido dentro da plataforma.",
-    "tokensCtaLabel": "Iniciar teste grátis",
-    "aboutMeloHeading": "Conheça um pouco sobre a Melo",
+    "photoHeroTitle": "IPVM - Captação de Imagem",
+    "heroHeadline": "Negócios traduzidos em marca, produto e imagem.",
+    "heroAlt": "Container ekoenergy suspenso, representando um projeto de marca da Melo",
+    "numbersTag": "Nossos números",
+    "metaTitle": "Melo Creative | Agência de Estratégia, Marca, Sites e Audiovisual",
+    "portfolioIntroTitle": "Ideias que ganharam forma, movimento e impacto",
+    "metaDescription": "Agência criativa que conecta estratégia, marca, sites e audiovisual sob uma visão unificada. Confira nossos cases e fale com a Melo.",
     "aboutMeloMoreLabel": "Mais sobre nós",
-    "aboutMeloDeckLabel": "Nossa apresentação",
+    "aboutMeloHeading": "Conheça um pouco sobre a Melo",
+    "numbersDesc": "Soluções completas de ponta a ponta, do design estratégico à pós-produção de alto impacto.",
     "aboutMeloText1": "A Melo nasceu para redefinir a entrega no mercado criativo. Acreditamos que ideias brilhantes só geram valor real quando são acompanhadas de processos claros, decisões estratégicas documentadas e execução impecável.",
-    "aboutMeloText2": "Construímos soluções previsíveis e sustentáveis, desenhadas sob medida para as regras de negócio e os objetivos reais de crescimento de cada parceiro.",
+    "photoHeroAlt": "Fotógrafo da Melo preparando um set de captação de imagem",
     "deliverHeading": "O que entregamos nos nossos projetos",
-    "deliverSteps": [
-      { "title": "Mapeamento da dor", "desc": "Entendemos o problema de negócio antes de falar em design." },
-      { "title": "Alinhamento da solução", "desc": "Definimos o que será resolvido e como será medido." },
-      { "title": "Criação", "desc": "Estratégia vira marca, produto e conteúdo." },
-      { "title": "Entrega", "desc": "Implementamos e documentamos o que foi feito." },
-      { "title": "Medição", "desc": "Acompanhamos o resultado contra o objetivo definido no início." },
-      { "title": "Correção", "desc": "Ajustamos com base em dados" }
+    "whatWeDoTag": "Onde atuamos",
+    "photoHeroDesc": "Apoio de mídia em captação, edição e animação.",
+    "aboutMeloText2": "Construímos soluções previsíveis e sustentáveis, desenhadas sob medida para as regras de negócio e os objetivos reais de crescimento de cada parceiro.",
+    "services": [
+      {
+        "title": "Estratégia",
+        "desc": "Direcionamento claro e inteligente para o seu negócio. Traçamos caminhos consistentes que alinham os objetivos da marca a resultados mensuráveis de mercado."
+      },
+      {
+        "title": "Marca",
+        "desc": "Criação de universos visuais e verbais proprietários. Desenvolvemos desde o posicionamento até sistemas de identidade visual que destacam sua marca em qualquer ponto de contato."
+      },
+      {
+        "title": "Sites & Sistemas",
+        "desc": "Sites, plataformas e ferramentas próprias, construídos para operar — não apenas para existir."
+      },
+      {
+        "title": "Audiovisual",
+        "desc": "Produção completa, do roteiro ao frame final. Unimos captação, direção de arte, motion e pós-produção para criar narrativas visuais que dão ritmo e potência à sua mensagem."
+      }
     ],
-    "clientsBottomLabel": "Empresas que confiaram na Melo"
+    "tokensCtaLabel": "Iniciar teste grátis",
+    "stats": [
+      {
+        "value": "6",
+        "suffix": " anos",
+        "label": "De mercado",
+        "desc": "Consolidando marcas e transformando ideias em narrativas visuais memoráveis desde 2020."
+      },
+      {
+        "value": "50",
+        "suffix": "",
+        "label": "Marcas aceleradas.",
+        "desc": "Parceiros que transformaram sua comunicação visual e posicionamento de mercado.",
+        "orange": true
+      },
+      {
+        "value": "100",
+        "suffix": "%",
+        "suffixClass": "pct",
+        "showPlus": false,
+        "label": "In-house.",
+        "desc": "Da estratégia inicial à renderização final. Controle total da qualidade do seu projeto."
+      }
+    ]
   }
 }
