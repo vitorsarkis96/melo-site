@@ -1,7 +1,7 @@
 {
   "heroImage": "/assets/img/hero-container.png",
   "photoHeroImage": "/assets/img/photographer.png",
-  "showreelUrl": "https://www.youtube.com/embed/-8lLYKxtYHM?si=I4yL0Uv9ArmuMw49&controls=1&playsinline=1&rel=0",
+  "showreelUrl": "https://www.youtube.com/embed/-8lLYKxtYHM?si=I4yL0Uv9ArmuMw49&controls=1&playsinline=1&rel=0&autoplay=1&mute=1&loop=1&playlist=-8lLYKxtYHM",
   "clientLogos": [
     { "class": "logo-fleury", "src": "/assets/img/logo-fleury.png", "altEn": "Fleury", "altPt": "Fleury" },
     { "class": "logo-client2", "src": "/assets/img/logo-client2.png", "altEn": "Client", "altPt": "Cliente" },
