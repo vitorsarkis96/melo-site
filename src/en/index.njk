@@ -24,7 +24,7 @@ eleventyComputed:
       {% if homeCases.length %}
       {% for c in homeCases %}
       <a class="hero-slide{% if loop.first %} is-active{% endif %}" href="{{ '/' + c.slug }}" aria-label="{{ c.en.cardTitle }}">
-        <img class="card-bg" src="{{ c.heroMedia.src }}" alt="{{ c.en.cardTitle }}" loading="{{ 'eager' if loop.first else 'lazy' }}" />
+        <img class="card-bg" src="{{ c.heroMedia.src }}" alt="{{ c.en.cardTitle }}" loading="{{ 'eager' if loop.first else 'lazy' }}" style="--hero-zoom: {{ (c.heroCarouselZoom | default(100)) / 100 }}; --hero-focus-y: {{ c.heroCarouselFocusY | default(50) }}%;" />
       </a>
       {% endfor %}
       {% else %}
@@ -33,13 +33,6 @@ eleventyComputed:
       <div class="hero-card__content reveal">
         <h1 class="hero-headline">{{ h.heroHeadline }}</h1>
       </div>
-      {% if homeCases.length > 1 %}
-      <div class="hero-carousel__dots">
-        {% for c in homeCases %}
-        <button type="button" class="hero-dot{% if loop.first %} is-active{% endif %}" aria-label="{{ c.en.cardTitle }}"></button>
-        {% endfor %}
-      </div>
-      {% endif %}
       <a class="btn btn-orange hero-card__cta" href="/cases">
         {{ i18n.en.allCases }}
         <img class="btn-icon" src="/assets/icons/arrow-right.svg" alt="" />

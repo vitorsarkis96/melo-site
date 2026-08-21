@@ -304,6 +304,8 @@ collections:
         name: otherCases
         widget: list
         hint: "Slugs de 2 outros cases, ex: aromatici, khs"
+      - { label: "Zoom no carrossel do banner da Home (%, avançado)", name: heroCarouselZoom, widget: number, value_type: int, min: 100, max: 200, default: 100, required: false, hint: "Aumenta o zoom da imagem só dentro do carrossel do banner principal, pra cortar espaço vazio (ex: 130 = 130%). Deixe 100 pra não alterar." }
+      - { label: "Foco vertical no carrossel do banner da Home (%, avançado)", name: heroCarouselFocusY, widget: number, value_type: int, min: 0, max: 100, default: 50, required: false, hint: "Controla qual parte da imagem fica visível: 0 = topo, 50 = centro, 100 = base. Use junto com o Zoom acima pra ajustar o enquadramento." }
       - label: "Mídia principal (topo da página)"
         name: heroMedia
         widget: object

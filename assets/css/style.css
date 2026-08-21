@@ -428,32 +428,10 @@ body.menu-open {
   opacity: 1;
   pointer-events: auto;
 }
-.hero-carousel__dots {
-  position: absolute;
-  left: 56px;
-  bottom: 56px;
-  z-index: 2;
-  display: flex;
-  gap: 8px;
+.hero-slide .card-bg {
+  transform: scale(var(--hero-zoom, 1));
+  transform-origin: 50% var(--hero-focus-y, 50%);
 }
-.hero-dot {
-  width: 8px;
-  height: 8px;
-  padding: 0;
-  border: 0;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.4);
-  cursor: pointer;
-  transition: background 0.3s var(--ease), transform 0.3s var(--ease);
-}
-.hero-dot:hover {
-  background: rgba(255, 255, 255, 0.7);
-}
-.hero-dot.is-active {
-  background: var(--pure-white);
-  transform: scale(1.25);
-}
-
 /* Photo hero (photographer) */
 .hero-photo {
   min-height: 600px;
@@ -1278,7 +1256,6 @@ body.menu-open {
   .portfolio-card__content,
   .portfolio-card::after,
   .hero-slide,
-  .hero-dot,
   .socials a {
     transition: none !important;
   }
@@ -1349,6 +1326,12 @@ body.menu-open {
   }
   .hero-photo {
     min-height: 480px;
+  }
+  .hero-slide .card-bg {
+    /* The mobile hero is much taller/narrower than desktop, so cover-fit
+       already crops in tight; the per-case zoom/focus tuned for desktop
+       would over-crop here, so it's reset to the untouched default. */
+    transform: none;
   }
   .showreel-section {
     margin: 56px 8px 24px;
