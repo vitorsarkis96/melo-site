@@ -151,6 +151,48 @@
     sections.forEach((sec) => navObserver.observe(sec));
   }
 
+  /* ---------------- Hero carousel (featured cases in the main banner) ---------------- */
+  document.querySelectorAll(".hero-carousel").forEach((carousel) => {
+    const slides = carousel.querySelectorAll(".hero-slide");
+    const dots = carousel.querySelectorAll(".hero-dot");
+    if (slides.length < 2) return;
+
+    const seconds = parseFloat(carousel.dataset.autoplaySeconds || "6");
+    const intervalMs = (Number.isFinite(seconds) && seconds > 0 ? seconds : 6) * 1000;
+    let current = 0;
+    let timer = null;
+
+    const showSlide = (index) => {
+      current = (index + slides.length) % slides.length;
+      slides.forEach((slide, i) => slide.classList.toggle("is-active", i === current));
+      dots.forEach((dot, i) => dot.classList.toggle("is-active", i === current));
+    };
+
+    const start = () => {
+      if (prefersReducedMotion) return;
+      stop();
+      timer = setInterval(() => showSlide(current + 1), intervalMs);
+    };
+    const stop = () => {
+      if (timer) clearInterval(timer);
+      timer = null;
+    };
+
+    dots.forEach((dot, i) => {
+      dot.addEventListener("click", () => {
+        showSlide(i);
+        start();
+      });
+    });
+
+    carousel.addEventListener("mouseenter", stop);
+    carousel.addEventListener("mouseleave", start);
+    carousel.addEventListener("focusin", stop);
+    carousel.addEventListener("focusout", start);
+
+    start();
+  });
+
   /* ---------------- Case filter (cases.html) ---------------- */
   const filterBtns = document.querySelectorAll(".case-filter__btn");
   if (filterBtns.length) {

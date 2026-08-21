@@ -18,12 +18,28 @@ eleventyComputed:
 {{ orgSchema | dump | safe }}
 </script>
   <!-- HERO -->
+  {% set homeCases = cases | onHome %}
   <div class="hero-wrap">
-    <section class="hero-card">
+    <section class="hero-card hero-carousel" data-autoplay-seconds="{{ pages.home.heroCarouselAutoplaySeconds | default(6) }}">
+      {% if homeCases.length %}
+      {% for c in homeCases %}
+      <a class="hero-slide{% if loop.first %} is-active{% endif %}" href="{{ '/pt/' + c.slug }}" aria-label="{{ c.pt.cardTitle }}">
+        <img class="card-bg" src="{{ c.heroMedia.src }}" alt="{{ c.pt.cardTitle }}" loading="{{ 'eager' if loop.first else 'lazy' }}" />
+      </a>
+      {% endfor %}
+      {% else %}
       <img class="card-bg" src="{{ pages.home.heroImage }}" alt="{{ h.heroAlt }}" loading="eager" />
+      {% endif %}
       <div class="hero-card__content reveal">
         <h1 class="hero-headline">{{ h.heroHeadline }}</h1>
       </div>
+      {% if homeCases.length > 1 %}
+      <div class="hero-carousel__dots">
+        {% for c in homeCases %}
+        <button type="button" class="hero-dot{% if loop.first %} is-active{% endif %}" aria-label="{{ c.pt.cardTitle }}"></button>
+        {% endfor %}
+      </div>
+      {% endif %}
       <a class="btn btn-orange hero-card__cta" href="/pt/cases">
         {{ i18n.pt.allCases }}
         <img class="btn-icon" src="/assets/icons/arrow-right.svg" alt="" />
