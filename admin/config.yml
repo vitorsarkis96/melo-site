@@ -36,6 +36,7 @@ collections:
         fields:
           - { label: "Imagem de fundo do hero", name: heroImage, widget: image, media_folder: "/assets/img", public_folder: "/assets/img" }
           - { label: "Imagem da seção de fotografia", name: photoHeroImage, widget: image, media_folder: "/assets/img", public_folder: "/assets/img" }
+          - { label: "URL embed do showreel", name: showreelUrl, widget: string, hint: "Cole a URL embed do YouTube, não a URL curta youtu.be." }
           - label: "Logos de clientes"
             name: clientLogos
             widget: list
@@ -71,6 +72,9 @@ collections:
               - { label: "Texto alternativo da foto", name: photoHeroAlt, widget: string }
               - { label: "Título da seção de fotografia", name: photoHeroTitle, widget: string }
               - { label: "Descrição da seção de fotografia", name: photoHeroDesc, widget: string }
+              - { label: "Tag do showreel", name: showreelTag, widget: string }
+              - { label: "Título do showreel", name: showreelTitle, widget: string }
+              - { label: "Descrição do showreel", name: showreelDesc, widget: text }
               - { label: "Tag \"O que fazemos\"", name: whatWeDoTag, widget: string }
               - label: "Serviços"
                 name: services
@@ -124,6 +128,9 @@ collections:
               - { label: "Texto alternativo da foto", name: photoHeroAlt, widget: string }
               - { label: "Título da seção de fotografia", name: photoHeroTitle, widget: string }
               - { label: "Descrição da seção de fotografia", name: photoHeroDesc, widget: string }
+              - { label: "Tag do showreel", name: showreelTag, widget: string }
+              - { label: "Título do showreel", name: showreelTitle, widget: string }
+              - { label: "Descrição do showreel", name: showreelDesc, widget: text }
               - { label: "Tag \"Onde atuamos\"", name: whatWeDoTag, widget: string }
               - label: "Serviços"
                 name: services

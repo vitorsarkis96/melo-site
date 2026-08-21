@@ -1,6 +1,7 @@
 {
   "heroImage": "/assets/img/hero-container.png",
   "photoHeroImage": "/assets/img/photographer.png",
+  "showreelUrl": "https://www.youtube.com/embed/-8lLYKxtYHM?si=I4yL0Uv9ArmuMw49&controls=1&playsinline=1&rel=0",
   "clientLogos": [
     { "class": "logo-fleury", "src": "/assets/img/logo-fleury.png", "altEn": "Fleury", "altPt": "Fleury" },
     { "class": "logo-client2", "src": "/assets/img/logo-client2.png", "altEn": "Client", "altPt": "Cliente" },
@@ -29,6 +30,9 @@
     "photoHeroAlt": "Melo photographer setting up an image capture shoot",
     "photoHeroTitle": "IPVM - Image Capture",
     "photoHeroDesc": "Media support across capture, editing and animation.",
+    "showreelTag": "Showreel",
+    "showreelTitle": "Ideas in motion",
+    "showreelDesc": "A selection of films, identities and visual worlds created by Melo.",
     "whatWeDoTag": "What we do",
     "services": [
       { "title": "Strategy", "desc": "Clear, intelligent direction for your business. We chart consistent paths that align brand objectives with measurable market results." },
@@ -80,6 +84,9 @@
     "photoHeroAlt": "Fotógrafo da Melo preparando um set de captação de imagem",
     "photoHeroTitle": "IPVM - Captação de Imagem",
     "photoHeroDesc": "Apoio de mídia em captação, edição e animação.",
+    "showreelTag": "Showreel",
+    "showreelTitle": "Ideias em movimento",
+    "showreelDesc": "Uma seleção de filmes, identidades e universos visuais criados pela Melo.",
     "whatWeDoTag": "Onde atuamos",
     "services": [
       { "title": "Estratégia", "desc": "Direcionamento claro e inteligente para o seu negócio. Traçamos caminhos consistentes que alinham os objetivos da marca a resultados mensuráveis de mercado." },

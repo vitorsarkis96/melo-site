@@ -63,6 +63,23 @@ eleventyComputed:
     </div>
   </section>
 
+  <!-- SHOWREEL -->
+  <section class="showreel-section reveal">
+    <div class="showreel-intro">
+      <div class="tag">
+        <span class="tag-text">{{ h.showreelTag }}</span>
+        <img class="tag-dot" src="/assets/icons/ellipse-tag.svg" alt="" />
+      </div>
+      <div class="showreel-copy">
+        <h2>{{ h.showreelTitle }}</h2>
+        <p>{{ h.showreelDesc }}</p>
+      </div>
+    </div>
+    <div class="showreel-frame">
+      <iframe src="{{ pages.home.showreelUrl }}" title="Melo showreel" loading="lazy" allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </section>
+
   <!-- SERVICES -->
   <section class="section-about">
     <div class="services reveal-stagger">
