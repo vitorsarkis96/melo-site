@@ -1,7 +1,7 @@
 {
   "heroImage": "/assets/img/hero-container.png",
   "heroCarousel": {
-    "autoplaySeconds": 3,
+    "autoplaySeconds": 4,
     "slides": [
       {
         "case": "brain4care",
@@ -22,6 +22,11 @@
         "case": "redcap",
         "zoom": 100,
         "focus": "center"
+      },
+      {
+        "zoom": 100,
+        "focus": "top",
+        "case": "4research"
       }
     ]
   },
