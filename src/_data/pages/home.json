@@ -3,11 +3,26 @@
   "heroCarousel": {
     "autoplaySeconds": 6,
     "slides": [
-      { "case": "brain4care", "zoom": 100, "focus": "center" },
-      { "case": "4research", "zoom": 135, "focus": "top" },
-      { "case": "ekoenergy", "zoom": 100, "focus": "center" },
-      { "case": "khs", "zoom": 100, "focus": "center" },
-      { "case": "redcap", "zoom": 100, "focus": "center" }
+      {
+        "case": "brain4care",
+        "zoom": 100,
+        "focus": "center"
+      },
+      {
+        "case": "ekoenergy",
+        "zoom": 100,
+        "focus": "center"
+      },
+      {
+        "case": "khs",
+        "zoom": 100,
+        "focus": "center"
+      },
+      {
+        "case": "redcap",
+        "zoom": 100,
+        "focus": "center"
+      }
     ]
   },
   "photoHeroImage": "/assets/img/photographer.png",
