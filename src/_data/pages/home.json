@@ -1,6 +1,15 @@
 {
   "heroImage": "/assets/img/hero-container.png",
-  "heroCarouselAutoplaySeconds": 6,
+  "heroCarousel": {
+    "autoplaySeconds": 6,
+    "slides": [
+      { "case": "brain4care", "zoom": 100, "focus": "center" },
+      { "case": "4research", "zoom": 135, "focus": "top" },
+      { "case": "ekoenergy", "zoom": 100, "focus": "center" },
+      { "case": "khs", "zoom": 100, "focus": "center" },
+      { "case": "redcap", "zoom": 100, "focus": "center" }
+    ]
+  },
   "photoHeroImage": "/assets/img/photographer.png",
   "showreelUrl": "https://www.youtube.com/embed/-8lLYKxtYHM?si=I4yL0Uv9ArmuMw49&controls=1&playsinline=1&rel=0&autoplay=1&mute=1&loop=1&playlist=-8lLYKxtYHM",
   "clientLogos": [

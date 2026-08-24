@@ -34,8 +34,39 @@ collections:
         label: "Home"
         file: "src/_data/pages/home.json"
         fields:
-          - { label: "Imagem de fundo do hero (reserva, usada só se nenhum case estiver marcado \"Mostrar na home\")", name: heroImage, widget: image, media_folder: "/assets/img", public_folder: "/assets/img" }
-          - { label: "Tempo entre slides do carrossel do hero (segundos)", name: heroCarouselAutoplaySeconds, widget: number, value_type: int, min: 2, max: 30, default: 6, hint: "O carrossel do banner principal mostra os cases marcados como \"Mostrar na home\" (aba Cases). Esse campo define quanto tempo cada um fica em tela." }
+          - { label: "Imagem de fundo do hero (reserva, usada só se a lista \"Carrossel do banner principal\" abaixo estiver vazia)", name: heroImage, widget: image, media_folder: "/assets/img", public_folder: "/assets/img" }
+          - label: "Carrossel do banner principal (topo da Home)"
+            name: heroCarousel
+            widget: object
+            hint: "Tudo relacionado ao banner grande do topo da Home fica aqui: quais cases aparecem, em que ordem e o tempo entre eles."
+            fields:
+              - { label: "Tempo entre slides (segundos)", name: autoplaySeconds, widget: number, value_type: int, min: 2, max: 30, default: 6 }
+              - label: "Cases no carrossel"
+                name: slides
+                widget: list
+                collapsed: false
+                summary: "{{fields.case}}"
+                hint: "Adicione os cases que devem aparecer no banner, na ordem desejada. Arraste os itens pelo ícone à esquerda pra reordenar."
+                fields:
+                  - { label: "Case", name: case, widget: relation, collection: cases, search_fields: [slug], value_field: "slug", display_fields: [slug], hint: "Escolha um case já cadastrado na aba Cases." }
+                  - label: "Zoom da imagem"
+                    name: zoom
+                    widget: select
+                    default: 100
+                    options:
+                      - { label: "Padrão (sem zoom)", value: 100 }
+                      - { label: "Aproximar um pouco", value: 125 }
+                      - { label: "Aproximar bastante", value: 150 }
+                    hint: "Use quando a foto do case tiver muito espaço vazio ao redor do assunto principal."
+                  - label: "Parte da imagem em destaque"
+                    name: focus
+                    widget: select
+                    default: center
+                    options:
+                      - { label: "Centro (padrão)", value: center }
+                      - { label: "Topo", value: top }
+                      - { label: "Base", value: bottom }
+                    hint: "Qual parte da imagem fica visível ao aplicar o zoom acima. Só tem efeito no desktop — no celular o banner já é bem mais estreito e a foto se ajusta sozinha."
           - { label: "Imagem da seção de fotografia", name: photoHeroImage, widget: image, media_folder: "/assets/img", public_folder: "/assets/img" }
           - { label: "URL embed do showreel", name: showreelUrl, widget: string, hint: "Cole a URL embed do YouTube, não a URL curta youtu.be." }
           - label: "Logos de clientes"
@@ -295,8 +326,8 @@ collections:
     summary: "{{order}} — {{slug}}"
     fields:
       - { label: "URL slug", name: slug, widget: string, hint: "Sem espaços/acentos, minúsculo. Define a URL da página — ex: 'redcap' → melocreative.com.br/redcap. NÃO altere num case já publicado sem avisar o dev, os links quebram." }
-      - { label: "Posição na grade", name: order, widget: number, value_type: int, hint: "Controla a ordem deste case na página /cases e, se marcado abaixo, na grade e no carrossel do banner da Home (menor = aparece antes)." }
-      - { label: "Mostrar na Home?", name: showOnHome, widget: boolean, default: true, hint: "Todo case criado aqui já aparece automaticamente em /cases. Este botão controla se ele também aparece no carrossel do banner principal e na grade de cases da Home." }
+      - { label: "Posição na grade", name: order, widget: number, value_type: int, hint: "Controla a ordem deste case na página /cases e, se marcado abaixo, na grade de cases da Home (menor = aparece antes). Não afeta o carrossel do banner — isso é configurado na página Home." }
+      - { label: "Mostrar na grade da Home?", name: showOnHome, widget: boolean, default: true, hint: "Todo case criado aqui já aparece automaticamente em /cases. Este botão controla só a grade de cases da Home — o carrossel do banner principal é escolhido separadamente na página Home." }
       - { label: "Ano", name: year, widget: string }
       - { label: "Categoria p/ filtro em /cases (avançado — NÃO é a mesma coisa que as Tags lá embaixo, e não aparece na página do case)", name: dataService, widget: string, required: false, hint: "separado por espaço, só estas 4 palavras: estrategia marca sites-sistemas audiovisual" }
       - { label: "Imagem do card (grade de cases)", name: cardImage, widget: image, media_folder: "/assets/img", public_folder: "/assets/img" }
@@ -304,8 +335,6 @@ collections:
         name: otherCases
         widget: list
         hint: "Slugs de 2 outros cases, ex: aromatici, khs"
-      - { label: "Zoom no carrossel do banner da Home (%, avançado)", name: heroCarouselZoom, widget: number, value_type: int, min: 100, max: 200, default: 100, required: false, hint: "Aumenta o zoom da imagem só dentro do carrossel do banner principal, pra cortar espaço vazio (ex: 130 = 130%). Deixe 100 pra não alterar." }
-      - { label: "Foco vertical no carrossel do banner da Home (%, avançado)", name: heroCarouselFocusY, widget: number, value_type: int, min: 0, max: 100, default: 50, required: false, hint: "Controla qual parte da imagem fica visível: 0 = topo, 50 = centro, 100 = base. Use junto com o Zoom acima pra ajustar o enquadramento." }
       - label: "Mídia principal (topo da página)"
         name: heroMedia
         widget: object

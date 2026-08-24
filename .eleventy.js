@@ -34,6 +34,12 @@ module.exports = function (eleventyConfig) {
     return (cases || []).filter((c) => c.showOnHome);
   });
 
+  eleventyConfig.addFilter("resolveHeroSlides", function (slides, cases) {
+    return (slides || [])
+      .map((slide) => ({ ...slide, caseData: (cases || []).find((c) => c.slug === slide.case) }))
+      .filter((slide) => slide.caseData);
+  });
+
   eleventyConfig.addFilter("formatNumber", function (value, format) {
     if (format === "thousand") return Number(value).toLocaleString("pt-BR");
     return value;
