@@ -84,6 +84,65 @@
     revealEls.forEach((el) => el.classList.add("is-visible"));
   }
 
+  /* ---------------- Hero load-in ---------------- */
+  const heroCarousel = document.querySelector(".hero-carousel");
+  if (heroCarousel) {
+    // Double rAF: let the browser paint the opacity:0/scaled starting state
+    // from CSS first, so adding .is-loaded actually transitions instead of
+    // the two states collapsing into one frame.
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => heroCarousel.classList.add("is-loaded"));
+    });
+  }
+
+  /* ---------------- Scroll-linked text reveal (word by word) ---------------- */
+  const scrollRevealTexts = document.querySelectorAll(".scroll-reveal-text");
+  if (scrollRevealTexts.length && !prefersReducedMotion && "IntersectionObserver" in window) {
+    scrollRevealTexts.forEach((el) => {
+      const words = el.textContent.trim().split(/\s+/);
+      el.innerHTML = words.map((w) => `<span class="srt-word">${w}</span>`).join(" ");
+      const wordEls = el.querySelectorAll(".srt-word");
+
+      let ticking = false;
+      const update = () => {
+        ticking = false;
+        const vh = window.innerHeight;
+        const start = vh * 0.85;
+        const end = vh * 0.55;
+        wordEls.forEach((word) => {
+          const rect = word.getBoundingClientRect();
+          const center = rect.top + rect.height / 2;
+          const progress = Math.min(1, Math.max(0, (start - center) / (start - end)));
+          word.style.opacity = String(0.25 + progress * 0.75);
+        });
+      };
+      const onScroll = () => {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(update);
+        }
+      };
+
+      let active = false;
+      const sectionObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting && !active) {
+              active = true;
+              window.addEventListener("scroll", onScroll, { passive: true });
+              update();
+            } else if (!entry.isIntersecting && active) {
+              active = false;
+              window.removeEventListener("scroll", onScroll);
+            }
+          });
+        },
+        { threshold: 0 }
+      );
+      sectionObserver.observe(el);
+    });
+  }
+
   /* ---------------- Count-up numbers ---------------- */
   const formatNumber = (value, format) => {
     const rounded = Math.round(value);
