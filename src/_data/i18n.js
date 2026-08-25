@@ -1,7 +1,7 @@
 module.exports = {
   en: {
     htmlLang: "en",
-    prefix: "",
+    prefix: "/en",
     flagIcon: "/assets/icons/flag-br.svg",
     langSwitchLabel: "Ver em português",
     langSwitchAria: "Ver em português",
@@ -22,7 +22,7 @@ module.exports = {
   },
   pt: {
     htmlLang: "pt-BR",
-    prefix: "/pt",
+    prefix: "",
     flagIcon: "/assets/icons/flag-us.svg",
     langSwitchLabel: "View in English",
     langSwitchAria: "View in English",

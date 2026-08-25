@@ -1,5 +1,5 @@
 ---
-permalink: "index.html"
+permalink: "en/index.html"
 layout: layouts/base.njk
 lang: en
 slug: ""
@@ -23,7 +23,7 @@ eleventyComputed:
     <section class="hero-card hero-carousel" data-autoplay-seconds="{{ pages.home.heroCarousel.autoplaySeconds | default(6) }}">
       {% if heroSlides.length %}
       {% for slide in heroSlides %}
-      <a class="hero-slide{% if loop.first %} is-active{% endif %}" href="{{ '/' + slide.caseData.slug }}" aria-label="{{ slide.caseData.en.cardTitle }}">
+      <a class="hero-slide{% if loop.first %} is-active{% endif %}" href="{{ '/en/' + slide.caseData.slug }}" aria-label="{{ slide.caseData.en.cardTitle }}">
         <img class="card-bg" src="{{ slide.caseData.heroMedia.src }}" alt="{{ slide.caseData.en.cardTitle }}" loading="{{ 'eager' if loop.first else 'lazy' }}" style="--hero-zoom: {{ (slide.zoom | default(100)) / 100 }}; --hero-focus-y: {{ slide.focus | default('center') }};" />
       </a>
       {% endfor %}
@@ -33,7 +33,7 @@ eleventyComputed:
       <div class="hero-card__content reveal">
         <h1 class="hero-headline">{{ h.heroHeadline }}</h1>
       </div>
-      <a class="btn btn-orange hero-card__cta" href="/cases">
+      <a class="btn btn-orange hero-card__cta" href="/en/cases">
         {{ i18n.en.allCases }}
         <img class="btn-icon" src="/assets/icons/arrow-right.svg" alt="" />
       </a>
@@ -153,7 +153,7 @@ eleventyComputed:
   <section class="section-portfolio-intro" id="cases">
     <div class="portfolio-intro-row reveal">
       <h2>{{ h.portfolioIntroTitle }}</h2>
-      <a class="btn btn-dark" href="/cases">
+      <a class="btn btn-dark" href="/en/cases">
         {{ i18n.en.allCases }}
         <img class="btn-icon" src="/assets/icons/arrow-right.svg" alt="" />
       </a>
@@ -162,7 +162,7 @@ eleventyComputed:
 
   <!-- PORTFOLIO GRID -->
   <div class="portfolio-grid reveal-stagger">
-    {% for c in cases | onHome %}{{ card(c, "en", "", false) }}{% endfor %}{{ staticCard({ image: pages.home.staticCard.image, title: pages.home.staticCard.titleEn, desc: pages.home.staticCard.descEn }) }}
+    {% for c in cases | onHome %}{{ card(c, "en", "/en", false) }}{% endfor %}{{ staticCard({ image: pages.home.staticCard.image, title: pages.home.staticCard.titleEn, desc: pages.home.staticCard.descEn }) }}
   </div>
 
   <!-- MELO TOKENS -->

@@ -1,10 +1,10 @@
 {%- set t = i18n[lang] -%}
 {%- set currentPath = (t.prefix + "/" + (slug or "")) | replace("//", "/") -%}
-{%- set altPathPrefix = "/" if lang == "pt" else "/pt" -%}
+{%- set altPathPrefix = "/en" if lang == "pt" else "/" -%}
 {%- set altPath = (altPathPrefix + "/" + (slug or "")) | replace("//", "/") -%}
 {%- set canonicalUrl = site.baseUrl + currentPath -%}
-{%- set enUrl = site.baseUrl + (("/" + (slug or "")) | replace("//", "/")) -%}
-{%- set ptUrl = site.baseUrl + (("/pt/" + (slug or "")) | replace("//", "/")) -%}
+{%- set enUrl = site.baseUrl + (("/en/" + (slug or "")) | replace("//", "/")) -%}
+{%- set ptUrl = site.baseUrl + (("/" + (slug or "")) | replace("//", "/")) -%}
 <!DOCTYPE html>
 <html lang="{{ t.htmlLang }}">
 <head>
@@ -19,7 +19,7 @@
 <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png" />
 <link rel="alternate" hreflang="en" href="{{ enUrl }}" />
 <link rel="alternate" hreflang="pt-BR" href="{{ ptUrl }}" />
-<link rel="alternate" hreflang="x-default" href="{{ enUrl }}" />
+<link rel="alternate" hreflang="x-default" href="{{ ptUrl }}" />
 <meta property="og:type" content="{{ ogType or 'website' }}" />
 <meta property="og:site_name" content="Melo Creative" />
 <meta property="og:locale" content="{{ t.ogLocale }}" />
