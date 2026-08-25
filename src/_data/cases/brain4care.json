@@ -75,7 +75,7 @@
     }
   ],
   "slug": "brain4care",
-  "dataService": "Audiovisual, Motion",
+  "dataService": "audiovisual",
   "order": 1,
   "otherCases": [
     "4research",
