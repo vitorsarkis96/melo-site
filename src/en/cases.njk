@@ -1,5 +1,5 @@
 ---
-permalink: "cases.html"
+permalink: "en/cases.html"
 layout: layouts/base.njk
 lang: en
 slug: cases
@@ -27,7 +27,7 @@ eleventyComputed:
   </div>
 
   <div class="portfolio-grid reveal-stagger">
-    {% for c in cases %}{{ card(c, "en", "", true) }}{% endfor %}
+    {% for c in cases %}{{ card(c, "en", "/en", true) }}{% endfor %}
   </div>
 
   <p class="case-empty-state">{{ pages.cases.en.emptyState }}</p>

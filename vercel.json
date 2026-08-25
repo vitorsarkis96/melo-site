@@ -2,5 +2,9 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "buildCommand": "npm run build",
-  "outputDirectory": "_site"
+  "outputDirectory": "_site",
+  "redirects": [
+    { "source": "/pt", "destination": "/", "permanent": true },
+    { "source": "/pt/:path*", "destination": "/:path*", "permanent": true }
+  ]
 }

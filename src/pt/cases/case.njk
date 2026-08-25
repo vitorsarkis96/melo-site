@@ -3,7 +3,7 @@ pagination:
   data: cases
   size: 1
   alias: item
-permalink: "pt/{{ item.slug }}.html"
+permalink: "{{ item.slug }}.html"
 layout: layouts/base.njk
 lang: pt
 navActive: cases
@@ -67,7 +67,7 @@ eleventyComputed:
   <section class="section-portfolio-intro">
     <div class="portfolio-intro-row reveal">
       <h2>{{ i18n.pt.moreCases }}</h2>
-      <a class="btn btn-dark" href="/pt/cases">
+      <a class="btn btn-dark" href="/cases">
         {{ i18n.pt.allCases }}
         <img class="btn-icon" src="/assets/icons/arrow-right.svg" alt="" />
       </a>
@@ -75,5 +75,5 @@ eleventyComputed:
   </section>
 
   <div class="portfolio-grid reveal-stagger">
-    {% for otherSlug in item.otherCases %}{{ card(cases | findCase(otherSlug), "pt", "/pt", false) }}{% endfor %}
+    {% for otherSlug in item.otherCases %}{{ card(cases | findCase(otherSlug), "pt", "", false) }}{% endfor %}
   </div>
