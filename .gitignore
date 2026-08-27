@@ -3,3 +3,4 @@
 .mcp.json
 node_modules/
 _site/
+.env

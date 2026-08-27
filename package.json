@@ -5,10 +5,13 @@
   "scripts": {
     "build": "eleventy",
     "start": "eleventy --serve",
-    "cms": "decap-server"
+    "cms": "decap-server",
+    "translate-case": "node --env-file=.env scripts/translate-case.js"
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
-    "decap-server": "^3.10.0"
+    "@anthropic-ai/sdk": "^0.70.0",
+    "decap-server": "^3.10.0",
+    "zod": "^3.24.0"
   }
 }
