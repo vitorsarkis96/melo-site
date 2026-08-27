@@ -3,6 +3,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("favicon.ico");
   eleventyConfig.addPassthroughCopy("robots.txt");
   eleventyConfig.addPassthroughCopy("sitemap.xml");
+  eleventyConfig.addPassthroughCopy("llms.txt");
   eleventyConfig.addPassthroughCopy({ "admin": "admin" });
 
   eleventyConfig.addFilter("videoType", function (src) {
@@ -32,6 +33,14 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter("onHome", function (cases) {
     return (cases || []).filter((c) => c.showOnHome);
+  });
+
+  eleventyConfig.addFilter("faqEntities", function (faq) {
+    return (faq || []).map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    }));
   });
 
   eleventyConfig.addFilter("resolveHeroSlides", function (slides, cases) {

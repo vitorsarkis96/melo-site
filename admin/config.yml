@@ -143,6 +143,15 @@ collections:
                 fields:
                   - { label: "Título", name: title, widget: string }
                   - { label: "Descrição", name: desc, widget: text }
+              - { label: "Tag da seção de FAQ", name: faqTag, widget: string }
+              - { label: "Título da seção de FAQ", name: faqHeading, widget: string }
+              - label: "Perguntas frequentes"
+                name: faq
+                widget: list
+                summary: "{{q}}"
+                fields:
+                  - { label: "Pergunta", name: q, widget: string }
+                  - { label: "Resposta", name: a, widget: text }
               - { label: "Rótulo \"Empresas que confiam na Melo\" (rodapé)", name: clientsBottomLabel, widget: string }
           - label: "Conteúdo em Português"
             name: pt
@@ -199,6 +208,15 @@ collections:
                 fields:
                   - { label: "Título", name: title, widget: string }
                   - { label: "Descrição", name: desc, widget: text }
+              - { label: "Tag da seção de FAQ", name: faqTag, widget: string }
+              - { label: "Título da seção de FAQ", name: faqHeading, widget: string }
+              - label: "Perguntas frequentes"
+                name: faq
+                widget: list
+                summary: "{{q}}"
+                fields:
+                  - { label: "Pergunta", name: q, widget: string }
+                  - { label: "Resposta", name: a, widget: text }
               - { label: "Rótulo \"Empresas que confiaram na Melo\" (rodapé)", name: clientsBottomLabel, widget: string }
 
       - name: cases_page
@@ -383,21 +401,22 @@ collections:
       - label: "Conteúdo em Inglês"
         name: en
         widget: object
+        hint: "Pode deixar em branco ao criar o case — depois rode `npm run translate-case <slug>` (veja o README) pra gerar o inglês automaticamente a partir do português."
         fields:
-          - { label: "Título SEO", name: metaTitle, widget: string }
-          - { label: "Descrição SEO", name: metaDescription, widget: text }
-          - { label: "Título — linha 1", name: heroTitleLine1, widget: string }
-          - { label: "Título — linha 2", name: heroTitleLine2, widget: string }
-          - { label: "Texto alternativo da imagem principal", name: heroAlt, widget: string }
-          - { label: "Tags (chips abaixo do título)", name: tags, widget: list, hint: "Separe por VÍRGULA, tudo numa linha só — ex: Identidade Visual, Estratégia de Marca, Motion, 2026. Uma por linha não funciona." }
-          - { label: "Rótulo \"O desafio\"", name: challengeTag, widget: string }
-          - { label: "Título do desafio", name: challengeHeading, widget: text }
-          - { label: "Detalhe do desafio", name: challengeDetail, widget: text }
-          - { label: "Rótulo \"A abordagem\"", name: approachTag, widget: string }
-          - { label: "Título da abordagem", name: approachHeading, widget: text }
-          - { label: "Detalhe da abordagem", name: approachDetail, widget: text }
-          - { label: "Título do card (grade de cases)", name: cardTitle, widget: string }
-          - { label: "Descrição do card (grade de cases)", name: cardDesc, widget: text }
+          - { label: "Título SEO", name: metaTitle, widget: string, required: false }
+          - { label: "Descrição SEO", name: metaDescription, widget: text, required: false }
+          - { label: "Título — linha 1", name: heroTitleLine1, widget: string, required: false }
+          - { label: "Título — linha 2", name: heroTitleLine2, widget: string, required: false }
+          - { label: "Texto alternativo da imagem principal", name: heroAlt, widget: string, required: false }
+          - { label: "Tags (chips abaixo do título)", name: tags, widget: list, required: false, hint: "Separe por VÍRGULA, tudo numa linha só — ex: Identidade Visual, Estratégia de Marca, Motion, 2026. Uma por linha não funciona." }
+          - { label: "Rótulo \"O desafio\"", name: challengeTag, widget: string, required: false }
+          - { label: "Título do desafio", name: challengeHeading, widget: text, required: false }
+          - { label: "Detalhe do desafio", name: challengeDetail, widget: text, required: false }
+          - { label: "Rótulo \"A abordagem\"", name: approachTag, widget: string, required: false }
+          - { label: "Título da abordagem", name: approachHeading, widget: text, required: false }
+          - { label: "Detalhe da abordagem", name: approachDetail, widget: text, required: false }
+          - { label: "Título do card (grade de cases)", name: cardTitle, widget: string, required: false }
+          - { label: "Descrição do card (grade de cases)", name: cardDesc, widget: text, required: false }
       - label: "Conteúdo em Português"
         name: pt
         widget: object
