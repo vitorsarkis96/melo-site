@@ -52,12 +52,33 @@
     }
   ],
   "slug": "syn",
-  "dataService": "Audiovisual",
+  "dataService": [
+    "audiovisual"
+  ],
   "order": 1,
   "otherCases": [
     "brain4care",
     "4research"
   ],
   "showOnHome": true,
-  "year": "2025"
+  "year": "2025",
+  "en": {
+    "metaTitle": "syn, cyrela, culture video for hr",
+    "metaDescription": "syn, cyrela, culture video for hr",
+    "heroTitleLine1": "SYN",
+    "heroTitleLine2": " \"I Am SYN\" Movement",
+    "heroAlt": "Video of the \"I Am SYN\" Movement, a branch of Cyrela",
+    "tags": [
+      "Audiovisual",
+      "Motion"
+    ],
+    "challengeTag": "The challenge",
+    "challengeHeading": "A branch of Cyrela, SYN.",
+    "challengeDetail": "How to translate something as subjective as a company's culture into a visually impactful format? Our challenge was to transform SYN's values and energy into a video piece that would generate pride, engagement, and a true sense of belonging in the team.",
+    "approachTag": "How?",
+    "approachHeading": "Our Approach",
+    "approachDetail": "We combined the power of audiovisuals with the dynamism of motion design to materialize abstract concepts. Through an inspiring script, fluid animations, and rhythmic editing, we created a manifesto that not only informs, but also moves and connects people to the brand's DNA.",
+    "cardTitle": "SYN Culture Manifesto",
+    "cardDesc": "How to translate culture and belonging into video?"
+  }
 }

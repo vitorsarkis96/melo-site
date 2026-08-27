@@ -96,7 +96,10 @@
     }
   ],
   "slug": "khs",
-  "dataService": "marca sites-sistemas",
+  "dataService": [
+    "marca",
+    "sites-sistemas"
+  ],
   "order": 5,
   "otherCases": [
     "aromatici",

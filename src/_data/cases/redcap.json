@@ -3,7 +3,10 @@
   "order": 5,
   "showOnHome": true,
   "year": "2026",
-  "dataService": "estrategia marca",
+  "dataService": [
+    "estrategia",
+    "marca"
+  ],
   "cardImage": "/assets/img/redcap.png",
   "otherCases": [
     "aromatici",
