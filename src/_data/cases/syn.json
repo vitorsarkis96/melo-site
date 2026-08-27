@@ -1,0 +1,63 @@
+{
+  "rowsBeforeApproach": [
+    {
+      "items": [
+        {
+          "type": "video",
+          "src": "https://youtu.be/g9NtH0AiiIM"
+        }
+      ],
+      "layout": "single"
+    }
+  ],
+  "pt": {
+    "heroTitleLine2": "Dando vida ao movimento \"Sou SYN\"",
+    "cardDesc": "Como traduzir cultura e pertencimento em vídeo?",
+    "cardTitle": "Manifesto de Cultura SYN",
+    "heroAlt": "Video do Movimento \"Sou SYN\", braço da Cyrela",
+    "approachTag": "Como?",
+    "metaTitle": "syn, cyrela, video de cultura para rh",
+    "challengeDetail": "Como traduzir algo tão subjetivo quanto a cultura de uma empresa em um formato visualmente impactante? O nosso desafio era transformar os valores e a energia da SYN em uma peça de vídeo que gerasse orgulho, engajamento e verdadeiro senso de pertencimento na equipe.",
+    "challengeTag": "O desafio",
+    "metaDescription": "syn, cyrela, video de cultura para rh",
+    "tags": [
+      "Audiovisual",
+      "Motion"
+    ],
+    "approachDetail": "Unimos a força do audiovisual com a dinamicidade do motion design para materializar conceitos abstratos. Através de um roteiro inspirador, animações fluidas e uma edição rítmica, criamos um manifesto que não apenas informa, mas emociona e conecta as pessoas ao DNA da marca.",
+    "approachHeading": "Nossa Abordagem",
+    "challengeHeading": "Transmitir a essência da SYN (braço da Cyrela)",
+    "heroTitleLine1": "Manifesto de Cultura para a SYN"
+  },
+  "heroMedia": {
+    "type": "image",
+    "src": "https://github.com/vitorsarkis96/melo-site/blob/main/assets/img/syn_thumb.jpg?raw=true"
+  },
+  "cardImage": "https://github.com/vitorsarkis96/melo-site/blob/main/assets/img/syn_thumb.jpg?raw=true",
+  "rowsAfterApproach": [
+    {
+      "items": [
+        {
+          "type": "image",
+          "src": "https://github.com/vitorsarkis96/melo-site/blob/main/assets/img/syn-1.JPG?raw=true",
+          "filter": "bw-classic"
+        },
+        {
+          "type": "image",
+          "src": "https://github.com/vitorsarkis96/melo-site/blob/main/assets/img/syn-2.JPG?raw=true",
+          "filter": "bw-classic"
+        }
+      ],
+      "layout": "double"
+    }
+  ],
+  "slug": "syn",
+  "dataService": "Audiovisual, Motion",
+  "order": 5,
+  "otherCases": [
+    "brain4care",
+    "4research"
+  ],
+  "showOnHome": true,
+  "year": "2025"
+}
