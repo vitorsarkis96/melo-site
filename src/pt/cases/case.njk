@@ -81,3 +81,32 @@ eleventyComputed:
   <div class="portfolio-grid reveal-stagger">
     {% for otherSlug in item.otherCases %}{{ card(cases | findCase(otherSlug), "pt", "", false) }}{% endfor %}
   </div>
+
+  <!-- FAQ -->
+  {% set faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": pages.home.pt.faq | faqEntities } %}
+  <script type="application/ld+json">
+  {{ faqSchema | dump | safe }}
+  </script>
+  <section class="section-about section-faq">
+    <div class="faq-row">
+      <div class="faq-intro reveal">
+        <div class="tag">
+          <span class="tag-text">{{ pages.home.pt.faqTag }}</span>
+          <img class="tag-dot" src="/assets/icons/ellipse-tag.svg" alt="" />
+        </div>
+        <h2>{{ pages.home.pt.faqHeading }}</h2>
+        <a class="btn btn-orange" href="{{ site.quoteForm }}" target="_blank" rel="noopener noreferrer">
+          {{ i18n.pt.ctaQuote }}
+          <img class="btn-icon" src="/assets/icons/arrow-right.svg" alt="" />
+        </a>
+      </div>
+      <div class="faq-list reveal-stagger">
+        {% for faqItem in pages.home.pt.faq %}
+        <details class="faq-item">
+          <summary>{{ faqItem.q }}</summary>
+          <p>{{ faqItem.a }}</p>
+        </details>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
