@@ -237,6 +237,31 @@ eleventyComputed:
     </div>
   </section>
 
+  <!-- FAQ -->
+  {% set faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": h.faq | faqEntities } %}
+  <script type="application/ld+json">
+  {{ faqSchema | dump | safe }}
+  </script>
+  <section class="section-about section-faq">
+    <div class="faq-row">
+      <div class="faq-intro reveal">
+        <div class="tag">
+          <span class="tag-text">{{ h.faqTag }}</span>
+          <img class="tag-dot" src="/assets/icons/ellipse-tag.svg" alt="" />
+        </div>
+        <h2>{{ h.faqHeading }}</h2>
+      </div>
+      <div class="faq-list reveal-stagger">
+        {% for item in h.faq %}
+        <details class="faq-item">
+          <summary>{{ item.q }}</summary>
+          <p>{{ item.a }}</p>
+        </details>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
   <!-- CLIENTS (rodapé) -->
   <section class="section-clients reveal">
     <p>{{ h.clientsBottomLabel }}</p>

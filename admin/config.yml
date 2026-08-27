@@ -143,6 +143,15 @@ collections:
                 fields:
                   - { label: "Título", name: title, widget: string }
                   - { label: "Descrição", name: desc, widget: text }
+              - { label: "Tag da seção de FAQ", name: faqTag, widget: string }
+              - { label: "Título da seção de FAQ", name: faqHeading, widget: string }
+              - label: "Perguntas frequentes"
+                name: faq
+                widget: list
+                summary: "{{q}}"
+                fields:
+                  - { label: "Pergunta", name: q, widget: string }
+                  - { label: "Resposta", name: a, widget: text }
               - { label: "Rótulo \"Empresas que confiam na Melo\" (rodapé)", name: clientsBottomLabel, widget: string }
           - label: "Conteúdo em Português"
             name: pt
@@ -199,6 +208,15 @@ collections:
                 fields:
                   - { label: "Título", name: title, widget: string }
                   - { label: "Descrição", name: desc, widget: text }
+              - { label: "Tag da seção de FAQ", name: faqTag, widget: string }
+              - { label: "Título da seção de FAQ", name: faqHeading, widget: string }
+              - label: "Perguntas frequentes"
+                name: faq
+                widget: list
+                summary: "{{q}}"
+                fields:
+                  - { label: "Pergunta", name: q, widget: string }
+                  - { label: "Resposta", name: a, widget: text }
               - { label: "Rótulo \"Empresas que confiaram na Melo\" (rodapé)", name: clientsBottomLabel, widget: string }
 
       - name: cases_page

@@ -17,6 +17,10 @@ eleventyComputed:
 ---
 {% from "partials/media-row.njk" import mediaRow %}
 {% from "partials/portfolio-card.njk" import card %}
+{% set caseSchema = { "@context": "https://schema.org", "@type": "CreativeWork", "name": item.pt.heroTitleLine1 + " " + item.pt.heroTitleLine2, "description": item.pt.metaDescription, "image": site.baseUrl + item.heroMedia.src, "url": site.baseUrl + "/" + item.slug, "creator": { "@type": "Organization", "name": "Melo Creative", "url": site.baseUrl + "/" }, "about": item.pt.tags, "dateCreated": item.year, "inLanguage": "pt-BR" } %}
+<script type="application/ld+json">
+{{ caseSchema | dump | safe }}
+</script>
   <section class="case-hero-header reveal">
     <div>
       <h1>{{ item.pt.heroTitleLine1 }}<br />{{ item.pt.heroTitleLine2 }}</h1>
