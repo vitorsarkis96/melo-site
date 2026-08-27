@@ -52,7 +52,7 @@
     }
   ],
   "slug": "syn",
-  "dataService": "Audiovisual,Motion",
+  "dataService": "Audiovisual Motion",
   "order": 5,
   "otherCases": [
     "brain4care",
