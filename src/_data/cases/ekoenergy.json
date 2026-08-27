@@ -3,7 +3,10 @@
   "order": 4,
   "showOnHome": true,
   "year": "2026",
-  "dataService": "estrategia marca",
+  "dataService": [
+    "estrategia",
+    "marca"
+  ],
   "cardImage": "/assets/img/ekoenergy-brand.png",
   "otherCases": [
     "aromatici",

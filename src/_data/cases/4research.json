@@ -97,7 +97,11 @@
     }
   ],
   "slug": "4research",
-  "dataService": "estrategia marca sites-sistemas",
+  "dataService": [
+    "estrategia",
+    "marca",
+    "sites-sistemas"
+  ],
   "order": 2,
   "otherCases": [
     "aromatici",

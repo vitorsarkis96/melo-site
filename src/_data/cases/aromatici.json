@@ -105,7 +105,10 @@
     }
   ],
   "slug": "aromatici",
-  "dataService": "marca sites-sistemas",
+  "dataService": [
+    "marca",
+    "sites-sistemas"
+  ],
   "order": 1,
   "otherCases": [
     "aromatici",
