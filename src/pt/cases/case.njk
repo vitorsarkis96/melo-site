@@ -67,21 +67,6 @@ eleventyComputed:
 
   {% for row in item.rowsAfterApproach %}{{ mediaRow(row) }}{% endfor %}
 
-  <!-- OUTROS CASES -->
-  <section class="section-portfolio-intro">
-    <div class="portfolio-intro-row reveal">
-      <h2>{{ i18n.pt.moreCases }}</h2>
-      <a class="btn btn-dark" href="/cases">
-        {{ i18n.pt.allCases }}
-        <img class="btn-icon" src="/assets/icons/arrow-right.svg" alt="" />
-      </a>
-    </div>
-  </section>
-
-  <div class="portfolio-grid reveal-stagger">
-    {% for otherSlug in item.otherCases %}{{ card(cases | findCase(otherSlug), "pt", "", false) }}{% endfor %}
-  </div>
-
   <!-- FAQ -->
   {% set faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": pages.home.pt.faq | faqEntities } %}
   <script type="application/ld+json">
@@ -110,3 +95,18 @@ eleventyComputed:
       </div>
     </div>
   </section>
+
+  <!-- OUTROS CASES -->
+  <section class="section-portfolio-intro">
+    <div class="portfolio-intro-row reveal">
+      <h2>{{ i18n.pt.moreCases }}</h2>
+      <a class="btn btn-dark" href="/cases">
+        {{ i18n.pt.allCases }}
+        <img class="btn-icon" src="/assets/icons/arrow-right.svg" alt="" />
+      </a>
+    </div>
+  </section>
+
+  <div class="portfolio-grid reveal-stagger">
+    {% for otherSlug in item.otherCases %}{{ card(cases | findCase(otherSlug), "pt", "", false) }}{% endfor %}
+  </div>
