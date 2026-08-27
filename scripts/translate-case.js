@@ -19,7 +19,7 @@ const path = require("path");
 const { GoogleGenAI, Type } = require("@google/genai");
 
 const CASES_DIR = path.join(__dirname, "..", "src", "_data", "cases");
-const MODEL = "gemini-flash-latest";
+const MODEL = "gemini-3.5-flash-lite";
 
 const EN_CASE_SCHEMA = {
   type: Type.OBJECT,
