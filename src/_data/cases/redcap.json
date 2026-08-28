@@ -7,14 +7,14 @@
     "estrategia",
     "marca"
   ],
-  "cardImage": "/assets/img/redcap.png",
+  "cardImage": "/assets/img/cases/red_bannerevento_REDCap.jpeg",
   "otherCases": [
     "aromatici",
     "khs"
   ],
   "heroMedia": {
     "type": "image",
-    "src": "/assets/img/cases/red-hero.jpg"
+    "src": "/assets/img/cases/red_bannerevento_REDCap.jpeg"
   },
   "rowsBeforeApproach": [
     {
@@ -35,7 +35,7 @@
       "items": [
         {
           "type": "image",
-          "src": "/assets/img/cases/red-full.jpg"
+          "src": "/assets/img/cases/red_Banner_Palestra_REDCap.jpeg"
         }
       ]
     }
@@ -65,7 +65,7 @@
       "items": [
         {
           "type": "image",
-          "src": "/assets/img/cases/red-last.jpg"
+          "src": "/assets/img/cases/red_Cartão_REDCap.jpg"
         }
       ]
     }
