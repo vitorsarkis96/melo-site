@@ -27,8 +27,8 @@ collections:
           - { label: "Endereço", name: addressLine, widget: string }
           - { label: "Link da apresentação", name: deckUrl, widget: string }
 
-  - name: pages
-    label: "Páginas do site"
+  - name: home
+    label: "Home"
     files:
       - name: home
         label: "Home"
@@ -91,6 +91,7 @@ collections:
           - label: "Conteúdo em Inglês"
             name: en
             widget: object
+            collapsed: true
             fields:
               - { label: "Título SEO", name: metaTitle, widget: string }
               - { label: "Descrição SEO", name: metaDescription, widget: text }
@@ -156,6 +157,7 @@ collections:
           - label: "Conteúdo em Português"
             name: pt
             widget: object
+            collapsed: true
             fields:
               - { label: "Título SEO", name: metaTitle, widget: string }
               - { label: "Descrição SEO", name: metaDescription, widget: text }
@@ -219,6 +221,9 @@ collections:
                   - { label: "Resposta", name: a, widget: text }
               - { label: "Rótulo \"Empresas que confiaram na Melo\" (rodapé)", name: clientsBottomLabel, widget: string }
 
+  - name: cases_page
+    label: "Página de Cases"
+    files:
       - name: cases_page
         label: "Cases (página de listagem)"
         file: "src/_data/pages/cases.json"
@@ -227,6 +232,7 @@ collections:
           - label: "Conteúdo em Inglês"
             name: en
             widget: object
+            collapsed: true
             fields:
               - { label: "Título SEO", name: metaTitle, widget: string }
               - { label: "Descrição SEO", name: metaDescription, widget: text }
@@ -240,6 +246,7 @@ collections:
           - label: "Conteúdo em Português"
             name: pt
             widget: object
+            collapsed: true
             fields:
               - { label: "Título SEO", name: metaTitle, widget: string }
               - { label: "Descrição SEO", name: metaDescription, widget: text }
@@ -250,86 +257,6 @@ collections:
               - { label: "Filtro: Sites & Sistemas", name: filterSites, widget: string }
               - { label: "Filtro: Audiovisual", name: filterAudiovisual, widget: string }
               - { label: "Mensagem de lista vazia", name: emptyState, widget: text }
-
-      - name: sobre_page
-        label: "Sobre a Melo"
-        file: "src/_data/pages/sobre.json"
-        fields:
-          - { label: "Imagem de compartilhamento (redes sociais)", name: ogImage, widget: image, media_folder: "/assets/img", public_folder: "/assets/img" }
-          - label: "Conteúdo em Inglês"
-            name: en
-            widget: object
-            fields:
-              - { label: "Título SEO", name: metaTitle, widget: string }
-              - { label: "Descrição SEO", name: metaDescription, widget: text }
-              - { label: "Título — linha 1", name: heroLine1, widget: string }
-              - { label: "Título — linha 2", name: heroLine2, widget: string }
-              - { label: "Tag \"Why Melo\"", name: whyMeloTag, widget: string }
-              - { label: "Texto de introdução", name: introStatement, widget: text }
-              - { label: "Corpo da introdução", name: introBody, widget: text }
-              - { label: "Tag \"Nossos números\"", name: numbersTag, widget: string }
-              - { label: "Valor do número grande", name: bigNumberValue, widget: string }
-              - { label: "Rótulo do número grande", name: bigNumberLabel, widget: string }
-              - { label: "Descrição dos números", name: numbersDesc, widget: text }
-              - label: "Estatísticas (3)"
-                name: stats
-                widget: list
-                fields:
-                  - { label: "Valor", name: value, widget: string }
-                  - { label: "Formato", name: format, widget: select, options: ["", thousand], required: false }
-                  - { label: "Sufixo", name: suffix, widget: string, required: false }
-                  - { label: "Rótulo", name: label, widget: string }
-                  - { label: "Descrição", name: desc, widget: text }
-                  - { label: "Destacar em laranja", name: orange, widget: boolean, default: false, required: false }
-              - { label: "Tag \"Ecossistema unificado\"", name: ecosystemTag, widget: string }
-              - { label: "Texto do ecossistema", name: ecosystemStatement, widget: text }
-              - { label: "Tag \"O que fazemos\"", name: whatWeDoTag, widget: string }
-              - label: "Serviços"
-                name: services
-                widget: list
-                fields:
-                  - { label: "Título", name: title, widget: string }
-                  - { label: "Descrição", name: desc, widget: text }
-              - { label: "Tag \"Como voamos\"", name: howTag, widget: string }
-              - { label: "Frase \"Como voamos\"", name: howStatement, widget: string }
-              - { label: "Corpo \"Como voamos\"", name: howBody, widget: text }
-          - label: "Conteúdo em Português"
-            name: pt
-            widget: object
-            fields:
-              - { label: "Título SEO", name: metaTitle, widget: string }
-              - { label: "Descrição SEO", name: metaDescription, widget: text }
-              - { label: "Título — linha 1", name: heroLine1, widget: string }
-              - { label: "Título — linha 2", name: heroLine2, widget: string }
-              - { label: "Tag \"Por que a Melo\"", name: whyMeloTag, widget: string }
-              - { label: "Texto de introdução", name: introStatement, widget: text }
-              - { label: "Corpo da introdução", name: introBody, widget: text }
-              - { label: "Tag \"Nossos números\"", name: numbersTag, widget: string }
-              - { label: "Valor do número grande", name: bigNumberValue, widget: string }
-              - { label: "Rótulo do número grande", name: bigNumberLabel, widget: string }
-              - { label: "Descrição dos números", name: numbersDesc, widget: text }
-              - label: "Estatísticas (3)"
-                name: stats
-                widget: list
-                fields:
-                  - { label: "Valor", name: value, widget: string }
-                  - { label: "Formato", name: format, widget: select, options: ["", thousand], required: false }
-                  - { label: "Sufixo", name: suffix, widget: string, required: false }
-                  - { label: "Rótulo", name: label, widget: string }
-                  - { label: "Descrição", name: desc, widget: text }
-                  - { label: "Destacar em laranja", name: orange, widget: boolean, default: false, required: false }
-              - { label: "Tag \"Ecossistema unificado\"", name: ecosystemTag, widget: string }
-              - { label: "Texto do ecossistema", name: ecosystemStatement, widget: text }
-              - { label: "Tag \"O que fazemos\"", name: whatWeDoTag, widget: string }
-              - label: "Serviços"
-                name: services
-                widget: list
-                fields:
-                  - { label: "Título", name: title, widget: string }
-                  - { label: "Descrição", name: desc, widget: text }
-              - { label: "Tag \"Como voamos\"", name: howTag, widget: string }
-              - { label: "Frase \"Como voamos\"", name: howStatement, widget: string }
-              - { label: "Corpo \"Como voamos\"", name: howBody, widget: text }
 
   - name: cases
     label: "Cases"
