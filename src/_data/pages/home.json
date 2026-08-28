@@ -4,7 +4,7 @@
     "autoplaySeconds": 3,
     "slides": [
       {
-        "case": "brain4care",
+        "case": "redcap",
         "zoom": 100,
         "focus": "center"
       },
@@ -14,12 +14,12 @@
         "focus": "center"
       },
       {
-        "case": "khs",
+        "case": "brain4care",
         "zoom": 100,
         "focus": "center"
       },
       {
-        "case": "redcap",
+        "case": "khs",
         "zoom": 100,
         "focus": "center"
       },
@@ -80,34 +80,6 @@
   "en": {
     "bigNumberFormat": "thousand",
     "tokensTag": "Melo Tokens",
-    "faqTag": "FAQ",
-    "faqHeading": "Frequently asked questions",
-    "faq": [
-      {
-        "q": "What kind of business does Melo work with?",
-        "a": "Health, tech and law businesses — companies whose credibility comes from technical or professional authority and that need a brand that matches it."
-      },
-      {
-        "q": "What's included in a brand setup with Melo?",
-        "a": "Strategy and positioning, brand (visual and verbal identity), high-end websites and systems, and full film production — all delivered 100% in-house, from initial strategy to final render."
-      },
-      {
-        "q": "How does the process work?",
-        "a": "Six steps: pain mapping, solution alignment, creation, delivery, measurement against the goal set at the start, and correction based on data."
-      },
-      {
-        "q": "Does Melo work with clients outside São Paulo?",
-        "a": "Yes. Melo is based in São Paulo and works with clients remotely, in Brazil and abroad."
-      },
-      {
-        "q": "How many projects has Melo delivered?",
-        "a": "3,000+ projects delivered and 50+ brands accelerated over 6 years in business, always produced 100% in-house."
-      },
-      {
-        "q": "Why do health, tech and law companies need a differentiated brand?",
-        "a": "Technical authority doesn't translate into market trust on its own. A well-built brand communicates, immediately, the same credibility the company already has in practice — at every touchpoint with a client."
-      }
-    ],
     "clientsBottomLabel": "Companies that trust Melo",
     "structuredDataDescription": "A creative agency that sets up brands — visual identity, high-end websites and film production — for health, tech and law businesses.",
     "showreelTitle": "Ideas in motion",
@@ -141,6 +113,7 @@
     "showreelTag": "Showreel",
     "ogImage": "/assets/img/hero-container.png",
     "aboutMeloDeckLabel": "Our deck",
+    "faqTag": "FAQ",
     "clientsTopLabel": "Companies that trust Melo",
     "atuamosTag": "How we work",
     "showreelDesc": "A selection of films, identities and visual worlds created by Melo.",
@@ -149,11 +122,38 @@
     "bigNumberLabel": "Projects delivered",
     "tokensDesc": "Cost forecasting, demand tracking, change history, briefing redirects and custom quotes — all handled inside the platform.",
     "photoHeroTitle": "IPVM - Image Capture",
+    "faqHeading": "Frequently asked questions",
     "heroHeadline": "We translate technical authority into brand authority.",
     "heroAlt": "Ekoenergy shipping container suspended in the air, representing a Melo brand project",
     "numbersTag": "Our numbers",
     "metaTitle": "Melo Creative | Brand Agency for Health, Tech & Law",
     "portfolioIntroTitle": "Ideas that took shape, motion and impact",
+    "faq": [
+      {
+        "q": "What kind of business does Melo work with?",
+        "a": "Health, tech and law businesses — companies whose credibility comes from technical or professional authority and that need a brand that matches it."
+      },
+      {
+        "q": "What's included in a brand setup with Melo?",
+        "a": "Strategy and positioning, brand (visual and verbal identity), high-end websites and systems, and full film production — all delivered 100% in-house, from initial strategy to final render."
+      },
+      {
+        "q": "How does the process work?",
+        "a": "Six steps: pain mapping, solution alignment, creation, delivery, measurement against the goal set at the start, and correction based on data."
+      },
+      {
+        "q": "Does Melo work with clients outside São Paulo?",
+        "a": "Yes. Melo is based in São Paulo and works with clients remotely, in Brazil and abroad."
+      },
+      {
+        "q": "How many projects has Melo delivered?",
+        "a": "3,000+ projects delivered and 50+ brands accelerated over 6 years in business, always produced 100% in-house."
+      },
+      {
+        "q": "Why do health, tech and law companies need a differentiated brand?",
+        "a": "Technical authority doesn't translate into market trust on its own. A well-built brand communicates, immediately, the same credibility the company already has in practice — at every touchpoint with a client."
+      }
+    ],
     "metaDescription": "Brand setup for health, tech and law businesses: visual identity, high-end websites and film production.",
     "aboutMeloMoreLabel": "More about us",
     "aboutMeloHeading": "Get to know Melo",
@@ -210,34 +210,6 @@
   "pt": {
     "bigNumberFormat": "thousand",
     "tokensTag": "Melo Tokens",
-    "faqTag": "FAQ",
-    "faqHeading": "Perguntas frequentes",
-    "faq": [
-      {
-        "q": "Para que tipo de negócio a Melo trabalha?",
-        "a": "Negócios de saúde, tecnologia e direito — empresas cuja credibilidade vem de autoridade técnica ou profissional e que precisam de uma marca à altura dessa autoridade."
-      },
-      {
-        "q": "O que está incluso no setup de marca da Melo?",
-        "a": "Estratégia e posicionamento, marca (identidade visual e verbal), sites e sistemas de alto padrão, e produção audiovisual completa — tudo 100% in-house, da estratégia inicial à renderização final."
-      },
-      {
-        "q": "Como funciona o processo de trabalho?",
-        "a": "Seis etapas: mapeamento da dor, alinhamento da solução, criação, entrega, medição do resultado contra o objetivo definido no início, e correção com base em dados."
-      },
-      {
-        "q": "A Melo atende empresas fora de São Paulo?",
-        "a": "Sim. A Melo é baseada em São Paulo e atende clientes remotamente, no Brasil e no exterior."
-      },
-      {
-        "q": "Quantos projetos a Melo já entregou?",
-        "a": "Mais de 3.000 projetos entregues e mais de 50 marcas aceleradas em 6 anos de mercado, sempre com produção 100% in-house."
-      },
-      {
-        "q": "Por que empresas de saúde, tecnologia e direito precisam de um branding diferenciado?",
-        "a": "Porque autoridade técnica não se traduz sozinha em confiança de mercado. Uma marca bem construída comunica, de forma imediata, a mesma credibilidade que a empresa já tem na prática — em cada ponto de contato com o cliente."
-      }
-    ],
     "clientsBottomLabel": "Empresas que confiaram na Melo",
     "structuredDataDescription": "Agência que faz o setup de negócio — identidade visual, sites de alto padrão e produção audiovisual — para negócios de saúde, tecnologia e direito.",
     "showreelTitle": "Ideias em movimento",
@@ -271,6 +243,7 @@
     "showreelTag": "Showreel",
     "ogImage": "/assets/img/hero-container.png",
     "aboutMeloDeckLabel": "Nossa apresentação",
+    "faqTag": "FAQ",
     "clientsTopLabel": "Empresas que confiaram na Melo",
     "atuamosTag": "Como atuamos",
     "showreelDesc": "Uma seleção de filmes, identidades e universos visuais criados pela Melo.",
@@ -279,11 +252,38 @@
     "bigNumberLabel": "Projetos entregues",
     "tokensDesc": "Previsão de custo, acompanhamento da demanda, histórico de alterações, redirecionamento de briefing e orçamentos personalizados — tudo resolvido dentro da plataforma.",
     "photoHeroTitle": "IPVM - Captação de Imagem",
+    "faqHeading": "Perguntas frequentes",
     "heroHeadline": "Traduzimos autoridade técnica em autoridade de marca.",
     "heroAlt": "Container ekoenergy suspenso, representando um projeto de marca da Melo",
     "numbersTag": "Nossos números",
     "metaTitle": "Melo Creative | Agência de Branding para Saúde, Tech e Direito",
     "portfolioIntroTitle": "Ideias que ganharam forma, movimento e impacto",
+    "faq": [
+      {
+        "q": "Para que tipo de negócio a Melo trabalha?",
+        "a": "Negócios de saúde, tecnologia e direito — empresas cuja credibilidade vem de autoridade técnica ou profissional e que precisam de uma marca à altura dessa autoridade."
+      },
+      {
+        "q": "O que está incluso no setup de marca da Melo?",
+        "a": "Estratégia e posicionamento, marca (identidade visual e verbal), sites e sistemas de alto padrão, e produção audiovisual completa — tudo 100% in-house, da estratégia inicial à renderização final."
+      },
+      {
+        "q": "Como funciona o processo de trabalho?",
+        "a": "Seis etapas: mapeamento da dor, alinhamento da solução, criação, entrega, medição do resultado contra o objetivo definido no início, e correção com base em dados."
+      },
+      {
+        "q": "A Melo atende empresas fora de São Paulo?",
+        "a": "Sim. A Melo é baseada em São Paulo e atende clientes remotamente, no Brasil e no exterior."
+      },
+      {
+        "q": "Quantos projetos a Melo já entregou?",
+        "a": "Mais de 3.000 projetos entregues e mais de 50 marcas aceleradas em 6 anos de mercado, sempre com produção 100% in-house."
+      },
+      {
+        "q": "Por que empresas de saúde, tecnologia e direito precisam de um branding diferenciado?",
+        "a": "Porque autoridade técnica não se traduz sozinha em confiança de mercado. Uma marca bem construída comunica, de forma imediata, a mesma credibilidade que a empresa já tem na prática — em cada ponto de contato com o cliente."
+      }
+    ],
     "metaDescription": "Setup de marca para negócios de saúde, tecnologia e direito: identidade visual, sites de alto padrão e produção audiovisual.",
     "aboutMeloMoreLabel": "Mais sobre nós",
     "aboutMeloHeading": "Conheça um pouco sobre a Melo",
