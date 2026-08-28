@@ -51,6 +51,7 @@
         {
           "type": "image",
           "src": "/assets/img/cases/red-3img-b.png",
+          "fit": "contain",
           "bg": "#b31921"
         },
         {
