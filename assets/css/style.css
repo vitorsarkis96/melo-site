@@ -632,6 +632,10 @@ body.menu-open {
   flex-direction: column;
   gap: 12px;
   max-width: 560px;
+  /* .hero-tokens already carries an 8px side margin + its own 56px padding
+     (like every other full-bleed card) — add the remaining offset so the
+     heading lines up with the --section-x grid used by text sections. */
+  padding-left: max(0px, calc(var(--section-x) - 8px - 56px));
 }
 .hero-tokens__heading {
   font-family: var(--font-hero);
@@ -660,6 +664,9 @@ body.menu-open {
     min-height: 480px;
     padding: 32px;
   }
+  .hero-tokens__content {
+    padding-left: max(0px, calc(var(--section-x) - 8px - 32px));
+  }
   .hero-tokens__cta {
     margin-left: 0;
   }
@@ -667,6 +674,9 @@ body.menu-open {
 @media (max-width: 520px) {
   .hero-tokens {
     padding: 24px;
+  }
+  .hero-tokens__content {
+    padding-left: max(0px, calc(var(--section-x) - 8px - 24px));
   }
   .hero-tokens__heading {
     font-size: 26px;
@@ -1192,12 +1202,6 @@ body.menu-open {
 }
 .faq-intro .btn {
   align-self: flex-start;
-  padding: 8px 16px;
-  font-size: 13px;
-}
-.faq-intro .btn .btn-icon {
-  width: 16px;
-  height: 16px;
 }
 .faq-list {
   flex: 1 1 auto;
@@ -1543,6 +1547,24 @@ body.menu-open {
   .service-title {
     font-size: 36px;
   }
+  /* No real hover on touch devices, so the CTA can never cross-fade in —
+     stack description and CTA in normal flow instead of the desktop's
+     overlapping grid cell. */
+  .service-aside {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: none;
+  }
+  .service-desc,
+  .service-row__cta {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+  .service-row__cta {
+    align-self: flex-start;
+  }
   .portfolio-grid {
     grid-template-columns: 1fr;
   }
@@ -1577,7 +1599,7 @@ body.menu-open {
     font-size: 30px;
   }
   .showreel-frame {
-    min-height: 420px;
+    min-height: 480px;
     border-radius: var(--radius-md);
   }
   .stats-row {
