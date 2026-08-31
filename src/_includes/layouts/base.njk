@@ -124,6 +124,14 @@
 
 </main>
 
+<div class="video-modal" id="video-modal" aria-hidden="true">
+  <div class="video-modal__backdrop" data-video-modal-close></div>
+  <div class="video-modal__dialog" role="dialog" aria-modal="true">
+    <button type="button" class="video-modal__close" data-video-modal-close aria-label="{{ t.navCloseMenu }}">✕</button>
+    <div class="video-modal__frame"></div>
+  </div>
+</div>
+
 <script src="/assets/js/main.js" defer></script>
 </body>
 </html>

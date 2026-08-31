@@ -264,4 +264,49 @@
       });
     });
   }
+
+  /* ---------------- Video lightbox (showreel play button, etc.) ---------------- */
+  const videoModal = document.getElementById("video-modal");
+  const videoTriggers = document.querySelectorAll("[data-video-id]");
+  if (videoModal && videoTriggers.length) {
+    const frame = videoModal.querySelector(".video-modal__frame");
+    let lastFocused = null;
+
+    const openVideo = (id) => {
+      lastFocused = document.activeElement;
+      const iframe = document.createElement("iframe");
+      iframe.src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
+      iframe.title = "YouTube video player";
+      iframe.setAttribute("allow", "autoplay; encrypted-media; fullscreen; picture-in-picture");
+      iframe.setAttribute("allowfullscreen", "");
+      frame.appendChild(iframe);
+      videoModal.classList.add("is-open");
+      videoModal.setAttribute("aria-hidden", "false");
+      body.classList.add("menu-open");
+      videoModal.querySelector(".video-modal__close").focus();
+    };
+
+    const closeVideo = () => {
+      videoModal.classList.remove("is-open");
+      videoModal.setAttribute("aria-hidden", "true");
+      body.classList.remove("menu-open");
+      frame.innerHTML = "";
+      if (lastFocused) lastFocused.focus();
+    };
+
+    videoTriggers.forEach((trigger) => {
+      trigger.addEventListener("click", () => {
+        const id = trigger.dataset.videoId;
+        if (id) openVideo(id);
+      });
+    });
+
+    videoModal.querySelectorAll("[data-video-modal-close]").forEach((el) => {
+      el.addEventListener("click", closeVideo);
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && videoModal.classList.contains("is-open")) closeVideo();
+    });
+  }
 })();

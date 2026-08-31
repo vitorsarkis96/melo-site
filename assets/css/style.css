@@ -489,17 +489,126 @@ body.menu-open {
   position: relative;
   overflow: hidden;
   width: 100%;
-  max-width: 780px;
-  margin: 0 auto;
   aspect-ratio: 16 / 9;
   border-radius: var(--radius-lg);
   background: #000;
 }
-.showreel-frame iframe {
-  display: block;
+.showreel-play {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+}
+.showreel-thumb {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s var(--ease);
+}
+.showreel-play:hover .showreel-thumb {
+  transform: scale(1.03);
+}
+.showreel-play::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  transition: background-color 0.25s var(--ease);
+}
+.showreel-play:hover::after {
+  background: rgba(0, 0, 0, 0.35);
+}
+.showreel-play__icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  background: var(--orange-600);
+  color: var(--pure-white);
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 0.25s var(--ease), background-color 0.25s var(--ease);
+}
+.showreel-play:hover .showreel-play__icon {
+  background: var(--orange-500);
+  transform: translate(-50%, -50%) scale(1.08);
+}
+.showreel-play__icon svg {
+  width: 32px;
+  height: 32px;
+  margin-left: 4px;
+}
+
+/* Video lightbox (showreel + anywhere else a play button opens one) */
+.video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s var(--ease);
+}
+.video-modal.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.video-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.85);
+}
+.video-modal__dialog {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+}
+.video-modal__frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.video-modal__frame iframe {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   border: 0;
+}
+.video-modal__close {
+  position: absolute;
+  top: -48px;
+  right: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--pure-white);
+  font-size: 18px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.1);
+  transition: background-color 0.2s var(--ease), transform 0.2s var(--ease);
+}
+.video-modal__close:hover {
+  background: var(--orange-600);
+  transform: rotate(90deg);
 }
 
 /* Melo Tokens product showcase */
