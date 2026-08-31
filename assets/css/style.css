@@ -795,7 +795,6 @@ body.menu-open {
 /* Description and CTA occupy the same grid cell so hover cross-fades
    between them instead of reflowing the row. */
 .service-aside {
-  position: relative;
   display: grid;
   align-items: start;
   flex: 1 0 260px;
@@ -1563,7 +1562,7 @@ body.menu-open {
     pointer-events: auto;
   }
   .service-row__cta {
-    align-self: flex-start;
+    align-self: center;
   }
   .portfolio-grid {
     grid-template-columns: 1fr;
