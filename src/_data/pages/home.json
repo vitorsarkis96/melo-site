@@ -70,13 +70,6 @@
       "altPt": "Cliente"
     }
   ],
-  "staticCard": {
-    "image": "/assets/img/hendrik.png",
-    "titleEn": "Hendrik – E-commerce",
-    "descEn": "Online store for a men's grooming brand, from catalog to checkout.",
-    "titlePt": "Hendrik - E-commerce",
-    "descPt": "Loja online para marca de cuidados masculinos, do catálogo ao checkout."
-  },
   "en": {
     "bigNumberFormat": "thousand",
     "tokensTag": "Melo Tokens",

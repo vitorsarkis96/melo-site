@@ -1539,8 +1539,14 @@ body.menu-open {
     transform: none;
     pointer-events: auto;
   }
+  /* One CTA total on mobile (not one per row) — only the last row shows
+     it, left-aligned under the title instead of centered. */
   .service-row__cta {
-    align-self: center;
+    display: none;
+  }
+  .service-row:last-child .service-row__cta {
+    display: inline-flex;
+    align-self: flex-start;
   }
   .portfolio-grid {
     grid-template-columns: 1fr;

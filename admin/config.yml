@@ -79,15 +79,6 @@ collections:
               - { label: "Imagem do logo", name: src, widget: image, media_folder: "/assets/img", public_folder: "/assets/img" }
               - { label: "Texto alternativo (Inglês)", name: altEn, widget: string }
               - { label: "Texto alternativo (Português)", name: altPt, widget: string }
-          - label: "Card extra na grade (sem página própria, ex: Hendrik)"
-            name: staticCard
-            widget: object
-            fields:
-              - { label: "Imagem", name: image, widget: image, media_folder: "/assets/img", public_folder: "/assets/img" }
-              - { label: "Título (EN)", name: titleEn, widget: string }
-              - { label: "Descrição (EN)", name: descEn, widget: string }
-              - { label: "Título (PT)", name: titlePt, widget: string }
-              - { label: "Descrição (PT)", name: descPt, widget: string }
           - label: "Conteúdo em Inglês"
             name: en
             widget: object
