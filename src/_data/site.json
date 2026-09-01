@@ -10,7 +10,7 @@
   "deckUrl": "https://docs.google.com/presentation/d/1q0o3U_eNsmxTG9srh92pAK9z658Z1kcd_49tvSL2IG4/edit?slide=id.g3e167f52185_0_108#slide=id.g3e167f52185_0_108",
   "formspreeId": "xoeqdawz",
   "newsletterPopup": {
-    "enabled": true,
+    "enabled": false,
     "delaySeconds": 6,
     "pt": {
       "title": "Fique por dentro",
