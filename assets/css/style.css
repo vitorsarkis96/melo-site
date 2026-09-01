@@ -1900,11 +1900,15 @@ body.menu-open {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 100px 120px;
+  display: flex;
+  align-items: flex-start;
+  gap: 64px;
 }
 .contact-form {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  flex: 1 1 680px;
   max-width: 680px;
 }
 .contact-form label {
@@ -1961,14 +1965,39 @@ body.menu-open {
 .contact-form__status[data-state="error"] {
   color: #c0392b;
 }
+.contact-whatsapp {
+  flex: 1 1 300px;
+  padding: 32px;
+  background: var(--gray-50);
+  border-radius: var(--radius-lg);
+}
+.contact-whatsapp h2 {
+  font-family: var(--font-hero);
+  font-weight: 500;
+  font-size: 22px;
+  letter-spacing: -0.44px;
+  color: var(--gray-800);
+  margin-bottom: 8px;
+}
+.contact-whatsapp p {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--gray-600);
+  margin-bottom: 24px;
+}
 
 @media (max-width: 900px) {
   .contact-form-section {
     padding: 0 24px 64px;
+    flex-direction: column;
+    gap: 40px;
   }
   .contact-form__row {
     grid-template-columns: 1fr;
     gap: 16px;
+  }
+  .contact-whatsapp {
+    width: 100%;
   }
 }
 

@@ -306,6 +306,9 @@ collections:
               - { label: "Título de sucesso (não usado visualmente, reservado)", name: successTitle, widget: string, required: false }
               - { label: "Mensagem de sucesso", name: successMessage, widget: text }
               - { label: "Mensagem de erro", name: errorMessage, widget: text }
+              - { label: "Título do bloco de WhatsApp", name: whatsappTitle, widget: string }
+              - { label: "Descrição do bloco de WhatsApp", name: whatsappDesc, widget: text }
+              - { label: "Texto do botão do WhatsApp", name: whatsappCta, widget: string }
           - label: "Conteúdo em Português"
             name: pt
             widget: object
@@ -323,6 +326,9 @@ collections:
               - { label: "Título de sucesso (não usado visualmente, reservado)", name: successTitle, widget: string, required: false }
               - { label: "Mensagem de sucesso", name: successMessage, widget: text }
               - { label: "Mensagem de erro", name: errorMessage, widget: text }
+              - { label: "Título do bloco de WhatsApp", name: whatsappTitle, widget: string }
+              - { label: "Descrição do bloco de WhatsApp", name: whatsappDesc, widget: text }
+              - { label: "Texto do botão do WhatsApp", name: whatsappCta, widget: string }
 
   - name: cases
     label: "Cases"
