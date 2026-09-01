@@ -460,34 +460,6 @@ body.menu-open {
 .showreel-section {
   margin: 72px 8px 80px;
 }
-.showreel-intro {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 48px;
-  margin-bottom: 48px;
-  /* .showreel-section already carries an 8px side margin (to match the
-     hero images' edge-to-edge treatment) — subtract it here so the tag
-     lines up with every other section's --section-x grid, not 8px past it. */
-  padding: 0 calc(var(--section-x) - 8px);
-}
-.showreel-copy {
-  max-width: 620px;
-}
-.showreel-copy h2 {
-  font-family: var(--font-hero);
-  font-size: 32px;
-  font-weight: 500;
-  line-height: 1.2;
-  letter-spacing: -0.6px;
-  margin-bottom: 12px;
-}
-.showreel-copy p {
-  color: var(--gray-500);
-  font-size: 16px;
-  line-height: 1.5;
-  max-width: 520px;
-}
 .showreel-frame {
   position: relative;
   overflow: hidden;
@@ -1581,15 +1553,6 @@ body.menu-open {
   }
   .showreel-section {
     margin: 56px 8px 24px;
-  }
-  .showreel-intro {
-    flex-direction: column;
-    gap: 20px;
-    margin-bottom: 32px;
-    padding: 0 calc(var(--section-x) - 8px);
-  }
-  .showreel-copy h2 {
-    font-size: 28px;
   }
   .hero-wrap .hero-card {
     height: calc(100vh - 72px);
