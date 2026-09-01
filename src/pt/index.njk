@@ -63,15 +63,6 @@ eleventyComputed:
     </div>
   </section>
 
-  <!-- PHOTO HERO -->
-  <section class="hero-card hero-photo">
-    <img class="card-bg" src="{{ pages.home.photoHeroImage }}" alt="{{ h.photoHeroAlt }}" loading="lazy" />
-    <div class="project-label reveal">
-      <p class="title">{{ h.photoHeroTitle }}</p>
-      <p class="desc">{{ h.photoHeroDesc }}</p>
-    </div>
-  </section>
-
   <!-- SHOWREEL -->
   <section class="showreel-section reveal">
     <div class="showreel-intro">
@@ -119,6 +110,15 @@ eleventyComputed:
         </div>
       </div>
       {% endfor %}
+    </div>
+  </section>
+
+  <!-- PHOTO HERO -->
+  <section class="hero-card hero-photo">
+    <img class="card-bg" src="{{ pages.home.photoHeroImage }}" alt="{{ h.photoHeroAlt }}" loading="lazy" />
+    <div class="project-label reveal">
+      <p class="title">{{ h.photoHeroTitle }}</p>
+      <p class="desc">{{ h.photoHeroDesc }}</p>
     </div>
   </section>
 
