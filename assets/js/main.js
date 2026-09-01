@@ -246,6 +246,26 @@
     sections.forEach((sec) => navObserver.observe(sec));
   }
 
+  /* ---------------- Defer non-active hero carousel slides ----------------
+     All slides sit in the same on-screen box (only opacity differs), so
+     native loading="lazy" doesn't defer them — the browser still fetches
+     every slide's image immediately, competing with the actual LCP image
+     for bandwidth. Load them only after the page has otherwise settled. */
+  const deferredHeroImgs = document.querySelectorAll(".hero-slide img[data-src]");
+  if (deferredHeroImgs.length) {
+    const loadDeferredHeroImgs = () => {
+      deferredHeroImgs.forEach((img) => {
+        img.src = img.dataset.src;
+        img.removeAttribute("data-src");
+      });
+    };
+    if (document.readyState === "complete") {
+      loadDeferredHeroImgs();
+    } else {
+      window.addEventListener("load", loadDeferredHeroImgs, { once: true });
+    }
+  }
+
   /* ---------------- Hero carousel (featured cases in the main banner) ---------------- */
   document.querySelectorAll(".hero-carousel").forEach((carousel) => {
     const slides = carousel.querySelectorAll(".hero-slide");

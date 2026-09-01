@@ -24,7 +24,11 @@ eleventyComputed:
       {% if heroSlides.length %}
       {% for slide in heroSlides %}
       <a class="hero-slide{% if loop.first %} is-active{% endif %}" href="{{ '/en/' + slide.caseData.slug }}" aria-label="{{ slide.caseData.en.cardTitle }}">
-        <img class="card-bg" src="{{ slide.caseData.heroMedia.src }}" alt="{{ slide.caseData.en.cardTitle }}" loading="{{ 'eager' if loop.first else 'lazy' }}" style="--hero-zoom: {{ (slide.zoom | default(100)) / 100 }}; --hero-focus-y: {{ slide.focus | default('center') }};" />
+        {% if loop.first %}
+        <img class="card-bg" src="{{ slide.caseData.heroMedia.src }}" alt="{{ slide.caseData.en.cardTitle }}" loading="eager" style="--hero-zoom: {{ (slide.zoom | default(100)) / 100 }}; --hero-focus-y: {{ slide.focus | default('center') }};" />
+        {% else %}
+        <img class="card-bg" data-src="{{ slide.caseData.heroMedia.src }}" alt="{{ slide.caseData.en.cardTitle }}" style="--hero-zoom: {{ (slide.zoom | default(100)) / 100 }}; --hero-focus-y: {{ slide.focus | default('center') }};" />
+        {% endif %}
       </a>
       {% endfor %}
       {% else %}
