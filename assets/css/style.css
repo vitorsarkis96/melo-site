@@ -796,7 +796,7 @@ body.menu-open {
    between them instead of reflowing the row. */
 .service-aside {
   display: grid;
-  align-items: start;
+  align-items: center;
   flex: 1 0 260px;
   max-width: 335px;
 }
