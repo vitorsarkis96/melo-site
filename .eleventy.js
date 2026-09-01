@@ -54,6 +54,27 @@ module.exports = function (eleventyConfig) {
     return value;
   });
 
+  // Images with a hand-generated "-mobile" variant on disk (always
+  // 800px wide) plus the full-size file's own pixel width, so the
+  // srcset width descriptors are accurate. Only these get a srcset —
+  // everything else keeps a plain src, so we never reference a mobile
+  // file that doesn't exist.
+  const MOBILE_IMAGE_VARIANTS = {
+    "/assets/img/cases/4RESEARCH_BILLBOARDRUA.jpg": 2000,
+    "/assets/img/cases/brain4care_dublin.png": 1200,
+    "/assets/img/cases/red_bannerevento_REDCap.jpeg": 2000,
+    "/assets/img/ekoenergy-brand.png": 1400,
+    "/assets/img/syn_thumb.jpg": 2000,
+    "/assets/img/photographer.png": 1024,
+  };
+  eleventyConfig.addFilter("imgSrcset", function (src) {
+    const fullWidth = MOBILE_IMAGE_VARIANTS[src];
+    if (!src || !fullWidth) return null;
+    const lastDot = src.lastIndexOf(".");
+    const mobileSrc = `${src.slice(0, lastDot)}-mobile${src.slice(lastDot)}`;
+    return `${mobileSrc} 800w, ${src} ${fullWidth}w`;
+  });
+
   return {
     dir: {
       input: "src",
