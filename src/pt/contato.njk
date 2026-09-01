@@ -1,0 +1,49 @@
+---
+permalink: "contato.html"
+layout: layouts/base.njk
+lang: pt
+slug: contato
+isHome: false
+ogType: website
+eleventyComputed:
+  metaTitle: "{{ pages.contact.pt.metaTitle }}"
+  metaDescription: "{{ pages.contact.pt.metaDescription }}"
+  ogImage: "{{ pages.contact.ogImage }}"
+---
+{% set h = pages.contact.pt %}
+  <section class="case-hero-header reveal">
+    <div>
+      <h1>{{ h.heroTitle }}</h1>
+      <p class="contact-hero-desc">{{ h.heroDesc }}</p>
+    </div>
+  </section>
+
+  <section class="contact-form-section reveal">
+    <form class="contact-form" action="https://formspree.io/f/{{ site.formspreeId }}" method="POST" data-contact-form data-success-message="{{ h.successMessage }}" data-error-message="{{ h.errorMessage }}">
+      <input type="hidden" name="_cc" value="{{ site.email }}" />
+      <input type="text" name="_gotcha" class="contact-form__honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
+      <div class="contact-form__row">
+        <label>
+          <span>{{ h.labelName }}</span>
+          <input type="text" name="name" required />
+        </label>
+        <label>
+          <span>{{ h.labelEmail }}</span>
+          <input type="email" name="email" required />
+        </label>
+      </div>
+      <label>
+        <span>{{ h.labelPhone }}</span>
+        <input type="tel" name="phone" />
+      </label>
+      <label>
+        <span>{{ h.labelMessage }}</span>
+        <textarea name="message" rows="6" required></textarea>
+      </label>
+      <button type="submit" class="btn btn-orange btn-lg contact-form__submit">
+        {{ h.submitLabel }}
+        <img class="btn-icon" src="/assets/icons/arrow-right.svg" alt="" />
+      </button>
+      <p class="contact-form__status" data-contact-status role="status" aria-live="polite"></p>
+    </form>
+  </section>

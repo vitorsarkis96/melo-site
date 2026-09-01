@@ -40,6 +40,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/css/style.css" />
+<script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
 
@@ -131,6 +132,24 @@
     <div class="video-modal__frame"></div>
   </div>
 </div>
+
+{% if site.newsletterPopup.enabled %}
+{% set popup = site.newsletterPopup[lang] %}
+<div class="newsletter-popup" id="newsletter-popup" aria-hidden="true" data-delay-seconds="{{ site.newsletterPopup.delaySeconds | default(6) }}">
+  <div class="newsletter-popup__backdrop" data-newsletter-close></div>
+  <div class="newsletter-popup__dialog" role="dialog" aria-modal="true" aria-labelledby="newsletter-popup-title">
+    <button type="button" class="newsletter-popup__close" data-newsletter-close aria-label="{{ popup.dismissAria }}">✕</button>
+    <img class="newsletter-popup__mark" src="/assets/icons/melo-mark-small.svg" alt="" />
+    <h2 id="newsletter-popup-title">{{ popup.title }}</h2>
+    <p>{{ popup.desc }}</p>
+    <form class="newsletter-popup__form" data-newsletter-form data-success-message="{{ popup.successMessage }}" data-error-message="{{ popup.errorMessage }}">
+      <input type="email" name="email" placeholder="{{ popup.placeholder }}" required />
+      <button type="submit" class="btn btn-orange">{{ popup.submitLabel }}</button>
+    </form>
+    <p class="newsletter-popup__status" data-newsletter-status role="status" aria-live="polite"></p>
+  </div>
+</div>
+{% endif %}
 
 <script src="/assets/js/main.js" defer></script>
 </body>

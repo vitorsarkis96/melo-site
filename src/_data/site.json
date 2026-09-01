@@ -7,5 +7,28 @@
   "email": "contato@melocreative.com.br",
   "phone": "+55 11 95438-7151",
   "addressLine": "Rua Conde do Pinhal 8 - Liberdade - São Paulo - SP",
-  "deckUrl": "https://docs.google.com/presentation/d/1q0o3U_eNsmxTG9srh92pAK9z658Z1kcd_49tvSL2IG4/edit?slide=id.g3e167f52185_0_108#slide=id.g3e167f52185_0_108"
+  "deckUrl": "https://docs.google.com/presentation/d/1q0o3U_eNsmxTG9srh92pAK9z658Z1kcd_49tvSL2IG4/edit?slide=id.g3e167f52185_0_108#slide=id.g3e167f52185_0_108",
+  "formspreeId": "xoeqdawz",
+  "newsletterPopup": {
+    "enabled": true,
+    "delaySeconds": 6,
+    "pt": {
+      "title": "Fique por dentro",
+      "desc": "Receba estudos de caso, novidades e insights de marca direto no seu e-mail.",
+      "placeholder": "Seu e-mail",
+      "submitLabel": "Inscrever",
+      "successMessage": "Prontinho! Você já está na nossa lista.",
+      "errorMessage": "Não foi possível concluir sua inscrição. Tente novamente.",
+      "dismissAria": "Fechar"
+    },
+    "en": {
+      "title": "Stay in the loop",
+      "desc": "Get case studies, news and brand insights straight to your inbox.",
+      "placeholder": "Your email",
+      "submitLabel": "Subscribe",
+      "successMessage": "You're in! Thanks for subscribing.",
+      "errorMessage": "Couldn't complete your subscription. Please try again.",
+      "dismissAria": "Close"
+    }
+  }
 }

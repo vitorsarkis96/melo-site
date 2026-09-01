@@ -1,0 +1,31 @@
+{
+  "ogImage": "/assets/img/aromatici.png",
+  "en": {
+    "metaTitle": "Contact | Melo Creative",
+    "metaDescription": "Get in touch with Melo Creative — tell us about your project and we'll get back to you.",
+    "heroTitle": "Let's talk",
+    "heroDesc": "Tell us a bit about your project and we'll get back to you shortly.",
+    "labelName": "Name",
+    "labelEmail": "Email",
+    "labelPhone": "Phone (optional)",
+    "labelMessage": "Message",
+    "submitLabel": "Send message",
+    "successTitle": "Message sent",
+    "successMessage": "Thanks for reaching out — we'll reply as soon as possible.",
+    "errorMessage": "Something went wrong sending your message. Please try again or email us directly."
+  },
+  "pt": {
+    "metaTitle": "Contato | Melo",
+    "metaDescription": "Fale com a Melo Creative — conte um pouco sobre seu projeto e retornaremos em breve.",
+    "heroTitle": "Vamos conversar",
+    "heroDesc": "Conte um pouco sobre o seu projeto que retornamos em breve.",
+    "labelName": "Nome",
+    "labelEmail": "E-mail",
+    "labelPhone": "Telefone (opcional)",
+    "labelMessage": "Mensagem",
+    "submitLabel": "Enviar mensagem",
+    "successTitle": "Mensagem enviada",
+    "successMessage": "Obrigado pelo contato — responderemos o quanto antes.",
+    "errorMessage": "Não foi possível enviar sua mensagem. Tente novamente ou nos escreva diretamente por e-mail."
+  }
+}

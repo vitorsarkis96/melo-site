@@ -1885,3 +1885,204 @@ body.menu-open {
     font-size: 30px;
   }
 }
+
+/* ============================================================
+   SECTION: contact page
+   ============================================================ */
+.contact-hero-desc {
+  margin-top: 16px;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--gray-600);
+  max-width: 520px;
+}
+.contact-form-section {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 100px 120px;
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 680px;
+}
+.contact-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--gray-800);
+}
+.contact-form input,
+.contact-form textarea {
+  font-family: var(--font-text);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--gray-800);
+  background: var(--white);
+  border: 1px solid var(--gray-300);
+  border-radius: 12px;
+  padding: 14px 16px;
+  transition: border-color 0.2s var(--ease);
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--orange-600);
+}
+.contact-form textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+.contact-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.contact-form__honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+.contact-form__submit {
+  align-self: flex-start;
+}
+.contact-form__status {
+  font-size: 14px;
+  min-height: 20px;
+}
+.contact-form__status[data-state="success"] {
+  color: #1a7f37;
+}
+.contact-form__status[data-state="error"] {
+  color: #c0392b;
+}
+
+@media (max-width: 900px) {
+  .contact-form-section {
+    padding: 0 24px 64px;
+  }
+  .contact-form__row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+/* ============================================================
+   SECTION: newsletter popup
+   ============================================================ */
+.newsletter-popup {
+  position: fixed;
+  inset: 0;
+  z-index: 400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s var(--ease);
+}
+.newsletter-popup.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+.newsletter-popup__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 10, 0.6);
+}
+.newsletter-popup__dialog {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  text-align: center;
+  transform: translateY(12px) scale(0.98);
+  transition: transform 0.3s var(--ease);
+}
+.newsletter-popup.is-open .newsletter-popup__dialog {
+  transform: none;
+}
+.newsletter-popup__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-600);
+  border-radius: var(--radius-pill);
+  background: var(--gray-50);
+  transition: background-color 0.2s var(--ease), color 0.2s var(--ease);
+}
+.newsletter-popup__close:hover {
+  background: var(--gray-200);
+  color: var(--gray-800);
+}
+.newsletter-popup__mark {
+  width: 32px;
+  height: 32px;
+  margin: 0 auto 16px;
+}
+.newsletter-popup__dialog h2 {
+  font-family: var(--font-hero);
+  font-weight: 500;
+  font-size: 24px;
+  letter-spacing: -0.48px;
+  color: var(--gray-800);
+  margin-bottom: 8px;
+}
+.newsletter-popup__dialog p {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--gray-600);
+}
+.newsletter-popup__form {
+  display: flex;
+  gap: 8px;
+  margin-top: 24px;
+}
+.newsletter-popup__form input {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-text);
+  font-size: 14px;
+  color: var(--gray-800);
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius-pill);
+  padding: 12px 18px;
+  transition: border-color 0.2s var(--ease);
+}
+.newsletter-popup__form input:focus {
+  outline: none;
+  border-color: var(--orange-600);
+}
+.newsletter-popup__status {
+  margin-top: 12px;
+  font-size: 13px;
+  min-height: 18px;
+}
+.newsletter-popup__status[data-state="success"] {
+  color: #1a7f37;
+}
+.newsletter-popup__status[data-state="error"] {
+  color: #c0392b;
+}
+
+@media (max-width: 520px) {
+  .newsletter-popup__dialog {
+    padding: 32px 24px;
+  }
+  .newsletter-popup__form {
+    flex-direction: column;
+  }
+}

@@ -309,4 +309,136 @@
       if (e.key === "Escape" && videoModal.classList.contains("is-open")) closeVideo();
     });
   }
+
+  /* ---------------- Contact form (AJAX submit to Formspree) ---------------- */
+  const contactForm = document.querySelector("[data-contact-form]");
+  if (contactForm) {
+    const status = contactForm.querySelector("[data-contact-status]");
+    const submitBtn = contactForm.querySelector(".contact-form__submit");
+
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      if (submitBtn) submitBtn.disabled = true;
+      if (status) {
+        status.textContent = "";
+        status.removeAttribute("data-state");
+      }
+
+      fetch(contactForm.action, {
+        method: "POST",
+        body: new FormData(contactForm),
+        headers: { Accept: "application/json" },
+      })
+        .then((response) => {
+          if (response.ok) {
+            if (status) {
+              status.textContent = contactForm.dataset.successMessage || "";
+              status.setAttribute("data-state", "success");
+            }
+            contactForm.reset();
+          } else {
+            throw new Error("Form submission failed");
+          }
+        })
+        .catch(() => {
+          if (status) {
+            status.textContent = contactForm.dataset.errorMessage || "";
+            status.setAttribute("data-state", "error");
+          }
+        })
+        .finally(() => {
+          if (submitBtn) submitBtn.disabled = false;
+        });
+    });
+  }
+
+  /* ---------------- Newsletter popup (delayed, dismissible, RD Station) ---------------- */
+  const newsletterPopup = document.getElementById("newsletter-popup");
+  if (newsletterPopup) {
+    const STORAGE_KEY = "melo_newsletter_seen";
+    const dialog = newsletterPopup.querySelector(".newsletter-popup__dialog");
+    const form = newsletterPopup.querySelector("[data-newsletter-form]");
+    const status = newsletterPopup.querySelector("[data-newsletter-status]");
+    let lastFocused = null;
+
+    const alreadySeen = () => {
+      try {
+        return !!localStorage.getItem(STORAGE_KEY);
+      } catch (err) {
+        return false;
+      }
+    };
+    const markSeen = () => {
+      try {
+        localStorage.setItem(STORAGE_KEY, "1");
+      } catch (err) {
+        /* private browsing / storage disabled — popup may reappear, non-critical */
+      }
+    };
+
+    const openPopup = () => {
+      lastFocused = document.activeElement;
+      newsletterPopup.classList.add("is-open");
+      newsletterPopup.setAttribute("aria-hidden", "false");
+      const closeBtn = newsletterPopup.querySelector(".newsletter-popup__close");
+      if (closeBtn) closeBtn.focus();
+    };
+    const closePopup = () => {
+      newsletterPopup.classList.remove("is-open");
+      newsletterPopup.setAttribute("aria-hidden", "true");
+      markSeen();
+      if (lastFocused) lastFocused.focus();
+    };
+
+    if (!alreadySeen()) {
+      const delay = (parseFloat(newsletterPopup.dataset.delaySeconds) || 6) * 1000;
+      setTimeout(() => {
+        if (!alreadySeen()) openPopup();
+      }, delay);
+    }
+
+    newsletterPopup.querySelectorAll("[data-newsletter-close]").forEach((el) => {
+      el.addEventListener("click", closePopup);
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && newsletterPopup.classList.contains("is-open")) closePopup();
+    });
+
+    if (form) {
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const submitBtn = form.querySelector("button[type=submit]");
+        if (submitBtn) submitBtn.disabled = true;
+        if (status) {
+          status.textContent = "";
+          status.removeAttribute("data-state");
+        }
+
+        fetch("/api/newsletter", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email: new FormData(form).get("email") }),
+        })
+          .then((response) => {
+            if (!response.ok) throw new Error("Newsletter signup failed");
+            if (status) {
+              status.textContent = form.dataset.successMessage || "";
+              status.setAttribute("data-state", "success");
+            }
+            markSeen();
+            form.reset();
+            setTimeout(closePopup, 1800);
+          })
+          .catch(() => {
+            if (status) {
+              status.textContent = form.dataset.errorMessage || "";
+              status.setAttribute("data-state", "error");
+            }
+          })
+          .finally(() => {
+            if (submitBtn) submitBtn.disabled = false;
+          });
+      });
+    }
+  }
 })();
