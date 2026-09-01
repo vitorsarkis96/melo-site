@@ -162,9 +162,7 @@ eleventyComputed:
 
   <!-- MELO TOKENS -->
   <section class="hero-card hero-tokens">
-    <video class="card-bg" autoplay muted loop playsinline>
-      <source src="/assets/video/melo-tokens.mp4" type="video/mp4" />
-    </video>
+    <video class="card-bg" muted loop playsinline preload="none" data-lazy-video data-src="/assets/video/melo-tokens.mp4"></video>
     <div class="hero-tokens__content reveal">
       <div class="tag">
         <span class="tag-text">{{ h.tokensTag }}</span>

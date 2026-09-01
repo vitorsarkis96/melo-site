@@ -593,6 +593,9 @@ body.menu-open {
   margin: 4px 8px 8px;
   flex-wrap: wrap;
   gap: 24px;
+  /* Fallback while the lazy-loaded background video is still fetching,
+     so the section reads as a dark card instead of flashing white. */
+  background: var(--gray-900);
 }
 .hero-tokens::after {
   background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, 0.82) 100%);
