@@ -26,6 +26,38 @@ collections:
           - { label: "Telefone", name: phone, widget: string }
           - { label: "Endereço", name: addressLine, widget: string }
           - { label: "Link da apresentação", name: deckUrl, widget: string }
+          - { label: "ID do formulário de contato (Formspree)", name: formspreeId, widget: string, hint: "Só o código depois de formspree.io/f/ — ex: xyzabcde. Sem isso o formulário de contato não envia e-mail." }
+          - label: "Pop-up de newsletter"
+            name: newsletterPopup
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Ativado", name: enabled, widget: boolean, default: true }
+              - { label: "Aparece depois de quantos segundos", name: delaySeconds, widget: number, value_type: int, min: 1, max: 60, default: 6 }
+              - label: "Inglês"
+                name: en
+                widget: object
+                collapsed: true
+                fields:
+                  - { label: "Título", name: title, widget: string }
+                  - { label: "Descrição", name: desc, widget: text }
+                  - { label: "Placeholder do campo de e-mail", name: placeholder, widget: string }
+                  - { label: "Texto do botão", name: submitLabel, widget: string }
+                  - { label: "Mensagem de sucesso", name: successMessage, widget: string }
+                  - { label: "Mensagem de erro", name: errorMessage, widget: string }
+                  - { label: "Texto alternativo do botão fechar", name: dismissAria, widget: string }
+              - label: "Português"
+                name: pt
+                widget: object
+                collapsed: true
+                fields:
+                  - { label: "Título", name: title, widget: string }
+                  - { label: "Descrição", name: desc, widget: text }
+                  - { label: "Placeholder do campo de e-mail", name: placeholder, widget: string }
+                  - { label: "Texto do botão", name: submitLabel, widget: string }
+                  - { label: "Mensagem de sucesso", name: successMessage, widget: string }
+                  - { label: "Mensagem de erro", name: errorMessage, widget: string }
+                  - { label: "Texto alternativo do botão fechar", name: dismissAria, widget: string }
 
   - name: home
     label: "Home"
@@ -248,6 +280,49 @@ collections:
               - { label: "Filtro: Sites & Sistemas", name: filterSites, widget: string }
               - { label: "Filtro: Audiovisual", name: filterAudiovisual, widget: string }
               - { label: "Mensagem de lista vazia", name: emptyState, widget: text }
+
+  - name: contact_page
+    label: "Página de Contato"
+    files:
+      - name: contact_page
+        label: "Contato"
+        file: "src/_data/pages/contact.json"
+        fields:
+          - { label: "Imagem de compartilhamento (redes sociais)", name: ogImage, widget: image, media_folder: "/assets/img", public_folder: "/assets/img" }
+          - label: "Conteúdo em Inglês"
+            name: en
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Título SEO", name: metaTitle, widget: string }
+              - { label: "Descrição SEO", name: metaDescription, widget: text }
+              - { label: "Título da página", name: heroTitle, widget: string }
+              - { label: "Descrição da página", name: heroDesc, widget: text }
+              - { label: "Rótulo do campo Nome", name: labelName, widget: string }
+              - { label: "Rótulo do campo E-mail", name: labelEmail, widget: string }
+              - { label: "Rótulo do campo Telefone", name: labelPhone, widget: string }
+              - { label: "Rótulo do campo Mensagem", name: labelMessage, widget: string }
+              - { label: "Texto do botão de envio", name: submitLabel, widget: string }
+              - { label: "Título de sucesso (não usado visualmente, reservado)", name: successTitle, widget: string, required: false }
+              - { label: "Mensagem de sucesso", name: successMessage, widget: text }
+              - { label: "Mensagem de erro", name: errorMessage, widget: text }
+          - label: "Conteúdo em Português"
+            name: pt
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Título SEO", name: metaTitle, widget: string }
+              - { label: "Descrição SEO", name: metaDescription, widget: text }
+              - { label: "Título da página", name: heroTitle, widget: string }
+              - { label: "Descrição da página", name: heroDesc, widget: text }
+              - { label: "Rótulo do campo Nome", name: labelName, widget: string }
+              - { label: "Rótulo do campo E-mail", name: labelEmail, widget: string }
+              - { label: "Rótulo do campo Telefone", name: labelPhone, widget: string }
+              - { label: "Rótulo do campo Mensagem", name: labelMessage, widget: string }
+              - { label: "Texto do botão de envio", name: submitLabel, widget: string }
+              - { label: "Título de sucesso (não usado visualmente, reservado)", name: successTitle, widget: string, required: false }
+              - { label: "Mensagem de sucesso", name: successMessage, widget: text }
+              - { label: "Mensagem de erro", name: errorMessage, widget: text }
 
   - name: cases
     label: "Cases"
