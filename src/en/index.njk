@@ -11,7 +11,7 @@ eleventyComputed:
   metaDescription: "{{ pages.home.en.metaDescription }}"
   ogImage: "{{ pages.home.en.ogImage }}"
 ---
-{% from "partials/portfolio-card.njk" import card, staticCard %}
+{% from "partials/portfolio-card.njk" import card %}
 {% set h = pages.home.en %}
 {% set orgSchema = { "@context": "https://schema.org", "@type": "Organization", "name": "Melo Creative", "url": site.baseUrl + "/", "logo": site.baseUrl + "/assets/icons/logo-melo.svg", "image": site.baseUrl + h.ogImage, "description": h.structuredDataDescription, "email": site.email, "telephone": "+5511954387151", "address": { "@type": "PostalAddress", "streetAddress": "Rua Conde do Pinhal 8 - Liberdade", "addressLocality": "São Paulo", "addressRegion": "SP", "addressCountry": "BR" }, "sameAs": [site.instagram, site.linkedin], "knowsAbout": ["Branding for healthcare companies", "Branding for tech companies", "Branding for law firms", "Visual identity", "High-end web design", "Film and video production"] } %}
 <script type="application/ld+json">
@@ -157,7 +157,7 @@ eleventyComputed:
 
   <!-- PORTFOLIO GRID -->
   <div class="portfolio-grid reveal-stagger">
-    {% for c in cases | onHome %}{{ card(c, "en", "/en", false) }}{% endfor %}{{ staticCard({ image: pages.home.staticCard.image, title: pages.home.staticCard.titleEn, desc: pages.home.staticCard.descEn }) }}
+    {% for c in cases | onHome %}{{ card(c, "en", "/en", false) }}{% endfor %}
   </div>
 
   <!-- MELO TOKENS -->

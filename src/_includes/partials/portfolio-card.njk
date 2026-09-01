@@ -10,15 +10,3 @@
       </div>
     </a>
 {% endmacro %}
-
-{% macro staticCard(item) %}
-    <div class="portfolio-card">
-      <img class="card-bg" src="{{ item.image }}" alt="{{ item.title }}" loading="lazy" />
-      <div class="portfolio-card__content">
-        <div class="project-label">
-          <p class="title">{{ item.title }}</p>
-          <p class="desc">{{ item.desc }}</p>
-        </div>
-      </div>
-    </div>
-{% endmacro %}
