@@ -1,7 +1,8 @@
 {% macro card(caseItem, lang, prefix, withFilter) %}
 {%- set locale = caseItem[lang] -%}
+{%- set srcset = caseItem.cardImage | imgSrcset -%}
     <a class="portfolio-card"{% if withFilter %} data-service="{{ caseItem.dataService | join(' ') }}"{% endif %} href="{{ (prefix + '/' + caseItem.slug) | replace('//','/') }}">
-      <img class="card-bg" src="{{ caseItem.cardImage }}" alt="{{ locale.cardTitle }}" loading="lazy" />
+      <img class="card-bg" src="{{ caseItem.cardImage }}"{% if srcset %} srcset="{{ srcset }}" sizes="(max-width: 900px) 100vw, 50vw"{% endif %} alt="{{ locale.cardTitle }}" loading="lazy" />
       <div class="portfolio-card__content">
         <div class="project-label">
           <p class="title">{{ locale.cardTitle }}</p>

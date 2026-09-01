@@ -31,20 +31,20 @@
   },
   "heroMedia": {
     "type": "image",
-    "src": "https://github.com/vitorsarkis96/melo-site/blob/main/assets/img/syn_thumb.jpg?raw=true"
+    "src": "/assets/img/syn_thumb.jpg"
   },
-  "cardImage": "https://github.com/vitorsarkis96/melo-site/blob/main/assets/img/syn_thumb.jpg?raw=true",
+  "cardImage": "/assets/img/syn_thumb.jpg",
   "rowsAfterApproach": [
     {
       "items": [
         {
           "type": "image",
-          "src": "https://github.com/vitorsarkis96/melo-site/blob/main/assets/img/syn-1.JPG?raw=true",
+          "src": "/assets/img/syn-1.JPG",
           "filter": "bw-classic"
         },
         {
           "type": "image",
-          "src": "https://github.com/vitorsarkis96/melo-site/blob/main/assets/img/syn-2.JPG?raw=true",
+          "src": "/assets/img/syn-2.JPG",
           "filter": "bw-classic"
         }
       ],

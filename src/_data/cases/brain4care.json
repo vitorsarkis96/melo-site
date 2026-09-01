@@ -62,7 +62,7 @@
     "fit": "cover",
     "filter": null
   },
-  "cardImage": "https://github.com/vitorsarkis96/melo-site/blob/main/assets/img/cases/Brain4Care_DUBLIN.png?raw=true",
+  "cardImage": "/assets/img/cases/brain4care_dublin.png",
   "rowsAfterApproach": [
     {
       "items": [

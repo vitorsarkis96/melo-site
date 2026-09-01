@@ -23,11 +23,12 @@ eleventyComputed:
     <section class="hero-card hero-carousel" data-autoplay-seconds="{{ pages.home.heroCarousel.autoplaySeconds | default(6) }}">
       {% if heroSlides.length %}
       {% for slide in heroSlides %}
+      {% set slideSrcset = slide.caseData.heroMedia.src | imgSrcset %}
       <a class="hero-slide{% if loop.first %} is-active{% endif %}" href="{{ '/en/' + slide.caseData.slug }}" aria-label="{{ slide.caseData.en.cardTitle }}">
         {% if loop.first %}
-        <img class="card-bg" src="{{ slide.caseData.heroMedia.src }}" alt="{{ slide.caseData.en.cardTitle }}" loading="eager" style="--hero-zoom: {{ (slide.zoom | default(100)) / 100 }}; --hero-focus-y: {{ slide.focus | default('center') }};" />
+        <img class="card-bg" src="{{ slide.caseData.heroMedia.src }}"{% if slideSrcset %} srcset="{{ slideSrcset }}" sizes="100vw"{% endif %} alt="{{ slide.caseData.en.cardTitle }}" loading="eager" style="--hero-zoom: {{ (slide.zoom | default(100)) / 100 }}; --hero-focus-y: {{ slide.focus | default('center') }};" />
         {% else %}
-        <img class="card-bg" data-src="{{ slide.caseData.heroMedia.src }}" alt="{{ slide.caseData.en.cardTitle }}" style="--hero-zoom: {{ (slide.zoom | default(100)) / 100 }}; --hero-focus-y: {{ slide.focus | default('center') }};" />
+        <img class="card-bg" data-src="{{ slide.caseData.heroMedia.src }}"{% if slideSrcset %} data-srcset="{{ slideSrcset }}" sizes="100vw"{% endif %} alt="{{ slide.caseData.en.cardTitle }}" style="--hero-zoom: {{ (slide.zoom | default(100)) / 100 }}; --hero-focus-y: {{ slide.focus | default('center') }};" />
         {% endif %}
       </a>
       {% endfor %}
@@ -109,7 +110,8 @@ eleventyComputed:
 
   <!-- PHOTO HERO -->
   <section class="hero-card hero-photo">
-    <img class="card-bg" src="{{ pages.home.photoHeroImage }}" alt="{{ h.photoHeroAlt }}" loading="lazy" />
+    {% set photoSrcset = pages.home.photoHeroImage | imgSrcset %}
+    <img class="card-bg" src="{{ pages.home.photoHeroImage }}"{% if photoSrcset %} srcset="{{ photoSrcset }}" sizes="100vw"{% endif %} alt="{{ h.photoHeroAlt }}" loading="lazy" />
     <div class="project-label reveal">
       <p class="title">{{ h.photoHeroTitle }}</p>
       <p class="desc">{{ h.photoHeroDesc }}</p>

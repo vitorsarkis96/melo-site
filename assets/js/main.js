@@ -255,6 +255,10 @@
   if (deferredHeroImgs.length) {
     const loadDeferredHeroImgs = () => {
       deferredHeroImgs.forEach((img) => {
+        if (img.dataset.srcset) {
+          img.srcset = img.dataset.srcset;
+          img.removeAttribute("data-srcset");
+        }
         img.src = img.dataset.src;
         img.removeAttribute("data-src");
       });
