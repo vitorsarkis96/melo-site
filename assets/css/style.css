@@ -934,6 +934,12 @@ body.menu-open {
   padding-left: var(--section-x);
   padding-right: var(--section-x);
 }
+/* On case pages this sits directly under the FAQ section, which already
+   contributes its own --section-y of bottom padding — without this the
+   two stack into an oversized ~240px gap. */
+.section-faq + .section-portfolio-intro {
+  padding-top: 0;
+}
 .portfolio-intro-row {
   max-width: var(--max-width);
   margin: 0 auto;
