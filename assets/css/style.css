@@ -1945,19 +1945,6 @@ body.menu-open {
   grid-template-columns: 1fr 1fr;
   gap: 24px;
 }
-/* Positioned far off-screen rather than just opacity:0/1px — browser
-   password managers (1Password, Chrome autofill, etc.) will still fill an
-   opacity:0 field if it sits within the viewport, which trips Formspree's
-   honeypot spam check on real, legitimate submissions. */
-.contact-form__honeypot {
-  position: absolute;
-  left: -9999px;
-  top: -9999px;
-  width: 1px;
-  height: 1px;
-  opacity: 0;
-  pointer-events: none;
-}
 .contact-form__submit {
   align-self: flex-start;
 }

@@ -21,7 +21,7 @@ eleventyComputed:
   <section class="contact-form-section reveal">
     <form class="contact-form" action="https://formspree.io/f/{{ site.formspreeId }}" method="POST" data-contact-form data-success-message="{{ h.successMessage }}" data-error-message="{{ h.errorMessage }}">
       <input type="hidden" name="_cc" value="{{ site.email }}" />
-      <input type="text" name="_gotcha" class="contact-form__honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
+      <input type="hidden" name="_gotcha" value="" />
       <div class="contact-form__row">
         <label>
           <span>{{ h.labelName }}</span>
