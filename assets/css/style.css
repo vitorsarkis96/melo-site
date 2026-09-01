@@ -1568,6 +1568,10 @@ body.menu-open {
   }
   .hero-wrap .hero-card {
     height: calc(100vh - 72px);
+    /* .hero-wrap already carries an 8px padding around the card — subtract
+       it here so the H1 lines up with the --section-x grid used by text
+       sections like "Como atuamos", instead of sitting 40px past it. */
+    padding-left: max(0px, calc(var(--section-x) - 8px));
   }
   .hero-headline {
     font-size: 30px;
