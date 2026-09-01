@@ -84,6 +84,42 @@
     revealEls.forEach((el) => el.classList.add("is-visible"));
   }
 
+  /* ---------------- Lazy-load background video (only fetch once near view) ---------------- */
+  const lazyVideos = document.querySelectorAll("[data-lazy-video]");
+  if ("IntersectionObserver" in window && lazyVideos.length) {
+    const videoObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const video = entry.target;
+          const src = video.dataset.src;
+          if (src) {
+            const source = document.createElement("source");
+            source.src = src;
+            source.type = "video/mp4";
+            video.appendChild(source);
+            video.load();
+            video.play().catch(() => {});
+          }
+          videoObserver.unobserve(video);
+        });
+      },
+      { rootMargin: "600px 0px" }
+    );
+    lazyVideos.forEach((el) => videoObserver.observe(el));
+  } else {
+    lazyVideos.forEach((video) => {
+      const src = video.dataset.src;
+      if (src) {
+        const source = document.createElement("source");
+        source.src = src;
+        source.type = "video/mp4";
+        video.appendChild(source);
+        video.load();
+      }
+    });
+  }
+
   /* ---------------- Hero load-in ---------------- */
   const heroCarousel = document.querySelector(".hero-carousel");
   if (heroCarousel) {
