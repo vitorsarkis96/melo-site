@@ -12,7 +12,10 @@
     "submitLabel": "Send message",
     "successTitle": "Message sent",
     "successMessage": "Thanks for reaching out — we'll reply as soon as possible.",
-    "errorMessage": "Something went wrong sending your message. Please try again or email us directly."
+    "errorMessage": "Something went wrong sending your message. Please try again or email us directly.",
+    "whatsappTitle": "Prefer WhatsApp?",
+    "whatsappDesc": "Message us directly and skip the form.",
+    "whatsappCta": "Chat on WhatsApp"
   },
   "pt": {
     "metaTitle": "Contato | Melo",
@@ -26,6 +29,9 @@
     "submitLabel": "Enviar mensagem",
     "successTitle": "Mensagem enviada",
     "successMessage": "Obrigado pelo contato — responderemos o quanto antes.",
-    "errorMessage": "Não foi possível enviar sua mensagem. Tente novamente ou nos escreva diretamente por e-mail."
+    "errorMessage": "Não foi possível enviar sua mensagem. Tente novamente ou nos escreva diretamente por e-mail.",
+    "whatsappTitle": "Prefere WhatsApp?",
+    "whatsappDesc": "Fale com a gente direto por lá, sem precisar preencher formulário.",
+    "whatsappCta": "Conversar no WhatsApp"
   }
 }

@@ -2,6 +2,7 @@ module.exports = {
   en: {
     htmlLang: "en",
     prefix: "/en",
+    contactPath: "/en/contact",
     flagIcon: "/assets/icons/flag-br.svg",
     langSwitchLabel: "Ver em português",
     langSwitchAria: "Ver em português",
@@ -23,6 +24,7 @@ module.exports = {
   pt: {
     htmlLang: "pt-BR",
     prefix: "",
+    contactPath: "/contato",
     flagIcon: "/assets/icons/flag-us.svg",
     langSwitchLabel: "View in English",
     langSwitchAria: "View in English",

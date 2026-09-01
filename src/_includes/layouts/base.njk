@@ -49,7 +49,7 @@
   <nav class="nav-links">
     <a class="menu-link{{ ' is-active' if navActive == 'how' }}" href="{{ (t.prefix + '/#atuamos') | replace('//','/') }}">{{ t.navHowWeWork }}</a>
     <a class="menu-link{{ ' is-active' if navActive == 'cases' }}" href="{{ (t.prefix + '/cases') | replace('//','/') }}">{{ t.navCases }}</a>
-    <a class="menu-link" href="{{ site.quoteForm }}" target="_blank" rel="noopener noreferrer">{{ t.navContact }}</a>
+    <a class="menu-link" href="{{ t.contactPath }}">{{ t.navContact }}</a>
     <a class="lang-switch" href="{{ altPath }}" aria-label="{{ t.langSwitchAria }}">
       <img src="{{ t.flagIcon }}" alt="" width="20" height="20" />
     </a>
@@ -67,13 +67,13 @@
   <nav class="mobile-menu__links">
     <a href="{{ (t.prefix + '/#atuamos') | replace('//','/') }}">{{ t.navHowWeWork }}</a>
     <a href="{{ (t.prefix + '/cases') | replace('//','/') }}"{{ ' class="is-active"' | safe if navActive == 'cases' }}>{{ t.navCases }}</a>
-    <a href="{{ site.quoteForm }}" target="_blank" rel="noopener noreferrer">{{ t.navContact }}</a>
+    <a href="{{ t.contactPath }}">{{ t.navContact }}</a>
     <a class="mobile-menu__lang" href="{{ altPath }}">
       <img src="{{ t.flagIcon }}" alt="" width="20" height="20" />
       {{ t.langSwitchLabel }}
     </a>
   </nav>
-  <a class="btn btn-orange btn-lg mobile-menu__cta" href="{{ site.quoteForm }}" target="_blank" rel="noopener noreferrer">
+  <a class="btn btn-orange btn-lg mobile-menu__cta" href="{{ t.contactPath }}">
     {{ t.ctaQuote }}
     <img class="btn-icon" src="/assets/icons/arrow-right.svg" alt="" />
   </a>
@@ -91,7 +91,7 @@
           <p class="line1">{{ t.footerLine1 }}</p>
           <div class="line2-row">
             <p class="line2">{{ t.footerLine2 }}</p>
-            <a class="btn btn-orange btn-lg" href="{{ site.quoteForm }}" target="_blank" rel="noopener noreferrer">
+            <a class="btn btn-orange btn-lg" href="{{ t.contactPath }}">
               {{ t.ctaQuote }}
               <img class="btn-icon" src="/assets/icons/arrow-right.svg" alt="" />
             </a>
@@ -105,7 +105,7 @@
           <nav class="footer-nav">
             <a class="menu-link{{ ' is-active' if navActive == 'how' }}" href="{{ (t.prefix + '/#atuamos') | replace('//','/') }}">{{ t.footerWhatWeDo }}</a>
             <a class="menu-link{{ ' is-active' if navActive == 'cases' }}" href="{{ (t.prefix + '/cases') | replace('//','/') }}">{{ t.navCases }}</a>
-            <a class="menu-link" href="{{ site.quoteForm }}" target="_blank" rel="noopener noreferrer">{{ t.navContact }}</a>
+            <a class="menu-link" href="{{ t.contactPath }}">{{ t.navContact }}</a>
           </nav>
         </div>
       </div>
