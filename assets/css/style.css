@@ -603,7 +603,7 @@ body.menu-open {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  max-width: 560px;
+  max-width: 650px;
   /* .hero-tokens already carries an 8px side margin + its own 56px padding
      (like every other full-bleed card) — add the remaining offset so the
      heading lines up with the --section-x grid used by text sections. */
