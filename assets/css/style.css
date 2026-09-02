@@ -521,7 +521,6 @@ body.menu-open {
 .showreel-play__icon svg {
   width: 32px;
   height: 32px;
-  margin-left: 4px;
 }
 
 /* Video lightbox (showreel + anywhere else a play button opens one) */
