@@ -1895,7 +1895,7 @@ body.menu-open {
 /* Tighter than the shared .case-hero-header (used on /cases too) so the
    whole contact page fits a normal desktop viewport without scrolling. */
 .contact-hero-header {
-  padding: 40px 100px 24px;
+  padding: 64px 100px 24px;
 }
 .contact-hero-header h1 {
   font-size: 40px;
