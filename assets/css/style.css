@@ -1890,49 +1890,60 @@ body.menu-open {
 }
 
 /* ============================================================
-   SECTION: contact page
+   SECTION: contact page (70/30 media split, like tokens.melocreative.com.br)
    ============================================================ */
-/* Tighter than the shared .case-hero-header (used on /cases too) so the
-   whole contact page fits a normal desktop viewport without scrolling. */
-.contact-hero-header {
-  padding: 64px 100px 24px;
+.contact-split {
+  display: flex;
+  min-height: calc(100vh - 74px);
 }
-.contact-hero-header h1 {
-  font-size: 40px;
-  letter-spacing: -0.8px;
+.contact-split__media {
+  flex: 0 0 70%;
+  position: relative;
+  overflow: hidden;
+  background: var(--gray-900);
+}
+.contact-split__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 28px;
+  padding: 64px 56px;
+  overflow-y: auto;
+}
+.contact-split__intro h1 {
+  font-family: var(--font-hero);
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.2;
+  letter-spacing: -0.64px;
+  color: var(--gray-800);
 }
 .contact-hero-desc {
   margin-top: 12px;
   font-size: 16px;
   line-height: 1.5;
   color: var(--gray-600);
-  max-width: 520px;
-}
-.contact-form-section {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 100px 48px;
-  display: flex;
-  align-items: flex-start;
-  gap: 64px;
 }
 .contact-form {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  flex: 1 1 680px;
-  max-width: 680px;
 }
 .contact-form label {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  min-width: 0;
   font-size: 14px;
   font-weight: 600;
   color: var(--gray-800);
 }
 .contact-form input,
 .contact-form textarea {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
   font-family: var(--font-text);
   font-size: 16px;
   font-weight: 400;
@@ -1971,8 +1982,7 @@ body.menu-open {
   color: #c0392b;
 }
 .contact-whatsapp {
-  flex: 1 1 300px;
-  padding: 32px;
+  padding: 24px;
   background: var(--gray-50);
   border-radius: var(--radius-lg);
 }
@@ -1992,17 +2002,21 @@ body.menu-open {
 }
 
 @media (max-width: 900px) {
-  .contact-form-section {
-    padding: 0 24px 64px;
+  .contact-split {
     flex-direction: column;
-    gap: 40px;
+    min-height: 0;
+  }
+  .contact-split__media {
+    flex: 0 0 auto;
+    width: 100%;
+    height: 240px;
+  }
+  .contact-split__content {
+    padding: 32px 24px 48px;
   }
   .contact-form__row {
     grid-template-columns: 1fr;
     gap: 16px;
-  }
-  .contact-whatsapp {
-    width: 100%;
   }
 }
 
