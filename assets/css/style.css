@@ -1991,6 +1991,13 @@ body.menu-open {
 }
 
 @media (max-width: 900px) {
+  /* .contact-hero-header vem depois de .case-hero-header no CSS e, sem isto,
+     sobrescrevia o padding responsivo (48px 24px 16px) pelo padding fixo de
+     desktop (64px 100px 24px) — título ficava ~100px deslocado da margem
+     que o resto da página (form, whatsapp) usa. */
+  .contact-hero-header {
+    padding: 48px 24px 16px;
+  }
   .contact-form-section {
     padding: 0 24px 64px;
     flex-direction: column;
@@ -2002,6 +2009,16 @@ body.menu-open {
   }
   .contact-whatsapp {
     width: 100%;
+  }
+}
+
+@media (max-width: 520px) {
+  /* Mesma sobreposição do bloco de 900px acima, mas pro tamanho da fonte:
+     .contact-hero-header h1 (40px, sem media query) vinha depois de
+     .case-hero-header h1 no CSS e travava o título em 40px mesmo em telas
+     bem pequenas, em vez dos 30px que o resto do site usa nesse breakpoint. */
+  .contact-hero-header h1 {
+    font-size: 30px;
   }
 }
 
