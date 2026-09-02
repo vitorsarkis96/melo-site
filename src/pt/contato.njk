@@ -11,51 +11,48 @@ eleventyComputed:
   ogImage: "{{ pages.contact.ogImage }}"
 ---
 {% set h = pages.contact.pt %}
-  <section class="contact-split">
-    <div class="contact-split__media">
-      <video class="card-bg" muted loop playsinline preload="none" data-lazy-video data-src="{{ pages.contact.video | default('/assets/video/melo-tokens.mp4') }}"></video>
+  <section class="case-hero-header contact-hero-header reveal">
+    <div>
+      <h1>{{ h.heroTitle }}</h1>
+      <p class="contact-hero-desc">{{ h.heroDesc }}</p>
     </div>
-    <div class="contact-split__content">
-      <div class="contact-split__intro reveal">
-        <h1>{{ h.heroTitle }}</h1>
-        <p class="contact-hero-desc">{{ h.heroDesc }}</p>
-      </div>
+  </section>
 
-      <form class="contact-form" action="https://formspree.io/f/{{ site.formspreeId }}" method="POST" data-contact-form data-success-message="{{ h.successMessage }}" data-error-message="{{ h.errorMessage }}">
-        <input type="hidden" name="_cc" value="{{ site.email }}" />
-        <input type="hidden" name="_gotcha" value="" />
-        <div class="contact-form__row">
-          <label>
-            <span>{{ h.labelName }}</span>
-            <input type="text" name="name" required />
-          </label>
-          <label>
-            <span>{{ h.labelEmail }}</span>
-            <input type="email" name="email" required />
-          </label>
-        </div>
+  <section class="contact-form-section reveal">
+    <form class="contact-form" action="https://formspree.io/f/{{ site.formspreeId }}" method="POST" data-contact-form data-success-message="{{ h.successMessage }}" data-error-message="{{ h.errorMessage }}">
+      <input type="hidden" name="_cc" value="{{ site.email }}" />
+      <input type="hidden" name="_gotcha" value="" />
+      <div class="contact-form__row">
         <label>
-          <span>{{ h.labelPhone }}</span>
-          <input type="tel" name="phone" />
+          <span>{{ h.labelName }}</span>
+          <input type="text" name="name" required />
         </label>
         <label>
-          <span>{{ h.labelMessage }}</span>
-          <textarea name="message" rows="4" required></textarea>
+          <span>{{ h.labelEmail }}</span>
+          <input type="email" name="email" required />
         </label>
-        <button type="submit" class="btn btn-orange btn-lg contact-form__submit">
-          {{ h.submitLabel }}
-          <img class="btn-icon" src="/assets/icons/arrow-right.svg" alt="" />
-        </button>
-        <p class="contact-form__status" data-contact-status role="status" aria-live="polite"></p>
-      </form>
-
-      <div class="contact-whatsapp reveal">
-        <h2>{{ h.whatsappTitle }}</h2>
-        <p>{{ h.whatsappDesc }}</p>
-        <a class="btn btn-orange" href="{{ site.whatsapp }}" target="_blank" rel="noopener noreferrer">
-          <img class="btn-icon" src="/assets/icons/whatsapp.svg" alt="" />
-          {{ h.whatsappCta }}
-        </a>
       </div>
+      <label>
+        <span>{{ h.labelPhone }}</span>
+        <input type="tel" name="phone" />
+      </label>
+      <label>
+        <span>{{ h.labelMessage }}</span>
+        <textarea name="message" rows="6" required></textarea>
+      </label>
+      <button type="submit" class="btn btn-orange btn-lg contact-form__submit">
+        {{ h.submitLabel }}
+        <img class="btn-icon" src="/assets/icons/arrow-right.svg" alt="" />
+      </button>
+      <p class="contact-form__status" data-contact-status role="status" aria-live="polite"></p>
+    </form>
+
+    <div class="contact-whatsapp reveal">
+      <h2>{{ h.whatsappTitle }}</h2>
+      <p>{{ h.whatsappDesc }}</p>
+      <a class="btn btn-orange" href="{{ site.whatsapp }}" target="_blank" rel="noopener noreferrer">
+        <img class="btn-icon" src="/assets/icons/whatsapp.svg" alt="" />
+        {{ h.whatsappCta }}
+      </a>
     </div>
   </section>
