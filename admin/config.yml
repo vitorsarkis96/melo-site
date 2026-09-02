@@ -289,6 +289,7 @@ collections:
         file: "src/_data/pages/contact.json"
         fields:
           - { label: "Imagem de compartilhamento (redes sociais)", name: ogImage, widget: image, media_folder: "/assets/img", public_folder: "/assets/img" }
+          - { label: "Vídeo de fundo (lado esquerdo)", name: video, widget: file, media_folder: "/assets/video", public_folder: "/assets/video", hint: "Vídeo exibido na coluna esquerda (70%) da página de contato." }
           - label: "Conteúdo em Inglês"
             name: en
             widget: object
