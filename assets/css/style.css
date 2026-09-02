@@ -1892,9 +1892,18 @@ body.menu-open {
 /* ============================================================
    SECTION: contact page
    ============================================================ */
+/* Tighter than the shared .case-hero-header (used on /cases too) so the
+   whole contact page fits a normal desktop viewport without scrolling. */
+.contact-hero-header {
+  padding: 40px 100px 24px;
+}
+.contact-hero-header h1 {
+  font-size: 40px;
+  letter-spacing: -0.8px;
+}
 .contact-hero-desc {
-  margin-top: 16px;
-  font-size: 18px;
+  margin-top: 12px;
+  font-size: 16px;
   line-height: 1.5;
   color: var(--gray-600);
   max-width: 520px;
@@ -1902,7 +1911,7 @@ body.menu-open {
 .contact-form-section {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 100px 120px;
+  padding: 0 100px 48px;
   display: flex;
   align-items: flex-start;
   gap: 64px;
@@ -1910,7 +1919,7 @@ body.menu-open {
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 16px;
   flex: 1 1 680px;
   max-width: 680px;
 }
@@ -1941,7 +1950,7 @@ body.menu-open {
 }
 .contact-form textarea {
   resize: vertical;
-  min-height: 140px;
+  min-height: 96px;
 }
 .contact-form__row {
   display: grid;
