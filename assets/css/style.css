@@ -371,6 +371,11 @@ body.menu-open {
   height: calc(100vh - 74px);
   min-height: 0;
 }
+.hero-video {
+  /* Fallback while the video is still buffering, so the hero never
+     flashes white before the first frame paints. */
+  background: var(--gray-900);
+}
 .hero-card::after {
   content: "";
   position: absolute;
