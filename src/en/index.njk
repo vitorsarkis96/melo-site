@@ -18,23 +18,11 @@ eleventyComputed:
 {{ orgSchema | dump | safe }}
 </script>
   <!-- HERO -->
-  {% set heroSlides = pages.home.heroCarousel.slides | resolveHeroSlides(cases) %}
   <div class="hero-wrap">
-    <section class="hero-card hero-carousel" data-autoplay-seconds="{{ pages.home.heroCarousel.autoplaySeconds | default(6) }}">
-      {% if heroSlides.length %}
-      {% for slide in heroSlides %}
-      {% set slideSrcset = slide.caseData.heroMedia.src | imgSrcset %}
-      <a class="hero-slide{% if loop.first %} is-active{% endif %}" href="{{ '/en/' + slide.caseData.slug }}" aria-label="{{ slide.caseData.en.cardTitle }}">
-        {% if loop.first %}
-        <img class="card-bg" src="{{ slide.caseData.heroMedia.src }}"{% if slideSrcset %} srcset="{{ slideSrcset }}" sizes="100vw"{% endif %} alt="{{ slide.caseData.en.cardTitle }}" loading="eager" style="--hero-zoom: {{ (slide.zoom | default(100)) / 100 }}; --hero-focus-y: {{ slide.focus | default('center') }};" />
-        {% else %}
-        <img class="card-bg" data-src="{{ slide.caseData.heroMedia.src }}"{% if slideSrcset %} data-srcset="{{ slideSrcset }}" sizes="100vw"{% endif %} alt="{{ slide.caseData.en.cardTitle }}" style="--hero-zoom: {{ (slide.zoom | default(100)) / 100 }}; --hero-focus-y: {{ slide.focus | default('center') }};" />
-        {% endif %}
-      </a>
-      {% endfor %}
-      {% else %}
-      <img class="card-bg" src="{{ pages.home.heroImage }}" alt="{{ h.heroAlt }}" loading="eager" />
-      {% endif %}
+    <section class="hero-card hero-video">
+      <video class="card-bg" autoplay muted loop playsinline preload="auto" disablepictureinpicture controlslist="nodownload noremoteplayback" oncontextmenu="return false">
+        <source src="/assets/video/cpct_Hero_Site_Melo.mp4" type="video/mp4" />
+      </video>
       <div class="hero-card__content reveal">
         <h1 class="hero-headline">{{ h.heroHeadline }}</h1>
       </div>
