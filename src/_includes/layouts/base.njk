@@ -92,10 +92,12 @@
           <p class="line1">{{ t.footerLine1 }}</p>
           <div class="line2-row">
             <p class="line2">{{ t.footerLine2 }}</p>
+            {% if slug != "contato" %}
             <a class="btn btn-orange btn-lg" href="{{ t.contactPath }}">
               {{ t.ctaQuote }}
               <img class="btn-icon" src="/assets/icons/arrow-right.svg" alt="" />
             </a>
+            {% endif %}
           </div>
         </div>
         <div class="footer-right">
