@@ -11,6 +11,10 @@ eleventyComputed:
   ogImage: "{{ pages.contact.ogImage }}"
 ---
 {% set h = pages.contact.pt %}
+{% set contactSchema = { "@context": "https://schema.org", "@type": "ContactPage", "name": h.metaTitle, "description": h.metaDescription, "url": site.baseUrl + i18n.pt.contactPath, "mainEntity": { "@type": "Organization", "name": "Melo Creative", "url": site.baseUrl + "/", "logo": site.baseUrl + "/assets/icons/logo-melo.svg", "image": site.baseUrl + pages.contact.ogImage, "description": h.structuredDataDescription, "email": site.email, "telephone": "+5511954387151", "address": { "@type": "PostalAddress", "streetAddress": "Rua Conde do Pinhal 8 - Liberdade", "addressLocality": "São Paulo", "addressRegion": "SP", "addressCountry": "BR" }, "sameAs": [site.instagram, site.linkedin], "contactPoint": { "@type": "ContactPoint", "telephone": "+55-11-95438-7151", "contactType": "sales", "areaServed": "BR", "availableLanguage": ["Portuguese", "English"] } } } %}
+<script type="application/ld+json">
+{{ contactSchema | dump | safe }}
+</script>
   <section class="case-hero-header contact-hero-header reveal">
     <div>
       <h1>{{ h.heroTitle }}</h1>
