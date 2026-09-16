@@ -2041,6 +2041,43 @@ body.menu-open {
   }
 }
 
+/* Case media: stacked color swatches (brand palette, e.g. MEV) */
+.case-media--swatches {
+  background: var(--gray-200);
+}
+.case-swatches {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+}
+.case-swatches__row {
+  display: flex;
+}
+.case-swatches__cell {
+  flex: 1;
+}
+
+/* Case media: flat brand pattern card (logo centered on a subtle diagonal
+   hairline grid, e.g. MEV) */
+.case-pattern {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: repeating-linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.04) 0px,
+    rgba(255, 255, 255, 0.04) 1px,
+    transparent 1px,
+    transparent 64px
+  );
+}
+.case-media .case-pattern__logo {
+  position: static;
+  width: 180px;
+  height: auto;
+}
+
 /* Challenge / approach text rows (tag + two paragraphs)
    Padding lives on the parent .section-about (--section-y/--section-x),
    which already has proper responsive breakpoints — this row must stay

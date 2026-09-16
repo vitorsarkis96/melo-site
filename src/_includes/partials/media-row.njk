@@ -23,6 +23,20 @@
       </div>
       {% endfor %}
     </div>
+{%- elif item.type == "swatches" -%}
+    <div class="case-swatches">
+      {% for bar in item.bars %}
+      {% if bar.colors %}
+      <div class="case-swatches__row" style="flex:{{ bar.weight }}">
+        {% for c in bar.colors %}<div class="case-swatches__cell" style="background:{{ c }}"></div>{% endfor %}
+      </div>
+      {% else %}
+      <div class="case-swatches__cell" style="flex:{{ bar.weight }};background:{{ bar.color }}"></div>
+      {% endif %}
+      {% endfor %}
+    </div>
+{%- elif item.type == "pattern" -%}
+    {% if item.logo %}<img class="case-pattern__logo" src="{{ item.logo }}" alt="" loading="lazy" />{% endif %}
 {%- elif item.type == "spotlight" -%}
     <div class="case-spotlight__overlay"></div>
     {% if item.logo %}<img class="case-spotlight__logo" src="{{ item.logo }}" alt="" loading="lazy" />{% endif %}
@@ -66,6 +80,14 @@
     </div>
     {% elif item.type == "spotlight" %}
     <div class="case-media case-spotlight" style="background-image:url('{{ item.bg }}')">
+      {{ mediaItem(item) }}
+    </div>
+    {% elif item.type == "swatches" %}
+    <div class="case-media case-media--swatches">
+      {{ mediaItem(item) }}
+    </div>
+    {% elif item.type == "pattern" %}
+    <div class="case-media case-pattern" style="background-color:{{ item.bg }}">
       {{ mediaItem(item) }}
     </div>
     {% else %}
