@@ -57,10 +57,11 @@
   ],
   "rowsAfterApproach": [
     {
-      "layout": "triple",
+      "layout": "carousel",
       "items": [
         {
           "type": "spotlight",
+          "label": "Alma Harmony",
           "bg": "/assets/img/cases/skin-almaharmony-bg.jpg",
           "logo": "/assets/img/cases/skin-almaharmony-logo.png",
           "heading": "Uma nova forma de revelar o <em>potencial</em> de cada pele.",
@@ -69,6 +70,7 @@
         },
         {
           "type": "spotlight",
+          "label": "Soprano",
           "bg": "/assets/img/cases/skin-sopranoice-bg.jpg",
           "logo": "/assets/img/cases/skin-sopranoice-logo.png",
           "heading": "O laser que conquistou o mercado. <em>O conforto que conquista pacientes.</em>",
@@ -76,6 +78,7 @@
         },
         {
           "type": "spotlight",
+          "label": "Alma Hybrid",
           "bg": "/assets/img/cases/skin-almahybrid-bg.jpg",
           "logo": "/assets/img/cases/skin-almahybrid-logo.png",
           "heading": "A nova era da <em>longevidade da pele.</em>",
