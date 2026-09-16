@@ -8,14 +8,14 @@
     "marca",
     "sites-sistemas"
   ],
-  "cardImage": "/assets/img/cases/mev-ribbed-card.jpg",
+  "cardImage": "/assets/img/cases/mev-hero.jpg",
   "otherCases": [
     "khs",
     "redcap"
   ],
   "heroMedia": {
     "type": "image",
-    "src": "/assets/img/cases/mev-ribbed-card.jpg"
+    "src": "/assets/img/cases/mev-hero.jpg"
   },
   "rowsBeforeApproach": [
     {
