@@ -1,21 +1,4 @@
 {
-  "slug": "skintec",
-  "order": 6,
-  "showOnHome": true,
-  "year": "2026",
-  "dataService": [
-    "marca",
-    "sites-sistemas"
-  ],
-  "cardImage": "/assets/img/cases/skin-hero.jpg",
-  "otherCases": [
-    "redcap",
-    "khs"
-  ],
-  "heroMedia": {
-    "type": "image",
-    "src": "/assets/img/cases/skin-hero.jpg"
-  },
   "rowsBeforeApproach": [
     {
       "layout": "double",
@@ -55,6 +38,55 @@
       ]
     }
   ],
+  "pt": {
+    "heroTitleLine2": "Landing Page HubSpot",
+    "cardDesc": "Landing page em HubSpot para o lançamento da Alma Lasers no Brasil em parceria com a Skintec.",
+    "cardTitle": "Skintec – Landing Page HubSpot",
+    "heroAlt": "Skintec - landing page HubSpot para a Alma Lasers",
+    "approachTag": "Nossa abordagem",
+    "metaTitle": "Skintec – Landing Page HubSpot para a Alma Lasers | Melo",
+    "challengeDetail": "A chegada da Alma Lasers ao mercado brasileiro, em parceria com a Skintec, precisava de uma porta de entrada digital à altura da tecnologia que carrega: uma página que comunicasse autoridade internacional, detalhasse cada equipamento do portfólio e convertesse visitantes em leads qualificados para a equipe comercial.",
+    "challengeTag": "O desafio da Melo",
+    "metaDescription": "A Melo criou a landing page em HubSpot para o lançamento da Alma Lasers no Brasil, em parceria com a Skintec.",
+    "tags": [
+      "Branding",
+      "UI/UX Design",
+      "Motion Graphics",
+      "Web Development",
+      "2026"
+    ],
+    "approachDetail": "Desenhamos uma experiência em HubSpot que equilibra fotografia de produto, tipografia elegante e microinterações sutis — apresentando cada linha de equipamentos (Alma Harmony, Alma Hybrid e SopranoIce) em cartões dedicados e conduzindo o visitante até o formulário de contato com um especialista Skintec.",
+    "approachHeading": "Mergulhamos na estética premium da marca para construir uma landing page escura, editorial e centrada em produto.",
+    "challengeHeading": "Nosso desafio era criar uma landing page em HubSpot capaz de apresentar o portfólio de lasers da Alma no Brasil com a sofisticação e a confiança que a parceria com a Skintec exige.",
+    "heroTitleLine1": "Skintec"
+  },
+  "en": {
+    "heroTitleLine2": "HubSpot Landing Page",
+    "cardDesc": "HubSpot landing page for Alma Lasers' launch in Brazil in partnership with Skintec.",
+    "cardTitle": "Skintec – HubSpot Landing Page",
+    "heroAlt": "Skintec - HubSpot landing page for Alma Lasers",
+    "approachTag": "Our approach",
+    "metaTitle": "Skintec – HubSpot Landing Page for Alma Lasers | Melo",
+    "challengeDetail": "Alma Lasers' arrival in the Brazilian market, in partnership with Skintec, needed a digital front door worthy of the technology it carries: a page that communicated international authority, detailed every device in the portfolio and converted visitors into qualified leads for the sales team.",
+    "challengeTag": "Melo's challenge",
+    "metaDescription": "Melo designed the HubSpot landing page for Alma Lasers' Brazilian launch, in partnership with Skintec.",
+    "tags": [
+      "Branding",
+      "UI/UX Design",
+      "Motion Graphics",
+      "Web Development",
+      "2026"
+    ],
+    "approachDetail": "We designed a HubSpot experience that balances product photography, elegant typography and subtle micro-interactions — presenting each equipment line (Alma Harmony, Alma Hybrid and SopranoIce) in dedicated spotlight cards and guiding visitors to a contact form with a Skintec specialist.",
+    "approachHeading": "We dove into the brand's premium aesthetic to build a dark, editorial, product-first landing page.",
+    "challengeHeading": "Our challenge was to build a HubSpot landing page able to present Alma's laser portfolio in Brazil with the sophistication and trust the Skintec partnership demands.",
+    "heroTitleLine1": "Skintec"
+  },
+  "heroMedia": {
+    "type": "image",
+    "src": "/assets/img/cases/skin-hero.jpg"
+  },
+  "cardImage": "/assets/img/cases/skin-hero.jpg",
   "rowsAfterApproach": [
     {
       "layout": "carousel",
@@ -68,18 +100,18 @@
           "desc": "Tecnologias exclusivas e altamente eficientes para o tratamento clínico; CO2 com sistema de refrigeração inteligente Tecnologia HyGrid que permite combinar laser e CO2 de forma integrada, separadas e intercaladas; Ultrassom Push & Pull para maior absorção de drug-delivery; Sem consumíveis."
         },
         {
-          "type": "spotlight",
-          "label": "Alma Harmony",
           "default": true,
+          "heading": "Uma nova forma de revelar o <em>potencial</em> de cada pele.",
           "bg": "/assets/img/cases/skin-almaharmony-bg.jpg",
           "logo": "/assets/img/cases/skin-almaharmony-logo.png",
-          "heading": "Uma nova forma de revelar o <em>potencial</em> de cada pele.",
-          "desc": "Aplicadores de Lasers e IPL ainda mais inteligentes; Dois aplicadores independentes conectados na plataforma; Tecnologias inéditas, maior potência e frequências mais altas; Sistema de resfriamento inteligente: Mais confortável para o paciente; Maior versatilidade de tecnologias na plataforma.",
           "badgeText": "136 indicações aprovadas pela FDA",
+          "desc": "Aplicadores de Lasers e IPL ainda mais inteligentes; Dois aplicadores independentes conectados na plataforma; Tecnologias inéditas, maior potência e frequências mais altas; Sistema de resfriamento inteligente: Mais confortável para o paciente; Maior versatilidade de tecnologias na plataforma.",
+          "label": "Alma Harmony",
           "awards": [
             "/assets/img/cases/skin-epda-badge.png",
             "/assets/img/cases/skin-gooddesign-badge.svg"
-          ]
+          ],
+          "type": "spotlight"
         },
         {
           "type": "spotlight",
@@ -120,48 +152,16 @@
       ]
     }
   ],
-  "en": {
-    "metaTitle": "Skintec – HubSpot Landing Page for Alma Lasers | Melo",
-    "metaDescription": "Melo designed the HubSpot landing page for Alma Lasers' Brazilian launch, in partnership with Skintec.",
-    "heroTitleLine1": "Skintec",
-    "heroTitleLine2": "HubSpot Landing Page",
-    "heroAlt": "Skintec - HubSpot landing page for Alma Lasers",
-    "tags": [
-      "Branding",
-      "UI/UX Design",
-      "Motion Graphics",
-      "Web Development",
-      "2026"
-    ],
-    "challengeTag": "Melo's challenge",
-    "challengeHeading": "Our challenge was to build a HubSpot landing page able to present Alma's laser portfolio in Brazil with the sophistication and trust the Skintec partnership demands.",
-    "challengeDetail": "Alma Lasers' arrival in the Brazilian market, in partnership with Skintec, needed a digital front door worthy of the technology it carries: a page that communicated international authority, detailed every device in the portfolio and converted visitors into qualified leads for the sales team.",
-    "approachTag": "Our approach",
-    "approachHeading": "We dove into the brand's premium aesthetic to build a dark, editorial, product-first landing page.",
-    "approachDetail": "We designed a HubSpot experience that balances product photography, elegant typography and subtle micro-interactions — presenting each equipment line (Alma Harmony, Alma Hybrid and SopranoIce) in dedicated spotlight cards and guiding visitors to a contact form with a Skintec specialist.",
-    "cardTitle": "Skintec – HubSpot Landing Page",
-    "cardDesc": "HubSpot landing page for Alma Lasers' launch in Brazil in partnership with Skintec."
-  },
-  "pt": {
-    "metaTitle": "Skintec – Landing Page HubSpot para a Alma Lasers | Melo",
-    "metaDescription": "A Melo criou a landing page em HubSpot para o lançamento da Alma Lasers no Brasil, em parceria com a Skintec.",
-    "heroTitleLine1": "Skintec",
-    "heroTitleLine2": "Landing Page HubSpot",
-    "heroAlt": "Skintec - landing page HubSpot para a Alma Lasers",
-    "tags": [
-      "Branding",
-      "UI/UX Design",
-      "Motion Graphics",
-      "Web Development",
-      "2026"
-    ],
-    "challengeTag": "O desafio da Melo",
-    "challengeHeading": "Nosso desafio era criar uma landing page em HubSpot capaz de apresentar o portfólio de lasers da Alma no Brasil com a sofisticação e a confiança que a parceria com a Skintec exige.",
-    "challengeDetail": "A chegada da Alma Lasers ao mercado brasileiro, em parceria com a Skintec, precisava de uma porta de entrada digital à altura da tecnologia que carrega: uma página que comunicasse autoridade internacional, detalhasse cada equipamento do portfólio e convertesse visitantes em leads qualificados para a equipe comercial.",
-    "approachTag": "Nossa abordagem",
-    "approachHeading": "Mergulhamos na estética premium da marca para construir uma landing page escura, editorial e centrada em produto.",
-    "approachDetail": "Desenhamos uma experiência em HubSpot que equilibra fotografia de produto, tipografia elegante e microinterações sutis — apresentando cada linha de equipamentos (Alma Harmony, Alma Hybrid e SopranoIce) em cartões dedicados e conduzindo o visitante até o formulário de contato com um especialista Skintec.",
-    "cardTitle": "Skintec – Landing Page HubSpot",
-    "cardDesc": "Landing page em HubSpot para o lançamento da Alma Lasers no Brasil em parceria com a Skintec."
-  }
+  "slug": "skintec",
+  "dataService": [
+    "marca",
+    "sites-sistemas"
+  ],
+  "order": 1,
+  "otherCases": [
+    "redcap",
+    "khs"
+  ],
+  "showOnHome": true,
+  "year": "2026"
 }
