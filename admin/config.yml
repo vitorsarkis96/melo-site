@@ -386,13 +386,88 @@ collections:
         collapsed: false
         summary: "{{layout}}"
         fields:
-          - { label: "Layout", name: layout, widget: select, options: [single, double, triple], hint: "single = 1 imagem/vídeo em largura total, double = 2 lado a lado, triple = 3 lado a lado" }
+          - { label: "Layout", name: layout, widget: select, options: [single, double, triple, carousel], hint: "single = 1 imagem/vídeo em largura total, double = 2 lado a lado, triple = 3 lado a lado, carousel = carrossel com abas e cards \"Painel destaque\" (peek nas bordas)" }
           - label: "Fotos/vídeos desta linha"
             name: items
             widget: list
             collapsed: false
-            summary: "{{type}} — {{src}}"
-            fields: *mediaItemFields
+            summary: "{{type}}"
+            types: &mediaRowItemTypes
+              - label: "Imagem"
+                name: image
+                widget: object
+                fields:
+                  - { label: "Arquivo", name: src, widget: file, media_folder: "/assets/img/cases", public_folder: "/assets/img/cases" }
+                  - { label: "Texto alternativo", name: alt, widget: string, required: false }
+                  - { label: "Cor de fundo (opcional, hex)", name: bg, widget: string, required: false }
+                  - { label: "Ajuste da imagem", name: fit, widget: select, options: [cover, contain], required: false }
+                  - label: "Filtro preto e branco (opcional)"
+                    name: filter
+                    widget: select
+                    required: false
+                    options:
+                      - { label: "Nenhum (cor normal)", value: "" }
+                      - { label: "P&B clássico", value: "bw-classic" }
+                      - { label: "P&B alto contraste", value: "bw-contrast" }
+                      - { label: "P&B suave/claro", value: "bw-soft" }
+              - label: "Vídeo"
+                name: video
+                widget: object
+                fields:
+                  - { label: "Arquivo", name: src, widget: file, media_folder: "/assets/img/cases", public_folder: "/assets/img/cases" }
+                  - { label: "Imagem de capa (opcional)", name: poster, widget: file, required: false, media_folder: "/assets/img/cases", public_folder: "/assets/img/cases" }
+              - label: "Cards de produto (com foto) — ex: Skintec"
+                name: spec-cards
+                widget: object
+                fields:
+                  - label: "Produtos"
+                    name: products
+                    widget: list
+                    summary: "{{title}}"
+                    fields:
+                      - { label: "Selo", name: badge, widget: string }
+                      - { label: "Título", name: title, widget: string }
+                      - { label: "Subtítulo", name: subtitle, widget: string }
+                      - { label: "Descrição", name: desc, widget: text }
+                      - { label: "Foto", name: image, widget: file, media_folder: "/assets/img/cases", public_folder: "/assets/img/cases" }
+              - label: "Painel destaque / spotlight (fundo escuro, texto + logo) — ex: Skintec"
+                name: spotlight
+                widget: object
+                fields:
+                  - { label: "Rótulo da aba (só usado dentro de um carrossel)", name: label, widget: string, required: false }
+                  - { label: "É o card ativo por padrão? (só em carrossel)", name: default, widget: boolean, required: false, default: false }
+                  - { label: "Imagem de fundo", name: bg, widget: file, media_folder: "/assets/img/cases", public_folder: "/assets/img/cases" }
+                  - { label: "Logo (opcional)", name: logo, widget: file, required: false, media_folder: "/assets/img/cases", public_folder: "/assets/img/cases" }
+                  - { label: "Título (pode usar <em>palavra</em> pra destacar em dourado)", name: heading, widget: string }
+                  - { label: "Descrição", name: desc, widget: text }
+                  - { label: "Selo de texto (opcional, ex: aprovações/certificações)", name: badgeText, widget: string, required: false }
+                  - label: "Selos/prêmios — logos pequenos (opcional)"
+                    name: awards
+                    widget: list
+                    required: false
+                    field: { label: "Logo", name: award, widget: file, media_folder: "/assets/img/cases", public_folder: "/assets/img/cases" }
+              - label: "Paleta de cores — blocos empilhados (sem foto) — ex: MEV"
+                name: swatches
+                widget: object
+                fields:
+                  - label: "Blocos de cor (de cima pra baixo)"
+                    name: bars
+                    widget: list
+                    summary: "{{color}}"
+                    fields:
+                      - { label: "Cor (hex) — deixe em branco se este bloco for dividido em duas cores", name: color, widget: string, required: false }
+                      - label: "Dividir este bloco em 2 cores lado a lado (opcional)"
+                        name: colors
+                        widget: list
+                        required: false
+                        field: { label: "Cor (hex)", name: c, widget: string }
+                      - { label: "Peso (altura relativa deste bloco em relação aos outros)", name: weight, widget: number }
+              - label: "Fundo com padrão + logo centralizado — ex: MEV"
+                name: pattern
+                widget: object
+                fields:
+                  - { label: "Cor de fundo (hex)", name: bg, widget: string }
+                  - { label: "Logo", name: logo, widget: file, media_folder: "/assets/img/cases", public_folder: "/assets/img/cases" }
       - label: "Fotos e vídeos — depois de 'Nossa abordagem'"
         name: rowsAfterApproach
         widget: list
@@ -400,13 +475,13 @@ collections:
         collapsed: false
         summary: "{{layout}}"
         fields:
-          - { label: "Layout", name: layout, widget: select, options: [single, double, triple] }
+          - { label: "Layout", name: layout, widget: select, options: [single, double, triple, carousel] }
           - label: "Fotos/vídeos desta linha"
             name: items
             widget: list
             collapsed: false
-            summary: "{{type}} — {{src}}"
-            fields: *mediaItemFields
+            summary: "{{type}}"
+            types: *mediaRowItemTypes
       - label: "Conteúdo em Inglês"
         name: en
         widget: object
