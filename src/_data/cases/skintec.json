@@ -1,0 +1,159 @@
+{
+  "slug": "skintec",
+  "order": 6,
+  "showOnHome": true,
+  "year": "2024",
+  "dataService": [
+    "marca",
+    "sites-sistemas"
+  ],
+  "cardImage": "/assets/img/cases/skin-hero.jpg",
+  "otherCases": [
+    "redcap",
+    "khs"
+  ],
+  "heroMedia": {
+    "type": "image",
+    "src": "/assets/img/cases/skin-hero.jpg"
+  },
+  "rowsBeforeApproach": [
+    {
+      "layout": "double",
+      "items": [
+        {
+          "type": "image",
+          "src": "/assets/img/cases/skin-products-bg.jpg"
+        },
+        {
+          "type": "spec-cards",
+          "products": [
+            {
+              "badge": "LASER",
+              "title": "ClearLiftPro",
+              "subtitle": "Uniformidade e Renovação",
+              "desc": "Laser QS Nd:Yag 1064 e 532nm",
+              "image": "/assets/img/cases/skin-clearliftpro.jpg"
+            },
+            {
+              "badge": "LASER",
+              "title": "ClearVas",
+              "subtitle": "Ação Vascular Profunda",
+              "desc": "Laser LP Nd:Yag 1064 + Quasi LP Colimado",
+              "image": "/assets/img/cases/skin-clearvas.jpg"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "layout": "single",
+      "items": [
+        {
+          "type": "image",
+          "src": "/assets/img/cases/skin-mobile-full.jpg"
+        }
+      ]
+    }
+  ],
+  "rowsAfterApproach": [
+    {
+      "layout": "triple",
+      "items": [
+        {
+          "type": "spotlight",
+          "bg": "/assets/img/cases/skin-almaharmony-bg.jpg",
+          "logo": "/assets/img/cases/skin-almaharmony-logo.png",
+          "heading": "Uma nova forma de revelar o <em>potencial</em> de cada pele.",
+          "desc": "Aplicadores de Lasers e IPL ainda mais inteligentes; dois aplicadores independentes conectados na plataforma; tecnologias inéditas, maior potência e frequências mais altas; sistema de resfriamento inteligente e maior versatilidade de tecnologias na plataforma.",
+          "badgeText": "136 indicações aprovadas pela FDA"
+        },
+        {
+          "type": "spotlight",
+          "bg": "/assets/img/cases/skin-sopranoice-bg.jpg",
+          "logo": "/assets/img/cases/skin-sopranoice-logo.png",
+          "heading": "O laser que conquistou o mercado. <em>O conforto que conquista pacientes.</em>",
+          "desc": "O poder de três comprimentos de onda em um único aplicador; SHR™ + In-Motion™; ICE™ Cooling; TIP Facial exclusiva."
+        },
+        {
+          "type": "spotlight",
+          "bg": "/assets/img/cases/skin-almahybrid-bg.jpg",
+          "logo": "/assets/img/cases/skin-almahybrid-logo.png",
+          "heading": "A nova era da <em>longevidade da pele.</em>",
+          "desc": "Tecnologias exclusivas e altamente eficientes para o tratamento clínico; CO2 com sistema de refrigeração inteligente; tecnologia HyGrid que combina laser e CO2 de forma integrada; ultrassom Push & Pull; sem consumíveis."
+        }
+      ]
+    },
+    {
+      "layout": "double",
+      "items": [
+        {
+          "type": "spec-cards",
+          "products": [
+            {
+              "badge": "LASER",
+              "title": "VascunPen",
+              "subtitle": "Precisão Extrema",
+              "desc": "Laser de fibra de diodo verde com alvo de 520nm",
+              "image": "/assets/img/cases/skin-vascunpen.jpg"
+            },
+            {
+              "badge": "IPL",
+              "title": "Iris Dye VL",
+              "subtitle": "Brilho e Uniformidade da Pele",
+              "desc": "Luz pulsada (banda estreita) 500-600nm com modo In-Motion",
+              "image": "/assets/img/cases/skin-irisdyevl.jpg"
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "src": "/assets/img/cases/skin-contact-full.jpg"
+        }
+      ]
+    }
+  ],
+  "en": {
+    "metaTitle": "Skintec – HubSpot Landing Page for Alma Lasers | Melo",
+    "metaDescription": "Melo designed the HubSpot landing page for Alma Lasers' Brazilian launch, in partnership with Skintec.",
+    "heroTitleLine1": "Skintec",
+    "heroTitleLine2": "HubSpot Landing Page",
+    "heroAlt": "Skintec - HubSpot landing page for Alma Lasers",
+    "tags": [
+      "Branding",
+      "UI/UX Design",
+      "Motion Graphics",
+      "Web Development",
+      "2024"
+    ],
+    "challengeTag": "Melo's challenge",
+    "challengeHeading": "Our challenge was to build a HubSpot landing page able to present Alma's laser portfolio in Brazil with the sophistication and trust the Skintec partnership demands.",
+    "challengeDetail": "Alma Lasers' arrival in the Brazilian market, in partnership with Skintec, needed a digital front door worthy of the technology it carries: a page that communicated international authority, detailed every device in the portfolio and converted visitors into qualified leads for the sales team.",
+    "approachTag": "Our approach",
+    "approachHeading": "We dove into the brand's premium aesthetic to build a dark, editorial, product-first landing page.",
+    "approachDetail": "We designed a HubSpot experience that balances product photography, elegant typography and subtle micro-interactions — presenting each equipment line (Alma Harmony, Alma Hybrid and SopranoIce) in dedicated spotlight cards and guiding visitors to a contact form with a Skintec specialist.",
+    "cardTitle": "Skintec – HubSpot Landing Page",
+    "cardDesc": "HubSpot landing page for Alma Lasers' launch in Brazil in partnership with Skintec."
+  },
+  "pt": {
+    "metaTitle": "Skintec – Landing Page HubSpot para a Alma Lasers | Melo",
+    "metaDescription": "A Melo criou a landing page em HubSpot para o lançamento da Alma Lasers no Brasil, em parceria com a Skintec.",
+    "heroTitleLine1": "Skintec",
+    "heroTitleLine2": "Landing Page HubSpot",
+    "heroAlt": "Skintec - landing page HubSpot para a Alma Lasers",
+    "tags": [
+      "Branding",
+      "UI/UX Design",
+      "Motion Graphics",
+      "Web Development",
+      "2024"
+    ],
+    "challengeTag": "O desafio da Melo",
+    "challengeHeading": "Nosso desafio era criar uma landing page em HubSpot capaz de apresentar o portfólio de lasers da Alma no Brasil com a sofisticação e a confiança que a parceria com a Skintec exige.",
+    "challengeDetail": "A chegada da Alma Lasers ao mercado brasileiro, em parceria com a Skintec, precisava de uma porta de entrada digital à altura da tecnologia que carrega: uma página que comunicasse autoridade internacional, detalhasse cada equipamento do portfólio e convertesse visitantes em leads qualificados para a equipe comercial.",
+    "approachTag": "Nossa abordagem",
+    "approachHeading": "Mergulhamos na estética premium da marca para construir uma landing page escura, editorial e centrada em produto.",
+    "approachDetail": "Desenhamos uma experiência em HubSpot que equilibra fotografia de produto, tipografia elegante e microinterações sutis — apresentando cada linha de equipamentos (Alma Harmony, Alma Hybrid e SopranoIce) em cartões dedicados e conduzindo o visitante até o formulário de contato com um especialista Skintec.",
+    "cardTitle": "Skintec – Landing Page HubSpot",
+    "cardDesc": "Landing page em HubSpot para o lançamento da Alma Lasers no Brasil em parceria com a Skintec."
+  }
+}

@@ -6,6 +6,31 @@
     <video controls loop playsinline{% if item.poster %} poster="{{ item.poster }}"{% endif %}>
       <source src="{{ item.src }}" type="{{ item.src | videoType }}" />
     </video>
+{%- elif item.type == "spec-cards" -%}
+    <div class="case-spec-cards">
+      {% for p in item.products %}
+      <div class="case-spec-card">
+        <div class="case-spec-card__body">
+          <span class="case-spec-badge">{{ p.badge }}</span>
+          <div class="case-spec-card__text">
+            <p class="case-spec-card__title">{{ p.title }}</p>
+            <p class="case-spec-card__subtitle">{{ p.subtitle }}</p>
+          </div>
+          <hr class="case-spec-card__divider" />
+          <p class="case-spec-card__desc">{{ p.desc }}</p>
+        </div>
+        <div class="case-spec-card__photo"><img src="{{ p.image }}" alt="{{ p.title }}" loading="lazy" /></div>
+      </div>
+      {% endfor %}
+    </div>
+{%- elif item.type == "spotlight" -%}
+    <div class="case-spotlight__overlay"></div>
+    {% if item.logo %}<img class="case-spotlight__logo" src="{{ item.logo }}" alt="" loading="lazy" />{% endif %}
+    <div class="case-spotlight__content">
+      <p class="case-spotlight__heading">{{ item.heading | safe }}</p>
+      <p class="case-spotlight__desc">{{ item.desc }}</p>
+    </div>
+    {% if item.badgeText %}<span class="case-spotlight__badge">{{ item.badgeText }}</span>{% endif %}
 {%- else -%}
     <img src="{{ item.src }}" alt="{{ item.alt or '' }}" loading="lazy" />
 {%- endif -%}
@@ -14,9 +39,19 @@
 {% macro mediaRow(row) %}
   <div class="case-media-row{{ ' single' if row.layout == 'single' }}">
     {% for item in row.items %}
+    {% if item.type == "spec-cards" %}
+    <div class="case-media case-media--specs">
+      {{ mediaItem(item) }}
+    </div>
+    {% elif item.type == "spotlight" %}
+    <div class="case-media case-spotlight" style="background-image:url('{{ item.bg }}')">
+      {{ mediaItem(item) }}
+    </div>
+    {% else %}
     <div class="case-media{{ ' contain' if item.fit == 'contain' }}{{ ' ' + item.filter if item.filter }}"{% if item.bg %} style="background:{{ item.bg }}"{% endif %}>
       {{ mediaItem(item) }}
     </div>
+    {% endif %}
     {% endfor %}
   </div>
 {% endmacro %}
