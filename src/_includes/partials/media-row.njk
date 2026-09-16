@@ -30,6 +30,11 @@
       <p class="case-spotlight__heading">{{ item.heading | safe }}</p>
       <p class="case-spotlight__desc">{{ item.desc }}</p>
     </div>
+    {% if item.awards %}
+    <div class="case-spotlight__awards">
+      {% for award in item.awards %}<img src="{{ award }}" alt="" loading="lazy" />{% endfor %}
+    </div>
+    {% endif %}
     {% if item.badgeText %}<span class="case-spotlight__badge">{{ item.badgeText }}</span>{% endif %}
 {%- else -%}
     <img src="{{ item.src }}" alt="{{ item.alt or '' }}" loading="lazy" />
@@ -41,12 +46,12 @@
   <div class="case-carousel" data-carousel>
     <div class="case-carousel__tabs" role="tablist" data-carousel-tabs>
       {% for item in row.items %}
-      <button type="button" class="case-carousel__tab{{ ' is-active' if loop.index0 == 0 }}" data-carousel-tab="{{ loop.index0 }}">{{ item.label or item.heading }}</button>
+      <button type="button" class="case-carousel__tab{{ ' is-active' if item.default }}" data-carousel-tab="{{ loop.index0 }}">{{ item.label or item.heading }}</button>
       {% endfor %}
     </div>
     <div class="case-media-row carousel" data-carousel-track>
       {% for item in row.items %}
-      <div class="case-media case-spotlight" data-carousel-item style="background-image:url('{{ item.bg }}')">
+      <div class="case-media case-spotlight"{% if item.default %} data-carousel-default{% endif %} data-carousel-item style="background-image:url('{{ item.bg }}')">
         {{ mediaItem(item) }}
       </div>
       {% endfor %}

@@ -1950,13 +1950,29 @@ body.menu-open {
   position: absolute;
   z-index: 2;
   bottom: 24px;
-  left: 40px;
+  right: 40px;
   border: 1px solid rgba(205, 182, 141, 0.25);
   border-radius: 6px;
   padding: 6px 12px;
   font-size: 11px;
   color: #cdb68d;
   letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.case-spotlight__awards {
+  position: absolute;
+  z-index: 2;
+  bottom: 64px;
+  right: 40px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.case-media .case-spotlight__awards img {
+  position: static;
+  width: auto;
+  height: 32px;
+  object-fit: contain;
 }
 @media (max-width: 900px) {
   .case-media--specs {
@@ -2017,7 +2033,7 @@ body.menu-open {
 }
 .case-media-row.carousel .case-media {
   flex: 0 0 82%;
-  scroll-snap-align: start;
+  scroll-snap-align: center;
 }
 @media (min-width: 900px) {
   .case-media-row.carousel .case-media {

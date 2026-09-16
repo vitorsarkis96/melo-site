@@ -313,9 +313,14 @@
     tabs.forEach((tab) => {
       tab.addEventListener("click", () => {
         const item = items[Number(tab.dataset.carouselTab)];
-        if (item) item.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" });
+        if (item) item.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
       });
     });
+
+    const defaultItem = track.querySelector("[data-carousel-default]");
+    if (defaultItem) {
+      defaultItem.scrollIntoView({ behavior: "auto", block: "nearest", inline: "center" });
+    }
 
     if (tabs.length && "IntersectionObserver" in window) {
       const setActive = (index) => {
