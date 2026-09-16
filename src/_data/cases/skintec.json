@@ -61,12 +61,25 @@
       "items": [
         {
           "type": "spotlight",
+          "label": "Alma Hybrid",
+          "bg": "/assets/img/cases/skin-almahybrid-bg.jpg",
+          "logo": "/assets/img/cases/skin-almahybrid-logo.png",
+          "heading": "A nova era da <em>longevidade da pele.</em>",
+          "desc": "Tecnologias exclusivas e altamente eficientes para o tratamento clínico; CO2 com sistema de refrigeração inteligente Tecnologia HyGrid que permite combinar laser e CO2 de forma integrada, separadas e intercaladas; Ultrassom Push & Pull para maior absorção de drug-delivery; Sem consumíveis."
+        },
+        {
+          "type": "spotlight",
           "label": "Alma Harmony",
+          "default": true,
           "bg": "/assets/img/cases/skin-almaharmony-bg.jpg",
           "logo": "/assets/img/cases/skin-almaharmony-logo.png",
           "heading": "Uma nova forma de revelar o <em>potencial</em> de cada pele.",
-          "desc": "Aplicadores de Lasers e IPL ainda mais inteligentes; dois aplicadores independentes conectados na plataforma; tecnologias inéditas, maior potência e frequências mais altas; sistema de resfriamento inteligente e maior versatilidade de tecnologias na plataforma.",
-          "badgeText": "136 indicações aprovadas pela FDA"
+          "desc": "Aplicadores de Lasers e IPL ainda mais inteligentes; Dois aplicadores independentes conectados na plataforma; Tecnologias inéditas, maior potência e frequências mais altas; Sistema de resfriamento inteligente: Mais confortável para o paciente; Maior versatilidade de tecnologias na plataforma.",
+          "badgeText": "136 indicações aprovadas pela FDA",
+          "awards": [
+            "/assets/img/cases/skin-epda-badge.png",
+            "/assets/img/cases/skin-gooddesign-badge.svg"
+          ]
         },
         {
           "type": "spotlight",
@@ -74,15 +87,7 @@
           "bg": "/assets/img/cases/skin-sopranoice-bg.jpg",
           "logo": "/assets/img/cases/skin-sopranoice-logo.png",
           "heading": "O laser que conquistou o mercado. <em>O conforto que conquista pacientes.</em>",
-          "desc": "O poder de três comprimentos de onda em um único aplicador; SHR™ + In-Motion™; ICE™ Cooling; TIP Facial exclusiva."
-        },
-        {
-          "type": "spotlight",
-          "label": "Alma Hybrid",
-          "bg": "/assets/img/cases/skin-almahybrid-bg.jpg",
-          "logo": "/assets/img/cases/skin-almahybrid-logo.png",
-          "heading": "A nova era da <em>longevidade da pele.</em>",
-          "desc": "Tecnologias exclusivas e altamente eficientes para o tratamento clínico; CO2 com sistema de refrigeração inteligente; tecnologia HyGrid que combina laser e CO2 de forma integrada; ultrassom Push & Pull; sem consumíveis."
+          "desc": "O poder de três comprimentos de onda em um único aplicador; SHR™ + In-Motion™; ICE™ Cooling; TIP Facial Exclusiva."
         }
       ]
     },
