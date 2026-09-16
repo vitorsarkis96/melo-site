@@ -1,22 +1,4 @@
 {
-  "slug": "mev",
-  "order": 7,
-  "showOnHome": true,
-  "year": "2026",
-  "dataService": [
-    "estrategia",
-    "marca",
-    "sites-sistemas"
-  ],
-  "cardImage": "/assets/img/cases/mev-hero.jpg",
-  "otherCases": [
-    "khs",
-    "redcap"
-  ],
-  "heroMedia": {
-    "type": "image",
-    "src": "/assets/img/cases/mev-hero.jpg"
-  },
   "rowsBeforeApproach": [
     {
       "layout": "double",
@@ -24,10 +6,19 @@
         {
           "type": "swatches",
           "bars": [
-            { "color": "#0e0e0f", "weight": 244 },
-            { "color": "#072423", "weight": 113 },
             {
-              "colors": ["#c8cecf", "#eff4f5"],
+              "color": "#0e0e0f",
+              "weight": 244
+            },
+            {
+              "color": "#072423",
+              "weight": 113
+            },
+            {
+              "colors": [
+                "#c8cecf",
+                "#eff4f5"
+              ],
               "weight": 230
             }
           ]
@@ -49,6 +40,55 @@
       ]
     }
   ],
+  "pt": {
+    "heroTitleLine2": "Identidade de Marca e Sistema Visual",
+    "cardDesc": "Identidade de marca e sistema visual para a MEV, grupo de gestão e engenharia de empreendimentos corporativos.",
+    "cardTitle": "MEV – Identidade de Marca",
+    "heroAlt": "MEV - identidade de marca e sistema visual",
+    "approachTag": "Nossa abordagem",
+    "metaTitle": "MEV – Identidade de Marca e Sistema Visual | Melo",
+    "challengeDetail": "A MEV atua na gestão e engenharia de empreendimentos corporativos de alto padrão, onde cada detalhe técnico se traduz em valor e longevidade para o patrimônio do cliente. A marca precisava expressar esse rigor com uma linguagem visual sóbria, contemporânea e confiável, capaz de sustentar aplicações que vão do escritório ao canteiro de obras.",
+    "challengeTag": "O desafio da Melo",
+    "metaDescription": "A Melo criou a identidade de marca e o sistema visual da MEV, grupo de gestão e engenharia para empreendimentos corporativos.",
+    "tags": [
+      "Branding",
+      "Estratégia de Marca",
+      "UI/UX Design",
+      "Engenharia Civil",
+      "2026"
+    ],
+    "approachDetail": "Criamos uma identidade verbal e visual apoiada em uma paleta de verdes profundos e neutros, um símbolo geométrico que remete a estrutura e precisão, e um sistema gráfico aplicado a papelaria, mídia out-of-home e materiais institucionais — reforçando a presença da MEV em cada ponto de contato com o mercado.",
+    "approachHeading": "Desenvolvemos um sistema de marca sóbrio e técnico, construído sobre uma paleta escura e uma tipografia precisa que remete à engenharia.",
+    "challengeHeading": "Nosso desafio era construir uma identidade de marca à altura da precisão técnica e da solidez que a MEV representa no mercado de engenharia e gestão de ativos corporativos.",
+    "heroTitleLine1": "MEV"
+  },
+  "en": {
+    "heroTitleLine2": "Brand Identity & Visual System",
+    "cardDesc": "Brand identity and visual system for MEV, a corporate engineering and asset management group.",
+    "cardTitle": "MEV – Brand Identity",
+    "heroAlt": "MEV - brand identity and visual system",
+    "approachTag": "Our approach",
+    "metaTitle": "MEV – Brand Identity & Visual System | Melo",
+    "challengeDetail": "MEV manages and engineers high-end corporate developments, where every technical detail translates into value and longevity for the client's assets. The brand needed a sober, contemporary and trustworthy visual language, robust enough to hold up across everything from the office to the job site.",
+    "challengeTag": "Melo's challenge",
+    "metaDescription": "Melo created the brand identity and visual system for MEV, a corporate real-estate engineering and asset management group.",
+    "tags": [
+      "Branding",
+      "Brand Strategy",
+      "UI/UX Design",
+      "Civil Engineering",
+      "2026"
+    ],
+    "approachDetail": "We developed a verbal and visual identity anchored in deep greens and neutrals, a geometric mark that evokes structure and precision, and a graphic system applied across stationery, out-of-home media and institutional materials — reinforcing MEV's presence at every touchpoint with the market.",
+    "approachHeading": "We built a sober, technical brand system on a dark palette and a precise typography that nods to engineering.",
+    "challengeHeading": "Our challenge was to build a brand identity as precise and solid as the engineering and asset management work MEV delivers.",
+    "heroTitleLine1": "MEV"
+  },
+  "heroMedia": {
+    "type": "image",
+    "src": "/assets/img/cases/mev-hero.jpg"
+  },
+  "cardImage": "/assets/img/cases/mev-hero.jpg",
   "rowsAfterApproach": [
     {
       "layout": "double",
@@ -81,48 +121,17 @@
       ]
     }
   ],
-  "en": {
-    "metaTitle": "MEV – Brand Identity & Visual System | Melo",
-    "metaDescription": "Melo created the brand identity and visual system for MEV, a corporate real-estate engineering and asset management group.",
-    "heroTitleLine1": "MEV",
-    "heroTitleLine2": "Brand Identity & Visual System",
-    "heroAlt": "MEV - brand identity and visual system",
-    "tags": [
-      "Branding",
-      "Brand Strategy",
-      "UI/UX Design",
-      "Civil Engineering",
-      "2026"
-    ],
-    "challengeTag": "Melo's challenge",
-    "challengeHeading": "Our challenge was to build a brand identity as precise and solid as the engineering and asset management work MEV delivers.",
-    "challengeDetail": "MEV manages and engineers high-end corporate developments, where every technical detail translates into value and longevity for the client's assets. The brand needed a sober, contemporary and trustworthy visual language, robust enough to hold up across everything from the office to the job site.",
-    "approachTag": "Our approach",
-    "approachHeading": "We built a sober, technical brand system on a dark palette and a precise typography that nods to engineering.",
-    "approachDetail": "We developed a verbal and visual identity anchored in deep greens and neutrals, a geometric mark that evokes structure and precision, and a graphic system applied across stationery, out-of-home media and institutional materials — reinforcing MEV's presence at every touchpoint with the market.",
-    "cardTitle": "MEV – Brand Identity",
-    "cardDesc": "Brand identity and visual system for MEV, a corporate engineering and asset management group."
-  },
-  "pt": {
-    "metaTitle": "MEV – Identidade de Marca e Sistema Visual | Melo",
-    "metaDescription": "A Melo criou a identidade de marca e o sistema visual da MEV, grupo de gestão e engenharia para empreendimentos corporativos.",
-    "heroTitleLine1": "MEV",
-    "heroTitleLine2": "Identidade de Marca e Sistema Visual",
-    "heroAlt": "MEV - identidade de marca e sistema visual",
-    "tags": [
-      "Branding",
-      "Estratégia de Marca",
-      "UI/UX Design",
-      "Engenharia Civil",
-      "2026"
-    ],
-    "challengeTag": "O desafio da Melo",
-    "challengeHeading": "Nosso desafio era construir uma identidade de marca à altura da precisão técnica e da solidez que a MEV representa no mercado de engenharia e gestão de ativos corporativos.",
-    "challengeDetail": "A MEV atua na gestão e engenharia de empreendimentos corporativos de alto padrão, onde cada detalhe técnico se traduz em valor e longevidade para o patrimônio do cliente. A marca precisava expressar esse rigor com uma linguagem visual sóbria, contemporânea e confiável, capaz de sustentar aplicações que vão do escritório ao canteiro de obras.",
-    "approachTag": "Nossa abordagem",
-    "approachHeading": "Desenvolvemos um sistema de marca sóbrio e técnico, construído sobre uma paleta escura e uma tipografia precisa que remete à engenharia.",
-    "approachDetail": "Criamos uma identidade verbal e visual apoiada em uma paleta de verdes profundos e neutros, um símbolo geométrico que remete a estrutura e precisão, e um sistema gráfico aplicado a papelaria, mídia out-of-home e materiais institucionais — reforçando a presença da MEV em cada ponto de contato com o mercado.",
-    "cardTitle": "MEV – Identidade de Marca",
-    "cardDesc": "Identidade de marca e sistema visual para a MEV, grupo de gestão e engenharia de empreendimentos corporativos."
-  }
+  "slug": "mev",
+  "dataService": [
+    "estrategia",
+    "marca",
+    "sites-sistemas"
+  ],
+  "order": 3,
+  "otherCases": [
+    "khs",
+    "redcap"
+  ],
+  "showOnHome": true,
+  "year": "2026"
 }
