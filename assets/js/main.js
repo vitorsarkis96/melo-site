@@ -303,6 +303,37 @@
     start();
   });
 
+  /* ---------------- Case media carousel (peeking spotlight cards) ---------------- */
+  document.querySelectorAll("[data-carousel]").forEach((carousel) => {
+    const track = carousel.querySelector("[data-carousel-track]");
+    const tabs = [...carousel.querySelectorAll("[data-carousel-tab]")];
+    const items = [...carousel.querySelectorAll("[data-carousel-item]")];
+    if (!track || !items.length) return;
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const item = items[Number(tab.dataset.carouselTab)];
+        if (item) item.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" });
+      });
+    });
+
+    if (tabs.length && "IntersectionObserver" in window) {
+      const setActive = (index) => {
+        tabs.forEach((tab, i) => tab.classList.toggle("is-active", i === index));
+      };
+      const itemObserver = new IntersectionObserver(
+        (entries) => {
+          const visible = entries
+            .filter((entry) => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+          if (visible) setActive(items.indexOf(visible.target));
+        },
+        { root: track, threshold: [0.6] }
+      );
+      items.forEach((item) => itemObserver.observe(item));
+    }
+  });
+
   /* ---------------- Case filter (cases.html) ---------------- */
   const filterBtns = document.querySelectorAll(".case-filter__btn");
   if (filterBtns.length) {

@@ -37,6 +37,22 @@
 {% endmacro %}
 
 {% macro mediaRow(row) %}
+  {% if row.layout == "carousel" %}
+  <div class="case-carousel" data-carousel>
+    <div class="case-carousel__tabs" role="tablist" data-carousel-tabs>
+      {% for item in row.items %}
+      <button type="button" class="case-carousel__tab{{ ' is-active' if loop.index0 == 0 }}" data-carousel-tab="{{ loop.index0 }}">{{ item.label or item.heading }}</button>
+      {% endfor %}
+    </div>
+    <div class="case-media-row carousel" data-carousel-track>
+      {% for item in row.items %}
+      <div class="case-media case-spotlight" data-carousel-item style="background-image:url('{{ item.bg }}')">
+        {{ mediaItem(item) }}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% else %}
   <div class="case-media-row{{ ' single' if row.layout == 'single' }}">
     {% for item in row.items %}
     {% if item.type == "spec-cards" %}
@@ -54,4 +70,5 @@
     {% endif %}
     {% endfor %}
   </div>
+  {% endif %}
 {% endmacro %}
