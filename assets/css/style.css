@@ -488,10 +488,6 @@ body.menu-open {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s var(--ease);
-}
-.showreel-play:hover .showreel-thumb {
-  transform: scale(1.03);
 }
 .showreel-play::after {
   content: "";
@@ -667,17 +663,13 @@ body.menu-open {
   }
 }
 
-/* Shared zoomable background image for hero/portfolio cards */
+/* Shared background image for hero/portfolio cards */
 .card-bg {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.7s var(--ease);
-}
-.portfolio-card:hover .card-bg {
-  transform: scale(1.06);
 }
 .project-label {
   position: relative;
@@ -1469,9 +1461,6 @@ body.menu-open {
   .socials a {
     transition: none !important;
   }
-  .portfolio-card:hover .card-bg {
-    transform: none;
-  }
   .clients-row {
     animation: none !important;
   }
@@ -1781,7 +1770,6 @@ body.menu-open {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s var(--ease);
 }
 .case-media iframe {
   position: absolute;
@@ -1793,10 +1781,6 @@ body.menu-open {
 .case-media.contain img,
 .case-media.contain video {
   object-fit: contain;
-}
-.case-media:hover img,
-.case-media:hover video {
-  transform: scale(1.04);
 }
 .case-media.bw-classic img,
 .case-media.bw-classic video {
