@@ -417,7 +417,7 @@ collections:
                 name: video
                 widget: object
                 fields:
-                  - { label: "Arquivo", name: src, widget: file, media_folder: "/assets/img/cases", public_folder: "/assets/img/cases" }
+                  - { label: "Arquivo (ou link do YouTube)", name: src, widget: file, media_folder: "/assets/video", public_folder: "/assets/video", hint: "Envie um arquivo de vídeo ou troque para 'Insert from URL' e cole um link do YouTube." }
                   - { label: "Imagem de capa (opcional)", name: poster, widget: file, required: false, media_folder: "/assets/img/cases", public_folder: "/assets/img/cases" }
               - label: "Cards de produto (com foto) — ex: Skintec"
                 name: spec-cards
