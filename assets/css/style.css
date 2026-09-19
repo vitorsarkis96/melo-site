@@ -1822,6 +1822,15 @@ body.menu-open {
   max-height: 60%;
   object-fit: contain;
 }
+.case-media .case-media__hero-logo {
+  position: absolute;
+  inset: auto;
+  top: 32px;
+  right: 32px;
+  width: 90px;
+  height: auto;
+  z-index: 2;
+}
 
 /* Case media: product spec card list (e.g. Skintec laser lineup) */
 .case-media--specs {
@@ -1979,6 +1988,7 @@ body.menu-open {
   right: 24px;
   width: 56px;
   height: auto;
+  object-fit: fill;
   z-index: 2;
 }
 .case-spotlight__content {
