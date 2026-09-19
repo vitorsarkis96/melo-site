@@ -310,16 +310,23 @@
     const items = [...carousel.querySelectorAll("[data-carousel-item]")];
     if (!track || !items.length) return;
 
+    // Scrolls only the horizontal track — never scrollIntoView, which also
+    // drags the whole page's vertical scroll to reveal the carousel.
+    const centerItem = (item, smooth) => {
+      const target = item.offsetLeft + item.offsetWidth / 2 - track.clientWidth / 2;
+      track.scrollTo({ left: target, behavior: smooth ? "smooth" : "auto" });
+    };
+
     tabs.forEach((tab) => {
       tab.addEventListener("click", () => {
         const item = items[Number(tab.dataset.carouselTab)];
-        if (item) item.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+        if (item) centerItem(item, true);
       });
     });
 
     const defaultItem = track.querySelector("[data-carousel-default]");
     if (defaultItem) {
-      defaultItem.scrollIntoView({ behavior: "auto", block: "nearest", inline: "center" });
+      centerItem(defaultItem, false);
     }
 
     if (tabs.length && "IntersectionObserver" in window) {
