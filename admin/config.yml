@@ -442,6 +442,7 @@ collections:
                   - { label: "É o card ativo por padrão? (só em carrossel)", name: default, widget: boolean, required: false, default: false }
                   - { label: "Imagem de fundo", name: bg, widget: file, media_folder: "/assets/img/cases", public_folder: "/assets/img/cases" }
                   - { label: "Logo (opcional)", name: logo, widget: file, required: false, media_folder: "/assets/img/cases", public_folder: "/assets/img/cases" }
+                  - { label: "Proporção do logo (largura/altura, opcional — use se o logo ficar esticado/achatado)", name: logoRatio, widget: string, required: false, hint: "Ex: 1.3 para um logo quase quadrado. Deixe em branco pra usar a proporção natural do arquivo." }
                   - { label: "Título (pode usar <em>palavra</em> pra destacar em dourado)", name: heading, widget: string }
                   - { label: "Descrição", name: desc, widget: text }
                   - { label: "Selo de texto (opcional, ex: aprovações/certificações)", name: badgeText, widget: string, required: false }

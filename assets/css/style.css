@@ -1988,6 +1988,7 @@ body.menu-open {
   right: 24px;
   width: 56px;
   height: auto;
+  object-fit: fill;
   z-index: 2;
 }
 .case-spotlight__content {

@@ -54,7 +54,7 @@
     {% if item.logo %}<img class="case-pattern__logo" src="{{ item.logo }}" alt="" loading="lazy" />{% endif %}
 {%- elif item.type == "spotlight" -%}
     <div class="case-spotlight__overlay"></div>
-    {% if item.logo %}<img class="case-spotlight__logo" src="{{ item.logo }}" alt="" loading="lazy" />{% endif %}
+    {% if item.logo %}<img class="case-spotlight__logo" src="{{ item.logo }}" alt=""{% if item.logoRatio %} style="aspect-ratio:{{ item.logoRatio }}"{% endif %} loading="lazy" />{% endif %}
     <div class="case-spotlight__content">
       <p class="case-spotlight__heading">{{ item.heading | safe }}</p>
       <p class="case-spotlight__desc">{{ item.desc }}</p>

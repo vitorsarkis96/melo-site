@@ -76,6 +76,7 @@
           "default": true,
           "bg": "/assets/img/cases/skin-almaharmony-bg.jpg",
           "logo": "/assets/img/cases/skin-almaharmony-logo.png",
+          "logoRatio": "1.3",
           "heading": "Uma nova forma de revelar o <em>potencial</em> de cada pele.",
           "desc": "Aplicadores de Lasers e IPL ainda mais inteligentes; Dois aplicadores independentes conectados na plataforma; Tecnologias inéditas, maior potência e frequências mais altas; Sistema de resfriamento inteligente: Mais confortável para o paciente; Maior versatilidade de tecnologias na plataforma.",
           "badgeText": "136 indicações aprovadas pela FDA",
