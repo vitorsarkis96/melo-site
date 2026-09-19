@@ -401,6 +401,8 @@ collections:
                   - { label: "Texto alternativo", name: alt, widget: string, required: false }
                   - { label: "Cor de fundo (opcional, hex)", name: bg, widget: string, required: false }
                   - { label: "Ajuste da imagem", name: fit, widget: select, options: [cover, contain], required: false }
+                  - { label: "Posição do recorte (opcional)", name: position, widget: select, options: [top, center, bottom], required: false }
+                  - { label: "Exibir como card flutuante (fundo cinza + sombra, ex: mockup de site)", name: floating, widget: boolean, required: false, default: false }
                   - label: "Filtro preto e branco (opcional)"
                     name: filter
                     widget: select
@@ -420,6 +422,7 @@ collections:
                 name: spec-cards
                 widget: object
                 fields:
+                  - { label: "Layout", name: variant, widget: select, options: [side, top], default: side, required: false, hint: "side = foto ao lado do texto (cards largos, um só por linha). top = foto em cima do texto (cards estreitos, lado a lado com outra mídia)." }
                   - label: "Produtos"
                     name: products
                     widget: list

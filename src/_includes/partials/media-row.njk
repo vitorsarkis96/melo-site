@@ -7,8 +7,22 @@
       <source src="{{ item.src }}" type="{{ item.src | videoType }}" />
     </video>
 {%- elif item.type == "spec-cards" -%}
-    <div class="case-spec-cards">
+    <div class="case-spec-cards{{ ' case-spec-cards--top' if item.variant == 'top' }}">
       {% for p in item.products %}
+      {% if item.variant == "top" %}
+      <div class="case-spec-card case-spec-card--top">
+        <span class="case-spec-badge">{{ p.badge }}</span>
+        <div class="case-spec-card__photo"><img src="{{ p.image }}" alt="{{ p.title }}" loading="lazy" /></div>
+        <div class="case-spec-card__body">
+          <div class="case-spec-card__text">
+            <p class="case-spec-card__title">{{ p.title }}</p>
+            <p class="case-spec-card__subtitle">{{ p.subtitle }}</p>
+          </div>
+          <hr class="case-spec-card__divider" />
+          <p class="case-spec-card__desc">{{ p.desc }}</p>
+        </div>
+      </div>
+      {% else %}
       <div class="case-spec-card">
         <div class="case-spec-card__body">
           <span class="case-spec-badge">{{ p.badge }}</span>
@@ -21,6 +35,7 @@
         </div>
         <div class="case-spec-card__photo"><img src="{{ p.image }}" alt="{{ p.title }}" loading="lazy" /></div>
       </div>
+      {% endif %}
       {% endfor %}
     </div>
 {%- elif item.type == "swatches" -%}
@@ -51,7 +66,11 @@
     {% endif %}
     {% if item.badgeText %}<span class="case-spotlight__badge">{{ item.badgeText }}</span>{% endif %}
 {%- else -%}
-    <img src="{{ item.src }}" alt="{{ item.alt or '' }}" loading="lazy" />
+{% if item.floating %}
+    <div class="case-media__floating-card"><img src="{{ item.src }}" alt="{{ item.alt or '' }}" loading="lazy" /></div>
+{% else %}
+    <img src="{{ item.src }}" alt="{{ item.alt or '' }}" loading="lazy"{% if item.position %} style="object-position:{{ item.position }}"{% endif %} />
+{% endif %}
 {%- endif -%}
 {% endmacro %}
 
@@ -91,7 +110,7 @@
       {{ mediaItem(item) }}
     </div>
     {% else %}
-    <div class="case-media{{ ' contain' if item.fit == 'contain' }}{{ ' ' + item.filter if item.filter }}"{% if item.bg %} style="background:{{ item.bg }}"{% endif %}>
+    <div class="case-media{{ ' contain' if item.fit == 'contain' }}{{ ' floating' if item.floating }}{{ ' ' + item.filter if item.filter }}"{% if item.bg %} style="background:{{ item.bg }}"{% endif %}>
       {{ mediaItem(item) }}
     </div>
     {% endif %}

@@ -22,10 +22,12 @@
       "items": [
         {
           "type": "image",
-          "src": "/assets/img/cases/skin-products-bg.jpg"
+          "src": "/assets/img/cases/skin-products-bg.jpg",
+          "floating": true
         },
         {
           "type": "spec-cards",
+          "variant": "top",
           "products": [
             {
               "badge": "LASER",
@@ -115,7 +117,8 @@
         },
         {
           "type": "image",
-          "src": "/assets/img/cases/skin-contact-full.jpg"
+          "src": "/assets/img/cases/skin-contact-full.jpg",
+          "position": "bottom"
         }
       ]
     }
