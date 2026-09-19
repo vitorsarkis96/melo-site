@@ -14,7 +14,8 @@
   ],
   "heroMedia": {
     "type": "image",
-    "src": "/assets/img/cases/skin-hero.jpg"
+    "src": "/assets/img/cases/skin-hero.jpg",
+    "logo": "/assets/img/cases/skin-hubspot-logo.svg"
   },
   "rowsBeforeApproach": [
     {
