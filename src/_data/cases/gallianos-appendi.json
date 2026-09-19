@@ -1,22 +1,4 @@
 {
-  "slug": "gallianos-appendi",
-  "order": 6,
-  "showOnHome": true,
-  "year": "2025",
-  "dataService": [
-    "estrategia",
-    "marca",
-    "sites-sistemas"
-  ],
-  "cardImage": "/assets/img/cases/galliano-hero.jpg",
-  "otherCases": [
-    "aromatici",
-    "khs"
-  ],
-  "heroMedia": {
-    "type": "image",
-    "src": "/assets/img/cases/galliano-hero.jpg"
-  },
   "rowsBeforeApproach": [
     {
       "layout": "double",
@@ -54,6 +36,55 @@
       ]
     }
   ],
+  "pt": {
+    "heroTitleLine2": "Imagens e Catálogo de Produtos",
+    "cardDesc": "Identidade verbal, fotografia de produto e site para o Appendi, coleção de cabideiros da Galliano's.",
+    "cardTitle": "Galliano's Appendi – Catálogo e Site",
+    "heroAlt": "Galliano's Appendi - catálogo de produtos",
+    "approachTag": "Nossa abordagem",
+    "metaTitle": "Galliano's Appendi – Catálogo e Site | Melo",
+    "challengeDetail": "A Galliano's precisava ir além de um produto funcional: o Appendi precisava comunicar sofisticação e pertencer à estética dos espaços de hospitalidade em que seria usado. O desafio era traduzir um acessório simples em uma peça de design capaz de elevar qualquer ambiente.",
+    "challengeTag": "O desafio da Melo",
+    "metaDescription": "A Melo criou a identidade verbal, a fotografia de produto e o site do Appendi, coleção de cabideiros da Galliano's.",
+    "tags": [
+      "Estratégia de Marca",
+      "Identidade Verbal",
+      "Desenvolvimento Web",
+      "Fotografia de Produto",
+      "2025"
+    ],
+    "approachDetail": "Criamos o catálogo, o site e a direção de fotografia de produto do Appendi, mostrando a peça em diferentes ambientes reais de hospitalidade. Cada material foi pensado para comunicar cuidado, funcionalidade e sofisticação, aproximando a marca do público que vive bons momentos em espaços cuidadosamente desenhados.",
+    "approachHeading": "Desenvolvemos uma identidade verbal e visual que transforma o Appendi em protagonista de cada cena — do hotel ao restaurante.",
+    "challengeHeading": "Nosso desafio era posicionar o Appendi, a coleção de cabideiros da Galliano's, como um objeto de desejo para hotéis e restaurantes de alto padrão.",
+    "heroTitleLine1": "Galliano's Appendi"
+  },
+  "en": {
+    "heroTitleLine2": "Images & Product Catalog",
+    "cardDesc": "Verbal identity, product photography and website for Appendi, Galliano's coat-stand collection.",
+    "cardTitle": "Galliano's Appendi – Catalog & Website",
+    "heroAlt": "Galliano's Appendi - product catalog",
+    "approachTag": "Our approach",
+    "metaTitle": "Galliano's Appendi – Catalog & Website | Melo",
+    "challengeDetail": "Galliano's needed more than a functional product: Appendi had to communicate sophistication and belong to the aesthetic of the hospitality spaces it would live in. The challenge was translating a simple accessory into a design piece able to elevate any environment.",
+    "challengeTag": "Melo's challenge",
+    "metaDescription": "Melo created the verbal identity, product photography and website for Appendi, Galliano's coat-stand collection.",
+    "tags": [
+      "Brand Strategy",
+      "Verbal Identity",
+      "Web Development",
+      "Product Photography",
+      "2025"
+    ],
+    "approachDetail": "We created Appendi's catalog, website and product photography direction, showing the piece in real hospitality settings. Every asset was designed to communicate care, functionality and sophistication, bringing the brand closer to an audience that lives good moments in thoughtfully designed spaces.",
+    "approachHeading": "We developed a verbal and visual identity that turns Appendi into the protagonist of every scene — from hotel to restaurant.",
+    "challengeHeading": "Our challenge was to position Appendi, Galliano's coat-stand collection, as a coveted object for high-end hotels and restaurants.",
+    "heroTitleLine1": "Galliano's Appendi"
+  },
+  "heroMedia": {
+    "type": "image",
+    "src": "/assets/img/cases/galliano-hero.jpg"
+  },
+  "cardImage": "/assets/img/cases/galliano-hero.jpg",
   "rowsAfterApproach": [
     {
       "layout": "triple",
@@ -82,48 +113,17 @@
       ]
     }
   ],
-  "en": {
-    "metaTitle": "Galliano's Appendi – Catalog & Website | Melo",
-    "metaDescription": "Melo created the verbal identity, product photography and website for Appendi, Galliano's coat-stand collection.",
-    "heroTitleLine1": "Galliano's Appendi",
-    "heroTitleLine2": "Images & Product Catalog",
-    "heroAlt": "Galliano's Appendi - product catalog",
-    "tags": [
-      "Brand Strategy",
-      "Verbal Identity",
-      "Web Development",
-      "Product Photography",
-      "2025"
-    ],
-    "challengeTag": "Melo's challenge",
-    "challengeHeading": "Our challenge was to position Appendi, Galliano's coat-stand collection, as a coveted object for high-end hotels and restaurants.",
-    "challengeDetail": "Galliano's needed more than a functional product: Appendi had to communicate sophistication and belong to the aesthetic of the hospitality spaces it would live in. The challenge was translating a simple accessory into a design piece able to elevate any environment.",
-    "approachTag": "Our approach",
-    "approachHeading": "We developed a verbal and visual identity that turns Appendi into the protagonist of every scene — from hotel to restaurant.",
-    "approachDetail": "We created Appendi's catalog, website and product photography direction, showing the piece in real hospitality settings. Every asset was designed to communicate care, functionality and sophistication, bringing the brand closer to an audience that lives good moments in thoughtfully designed spaces.",
-    "cardTitle": "Galliano's Appendi – Catalog & Website",
-    "cardDesc": "Verbal identity, product photography and website for Appendi, Galliano's coat-stand collection."
-  },
-  "pt": {
-    "metaTitle": "Galliano's Appendi – Catálogo e Site | Melo",
-    "metaDescription": "A Melo criou a identidade verbal, a fotografia de produto e o site do Appendi, coleção de cabideiros da Galliano's.",
-    "heroTitleLine1": "Galliano's Appendi",
-    "heroTitleLine2": "Imagens e Catálogo de Produtos",
-    "heroAlt": "Galliano's Appendi - catálogo de produtos",
-    "tags": [
-      "Estratégia de Marca",
-      "Identidade Verbal",
-      "Desenvolvimento Web",
-      "Fotografia de Produto",
-      "2025"
-    ],
-    "challengeTag": "O desafio da Melo",
-    "challengeHeading": "Nosso desafio era posicionar o Appendi, a coleção de cabideiros da Galliano's, como um objeto de desejo para hotéis e restaurantes de alto padrão.",
-    "challengeDetail": "A Galliano's precisava ir além de um produto funcional: o Appendi precisava comunicar sofisticação e pertencer à estética dos espaços de hospitalidade em que seria usado. O desafio era traduzir um acessório simples em uma peça de design capaz de elevar qualquer ambiente.",
-    "approachTag": "Nossa abordagem",
-    "approachHeading": "Desenvolvemos uma identidade verbal e visual que transforma o Appendi em protagonista de cada cena — do hotel ao restaurante.",
-    "approachDetail": "Criamos o catálogo, o site e a direção de fotografia de produto do Appendi, mostrando a peça em diferentes ambientes reais de hospitalidade. Cada material foi pensado para comunicar cuidado, funcionalidade e sofisticação, aproximando a marca do público que vive bons momentos em espaços cuidadosamente desenhados.",
-    "cardTitle": "Galliano's Appendi – Catálogo e Site",
-    "cardDesc": "Identidade verbal, fotografia de produto e site para o Appendi, coleção de cabideiros da Galliano's."
-  }
+  "slug": "gallianos-appendi",
+  "dataService": [
+    "estrategia",
+    "marca",
+    "sites-sistemas"
+  ],
+  "order": 6,
+  "otherCases": [
+    "aromatici",
+    "khs"
+  ],
+  "showOnHome": true,
+  "year": "2026"
 }
