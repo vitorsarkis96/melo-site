@@ -67,6 +67,15 @@
           "bg": "#072423"
         }
       ]
+    },
+    {
+      "layout": "single",
+      "items": [
+        {
+          "type": "video",
+          "src": "/assets/video/MEV_IdentidadeVisualunificada_31082026.mp4"
+        }
+      ]
     }
   ],
   "en": {
