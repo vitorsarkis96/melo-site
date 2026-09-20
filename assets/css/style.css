@@ -2131,6 +2131,22 @@ body.menu-open {
   width: 180px;
   height: auto;
 }
+.case-media .case-pattern__heading {
+  position: absolute;
+  left: 40px;
+  bottom: 40px;
+  right: 40px;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1.2;
+  color: #fff;
+  text-transform: uppercase;
+}
+.case-pattern__heading em {
+  font-style: normal;
+  color: rgba(255, 255, 255, 0.5);
+}
 
 /* Challenge / approach text rows (tag + two paragraphs)
    Padding lives on the parent .section-about (--section-y/--section-x),

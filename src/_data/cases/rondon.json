@@ -1,0 +1,121 @@
+{
+  "slug": "rondon",
+  "order": 7,
+  "showOnHome": true,
+  "year": "2026",
+  "dataService": [
+    "marca",
+    "sites-sistemas"
+  ],
+  "cardImage": "/assets/img/cases/rondon-portrait.jpg",
+  "otherCases": [
+    "gallianos-appendi",
+    "redcap"
+  ],
+  "heroMedia": {
+    "type": "image",
+    "src": "/assets/img/cases/rondon-portrait.jpg"
+  },
+  "rowsBeforeApproach": [
+    {
+      "layout": "double",
+      "items": [
+        {
+          "type": "image",
+          "src": "/assets/img/cases/rondon-business-card.jpg"
+        },
+        {
+          "type": "image",
+          "src": "/assets/img/cases/rondon-portrait.jpg"
+        }
+      ]
+    },
+    {
+      "layout": "single",
+      "items": [
+        {
+          "type": "pattern",
+          "bg": "#2c3e50",
+          "heading": "O que <em>é</em>"
+        }
+      ]
+    },
+    {
+      "layout": "single",
+      "items": [
+        {
+          "type": "image",
+          "src": "/assets/img/cases/rondon-website.jpg"
+        }
+      ]
+    }
+  ],
+  "rowsAfterApproach": [
+    {
+      "layout": "single",
+      "items": [
+        {
+          "type": "image",
+          "src": "/assets/img/cases/rondon-ooh-triptych.jpg"
+        }
+      ]
+    },
+    {
+      "layout": "double",
+      "items": [
+        {
+          "type": "image",
+          "src": "/assets/img/cases/rondon-badge.jpg"
+        },
+        {
+          "type": "image",
+          "src": "/assets/img/cases/rondon-poster-escalator.jpg"
+        }
+      ]
+    }
+  ],
+  "en": {
+    "metaTitle": "Rondon, The Marshal of Peace | Melo",
+    "metaDescription": "Melo created the brand, website and campaign for the Rondon Institute, presenting Marshal Cândido Rondon's legacy to a new generation.",
+    "heroTitleLine1": "Rondon",
+    "heroTitleLine2": "The Marshal of Peace",
+    "heroAlt": "Rondon - The Marshal of Peace brand and campaign",
+    "tags": [
+      "Branding",
+      "UI/UX Design",
+      "Social Media",
+      "Education",
+      "2026"
+    ],
+    "challengeTag": "Melo's challenge",
+    "challengeHeading": "Our challenge was to present Marshal Rondon's legacy to a new generation, with an identity that unites historical rigor and contemporary language.",
+    "challengeDetail": "The Rondon Institute needed a digital presence able to translate a journey of over 50,000 km and decades of history for an audience that often doesn't know who the Marshal of Peace was. The challenge was communicating that story with clarity, respect and relevance for education today.",
+    "approachTag": "Our approach",
+    "approachHeading": "We developed an identity that connects graphic elements from Brazil's own territory to the voice of one of the country's greatest peacemakers.",
+    "approachDetail": "We created a brand, an institutional website and a set of campaign materials — from billboards to social media — presenting Cândido Rondon's biography, achievements and legacy. Every piece was designed to bring the Marshal of Peace's story closer to students and the general public, balancing historical rigor with contemporary visual appeal.",
+    "cardTitle": "Rondon – The Marshal of Peace",
+    "cardDesc": "Brand, website and campaign for the Rondon Institute."
+  },
+  "pt": {
+    "metaTitle": "Rondon, O Marechal da Paz | Melo",
+    "metaDescription": "A Melo criou a marca, o site e a campanha do Instituto Rondon, apresentando o legado do Marechal Cândido Rondon para uma nova geração.",
+    "heroTitleLine1": "Rondon",
+    "heroTitleLine2": "O Marechal da Paz",
+    "heroAlt": "Rondon - marca e campanha O Marechal da Paz",
+    "tags": [
+      "Branding",
+      "UI/UX Design",
+      "Social Media",
+      "Educação",
+      "2026"
+    ],
+    "challengeTag": "O desafio da Melo",
+    "challengeHeading": "Nosso desafio era apresentar o legado do Marechal Rondon a uma nova geração, com uma identidade que unisse rigor histórico e linguagem contemporânea.",
+    "challengeDetail": "O Instituto Rondon precisava de uma presença digital capaz de traduzir uma trajetória de mais de 50 mil km e décadas de história para um público que muitas vezes desconhece quem foi o Marechal da Paz. O desafio era comunicar essa história com clareza, respeito e relevância para a educação de hoje.",
+    "approachTag": "Nossa abordagem",
+    "approachHeading": "Desenvolvemos uma identidade que une elementos gráficos do território brasileiro à voz de um dos maiores pacificadores da história do país.",
+    "approachDetail": "Criamos uma marca, um site institucional e um conjunto de materiais de campanha — de outdoors a redes sociais — que apresentam a biografia, os feitos e o legado de Cândido Rondon. Cada peça foi pensada para aproximar a história do Marechal da Paz do público escolar e do público geral, mantendo rigor histórico e apelo visual contemporâneo.",
+    "cardTitle": "Rondon – O Marechal da Paz",
+    "cardDesc": "Marca, site e campanha para o Instituto Rondon."
+  }
+}
