@@ -381,6 +381,7 @@ collections:
               - { label: "P&B suave/claro", value: "bw-soft" }
           - { label: "Imagem de capa (só p/ vídeo, opcional)", name: poster, widget: file, required: false, media_folder: "/assets/img/cases", public_folder: "/assets/img/cases" }
           - { label: "Logo sobreposto (opcional, ex: logo do HubSpot no canto)", name: logo, widget: file, required: false, media_folder: "/assets/img/cases", public_folder: "/assets/img/cases" }
+          - { label: "Imagem estática p/ compartilhamento (opcional, use se a mídia principal for GIF/vídeo)", name: ogSrc, widget: file, required: false, media_folder: "/assets/img/cases", public_folder: "/assets/img/cases" }
       - label: "Fotos e vídeos — antes de 'Nossa abordagem'"
         name: rowsBeforeApproach
         widget: list
@@ -418,6 +419,7 @@ collections:
                 widget: object
                 fields:
                   - { label: "Arquivo (ou link do YouTube)", name: src, widget: file, media_folder: "/assets/video", public_folder: "/assets/video", hint: "Envie um arquivo de vídeo ou troque para 'Insert from URL' e cole um link do YouTube." }
+                  - { label: "Tocar em loop, sem controles (fundo/ambiente)", name: loop, widget: boolean, required: false, default: false, hint: "Ative para vídeos curtos que devem tocar automaticamente em loop, sem barra de controles — como uma foto que se move. Deixe desligado para vídeos com áudio/conteúdo que a pessoa deve poder pausar." }
                   - { label: "Imagem de capa (opcional)", name: poster, widget: file, required: false, media_folder: "/assets/img/cases", public_folder: "/assets/img/cases" }
               - label: "Cards de produto (com foto) — ex: Skintec"
                 name: spec-cards
@@ -472,7 +474,8 @@ collections:
                 widget: object
                 fields:
                   - { label: "Cor de fundo (hex)", name: bg, widget: string }
-                  - { label: "Logo", name: logo, widget: file, media_folder: "/assets/img/cases", public_folder: "/assets/img/cases" }
+                  - { label: "Logo (opcional)", name: logo, widget: file, required: false, media_folder: "/assets/img/cases", public_folder: "/assets/img/cases" }
+                  - { label: "Título (opcional, pode usar <em>palavra</em> pra deixar em cinza claro)", name: heading, widget: string, required: false }
       - label: "Fotos e vídeos — depois de 'Nossa abordagem'"
         name: rowsAfterApproach
         widget: list

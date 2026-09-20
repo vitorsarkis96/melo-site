@@ -13,7 +13,7 @@ eleventyComputed:
   slug: "{{ item.slug }}"
   metaTitle: "{{ item.en.metaTitle }}"
   metaDescription: "{{ item.en.metaDescription }}"
-  ogImage: "{{ item.heroMedia.src }}"
+  ogImage: "{{ item.heroMedia.ogSrc or item.heroMedia.src }}"
 ---
 {% from "partials/media-row.njk" import mediaRow %}
 {% from "partials/portfolio-card.njk" import card %}

@@ -2,6 +2,10 @@
 {%- set ytId = (item.src | youtubeId) if item.type == "video" else null -%}
 {%- if item.type == "video" and ytId -%}
     <iframe src="https://www.youtube.com/embed/{{ ytId }}?loop=1&playlist={{ ytId }}&controls=1&playsinline=1&modestbranding=1&rel=0" title="" frameborder="0" allow="autoplay; encrypted-media; fullscreen" allowfullscreen loading="lazy"></iframe>
+{%- elif item.type == "video" and item.loop -%}
+    <video autoplay muted loop playsinline preload="auto" disablepictureinpicture controlslist="nodownload noremoteplayback" oncontextmenu="return false"{% if item.poster %} poster="{{ item.poster }}"{% endif %}>
+      <source src="{{ item.src }}" type="{{ item.src | videoType }}" />
+    </video>
 {%- elif item.type == "video" -%}
     <video controls loop playsinline{% if item.poster %} poster="{{ item.poster }}"{% endif %}>
       <source src="{{ item.src }}" type="{{ item.src | videoType }}" />
@@ -52,6 +56,7 @@
     </div>
 {%- elif item.type == "pattern" -%}
     {% if item.logo %}<img class="case-pattern__logo" src="{{ item.logo }}" alt="" loading="lazy" />{% endif %}
+    {% if item.heading %}<p class="case-pattern__heading">{{ item.heading | safe }}</p>{% endif %}
 {%- elif item.type == "spotlight" -%}
     <div class="case-spotlight__overlay"></div>
     {% if item.logo %}<img class="case-spotlight__logo" src="{{ item.logo }}" alt=""{% if item.logoRatio %} style="aspect-ratio:{{ item.logoRatio }}"{% endif %} loading="lazy" />{% endif %}
