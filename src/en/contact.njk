@@ -60,3 +60,28 @@ eleventyComputed:
       </a>
     </div>
   </section>
+
+  <!-- FAQ -->
+  {% set faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": pages.home.en.faq | faqEntities } %}
+  <script type="application/ld+json">
+  {{ faqSchema | dump | safe }}
+  </script>
+  <section class="section-about section-faq">
+    <div class="faq-row">
+      <div class="faq-intro reveal">
+        <div class="tag">
+          <span class="tag-text">{{ pages.home.en.faqTag }}</span>
+          <img class="tag-dot" src="/assets/icons/ellipse-tag.svg" alt="" />
+        </div>
+        <h2>{{ pages.home.en.faqHeading }}</h2>
+      </div>
+      <div class="faq-list reveal-stagger">
+        {% for faqItem in pages.home.en.faq %}
+        <details class="faq-item">
+          <summary>{{ faqItem.q }}</summary>
+          <p>{{ faqItem.a }}</p>
+        </details>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
