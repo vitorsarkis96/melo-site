@@ -14,9 +14,19 @@
   ],
   "heroMedia": {
     "type": "image",
-    "src": "/assets/img/cases/rondon-portrait.jpg"
+    "src": "/assets/video/01-VideoInicioRondon.gif",
+    "ogSrc": "/assets/img/cases/rondon-hero-og.jpg"
   },
   "rowsBeforeApproach": [
+    {
+      "layout": "single",
+      "items": [
+        {
+          "type": "image",
+          "src": "/assets/video/02-VideoPainelLED.gif"
+        }
+      ]
+    },
     {
       "layout": "double",
       "items": [
@@ -34,9 +44,8 @@
       "layout": "single",
       "items": [
         {
-          "type": "pattern",
-          "bg": "#2c3e50",
-          "heading": "O que <em>é</em>"
+          "type": "image",
+          "src": "/assets/video/03-VIdeoOqueEuFiz2.gif"
         }
       ]
     },
@@ -70,6 +79,15 @@
         {
           "type": "image",
           "src": "/assets/img/cases/rondon-poster-escalator.jpg"
+        }
+      ]
+    },
+    {
+      "layout": "single",
+      "items": [
+        {
+          "type": "image",
+          "src": "/assets/video/04-VideoSite.gif"
         }
       ]
     }
