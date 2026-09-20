@@ -82,11 +82,15 @@
         },
         {
           "type": "image",
-          "src": "/assets/img/cases/red-3img-b2.jpg"
+          "src": "/assets/img/cases/red-3img-b2.jpg",
+          "fit": "contain",
+          "bg": "#b31921"
         },
         {
           "type": "image",
-          "src": "/assets/img/cases/red-3img-c2.jpg"
+          "src": "/assets/img/cases/red-3img-c2.jpg",
+          "fit": "contain",
+          "bg": "#eaeaea"
         }
       ]
     },
