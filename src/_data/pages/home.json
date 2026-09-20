@@ -4,12 +4,12 @@
     "autoplaySeconds": 3,
     "slides": [
       {
-        "case": "redcap",
+        "case": "skintec",
         "zoom": 100,
         "focus": "center"
       },
       {
-        "case": "ekoenergy",
+        "case": "gallianos-appendi",
         "zoom": 100,
         "focus": "center"
       },
@@ -19,7 +19,7 @@
         "focus": "center"
       },
       {
-        "case": "khs",
+        "case": "mev",
         "zoom": 100,
         "focus": "center"
       },
@@ -27,6 +27,11 @@
         "zoom": 100,
         "focus": "center",
         "case": "4research"
+      },
+      {
+        "zoom": 100,
+        "focus": "center",
+        "case": "rondon"
       }
     ]
   },
