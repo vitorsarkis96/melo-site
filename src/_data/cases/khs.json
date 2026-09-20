@@ -105,6 +105,6 @@
     "aromatici",
     "redcap"
   ],
-  "showOnHome": true,
+  "showOnHome": false,
   "year": "2025"
 }
