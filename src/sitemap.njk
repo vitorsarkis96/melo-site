@@ -1,0 +1,80 @@
+---
+permalink: sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>{{ site.baseUrl }}/</loc>
+    <lastmod>{{ build.date }}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="{{ site.baseUrl }}/" />
+    <xhtml:link rel="alternate" hreflang="en" href="{{ site.baseUrl }}/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ site.baseUrl }}/" />
+  </url>
+  <url>
+    <loc>{{ site.baseUrl }}/en/</loc>
+    <lastmod>{{ build.date }}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="{{ site.baseUrl }}/" />
+    <xhtml:link rel="alternate" hreflang="en" href="{{ site.baseUrl }}/en/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ site.baseUrl }}/" />
+  </url>
+  <url>
+    <loc>{{ site.baseUrl }}/cases</loc>
+    <lastmod>{{ build.date }}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="{{ site.baseUrl }}/cases" />
+    <xhtml:link rel="alternate" hreflang="en" href="{{ site.baseUrl }}/en/cases" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ site.baseUrl }}/cases" />
+  </url>
+  <url>
+    <loc>{{ site.baseUrl }}/en/cases</loc>
+    <lastmod>{{ build.date }}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="{{ site.baseUrl }}/cases" />
+    <xhtml:link rel="alternate" hreflang="en" href="{{ site.baseUrl }}/en/cases" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ site.baseUrl }}/cases" />
+  </url>
+  <url>
+    <loc>{{ site.baseUrl }}/contato</loc>
+    <lastmod>{{ build.date }}</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="{{ site.baseUrl }}/contato" />
+    <xhtml:link rel="alternate" hreflang="en" href="{{ site.baseUrl }}/en/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ site.baseUrl }}/contato" />
+  </url>
+  <url>
+    <loc>{{ site.baseUrl }}/en/contact</loc>
+    <lastmod>{{ build.date }}</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="{{ site.baseUrl }}/contato" />
+    <xhtml:link rel="alternate" hreflang="en" href="{{ site.baseUrl }}/en/contact" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ site.baseUrl }}/contato" />
+  </url>
+{% for c in cases %}
+  <url>
+    <loc>{{ site.baseUrl }}/{{ c.slug }}</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="{{ site.baseUrl }}/{{ c.slug }}" />
+    <xhtml:link rel="alternate" hreflang="en" href="{{ site.baseUrl }}/en/{{ c.slug }}" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ site.baseUrl }}/{{ c.slug }}" />
+  </url>
+  <url>
+    <loc>{{ site.baseUrl }}/en/{{ c.slug }}</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="{{ site.baseUrl }}/{{ c.slug }}" />
+    <xhtml:link rel="alternate" hreflang="en" href="{{ site.baseUrl }}/en/{{ c.slug }}" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ site.baseUrl }}/{{ c.slug }}" />
+  </url>
+{% endfor %}
+</urlset>

@@ -2,8 +2,6 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ assets: "assets" });
   eleventyConfig.addPassthroughCopy("favicon.ico");
   eleventyConfig.addPassthroughCopy("robots.txt");
-  eleventyConfig.addPassthroughCopy("sitemap.xml");
-  eleventyConfig.addPassthroughCopy("llms.txt");
   eleventyConfig.addPassthroughCopy({ "admin": "admin" });
 
   eleventyConfig.addFilter("videoType", function (src) {

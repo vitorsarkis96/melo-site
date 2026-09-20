@@ -1,3 +1,7 @@
+---
+permalink: llms.txt
+eleventyExcludeFromCollections: true
+---
 # Melo Creative
 
 > Brand agency for health, tech and law businesses. Melo translates technical authority into brand authority: branding, visual identity, high-end websites and film production, delivered end-to-end in-house.
@@ -16,13 +20,8 @@ Melo Creative is a creative agency based in São Paulo, Brazil, operating since 
 - [Homepage (Portuguese, default)](https://www.melocreative.com.br/): agency overview, services, process and results.
 - [Homepage (English)](https://www.melocreative.com.br/en/): English version of the site.
 - [Case studies](https://www.melocreative.com.br/cases): all published projects, filterable by service type.
-- [KHS Advocacia](https://www.melocreative.com.br/khs): brand identity and web platform for a boutique law firm specialized in health law.
-- [brain4care](https://www.melocreative.com.br/brain4care): design, motion graphics and video production for a healthtech company.
-- [4Research](https://www.melocreative.com.br/4research): brand repositioning and identity for a health data and technology company.
-- [REDCap Brasil](https://www.melocreative.com.br/redcap): visual identity and graphic system for a scientific data platform.
-- [Ekoenergy](https://www.melocreative.com.br/ekoenergy): brand strategy and digital identity for a renewable energy company.
-- [Aromatici](https://www.melocreative.com.br/aromatici): rebrand and e-commerce for a science-based dermocosmetics brand.
-
+{% for c in cases %}- [{{ c.en.heroTitleLine1 | replace(' - ', '') | trim | safe }}]({{ site.baseUrl }}/{{ c.slug }}): {{ c.en.cardDesc | safe }}
+{% endfor %}
 ## Contact
 
 - Website: https://www.melocreative.com.br/
