@@ -86,10 +86,9 @@
   },
   "heroMedia": {
     "type": "image",
-    "src": "/assets/img/cases/skin-hero.jpg",
-    "logo": "/assets/img/cases/skin-hubspot-logo.svg"
+    "src": "/assets/img/cases/skin-hero-logo.jpg"
   },
-  "cardImage": "/assets/img/cases/skin-hero.jpg",
+  "cardImage": "/assets/img/cases/skin-hero-logo.jpg",
   "rowsAfterApproach": [
     {
       "layout": "carousel",
