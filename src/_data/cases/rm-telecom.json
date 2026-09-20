@@ -1,0 +1,141 @@
+{
+  "slug": "rm-telecom",
+  "order": 8,
+  "showOnHome": true,
+  "year": "2026",
+  "dataService": [
+    "estrategia",
+    "marca"
+  ],
+  "cardImage": "/assets/img/cases/rm-hero.jpg",
+  "otherCases": [
+    "mev",
+    "skintec"
+  ],
+  "heroMedia": {
+    "type": "image",
+    "src": "/assets/img/cases/rm-hero.jpg"
+  },
+  "rowsBeforeApproach": [
+    {
+      "layout": "double",
+      "items": [
+        {
+          "type": "image",
+          "src": "/assets/img/cases/rm-symbol-construction.jpg"
+        },
+        {
+          "type": "image",
+          "src": "/assets/img/cases/rm-magazine.jpg"
+        }
+      ]
+    },
+    {
+      "layout": "single",
+      "items": [
+        {
+          "type": "image",
+          "src": "/assets/img/cases/rm-logo-gradient.jpg"
+        }
+      ]
+    },
+    {
+      "layout": "triple",
+      "items": [
+        {
+          "type": "image",
+          "src": "/assets/img/cases/rm-post-fios.jpg"
+        },
+        {
+          "type": "image",
+          "src": "/assets/img/cases/rm-symbol.jpg"
+        },
+        {
+          "type": "image",
+          "src": "/assets/img/cases/rm-post-fornecedor.jpg"
+        }
+      ]
+    }
+  ],
+  "rowsAfterApproach": [
+    {
+      "layout": "double",
+      "items": [
+        {
+          "type": "image",
+          "src": "/assets/img/cases/rm-cards.jpg"
+        },
+        {
+          "type": "image",
+          "src": "/assets/img/cases/rm-icons.jpg"
+        }
+      ]
+    },
+    {
+      "layout": "single",
+      "items": [
+        {
+          "type": "image",
+          "src": "/assets/img/cases/rm-slogan.jpg"
+        }
+      ]
+    },
+    {
+      "layout": "double",
+      "items": [
+        {
+          "type": "image",
+          "src": "/assets/img/cases/rm-post-ano.jpg"
+        },
+        {
+          "type": "image",
+          "src": "/assets/img/cases/rm-post-integrador.jpg"
+        }
+      ]
+    }
+  ],
+  "en": {
+    "metaTitle": "RM Telecomunicações – Verbal Positioning & Branding | Melo",
+    "metaDescription": "Melo created the verbal positioning and brand identity for RM, a telecommunications distributor.",
+    "heroTitleLine1": "RM Telecomunicações",
+    "heroTitleLine2": "Verbal Positioning & Branding",
+    "heroAlt": "RM Telecomunicações - brand stationery",
+    "tags": [
+      "Branding",
+      "Verbal Positioning",
+      "Social Media",
+      "Telecommunications",
+      "2026"
+    ],
+    "challengeTag": "Melo's challenge",
+    "challengeHeading": "Our challenge was to give RM a brand and a voice worthy of the company that connects the telecom market, with clarity, trust and closeness.",
+    "challengeDetail": "RM distributes wires, cables and telecom solutions in a technical sector where many brands look alike. We needed a verbal positioning and an identity able to set RM apart and turn technology into direct, human communication.",
+    "approachTag": "Our approach",
+    "approachHeading": "We defined the verbal positioning and built a purple, tech-forward and approachable identity that connects RM to the future it helps build.",
+    "approachDetail": "We created the verbal positioning, the brand with its symbol and icon system, the stationery and the first social media posts. Every piece reinforces the promise of connecting customers to the future, with one consistent visual language from the business card to the feed.",
+    "cardTitle": "RM Telecomunicações – Verbal Positioning & Branding",
+    "cardDesc": "Verbal positioning and brand identity for a telecommunications distributor."
+  },
+  "pt": {
+    "metaTitle": "RM Telecomunicações – Posicionamento Verbal e Branding | Melo",
+    "metaDescription": "A Melo criou o posicionamento verbal e a identidade de marca da RM, distribuidora de telecomunicações.",
+    "heroTitleLine1": "RM Telecomunicações",
+    "heroTitleLine2": "Posicionamento Verbal e Branding",
+    "heroAlt": "RM Telecomunicações - papelaria da marca",
+    "tags": [
+      "Branding",
+      "Posicionamento Verbal",
+      "Social Media",
+      "Telecomunicações",
+      "2026"
+    ],
+    "challengeTag": "O desafio da Melo",
+    "challengeHeading": "Nosso desafio era dar à RM uma marca e uma voz à altura de quem conecta o mercado de telecomunicações, com clareza, confiança e proximidade.",
+    "challengeDetail": "A RM distribui fios, cabos e soluções de telecomunicações, um setor técnico em que muitas marcas parecem iguais. Precisávamos de um posicionamento verbal e de uma identidade capazes de diferenciar a RM e de traduzir tecnologia em uma comunicação direta e humana.",
+    "approachTag": "Nossa abordagem",
+    "approachHeading": "Definimos o posicionamento verbal e construímos uma identidade roxa, tecnológica e próxima, que conecta a RM ao futuro que ela ajuda a construir.",
+    "approachDetail": "Criamos o posicionamento verbal, a marca com seu símbolo e sistema de ícones, a papelaria e os primeiros posts para as redes sociais. Cada peça reforça a promessa de ligar o cliente ao futuro, com uma linguagem visual consistente do cartão de visita ao feed.",
+    "cardTitle": "RM Telecomunicações – Posicionamento Verbal e Branding",
+    "cardDesc": "Posicionamento verbal e identidade de marca para uma distribuidora de telecomunicações."
+  }
+}
