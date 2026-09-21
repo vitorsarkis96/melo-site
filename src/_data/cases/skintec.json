@@ -86,10 +86,10 @@
   },
   "heroMedia": {
     "type": "image",
-    "src": "/assets/img/cases/skin-hero-logo.jpg",
-    "position": "right top"
+    "src": "/assets/img/cases/skin-hero.jpg",
+    "logo": "/assets/img/cases/skin-hubspot-logo.svg"
   },
-  "cardImage": "/assets/img/cases/skin-hero-logo.jpg",
+  "cardImage": "/assets/img/cases/skin-hero.jpg",
   "rowsAfterApproach": [
     {
       "layout": "carousel",
@@ -169,5 +169,5 @@
   ],
   "showOnHome": true,
   "year": "2026",
-  "cardImagePosition": "right top"
+  "cardLogo": "/assets/img/cases/skin-hubspot-logo.svg"
 }
