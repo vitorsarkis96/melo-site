@@ -33,7 +33,7 @@ eleventyComputed:
 
   <div class="case-media-row single">
     <div class="case-media{{ ' contain' if item.heroMedia.fit == 'contain' }}{{ ' ' + item.heroMedia.filter if item.heroMedia.filter }}">
-      <img src="{{ item.heroMedia.src }}" alt="{{ item.pt.heroAlt }}" loading="lazy" />
+      <img src="{{ item.heroMedia.src }}" alt="{{ item.pt.heroAlt }}" loading="lazy"{% if item.heroMedia.position %} style="object-position:{{ item.heroMedia.position }}"{% endif %} />
       {% if item.heroMedia.logo %}<img class="case-media__hero-logo" src="{{ item.heroMedia.logo }}" alt="" loading="lazy" />{% endif %}
     </div>
   </div>

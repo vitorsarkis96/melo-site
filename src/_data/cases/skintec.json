@@ -86,7 +86,8 @@
   },
   "heroMedia": {
     "type": "image",
-    "src": "/assets/img/cases/skin-hero-logo-wide.jpg"
+    "src": "/assets/img/cases/skin-hero-logo.jpg",
+    "position": "right top"
   },
   "cardImage": "/assets/img/cases/skin-hero-logo.jpg",
   "rowsAfterApproach": [
