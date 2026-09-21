@@ -45,15 +45,6 @@
       "items": [
         {
           "type": "image",
-          "src": "/assets/video/03-VIdeoOqueEuFiz2.gif"
-        }
-      ]
-    },
-    {
-      "layout": "single",
-      "items": [
-        {
-          "type": "image",
           "src": "/assets/img/cases/rondon-website.jpg"
         }
       ]
