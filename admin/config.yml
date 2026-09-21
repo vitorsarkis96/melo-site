@@ -358,6 +358,7 @@ collections:
           - { label: "Audiovisual", value: audiovisual }
         hint: "Escolha uma ou mais categorias na lista — controla o filtro da página /cases."
       - { label: "Imagem do card (grade de cases)", name: cardImage, widget: image, media_folder: "/assets/img", public_folder: "/assets/img" }
+      - { label: "Logo de parceiro no card (opcional)", name: cardLogo, widget: image, media_folder: "/assets/img", public_folder: "/assets/img", required: false }
       - label: "Cases relacionados (mostrados no rodapé da página)"
         name: otherCases
         widget: list

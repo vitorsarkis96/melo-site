@@ -86,7 +86,8 @@
   },
   "heroMedia": {
     "type": "image",
-    "src": "/assets/img/cases/skin-hero.jpg"
+    "src": "/assets/img/cases/skin-hero.jpg",
+    "logo": "/assets/img/cases/skin-hubspot-logo.svg"
   },
   "cardImage": "/assets/img/cases/skin-hero.jpg",
   "rowsAfterApproach": [
@@ -167,5 +168,6 @@
     "khs"
   ],
   "showOnHome": true,
-  "year": "2026"
+  "year": "2026",
+  "cardLogo": "/assets/img/cases/skin-hubspot-logo.svg"
 }

@@ -3,6 +3,7 @@
 {%- set srcset = caseItem.cardImage | imgSrcset -%}
     <a class="portfolio-card"{% if withFilter %} data-service="{{ caseItem.dataService | join(' ') }}"{% endif %} href="{{ (prefix + '/' + caseItem.slug) | replace('//','/') }}">
       <img class="card-bg" src="{{ caseItem.cardImage }}"{% if srcset %} srcset="{{ srcset }}" sizes="(max-width: 900px) 100vw, 50vw"{% endif %}{% if caseItem.cardImagePosition %} style="object-position:{{ caseItem.cardImagePosition }}"{% endif %} alt="{{ locale.cardTitle }}" loading="lazy" />
+      {% if caseItem.cardLogo %}<img class="case-media__hero-logo" src="{{ caseItem.cardLogo }}" alt="" loading="lazy" />{% endif %}
       <div class="portfolio-card__content">
         <div class="project-label">
           <p class="title">{{ locale.cardTitle }}</p>
