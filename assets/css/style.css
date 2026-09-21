@@ -1802,7 +1802,8 @@ body.menu-open {
   object-fit: contain;
 }
 .case-media .case-media__hero-logo,
-.portfolio-card .case-media__hero-logo {
+.portfolio-card .case-media__hero-logo,
+.hero-slide .case-media__hero-logo {
   position: absolute;
   inset: auto;
   top: 40px;

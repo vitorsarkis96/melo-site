@@ -30,6 +30,7 @@ eleventyComputed:
         {% else %}
         <img class="card-bg" data-src="{{ slide.caseData.heroMedia.src }}"{% if slideSrcset %} data-srcset="{{ slideSrcset }}" sizes="100vw"{% endif %} alt="{{ slide.caseData.pt.cardTitle }}" style="--hero-zoom: {{ (slide.zoom | default(100)) / 100 }}; --hero-focus-y: {{ slide.focus | default('center') }};" />
         {% endif %}
+        {% if slide.caseData.heroMedia.logo %}<img class="case-media__hero-logo" src="{{ slide.caseData.heroMedia.logo }}" alt="" loading="lazy" />{% endif %}
       </a>
       {% endfor %}
       {% else %}
