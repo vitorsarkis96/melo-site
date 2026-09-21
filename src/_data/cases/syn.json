@@ -80,5 +80,6 @@
     "4research"
   ],
   "showOnHome": false,
-  "year": "2025"
+  "year": "2025",
+  "cardImagePosition": "right top"
 }
