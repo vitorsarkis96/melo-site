@@ -167,5 +167,6 @@
     "khs"
   ],
   "showOnHome": true,
-  "year": "2026"
+  "year": "2026",
+  "cardImagePosition": "right top"
 }
