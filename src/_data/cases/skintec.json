@@ -86,10 +86,9 @@
   },
   "heroMedia": {
     "type": "image",
-    "src": "/assets/img/cases/skin-hero-logo.jpg",
-    "position": "right top"
+    "src": "/assets/img/cases/skin-hero.jpg"
   },
-  "cardImage": "/assets/img/cases/skin-hero-logo.jpg",
+  "cardImage": "/assets/img/cases/skin-hero.jpg",
   "rowsAfterApproach": [
     {
       "layout": "carousel",
@@ -168,6 +167,5 @@
     "khs"
   ],
   "showOnHome": true,
-  "year": "2026",
-  "cardImagePosition": "right top"
+  "year": "2026"
 }
