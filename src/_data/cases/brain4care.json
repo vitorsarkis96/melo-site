@@ -58,11 +58,11 @@
   },
   "heroMedia": {
     "type": "image",
-    "src": "/assets/img/cases/brain4care_dublin.png",
+    "src": "/assets/img/cases/brain4care-hero-portrait.jpg",
     "fit": "cover",
     "filter": null
   },
-  "cardImage": "/assets/img/cases/brain4care_dublin.png",
+  "cardImage": "/assets/img/cases/brain4care-hero-portrait.jpg",
   "rowsAfterApproach": [
     {
       "items": [
