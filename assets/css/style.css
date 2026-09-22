@@ -1252,10 +1252,6 @@ body.menu-open {
   gap: 48px;
   animation: clients-marquee 70s linear infinite;
 }
-.clients-row:hover,
-.clients-row:focus-within {
-  animation-play-state: paused;
-}
 @keyframes clients-marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }

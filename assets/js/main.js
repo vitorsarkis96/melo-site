@@ -295,11 +295,6 @@
       timer = null;
     };
 
-    carousel.addEventListener("mouseenter", stop);
-    carousel.addEventListener("mouseleave", start);
-    carousel.addEventListener("focusin", stop);
-    carousel.addEventListener("focusout", start);
-
     start();
   });
 
