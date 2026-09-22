@@ -4,17 +4,22 @@
     "autoplaySeconds": 3,
     "slides": [
       {
+        "case": "mev",
+        "zoom": 100,
+        "focus": "center"
+      },
+      {
+        "case": "brain4care",
+        "zoom": 100,
+        "focus": "center"
+      },
+      {
         "case": "rondon",
         "zoom": 100,
         "focus": "center"
       },
       {
         "case": "gallianos-appendi",
-        "zoom": 100,
-        "focus": "center"
-      },
-      {
-        "case": "mev",
         "zoom": 100,
         "focus": "center"
       },
@@ -30,11 +35,6 @@
       },
       {
         "case": "4research",
-        "zoom": 100,
-        "focus": "center"
-      },
-      {
-        "case": "brain4care",
         "zoom": 100,
         "focus": "center"
       },
