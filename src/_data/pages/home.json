@@ -49,40 +49,94 @@
   "showreelUrl": "https://www.youtube.com/embed/-8lLYKxtYHM?si=I4yL0Uv9ArmuMw49&controls=1&playsinline=1&rel=0&loop=1&playlist=-8lLYKxtYHM",
   "clientLogos": [
     {
+      "class": "logo-4research",
+      "src": "/assets/img/clients/4research.png",
+      "altPt": "4Research",
+      "altEn": "4Research"
+    },
+    {
+      "class": "logo-brain4care",
+      "src": "/assets/img/clients/brain4care.png",
+      "altPt": "brain4care",
+      "altEn": "brain4care"
+    },
+    {
+      "class": "logo-btl",
+      "src": "/assets/img/clients/btl.png",
+      "altPt": "BTL",
+      "altEn": "BTL"
+    },
+    {
+      "class": "logo-fcamara",
+      "src": "/assets/img/clients/fcamara.png",
+      "altPt": "Grupo F.Camara",
+      "altEn": "Grupo F.Camara"
+    },
+    {
       "class": "logo-fleury",
-      "src": "/assets/img/logo-fleury.png",
-      "altEn": "Fleury",
-      "altPt": "Fleury"
+      "src": "/assets/img/clients/fleury.png",
+      "altPt": "Fleury",
+      "altEn": "Fleury"
     },
     {
-      "class": "logo-client2",
-      "src": "/assets/img/logo-client2.png",
-      "altEn": "Client",
-      "altPt": "Cliente"
-    },
-    {
-      "class": "logo-clube-autores",
-      "src": "/assets/img/logo-clube-autores.png",
-      "altEn": "Clube de Autores",
-      "altPt": "Clube de Autores"
+      "class": "logo-great",
+      "src": "/assets/img/clients/great.png",
+      "altPt": "GREAT",
+      "altEn": "GREAT"
     },
     {
       "class": "logo-gupy",
-      "src": "/assets/img/logo-gupy.png",
-      "altEn": "Gupy",
-      "altPt": "Gupy"
+      "src": "/assets/img/clients/gupy.png",
+      "altPt": "Gupy",
+      "altEn": "Gupy"
     },
     {
-      "class": "logo-client5",
-      "src": "/assets/img/logo-client5.png",
-      "altEn": "Client",
-      "altPt": "Cliente"
+      "class": "logo-ilikia",
+      "src": "/assets/img/clients/ilikia.png",
+      "altPt": "Ilikia",
+      "altEn": "Ilikia"
     },
     {
-      "class": "logo-client6",
-      "src": "/assets/img/logo-client6.png",
-      "altEn": "Client",
-      "altPt": "Cliente"
+      "class": "logo-ipvm",
+      "src": "/assets/img/clients/ipvm.png",
+      "altPt": "IPVM",
+      "altEn": "IPVM"
+    },
+    {
+      "class": "logo-keyaccess",
+      "src": "/assets/img/clients/keyaccess.png",
+      "altPt": "KeyAccess",
+      "altEn": "KeyAccess"
+    },
+    {
+      "class": "logo-mackenzie",
+      "src": "/assets/img/clients/mackenzie.png",
+      "altPt": "Mackenzie",
+      "altEn": "Mackenzie"
+    },
+    {
+      "class": "logo-polo",
+      "src": "/assets/img/clients/polo.png",
+      "altPt": "Polo",
+      "altEn": "Polo"
+    },
+    {
+      "class": "logo-skintec",
+      "src": "/assets/img/clients/skintec.png",
+      "altPt": "Skintec",
+      "altEn": "Skintec"
+    },
+    {
+      "class": "logo-syn",
+      "src": "/assets/img/clients/syn.png",
+      "altPt": "SYN",
+      "altEn": "SYN"
+    },
+    {
+      "class": "logo-underdogs",
+      "src": "/assets/img/clients/underdogs.png",
+      "altPt": "Underdogs",
+      "altEn": "Underdogs"
     }
   ],
   "en": {

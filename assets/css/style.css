@@ -1245,23 +1245,26 @@ body.menu-open {
   overflow: hidden;
 }
 .clients-row {
-  max-width: var(--max-width);
-  width: 100%;
+  width: max-content;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 16px;
+  animation: clients-marquee 36s linear infinite;
 }
-@media (min-width: 901px) {
-  .clients-row .client-logo[aria-hidden="true"] {
-    display: none;
-  }
+.clients-row:hover,
+.clients-row:focus-within {
+  animation-play-state: paused;
+}
+@keyframes clients-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 .client-logo {
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
   height: 82px;
   width: 164px;
   padding: 8px;
@@ -1273,14 +1276,6 @@ body.menu-open {
   height: auto;
   object-fit: contain;
 }
-
-/* Darker, more consistent opacity across the row than Figma's originals. */
-.logo-fleury { opacity: 0.85; }
-.logo-client2 { opacity: 0.9; }
-.logo-clube-autores { opacity: 0.85; }
-.logo-gupy { opacity: 0.55; }
-.logo-client5 { opacity: 0.85; }
-.logo-client6 { opacity: 1; }
 
 .section-clients--top {
   padding-top: 40px;
@@ -1588,21 +1583,7 @@ body.menu-open {
     font-size: 56px;
   }
   .clients-row {
-    max-width: none;
-    width: max-content;
-    flex-wrap: nowrap;
-    animation: clients-marquee 24s linear infinite;
-  }
-  .clients-row:hover,
-  .clients-row:focus-within {
-    animation-play-state: paused;
-  }
-  .client-logo {
-    flex-shrink: 0;
-  }
-  @keyframes clients-marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+    animation-duration: 24s;
   }
   .deliver-left {
     max-width: 100%;
