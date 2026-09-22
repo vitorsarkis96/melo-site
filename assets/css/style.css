@@ -1249,8 +1249,8 @@ body.menu-open {
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
-  gap: 16px;
-  animation: clients-marquee 36s linear infinite;
+  gap: 48px;
+  animation: clients-marquee 70s linear infinite;
 }
 .clients-row:hover,
 .clients-row:focus-within {
@@ -1581,9 +1581,6 @@ body.menu-open {
   }
   .big-number__value {
     font-size: 56px;
-  }
-  .clients-row {
-    animation-duration: 24s;
   }
   .deliver-left {
     max-width: 100%;
