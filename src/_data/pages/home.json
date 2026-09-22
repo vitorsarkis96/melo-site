@@ -4,7 +4,7 @@
     "autoplaySeconds": 3,
     "slides": [
       {
-        "case": "skintec",
+        "case": "rondon",
         "zoom": 100,
         "focus": "center"
       },
@@ -14,24 +14,34 @@
         "focus": "center"
       },
       {
-        "case": "brain4care",
-        "zoom": 100,
-        "focus": "center"
-      },
-      {
         "case": "mev",
         "zoom": 100,
         "focus": "center"
       },
       {
+        "case": "ekoenergy",
         "zoom": 100,
-        "focus": "center",
-        "case": "4research"
+        "focus": "center"
       },
       {
+        "case": "skintec",
         "zoom": 100,
-        "focus": "center",
-        "case": "rondon"
+        "focus": "center"
+      },
+      {
+        "case": "4research",
+        "zoom": 100,
+        "focus": "center"
+      },
+      {
+        "case": "brain4care",
+        "zoom": 100,
+        "focus": "center"
+      },
+      {
+        "case": "redcap",
+        "zoom": 100,
+        "focus": "center"
       }
     ]
   },
