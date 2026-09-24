@@ -2205,6 +2205,9 @@ body.menu-open {
 }
 
 @media (max-width: 900px) {
+  .contact-hero-header {
+    padding: 48px 24px 16px;
+  }
   .contact-hero-header h1 {
     text-align: right;
   }
