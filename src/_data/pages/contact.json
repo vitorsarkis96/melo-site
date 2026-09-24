@@ -1,9 +1,9 @@
 {
   "ogImage": "/assets/img/hero-container.png",
   "en": {
-    "metaTitle": "Contact & Get a Quote | Creative Agency — Melo Creative",
-    "metaDescription": "Request a quote for branding, a website or film for your health, tech or law business. Reach Melo Creative, a creative agency in São Paulo.",
-    "structuredDataDescription": "Contact Melo Creative, a creative agency for health, tech and law businesses in São Paulo, to request a quote for branding, high-end websites or film production.",
+    "metaTitle": "Contact & Get a Quote | Brand Authority Agency — Melo Creative",
+    "metaDescription": "Request a quote for branding, visual identity, a website or film. Talk to Melo Creative and close your business’s credibility gap.",
+    "structuredDataDescription": "Contact Melo Creative, the agency that closes the credibility gap for businesses, to request a quote for branding, visual identity, a website or film.",
     "heroTitle": "Request a project quote",
     "heroDesc": "Tell us about your health, tech or law business and get a tailored branding, website or film proposal — we reply within 1 business day.",
     "labelName": "Name",
@@ -19,9 +19,9 @@
     "whatsappCta": "Request a quote on WhatsApp"
   },
   "pt": {
-    "metaTitle": "Contato e Orçamento | Agência de Criação — Melo Creative",
-    "metaDescription": "Peça um orçamento de branding, site ou vídeo para sua empresa de saúde, tecnologia ou direito. Fale com a Melo Creative, agência de criação em SP.",
-    "structuredDataDescription": "Fale com a Melo Creative, agência de criação para empresas de saúde, tecnologia e direito em São Paulo, e peça um orçamento de identidade visual, site ou vídeo.",
+    "metaTitle": "Contato e Orçamento | Agência de Marca — Melo Creative",
+    "metaDescription": "Peça um orçamento de branding, identidade visual, site ou vídeo. Fale com a Melo Creative e resolva o GAP de credibilidade da sua empresa.",
+    "structuredDataDescription": "Fale com a Melo Creative, agência que resolve o GAP de credibilidade de empresas, e peça um orçamento de branding, identidade visual, site ou vídeo.",
     "heroTitle": "Peça um orçamento",
     "heroDesc": "Conte um pouco sobre o desafio da sua empresa e receba uma proposta para seu projeto.",
     "labelName": "Nome",
