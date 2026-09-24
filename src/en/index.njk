@@ -69,15 +69,13 @@ eleventyComputed:
     </div>
   </section>
 
-  <!-- SHOWREEL -->
-  <section class="showreel-section reveal">
-    <div class="showreel-frame">
-      <button type="button" class="showreel-play" data-video-id="{{ pages.home.showreelUrl | youtubeId }}" aria-label="{{ h.showreelTitle }}">
-        <img class="showreel-thumb" src="/assets/img/showreel-thumb.png" alt="" loading="lazy" />
-        <span class="showreel-play__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
-        </span>
-      </button>
+  <!-- PHOTO HERO -->
+  <section class="hero-card hero-photo">
+    {% set photoSrcset = pages.home.photoHeroImage | imgSrcset %}
+    <img class="card-bg" src="{{ pages.home.photoHeroImage }}"{% if photoSrcset %} srcset="{{ photoSrcset }}" sizes="100vw"{% endif %} alt="{{ h.photoHeroAlt }}" loading="lazy" />
+    <div class="project-label reveal">
+      <p class="title">{{ h.photoHeroTitle }}</p>
+      <p class="desc">{{ h.photoHeroDesc }}</p>
     </div>
   </section>
 
@@ -106,16 +104,6 @@ eleventyComputed:
         </div>
       </div>
       {% endfor %}
-    </div>
-  </section>
-
-  <!-- PHOTO HERO -->
-  <section class="hero-card hero-photo">
-    {% set photoSrcset = pages.home.photoHeroImage | imgSrcset %}
-    <img class="card-bg" src="{{ pages.home.photoHeroImage }}"{% if photoSrcset %} srcset="{{ photoSrcset }}" sizes="100vw"{% endif %} alt="{{ h.photoHeroAlt }}" loading="lazy" />
-    <div class="project-label reveal">
-      <p class="title">{{ h.photoHeroTitle }}</p>
-      <p class="desc">{{ h.photoHeroDesc }}</p>
     </div>
   </section>
 
