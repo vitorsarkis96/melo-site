@@ -2296,7 +2296,11 @@ body.menu-open {
   .contact-form-section {
     padding: 0 24px 64px;
     flex-direction: column;
+    align-items: stretch;
     gap: 40px;
+  }
+  .contact-form {
+    flex-basis: auto;
   }
   .contact-form__row {
     grid-template-columns: 1fr;
@@ -2304,6 +2308,12 @@ body.menu-open {
   }
   .contact-whatsapp {
     width: 100%;
+    padding: 24px;
+  }
+  .contact-whatsapp .btn {
+    width: 100%;
+    white-space: normal;
+    text-align: center;
   }
 }
 
