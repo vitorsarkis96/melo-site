@@ -1240,8 +1240,9 @@ body.menu-open {
   text-align: center;
 }
 .clients-viewport {
-  max-width: var(--max-width);
-  width: 100%;
+  width: calc(100% + 2 * var(--section-x));
+  margin-left: calc(-1 * var(--section-x));
+  margin-right: calc(-1 * var(--section-x));
   overflow: hidden;
 }
 .clients-row {
