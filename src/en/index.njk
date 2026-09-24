@@ -13,7 +13,7 @@ eleventyComputed:
 ---
 {% from "partials/portfolio-card.njk" import card %}
 {% set h = pages.home.en %}
-{% set orgSchema = { "@context": "https://schema.org", "@type": "Organization", "name": "Melo Creative", "url": site.baseUrl + "/", "logo": site.baseUrl + "/assets/icons/logo-melo.svg", "image": site.baseUrl + h.ogImage, "description": h.structuredDataDescription, "email": site.email, "telephone": "+5511954387151", "address": { "@type": "PostalAddress", "streetAddress": "Rua Conde do Pinhal 8 - Liberdade", "addressLocality": "São Paulo", "addressRegion": "SP", "addressCountry": "BR" }, "sameAs": [site.instagram, site.linkedin], "knowsAbout": ["Creative agency", "Branding and visual identity", "High-end web design", "Film and video production", "Brand strategy for healthcare companies", "Brand strategy for tech companies", "Brand strategy for law firms"] } %}
+{% set orgSchema = { "@context": "https://schema.org", "@type": "Organization", "name": "Melo Creative", "url": site.baseUrl + "/", "logo": site.baseUrl + "/assets/icons/logo-melo.svg", "image": site.baseUrl + h.ogImage, "description": h.structuredDataDescription, "email": site.email, "telephone": "+5511954387151", "address": { "@type": "PostalAddress", "streetAddress": "Rua Conde do Pinhal 8 - Liberdade", "addressLocality": "São Paulo", "addressRegion": "SP", "addressCountry": "BR" }, "sameAs": [site.instagram, site.linkedin], "knowsAbout": ["Creative agency", "Brand authority", "Branding and visual identity", "High-end web design", "Film and video production", "Brand strategy for health, tech and law businesses"] } %}
 <script type="application/ld+json">
 {{ orgSchema | dump | safe }}
 </script>
