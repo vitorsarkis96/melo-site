@@ -628,33 +628,45 @@ body.menu-open {
   margin-left: auto;
 }
 @media (max-width: 900px) {
+  /* The video is 16:9; cropping it to fill a tall portrait card (the
+     desktop layout) hid most of the frame. Below 900px the video keeps
+     its full 16:9 ratio at the top of the card, uncropped, with the
+     text in normal flow underneath instead of overlaid on top of it. */
   .hero-tokens {
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-end;
-    min-height: 480px;
-    padding: 32px;
+    display: block;
+    min-height: 0;
+    padding: 0;
+  }
+  .hero-tokens video {
+    position: static;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+  .hero-tokens::after {
+    display: none;
   }
   .hero-tokens__content {
-    padding-left: max(0px, calc(var(--section-x) - 8px - 32px));
+    position: static;
+    max-width: none;
+    padding: 24px 24px 0;
   }
   .hero-tokens__cta {
-    margin-left: 0;
+    position: static;
+    margin: 16px 24px 24px;
   }
 }
 @media (max-width: 520px) {
-  .hero-tokens {
-    padding: 24px;
-  }
   .hero-tokens__content {
-    padding-left: max(0px, calc(var(--section-x) - 8px - 24px));
+    padding: 20px 20px 0;
   }
   .hero-tokens__heading {
     font-size: 26px;
   }
   .hero-tokens__cta {
-    width: 100%;
+    width: calc(100% - 40px);
     justify-content: center;
+    margin: 16px 20px 20px;
   }
 }
 
