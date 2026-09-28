@@ -1,0 +1,7 @@
+{% macro legalNav(active) %}
+<nav class="legal-nav">
+  <a href="/termos-e-condicoes.html"{{ ' class="is-active"' | safe if active == 'termos' }}>Termos &amp; Condições</a>
+  <a href="/politica-de-privacidade.html"{{ ' class="is-active"' | safe if active == 'privacidade' }}>Política de Privacidade</a>
+  <a href="/politica-de-cookies.html"{{ ' class="is-active"' | safe if active == 'cookies' }}>Política de Cookies</a>
+</nav>
+{% endmacro %}
