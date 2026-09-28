@@ -1,0 +1,50 @@
+---
+permalink: "politica-de-cookies.html"
+layout: layouts/base.njk
+lang: pt
+slug: politica-de-cookies
+navActive: legal
+isHome: false
+ogType: website
+metaTitle: "Política de Cookies | Melo Creative"
+metaDescription: "Quais cookies e tecnologias de rastreamento o site da Melo Creative utiliza, e como você pode controlá-los."
+ogImage: "/assets/img/hero-container.png"
+---
+{% from "partials/legal-nav.njk" import legalNav %}
+<section class="case-hero-header reveal">
+  <div>
+    <h1>Política de Cookies</h1>
+  </div>
+</section>
+
+{{ legalNav('cookies') }}
+<p class="legal-updated">Última atualização: 28 de setembro de 2026.</p>
+
+<div class="legal-content reveal">
+  <h2>1. O que são cookies</h2>
+  <p>Cookies são pequenos arquivos de texto armazenados no seu navegador quando você visita um site. Eles podem ser usados para lembrar preferências, medir o uso do site ou permitir funcionalidades específicas. Este site usa um número deliberadamente pequeno de cookies e tecnologias semelhantes — descrevemos todos abaixo, sem letras miúdas.</p>
+
+  <h2>2. Analytics sem cookies</h2>
+  <p>Usamos o <strong>Vercel Analytics</strong> e o <strong>Vercel Speed Insights</strong> para entender, de forma agregada e anônima, quantas pessoas visitam o site e o quão rápido ele carrega. Essas ferramentas são desenhadas para não usar cookies e não identificam visitantes individualmente — não conseguimos, a partir delas, saber quem é você.</p>
+
+  <h2>3. Fontes do Google</h2>
+  <p>Carregamos as fontes tipográficas do site (Inter e Montserrat) diretamente dos servidores do Google Fonts. Isso faz seu navegador enviar uma requisição a esses servidores, o que expõe seu endereço IP ao Google, mas não envolve cookies de rastreamento por parte da Google Fonts.</p>
+
+  <h2>4. Vídeos incorporados do YouTube</h2>
+  <p>Em algumas páginas de cases, oferecemos vídeos hospedados no YouTube. O player só é carregado quando você clica para assistir — até esse momento, nenhuma conexão é feita com o YouTube. Ao reproduzir um vídeo, o Google pode definir seus próprios cookies, conforme a <a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener noreferrer">política de cookies do Google</a>, sobre a qual não temos controle.</p>
+
+  <h2>5. Formulário de contato</h2>
+  <p>O envio do formulário de contato é processado pelo Formspree, que não define cookies de rastreamento no seu navegador — ele apenas recebe os dados do formulário e os encaminha para nós por e-mail.</p>
+
+  <h2>6. O que não usamos</h2>
+  <p>Não utilizamos cookies de publicidade, pixels de redes sociais (Facebook, LinkedIn, Pinterest ou similares), nem ferramentas de automação de marketing. Se isso mudar no futuro, atualizaremos esta página antes da mudança entrar em vigor.</p>
+
+  <h2>7. Como controlar cookies no seu navegador</h2>
+  <p>Você pode bloquear ou apagar cookies a qualquer momento nas configurações do seu navegador. Como este site praticamente não depende de cookies para funcionar, bloqueá-los não deve afetar sua experiência de navegação — a única exceção é a reprodução de vídeos do YouTube, que segue as regras do próprio Google.</p>
+
+  <h2>8. Alterações desta política</h2>
+  <p>Podemos atualizar esta Política de Cookies caso passemos a usar novas ferramentas no site. A data da última atualização está indicada no topo desta página.</p>
+
+  <h2>9. Contato</h2>
+  <p>Dúvidas sobre esta política podem ser enviadas para <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</p>
+</div>

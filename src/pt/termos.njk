@@ -1,0 +1,60 @@
+---
+permalink: "termos-e-condicoes.html"
+layout: layouts/base.njk
+lang: pt
+slug: termos-e-condicoes
+navActive: legal
+isHome: false
+ogType: website
+metaTitle: "Termos & Condições | Melo Creative"
+metaDescription: "Termos e condições de uso do site da Melo Creative: propriedade intelectual, responsabilidades e legislação aplicável."
+ogImage: "/assets/img/hero-container.png"
+---
+{% from "partials/legal-nav.njk" import legalNav %}
+<section class="case-hero-header reveal">
+  <div>
+    <h1>Termos &amp; Condições</h1>
+  </div>
+</section>
+
+{{ legalNav('termos') }}
+<p class="legal-updated">Última atualização: 28 de setembro de 2026.</p>
+
+<div class="legal-content reveal">
+  <h2>1. Aceitação dos termos</h2>
+  <p>Este site é operado pela Melo Creative, inscrita no CNPJ {{ site.cnpj }}, com sede em {{ site.addressLine }} ("Melo", "nós"). Ao acessar ou usar este site, você concorda com estes Termos &amp; Condições. Se não concordar, pedimos que não utilize o site.</p>
+
+  <h2>2. Sobre a Melo</h2>
+  <p>A Melo é uma agência de criação que presta serviços de branding, identidade visual, desenvolvimento de sites e sistemas, e produção audiovisual para empresas. Este site tem caráter institucional: apresenta nosso portfólio, nossa abordagem e um canal de contato para solicitação de orçamento.</p>
+
+  <h2>3. Uso do site</h2>
+  <p>Você concorda em usar este site apenas para fins lícitos e da forma pretendida — conhecer nosso trabalho e entrar em contato. É vedado:</p>
+  <ul>
+    <li>Tentar obter acesso não autorizado a qualquer parte do site ou de seus sistemas;</li>
+    <li>Reproduzir, copiar ou explorar comercialmente o conteúdo do site sem autorização prévia por escrito;</li>
+    <li>Utilizar o formulário de contato para envio de spam, phishing ou qualquer conteúdo ilícito, ofensivo ou enganoso;</li>
+    <li>Interferir no funcionamento do site por meio de vírus, bots ou qualquer outro método malicioso.</li>
+  </ul>
+
+  <h2>4. Propriedade intelectual</h2>
+  <p>Todo o conteúdo deste site — incluindo textos, imagens, vídeos, identidade visual, layout e código — é de titularidade da Melo ou de seus clientes e parceiros, e está protegido pela legislação de direitos autorais e propriedade industrial brasileira (Lei nº 9.610/1998 e Lei nº 9.279/1996). Os cases apresentados pertencem aos respectivos clientes e são exibidos com autorização, a título de portfólio.</p>
+  <p>Nenhum conteúdo deste site pode ser reproduzido, distribuído ou utilizado para fins comerciais sem autorização expressa da Melo ou do titular dos direitos.</p>
+
+  <h2>5. Solicitações de orçamento e propostas</h2>
+  <p>O envio do formulário de contato ou de mensagem via WhatsApp não gera, por si só, qualquer relação contratual entre você e a Melo. A prestação de serviços é sempre formalizada por proposta comercial e contrato específico, negociados separadamente após o primeiro contato.</p>
+
+  <h2>6. Links para sites de terceiros</h2>
+  <p>Este site pode conter links para sites de terceiros (como o YouTube, para vídeos incorporados, ou sites de clientes). A Melo não se responsabiliza pelo conteúdo, práticas de privacidade ou disponibilidade desses sites externos.</p>
+
+  <h2>7. Limitação de responsabilidade</h2>
+  <p>Fazemos o possível para manter este site atualizado e livre de erros, mas não garantimos disponibilidade ininterrupta ou ausência total de falhas técnicas. A Melo não se responsabiliza por danos indiretos decorrentes do uso ou da impossibilidade de uso deste site.</p>
+
+  <h2>8. Alterações destes termos</h2>
+  <p>Podemos atualizar estes Termos &amp; Condições periodicamente, para refletir mudanças no site ou na legislação. A data da última atualização está indicada no topo desta página. Recomendamos revisitar esta página de tempos em tempos.</p>
+
+  <h2>9. Legislação aplicável e foro</h2>
+  <p>Estes termos são regidos pelas leis da República Federativa do Brasil. Fica eleito o foro da Comarca de São Paulo/SP para dirimir quaisquer controvérsias decorrentes destes termos, com renúncia a qualquer outro, por mais privilegiado que seja.</p>
+
+  <h2>10. Contato</h2>
+  <p>Dúvidas sobre estes termos podem ser enviadas para <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</p>
+</div>
