@@ -1368,6 +1368,11 @@ body.menu-open {
   background: rgba(255, 255, 255, 0.15);
   width: 100%;
 }
+.footer-bottom-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
 .footer-bottom {
   display: flex;
   align-items: center;
@@ -1387,6 +1392,12 @@ body.menu-open {
 .footer-contact {
   color: var(--gray-500);
   font-size: 14px;
+  line-height: 1.4;
+  text-align: right;
+}
+.footer-legal {
+  color: var(--gray-700);
+  font-size: 12px;
   line-height: 1.4;
   text-align: right;
 }
@@ -1602,6 +1613,9 @@ body.menu-open {
     align-items: flex-start;
   }
   .footer-contact {
+    text-align: left;
+  }
+  .footer-legal {
     text-align: left;
   }
   .section-clients--top {
