@@ -1,0 +1,113 @@
+{
+  "slug": "fakiani",
+  "order": 9,
+  "showOnHome": false,
+  "year": "2026",
+  "dataService": [
+    "audiovisual"
+  ],
+  "cardImage": "/assets/img/cases/fakiani-set.jpg",
+  "otherCases": [
+    "syn",
+    "brain4care"
+  ],
+  "heroMedia": {
+    "type": "image",
+    "src": "/assets/img/cases/fakiani-set.jpg"
+  },
+  "rowsBeforeApproach": [
+    {
+      "layout": "single",
+      "items": [
+        {
+          "type": "video",
+          "src": "https://youtu.be/NaGSZPV_Oz8"
+        }
+      ]
+    },
+    {
+      "layout": "double",
+      "items": [
+        {
+          "type": "image",
+          "src": "/assets/img/cases/fakiani-camera.jpg"
+        },
+        {
+          "type": "image",
+          "src": "/assets/img/cases/fakiani-clapper.jpg"
+        }
+      ]
+    }
+  ],
+  "rowsAfterApproach": [
+    {
+      "layout": "single",
+      "items": [
+        {
+          "type": "video",
+          "src": "/assets/video/fakiani-btl-event.mp4"
+        }
+      ]
+    },
+    {
+      "layout": "single",
+      "items": [
+        {
+          "type": "video",
+          "src": "https://youtu.be/WpiXG7xfHbc"
+        }
+      ]
+    },
+    {
+      "layout": "single",
+      "items": [
+        {
+          "type": "video",
+          "src": "/assets/video/fakiani-motion-conceito.mp4"
+        }
+      ]
+    }
+  ],
+  "pt": {
+    "metaTitle": "Fakiani – Série Arte & Beleza | Melo",
+    "metaDescription": "A Melo criou e produziu a série audiovisual Arte & Beleza para a Clínica Fakiani, unindo podcast, cobertura de eventos e motion design.",
+    "heroTitleLine1": "Fakiani",
+    "heroTitleLine2": "Arte & Beleza",
+    "heroAlt": "Produção audiovisual da série Arte & Beleza para a Clínica Fakiani",
+    "tags": [
+      "Audiovisual",
+      "Motion",
+      "Saúde",
+      "2026"
+    ],
+    "challengeTag": "O desafio",
+    "challengeHeading": "Como aproximar autoridade médica e linguagem editorial em vídeo?",
+    "challengeDetail": "A Clínica Fakiani precisava transformar o conhecimento técnico do Dr. Eduardo Fakiani em conteúdo audiovisual que fosse, ao mesmo tempo, confiável e envolvente — do consultório ao formato de entrevista.",
+    "approachTag": "Nossa abordagem",
+    "approachHeading": "Criamos a série Arte & Beleza, unindo podcast, cobertura de eventos e motion.",
+    "approachDetail": "Produzimos a série Arte & Beleza com captação própria — da entrevista em estúdio à cobertura de procedimentos e eventos, como o evento BTL de estética — complementada por peças de motion design que traduzem conceitos técnicos em linguagem visual acessível.",
+    "cardTitle": "Fakiani – Arte & Beleza",
+    "cardDesc": "Série audiovisual sobre estética e medicina para a Clínica Fakiani."
+  },
+  "en": {
+    "metaTitle": "Fakiani – Arte & Beleza Series | Melo",
+    "metaDescription": "Melo created and produced the Arte & Beleza audiovisual series for Clínica Fakiani, combining podcast, event coverage and motion design.",
+    "heroTitleLine1": "Fakiani",
+    "heroTitleLine2": "Arte & Beleza",
+    "heroAlt": "Audiovisual production of the Arte & Beleza series for Clínica Fakiani",
+    "tags": [
+      "Audiovisual",
+      "Motion",
+      "Health",
+      "2026"
+    ],
+    "challengeTag": "The challenge",
+    "challengeHeading": "How do you bring medical authority and editorial storytelling together on video?",
+    "challengeDetail": "Clínica Fakiani needed to turn Dr. Eduardo Fakiani's technical expertise into audiovisual content that felt both trustworthy and engaging — from the clinic to an interview format.",
+    "approachTag": "Our approach",
+    "approachHeading": "We created the Arte & Beleza series, combining podcast, event coverage and motion.",
+    "approachDetail": "We produced the Arte & Beleza series with in-house filming — from the studio interview to procedure and event coverage, such as the BTL aesthetics event — complemented by motion design pieces that translate technical concepts into accessible visual language.",
+    "cardTitle": "Fakiani – Arte & Beleza",
+    "cardDesc": "Audiovisual series on aesthetics and medicine for Clínica Fakiani."
+  }
+}
