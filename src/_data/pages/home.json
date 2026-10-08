@@ -267,7 +267,8 @@
         "label": "In-house.",
         "desc": "From initial strategy to final render. Full control over your project's quality."
       }
-    ]
+    ],
+    "reelCtaLabel": "Watch our reel"
   },
   "pt": {
     "bigNumberFormat": "thousand",
@@ -397,6 +398,7 @@
         "label": "In-house.",
         "desc": "Da estratégia inicial à renderização final. Controle total da qualidade do seu projeto."
       }
-    ]
+    ],
+    "reelCtaLabel": "Veja nosso reel"
   }
 }
