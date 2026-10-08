@@ -714,6 +714,16 @@ body.menu-open {
   width: 325px;
   flex-shrink: 0;
 }
+.intro-row__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  max-width: 620px;
+}
+.intro-row__reel {
+  flex-shrink: 0;
+}
 .intro-statement .srt-word {
   display: inline-block;
   opacity: 0.25;

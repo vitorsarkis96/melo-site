@@ -65,7 +65,13 @@ eleventyComputed:
         <span class="tag-text">{{ h.atuamosTag }}</span>
         <img class="tag-dot" src="/assets/icons/ellipse-tag.svg" alt="" />
       </div>
-      <p class="intro-statement scroll-reveal-text">{{ h.introStatement }}</p>
+      <div class="intro-row__content">
+        <p class="intro-statement scroll-reveal-text">{{ h.introStatement }}</p>
+        <button type="button" class="btn btn-dark intro-row__reel" data-video-id="{{ pages.home.showreelUrl | youtubeId }}" aria-label="{{ h.reelCtaLabel }}">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z" /></svg>
+          {{ h.reelCtaLabel }}
+        </button>
+      </div>
     </div>
   </section>
 
