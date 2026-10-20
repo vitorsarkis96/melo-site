@@ -2557,3 +2557,109 @@ body.menu-open {
   color: var(--gray-500);
   font-size: 14px;
 }
+
+/* ============================================================
+   MOBILE TYPE SCALE (<= 900px)
+   Phones were getting the desktop's 12–16px body sizes at 1.4
+   line-height, in light grays — it read as tiny. This block lifts
+   every reading size, opens line-height and darkens low-contrast
+   copy. Kept last so it wins over the earlier responsive blocks.
+   ============================================================ */
+@media (max-width: 900px) {
+  body {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  /* Headlines */
+  .hero-headline {
+    font-size: 34px;
+    line-height: 1.15;
+  }
+  .intro-statement {
+    font-size: 24px;
+    line-height: 1.45;
+  }
+  .step-text h3 {
+    font-size: 24px;
+  }
+
+  /* Body copy: 17px / 1.6 */
+  .about-melo-text,
+  .service-desc,
+  .numbers-desc,
+  .stat__desc,
+  .step-text p,
+  .faq-item p,
+  .case-text-detail,
+  .contact-hero-desc,
+  .contact-whatsapp p {
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  /* Contrast: #999 on dark backgrounds becomes a lighter gray */
+  .numbers-desc,
+  .stat__desc,
+  .step-text p {
+    color: var(--gray-300);
+  }
+  .about-melo-text,
+  .service-desc,
+  .faq-item p,
+  .case-text-detail,
+  .contact-hero-desc {
+    color: var(--gray-700);
+  }
+
+  /* Portfolio / hero card captions */
+  .project-label .title {
+    font-size: 20px;
+    line-height: 1.3;
+  }
+  .project-label .desc {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  /* Buttons: 16px text, 48px touch target */
+  .btn {
+    font-size: 16px;
+    padding: 13px 20px;
+    min-height: 48px;
+  }
+  .btn-lg {
+    padding: 14px 22px;
+  }
+
+  /* Labels, tags, filters */
+  .tag-text {
+    font-size: 15px;
+  }
+  .case-tag {
+    font-size: 14px;
+    padding: 6px 14px;
+  }
+  .case-filter__btn {
+    font-size: 15px;
+    padding: 11px 18px;
+  }
+  .contact-form label {
+    font-size: 15px;
+  }
+
+  /* Footer */
+  .menu-link,
+  .footer-nav .menu-link {
+    font-size: 16px;
+  }
+  .footer-contact {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--gray-300);
+  }
+  .footer-legal {
+    font-size: 13px;
+    color: var(--gray-500);
+  }
+}
