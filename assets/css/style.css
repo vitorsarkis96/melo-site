@@ -2605,9 +2605,28 @@ body.menu-open {
     width: auto;
     max-width: 100%;
   }
+  /* Title always on its own line, description below. (The desktop
+     flex-basis of 320px used to force this wrap, but also overflowed
+     narrow phones; stack explicitly instead.) */
+  .service-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
   .service-title {
-    flex: 1 1 auto;
+    flex: none;
+    width: 100%;
     min-width: 0;
+  }
+  /* In a column the desktop's flex-basis (260px) becomes a forced
+     height, leaving a big blank under each description. */
+  .service-aside {
+    flex: none;
+    width: 100%;
+  }
+  /* Rows 2-4 carry an invisible placeholder tag so the desktop columns
+     line up; stacked on mobile it is just empty space above the title. */
+  .service-row .tag[style*="hidden"] {
+    display: none;
   }
   .numbers-headline-row .big-number {
     min-width: 0;
