@@ -50,12 +50,30 @@
   scroll-margin-top: 80px;
 }
 
+/* iOS/Android must never rescale text on their own (rotation, reader
+   heuristics). Set on html, globally — not only under a breakpoint. */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
 body {
   font-family: var(--font-text);
   color: var(--gray-800);
   background: var(--white);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+}
+/* iOS Safari ignores overflow-x:hidden on body when sizing the page for
+   zoom: anything poking past the right edge (the off-canvas menu was
+   one) makes the page twice as wide, Safari zooms out to fit and then
+   remembers that zoom, so all text "shrinks" again on every visit.
+   clip on both html and body hard-cuts the overflow without turning
+   body into a scroll container (which would break the sticky header). */
+@supports (overflow: clip) {
+  html,
+  body {
+    overflow-x: clip;
+  }
 }
 
 img {
@@ -265,11 +283,19 @@ button {
   flex-direction: column;
   gap: 40px;
   padding: 16px 24px 32px;
-  transform: translateX(100%);
-  transition: transform 0.4s var(--ease);
+  /* Closed state stays INSIDE the viewport and is hidden by clipping,
+     never parked off-screen with translateX(100%): an off-screen panel
+     widens the page on iOS and makes Safari zoom the whole site out. */
+  visibility: hidden;
+  -webkit-clip-path: inset(0 0 0 100%);
+  clip-path: inset(0 0 0 100%);
+  transition: clip-path 0.4s var(--ease), -webkit-clip-path 0.4s var(--ease), visibility 0s linear 0.4s;
 }
 .mobile-menu.is-open {
-  transform: translateX(0);
+  visibility: visible;
+  -webkit-clip-path: inset(0);
+  clip-path: inset(0);
+  transition: clip-path 0.4s var(--ease), -webkit-clip-path 0.4s var(--ease), visibility 0s;
 }
 .mobile-menu__top {
   display: flex;
@@ -2453,7 +2479,9 @@ body.menu-open {
   flex: 1;
   min-width: 0;
   font-family: var(--font-text);
-  font-size: 14px;
+  /* 16px minimum: below that iOS zooms the page in on focus and leaves
+     it zoomed after the popup closes. */
+  font-size: 16px;
   color: var(--gray-800);
   border: 1px solid var(--gray-300);
   border-radius: var(--radius-pill);
@@ -2564,11 +2592,34 @@ body.menu-open {
    line-height, in light grays — it read as tiny. This block lifts
    every reading size, opens line-height and darkens low-contrast
    copy. Kept last so it wins over the earlier responsive blocks.
+   The second query also covers phones turned sideways: an iPhone
+   Pro Max in landscape is 932px wide and used to fall back to the
+   desktop's small sizes.
    ============================================================ */
-@media (max-width: 900px) {
-  body {
-    -webkit-text-size-adjust: 100%;
-    text-size-adjust: 100%;
+@media (max-width: 900px), (pointer: coarse) and (max-height: 500px) {
+  /* Fixed desktop widths (325px tag column, 320px flex bases) were
+     wider than a 320–375px phone: the page overflowed sideways and iOS
+     zoomed everything out. Let them shrink to the column. */
+  .intro-row .tag,
+  .faq-intro {
+    width: auto;
+    max-width: 100%;
+  }
+  .service-title {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+  .numbers-headline-row .big-number {
+    min-width: 0;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+  }
+  .numbers-headline-row .numbers-desc,
+  .stat {
+    width: auto;
+    max-width: 100%;
+    flex-basis: auto;
+    min-width: 0;
   }
 
   /* Headlines */
