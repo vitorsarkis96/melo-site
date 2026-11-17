@@ -1,87 +1,16 @@
 ---
 permalink: "en/contact.html"
-layout: layouts/base.njk
+layout: layouts/v2.njk
 lang: en
 slug: contact
 isHome: false
+hasHero: false
 ogType: website
+metaTitle: "Contact | Melo, corporate communications agency"
 eleventyComputed:
-  metaTitle: "{{ pages.contact.en.metaTitle }}"
-  metaDescription: "{{ pages.contact.en.metaDescription }}"
+  metaDescription: "{{ v2.en.contactPage.lead }}"
   ogImage: "{{ pages.contact.ogImage }}"
 ---
-{% set h = pages.contact.en %}
-{% set contactSchema = { "@context": "https://schema.org", "@type": "ContactPage", "name": h.metaTitle, "description": h.metaDescription, "url": site.baseUrl + i18n.en.contactPath, "mainEntity": { "@type": "Organization", "name": "Melo Creative", "url": site.baseUrl + "/", "logo": site.baseUrl + "/assets/icons/logo-melo.svg", "image": site.baseUrl + pages.contact.ogImage, "description": h.structuredDataDescription, "email": site.email, "telephone": "+5511954387151", "address": { "@type": "PostalAddress", "streetAddress": "Rua Conde do Pinhal 8 - Liberdade", "addressLocality": "São Paulo", "addressRegion": "SP", "addressCountry": "BR" }, "sameAs": [site.instagram, site.linkedin], "contactPoint": { "@type": "ContactPoint", "telephone": "+55-11-95438-7151", "contactType": "sales", "areaServed": "BR", "availableLanguage": ["Portuguese", "English"] } } } %}
-<script type="application/ld+json">
-{{ contactSchema | dump | safe }}
-</script>
-  <section class="case-hero-header contact-hero-header reveal">
-    <div>
-      <h1>{{ h.heroTitle }}</h1>
-      <p class="contact-hero-desc">{{ h.heroDesc }}</p>
-    </div>
-  </section>
-
-  <section class="contact-form-section reveal">
-    <form class="contact-form" action="https://formspree.io/f/{{ site.formspreeId }}" method="POST" data-contact-form data-success-message="{{ h.successMessage }}" data-error-message="{{ h.errorMessage }}">
-      <input type="hidden" name="_cc" value="{{ site.email }}" />
-      <input type="hidden" name="_gotcha" value="" />
-      <div class="contact-form__row">
-        <label>
-          <span>{{ h.labelName }}</span>
-          <input type="text" name="name" required />
-        </label>
-        <label>
-          <span>{{ h.labelEmail }}</span>
-          <input type="email" name="email" required />
-        </label>
-      </div>
-      <label>
-        <span>{{ h.labelPhone }}</span>
-        <input type="tel" name="phone" />
-      </label>
-      <label>
-        <span>{{ h.labelMessage }}</span>
-        <textarea name="message" rows="6" required></textarea>
-      </label>
-      <button type="submit" class="btn btn-orange btn-lg contact-form__submit">
-        {{ h.submitLabel }}
-        <img class="btn-icon" src="/assets/icons/arrow-right.svg" alt="" />
-      </button>
-      <p class="contact-form__status" data-contact-status role="status" aria-live="polite"></p>
-    </form>
-
-    <div class="contact-whatsapp reveal">
-      <h2>{{ h.whatsappTitle }}</h2>
-      <p>{{ h.whatsappDesc }}</p>
-      <a class="btn btn-dark" href="{{ site.whatsapp }}" target="_blank" rel="noopener noreferrer">
-        <img class="btn-icon" src="/assets/icons/whatsapp.svg" alt="" />
-        {{ h.whatsappCta }}
-      </a>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  {% set faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": pages.home.en.faq | faqEntities } %}
-  <script type="application/ld+json">
-  {{ faqSchema | dump | safe }}
-  </script>
-  <section class="section-about section-faq">
-    <div class="faq-row">
-      <div class="faq-intro reveal">
-        <div class="tag">
-          <span class="tag-text">{{ pages.home.en.faqTag }}</span>
-          <img class="tag-dot" src="/assets/icons/ellipse-tag.svg" alt="" />
-        </div>
-        <h2>{{ pages.home.en.faqHeading }}</h2>
-      </div>
-      <div class="faq-list reveal-stagger">
-        {% for faqItem in pages.home.en.faq %}
-        <details class="faq-item">
-          <summary>{{ faqItem.q }}</summary>
-          <p>{{ faqItem.a }}</p>
-        </details>
-        {% endfor %}
-      </div>
-    </div>
-  </section>
+{% set contactAsH1 = true %}
+<div class="page-top"></div>
+{% include "partials/v2-contact.njk" %}

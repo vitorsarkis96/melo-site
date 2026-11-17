@@ -1,0 +1,142 @@
+{%- set t = i18n[lang] -%}
+{%- set c = v2[lang] -%}
+{%- set P = t.prefix -%}
+{%- set home = (P + "/") | replace("//", "/") -%}
+{%- set currentPath = (P + "/" + (slug or "")) | replace("//", "/") -%}
+{%- set altPathPrefix = "/en" if lang == "pt" else "/" -%}
+{%- set sl = slug or "" -%}
+{%- set altSlug = (sl | replace("contato", "contact")) if lang == "pt" else (sl | replace("contact", "contato")) -%}
+{%- set altPath = (altPathPrefix + "/" + (altSlug or "")) | replace("//", "/") -%}
+{%- set canonicalUrl = site.baseUrl + currentPath -%}
+{%- set enUrl = site.baseUrl + (("/en/" + (sl | replace("contato", "contact"))) | replace("//", "/")) -%}
+{%- set ptUrl = site.baseUrl + (("/" + (sl | replace("contact", "contato"))) | replace("//", "/")) -%}
+{%- set AR = '<svg class="ar" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M1 6h10M7 2l4 4-4 4"/></svg>' -%}
+<!DOCTYPE html>
+<html lang="{{ t.htmlLang }}">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>{{ metaTitle | safe }}</title>
+<meta name="description" content="{{ metaDescription | safe }}" />
+<link rel="canonical" href="{{ canonicalUrl }}" />
+<meta name="theme-color" content="#ffffff" />
+<meta name="color-scheme" content="only light" />
+<meta name="p:domain_verify" content="9efdd9fe62752d6bb5dddbc895f56a76" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png" />
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png" />
+{% if not singleLang %}
+<link rel="alternate" hreflang="en" href="{{ enUrl }}" />
+<link rel="alternate" hreflang="pt-BR" href="{{ ptUrl }}" />
+<link rel="alternate" hreflang="x-default" href="{{ ptUrl }}" />
+{% endif %}
+<meta property="og:type" content="{{ ogType or 'website' }}" />
+<meta property="og:site_name" content="Melo" />
+<meta property="og:locale" content="{{ t.ogLocale }}" />
+<meta property="og:title" content="{{ metaTitle | safe }}" />
+<meta property="og:description" content="{{ metaDescription | safe }}" />
+<meta property="og:url" content="{{ canonicalUrl }}" />
+<meta property="og:image" content="{{ site.baseUrl }}{{ ogImage | safe }}" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="{{ metaTitle | safe }}" />
+<meta name="twitter:description" content="{{ metaDescription | safe }}" />
+<meta name="twitter:image" content="{{ site.baseUrl }}{{ ogImage | safe }}" />
+{% if structuredData %}
+<script type="application/ld+json">
+{{ structuredData | dump | safe }}
+</script>
+{% endif %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/assets/css/v2.css?v={{ build.date }}" />
+<script defer src="/_vercel/insights/script.js"></script>
+<script>
+  window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+</head>
+<body class="{{ bodyClass or '' }}" data-lang="{{ lang }}">
+<a class="skip" href="#conteudo">{{ "Pular para o conteúdo" if lang == "pt" else "Skip to content" }}</a>
+
+<header class="site{{ ' light' if not hasHero }}">
+  <div class="wrap nav">
+    <a class="logo" href="{{ '#topo' if isHome else home }}" aria-label="Melo">
+      <img src="/assets/icons/logo-melo.svg" alt="Melo" width="96" height="24">
+    </a>
+    <ul class="menu menu-glass" id="menu">
+      <li class="dd">
+        <button aria-expanded="false">{{ c.nav.services }} <svg class="chev" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 4l3 3 3-3"/></svg></button>
+        <div class="drop">
+          {% for s in c.services %}<a href="{{ '#servicos' if isHome else home + '#servicos' }}" data-tab="{{ loop.index0 }}"><span class="n">{{ loop.index | pad2 }}</span><b>{{ s.t }}</b><span>{{ s.s }}</span></a>{% endfor %}
+        </div>
+      </li>
+      <li><a href="{{ '#cases' if isHome else (P + '/cases') | replace('//','/') }}"{{ ' class="cur"' | safe if navActive == 'cases' }}>{{ c.nav.cases }}</a></li>
+      <li><a href="{{ '#metodo' if isHome else home + '#metodo' }}">{{ c.nav.method }}</a></li>
+      <li><a href="{{ '#faq' if isHome else home + '#faq' }}">{{ c.nav.faq }}</a></li>
+    </ul>
+    <div class="nav-r">
+      <div class="lang">{% if lang == "pt" %}<a class="on" href="{{ currentPath }}">PT</a><a href="{{ altPath }}" hreflang="en">EN</a>{% else %}<a href="{{ altPath }}" hreflang="pt-BR">PT</a><a class="on" href="{{ currentPath }}">EN</a>{% endif %}</div>
+      <a class="btn btn-gray btn-sm" href="{{ '#contato' if isHome else t.contactPath }}">{{ c.nav.cta }} {{ AR | safe }}</a>
+      <button class="burger" aria-label="{{ c.nav.open }}" aria-expanded="false"><i></i></button>
+    </div>
+  </div>
+</header>
+
+<nav class="mpanel" aria-label="Menu">
+  <a class="m" href="{{ '#servicos' if isHome else home + '#servicos' }}">{{ c.nav.services }} <span>01</span></a>
+  <a class="m" href="{{ (P + '/cases') | replace('//','/') }}">{{ c.nav.cases }} <span>02</span></a>
+  <a class="m" href="{{ '#metodo' if isHome else home + '#metodo' }}">{{ c.nav.method }} <span>03</span></a>
+  <a class="m" href="{{ '#faq' if isHome else home + '#faq' }}">{{ c.nav.faq }} <span>04</span></a>
+  <a class="m" href="https://www.youtube.com/watch?v={{ v2.reel }}" data-reel>{{ c.nav.reel }} <span>▶</span></a>
+  <div class="ctas">
+    <a class="btn btn-gray" href="{{ '#contato' if isHome else t.contactPath }}">{{ c.nav.cta }}</a>
+    <a class="btn btn-ghost" href="{{ altPath }}">{{ c.nav.english }}</a>
+  </div>
+</nav>
+
+<main id="conteudo">
+{{ content | safe }}
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div class="brand">
+        <img src="/assets/icons/logo-melo.svg" alt="Melo" width="96" height="24">
+        <p>{{ c.footer.about }}</p>
+      </div>
+      <div><h4>{{ c.footer.services }}</h4><ul>{% for s in c.services %}<li><a href="{{ home }}#servicos" data-tab="{{ loop.index0 }}">{{ s.t }}</a></li>{% endfor %}</ul></div>
+      <div><h4>{{ c.footer.melo }}</h4><ul>
+        <li><a href="{{ (P + '/cases') | replace('//','/') }}">{{ c.nav.cases }}</a></li>
+        <li><a href="https://www.youtube.com/watch?v={{ v2.reel }}" data-reel>{{ c.nav.reel }}</a></li>
+        <li><a href="{{ home }}#metodo">{{ c.nav.method }}</a></li>
+        <li><a href="{{ home }}#faq">{{ c.nav.faq }}</a></li>
+        <li><a href="{{ t.contactPath }}">{{ c.footer.contactPage }}</a></li>
+        <li><a href="{{ altPath }}">{{ c.nav.english }}</a></li>
+      </ul></div>
+      <div><h4>{{ c.footer.contact }}</h4><ul>
+        <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+        <li><a href="{{ v2.social.whatsapp }}" target="_blank" rel="noopener">WhatsApp {{ site.phone }}</a></li>
+        <li><a href="{{ v2.social.linktree }}" target="_blank" rel="noopener">linktr.ee/amelocreative</a></li>
+        <li>Rua Conde do Pinhal, 8<br>Liberdade, São Paulo, SP</li>
+      </ul></div>
+    </div>
+    <div class="legal">
+      <span>© 2019–2026 Melo Creative · CNPJ {{ site.cnpj }}</span>
+      <nav><a href="/termos-e-condicoes">{{ c.footer.terms }}</a><a href="/politica-de-privacidade">{{ c.footer.privacy }}</a><a href="/politica-de-cookies">{{ c.footer.cookies }}</a></nav>
+      {% include "partials/v2-social.njk" %}
+    </div>
+  </div>
+</footer>
+
+<div class="modal" id="reelModal" role="dialog" aria-modal="true" aria-label="Showreel">
+  <button class="close" type="button" id="reelClose">{{ c.nav.close }} ✕</button>
+  <div class="frame" id="reelFrame"></div>
+</div>
+
+<script>window.MELO={reel:"{{ v2.reel }}",lang:"{{ lang }}",formspree:"{{ site.formspreeId }}",msg:{{ c.contactSec | dump | safe }}};</script>
+<script src="/assets/js/v2.js?v={{ build.date }}" defer></script>
+</body>
+</html>

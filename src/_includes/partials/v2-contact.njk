@@ -1,0 +1,30 @@
+{%- set c = v2[lang] -%}
+{%- set cs = c.contactSec -%}
+<section class="contact" id="contato">
+  <div class="wrap c-wrap">
+    <span class="kicker c-kick rv"><b>{{ contactKicker or "●" }}</b>{{ cs.kicker }}</span>
+    <div class="c-left">
+      {% if contactAsH1 %}<h1 class="h2 rv d1">{{ c.contactPage.title }}<span class="pt">.</span></h1>{% else %}<h2 class="h2 rv d1">{{ cs.title }}<span class="pt">.</span></h2>{% endif %}
+      <p class="lead rv d2">{{ c.contactPage.lead if contactAsH1 else cs.lead }}</p>
+      <div class="c-info rv d3">
+        {% for i in cs.info %}{% if i[2] %}<a href="{{ i[2] }}"{% if 'http' in i[2] %} target="_blank" rel="noopener"{% endif %}><span class="mono">{{ i[0] }}</span>{{ i[1] }}</a>{% else %}<div><span class="mono">{{ i[0] }}</span>{{ i[1] }}</div>{% endif %}{% endfor %}
+      </div>
+    </div>
+    <div class="sheet rv d1">
+      <div class="sheet-h"><span><b>{{ cs.sheet }}</b></span><span>{{ cs.time }}</span></div>
+      <form id="briefForm" action="https://formspree.io/f/{{ site.formspreeId }}" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="Novo contato pelo site">
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true">
+        <div class="f-row">
+          <div class="fld"><label for="fNome">{{ cs.name }}</label><input id="fNome" name="nome" autocomplete="name" placeholder="{{ cs.namePh }}" required></div>
+          <div class="fld"><label for="fCont">{{ cs.contact }}</label><input id="fCont" name="contato" autocomplete="email" inputmode="email" placeholder="{{ cs.contactPh }}" required></div>
+        </div>
+        <div class="fld"><label for="fMsg">{{ cs.project }}</label><textarea id="fMsg" name="mensagem" rows="4" placeholder="{{ cs.projectPh }}"></textarea></div>
+        <div class="f-foot">
+          <span class="mono" id="fNote" role="status" aria-live="polite">{{ cs.note }}</span>
+          <button class="btn btn-gray" type="submit">{{ cs.send }} <svg class="ar" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M1 6h10M7 2l4 4-4 4"/></svg></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
