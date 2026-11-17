@@ -1,0 +1,50 @@
+{% macro item(it, alt) %}
+{%- set ytId = (it.src | youtubeId) if it.type == "video" else null -%}
+{%- if it.type == "video" and ytId -%}
+  <div class="vid"><iframe src="https://www.youtube-nocookie.com/embed/{{ ytId }}?rel=0&modestbranding=1&playsinline=1" title="{{ alt }}" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe></div>
+{%- elif it.type == "video" -%}
+  <div class="vid"><video{% if it.loop %} autoplay muted loop playsinline preload="auto"{% else %} controls playsinline preload="metadata"{% endif %}{% if it.poster %} poster="{{ it.poster }}"{% endif %}><source src="{{ it.src }}" type="{{ it.src | videoType }}"></video></div>
+{%- elif it.type == "spec-cards" -%}
+  <div class="specs">
+    {% for p in it.products %}
+    <div class="spec">
+      <div class="spec-pic"><img src="{{ p.image }}" alt="{{ p.title }}" loading="lazy"></div>
+      <div class="spec-txt"><span class="mono">{{ p.badge }}</span><b>{{ p.title }}</b><span>{{ p.subtitle }}</span><small>{{ p.desc }}</small></div>
+    </div>
+    {% endfor %}
+  </div>
+{%- elif it.type == "swatches" -%}
+  <div class="swatches">
+    {% for bar in it.bars %}{% if bar.colors %}<div class="sw-row" style="flex:{{ bar.weight }}">{% for col in bar.colors %}<div style="background:{{ col }}"></div>{% endfor %}</div>{% else %}<div style="flex:{{ bar.weight }};background:{{ bar.color }}"></div>{% endif %}{% endfor %}
+  </div>
+{%- elif it.type == "pattern" -%}
+  <figure class="pattern" style="background:{{ it.bg }}">{% if it.logo %}<img src="{{ it.logo }}" alt="" loading="lazy">{% endif %}{% if it.heading %}<p>{{ it.heading | safe }}</p>{% endif %}</figure>
+{%- else -%}
+  <figure class="{{ 'contain' if it.fit == 'contain' }}{{ ' bw' if it.filter == 'bw-classic' }}{{ ' floating' if it.floating }}"{% if it.bg %} style="background:{{ it.bg }}"{% endif %}><img src="{{ it.src }}" alt="{{ it.alt or alt }}" loading="lazy"{% if it.position %} style="object-position:{{ it.position }}"{% endif %}></figure>
+{%- endif -%}
+{% endmacro %}
+
+{% macro row(r, alt) %}
+{% if r.layout == "carousel" %}
+<div class="spot rv" data-spot>
+  <div class="spot-tabs" role="tablist">
+    {% for it in r.items %}<button type="button" role="tab" data-spot-tab="{{ loop.index0 }}"{% if it.default %} class="on"{% endif %}>{{ it.label or (it.heading | striptags) }}</button>{% endfor %}
+  </div>
+  {% for it in r.items %}
+  <div class="spot-panel" data-spot-panel="{{ loop.index0 }}"{% if it.default %} data-default{% endif %} style="background-image:url('{{ it.bg }}')">
+    <div class="spot-in">
+      {% if it.logo %}<img class="spot-logo" src="{{ it.logo }}" alt="" loading="lazy">{% endif %}
+      <p class="spot-h">{{ it.heading | safe }}</p>
+      {% if it.desc %}<p class="spot-d">{{ it.desc }}</p>{% endif %}
+      {% if it.badgeText %}<span class="spot-badge">{{ it.badgeText }}</span>{% endif %}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+{%- set n = r.items | length -%}
+<div class="gal-row {{ 'c1' if r.layout == 'single' or n == 1 else ('c3' if r.layout == 'triple' or n == 3 else 'c2') }} rv">
+  {% for it in r.items %}{{ item(it, alt) }}{% endfor %}
+</div>
+{% endif %}
+{% endmacro %}

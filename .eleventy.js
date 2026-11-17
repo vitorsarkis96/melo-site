@@ -25,6 +25,18 @@ module.exports = function (eleventyConfig) {
     return null;
   });
 
+  eleventyConfig.addFilter("faqPairs", (pairs) => (pairs || []).map((p) => ({ "@type": "Question", name: p[0], acceptedAnswer: { "@type": "Answer", text: p[1] } })));
+  eleventyConfig.addFilter("countService", (cases, key) => (cases || []).filter((c) => key === "todos" || (c.dataService || []).includes(key)).length);
+  eleventyConfig.addFilter("nextCase", (cases, item) => {
+    const list = cases || [];
+    const pick = (item.otherCases || []).find((s) => s !== item.slug && list.some((c) => c.slug === s));
+    if (pick) return list.find((c) => c.slug === pick);
+    const i = list.findIndex((c) => c.slug === item.slug);
+    return list[(i + 1) % list.length];
+  });
+  eleventyConfig.addFilter("caseIndex", (cases, slug) => (cases || []).findIndex((c) => c.slug === slug) + 1);
+  eleventyConfig.addFilter("pad2", (n) => String(n).padStart(2, "0"));
+
   eleventyConfig.addFilter("findCase", function (cases, slug) {
     return (cases || []).find((c) => c.slug === slug);
   });

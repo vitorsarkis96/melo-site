@@ -1,0 +1,65 @@
+{%- from "partials/v2-media.njk" import row -%}
+{%- set t = i18n[lang] -%}
+{%- set c = v2[lang] -%}
+{%- set P = t.prefix -%}
+{%- set d = item[lang] -%}
+{%- set AR = '<svg class="ar" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M1 6h10M7 2l4 4-4 4"/></svg>' -%}
+{%- set name = d.heroTitleLine1 -%}
+{%- set project = d.heroTitleLine2 | trim -%}
+{% set caseSchema = { "@context": "https://schema.org", "@type": "CreativeWork", "name": name + " " + project, "description": d.metaDescription, "image": site.baseUrl + item.heroMedia.src, "url": site.baseUrl + P + "/" + item.slug, "creator": { "@type": "Organization", "name": "Melo Creative", "url": site.baseUrl + "/" }, "about": d.tags, "dateCreated": item.year, "inLanguage": t.htmlLang } %}
+<script type="application/ld+json">{{ caseSchema | dump | safe }}</script>
+
+<section class="hero case-hero">
+  <div class="stage"><img class="on" src="{{ item.heroMedia.src }}" alt="{{ d.heroAlt or name }}" fetchpriority="high"{% if item.heroMedia.position or item.cardImagePosition %} style="object-position:{{ item.heroMedia.position or item.cardImagePosition }}"{% endif %}></div>
+  <div class="hero-in">
+    <div class="wrap hero-row">
+      <div class="hero-txt">
+        <span class="crumb fade"><a href="{{ (P + '/cases') | replace('//','/') }}">{{ c.nav.cases }}</a><span>/</span><b>{{ cases | caseIndex(item.slug) | pad2 }}</b>{{ name }}</span>
+        <h1 class="h1 fade d1">{{ name }}<span class="pt">.</span></h1>
+        <p class="lead fade d2">{{ project }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <div class="ficha rv">
+    <div><span class="mono">{{ c.casePage.client }}</span>{{ name }}</div>
+    <div><span class="mono">{{ c.casePage.project }}</span>{{ project }}</div>
+    <div><span class="mono">{{ c.casePage.fronts }}</span>{{ d.tags | join(' · ') }}</div>
+    <div><span class="mono">{{ c.casePage.year }}</span>{{ item.year }}</div>
+  </div>
+
+  <section class="case-txt">
+    <span class="kicker rv"><b>01</b>{{ c.casePage.challenge }}</span>
+    <div class="right"><h2 class="h2 rv d1">{{ d.challengeHeading }}</h2><div class="rv d2"><p>{{ d.challengeDetail }}</p></div></div>
+  </section>
+
+  <div class="gal">{% for r in item.rowsBeforeApproach %}{{ row(r, name) }}{% endfor %}</div>
+
+  <section class="case-txt">
+    <span class="kicker rv"><b>02</b>{{ c.casePage.approach }}</span>
+    <div class="right"><h2 class="h2 rv d1">{{ d.approachHeading }}</h2><div class="rv d2"><p>{{ d.approachDetail }}</p></div></div>
+  </section>
+
+  <div class="gal gal-end">{% for r in item.rowsAfterApproach %}{{ row(r, name) }}{% endfor %}</div>
+</div>
+
+{%- set nx = cases | nextCase(item) -%}
+{% if nx %}
+<a class="next" href="{{ P }}/{{ nx.slug }}">
+  <img src="{{ nx.heroMedia.src }}" alt="" loading="lazy"{% if nx.cardImagePosition %} style="object-position:{{ nx.cardImagePosition }}"{% endif %}>
+  <div class="wrap">
+    <span class="kicker"><b>→</b>{{ c.casePage.next }}</span>
+    <span class="h1">{{ nx[lang].heroTitleLine1 }}<span class="pt">.</span></span>
+    <span class="sub">{{ nx[lang].heroTitleLine2 | trim }} {{ AR | safe }}</span>
+  </div>
+</a>
+{% endif %}
+
+<section class="cta-band">
+  <div class="wrap">
+    <h2 class="h2 rv">{{ c.casePage.ctaTitle }}<span class="pt">.</span></h2>
+    <div class="hero-ctas rv d1"><a class="btn btn-gray" href="{{ t.contactPath }}">{{ c.nav.cta }} {{ AR | safe }}</a><a class="btn btn-ghost" href="{{ (P + '/cases') | replace('//','/') }}">{{ c.casePage.allCases }}</a></div>
+  </div>
+</section>

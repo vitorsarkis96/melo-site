@@ -4,10 +4,11 @@ pagination:
   size: 1
   alias: item
 permalink: "{{ item.slug }}.html"
-layout: layouts/base.njk
+layout: layouts/v2.njk
 lang: pt
 navActive: cases
 isHome: false
+hasHero: true
 ogType: article
 eleventyComputed:
   slug: "{{ item.slug }}"
@@ -15,99 +16,4 @@ eleventyComputed:
   metaDescription: "{{ item.pt.metaDescription }}"
   ogImage: "{{ item.heroMedia.ogSrc or item.heroMedia.src }}"
 ---
-{% from "partials/media-row.njk" import mediaRow %}
-{% from "partials/portfolio-card.njk" import card %}
-{% set caseSchema = { "@context": "https://schema.org", "@type": "CreativeWork", "name": item.pt.heroTitleLine1 + " " + item.pt.heroTitleLine2, "description": item.pt.metaDescription, "image": site.baseUrl + item.heroMedia.src, "url": site.baseUrl + "/" + item.slug, "creator": { "@type": "Organization", "name": "Melo Creative", "url": site.baseUrl + "/" }, "about": item.pt.tags, "dateCreated": item.year, "inLanguage": "pt-BR" } %}
-<script type="application/ld+json">
-{{ caseSchema | dump | safe }}
-</script>
-  <section class="case-hero-header reveal">
-    <div>
-      <h1>{{ item.pt.heroTitleLine1 }}<br />{{ item.pt.heroTitleLine2 }}</h1>
-    </div>
-    <div class="case-tags">
-      {% for tag in item.pt.tags %}<span class="case-tag">{{ tag }}</span>
-      {% endfor %}
-    </div>
-  </section>
-
-  <div class="case-media-row single">
-    <div class="case-media{{ ' contain' if item.heroMedia.fit == 'contain' }}{{ ' ' + item.heroMedia.filter if item.heroMedia.filter }}">
-      <img src="{{ item.heroMedia.src }}" alt="{{ item.pt.heroAlt }}" loading="lazy"{% if item.heroMedia.position %} style="object-position:{{ item.heroMedia.position }}"{% endif %} />
-      {% if item.heroMedia.logo %}<img class="case-media__hero-logo" src="{{ item.heroMedia.logo }}" alt="" loading="lazy" />{% endif %}
-    </div>
-  </div>
-
-  <section class="section-about">
-    <div class="case-text-row reveal">
-      <div class="tag">
-        <span class="tag-text">{{ item.pt.challengeTag }}</span>
-        <img class="tag-dot" src="/assets/icons/ellipse-tag.svg" alt="" />
-      </div>
-      <div class="case-text-content">
-        <p class="case-text-heading">{{ item.pt.challengeHeading }}</p>
-        <p class="case-text-detail">{{ item.pt.challengeDetail }}</p>
-      </div>
-    </div>
-  </section>
-
-  {% for row in item.rowsBeforeApproach %}{{ mediaRow(row) }}{% endfor %}
-
-  <section class="section-about">
-    <div class="case-text-row reveal">
-      <div class="tag">
-        <span class="tag-text">{{ item.pt.approachTag }}</span>
-        <img class="tag-dot" src="/assets/icons/ellipse-tag.svg" alt="" />
-      </div>
-      <div class="case-text-content">
-        <p class="case-text-heading">{{ item.pt.approachHeading }}</p>
-        <p class="case-text-detail">{{ item.pt.approachDetail }}</p>
-      </div>
-    </div>
-  </section>
-
-  {% for row in item.rowsAfterApproach %}{{ mediaRow(row) }}{% endfor %}
-
-  <!-- FAQ -->
-  {% set faqSchema = { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": pages.home.pt.faq | faqEntities } %}
-  <script type="application/ld+json">
-  {{ faqSchema | dump | safe }}
-  </script>
-  <section class="section-about section-faq">
-    <div class="faq-row">
-      <div class="faq-intro reveal">
-        <div class="tag">
-          <span class="tag-text">{{ pages.home.pt.faqTag }}</span>
-          <img class="tag-dot" src="/assets/icons/ellipse-tag.svg" alt="" />
-        </div>
-        <h2>{{ pages.home.pt.faqHeading }}</h2>
-        <a class="btn btn-orange" href="{{ i18n.pt.contactPath }}">
-          {{ i18n.pt.ctaQuote }}
-          <img class="btn-icon" src="/assets/icons/arrow-right.svg" alt="" />
-        </a>
-      </div>
-      <div class="faq-list reveal-stagger">
-        {% for faqItem in pages.home.pt.faq %}
-        <details class="faq-item">
-          <summary>{{ faqItem.q }}</summary>
-          <p>{{ faqItem.a }}</p>
-        </details>
-        {% endfor %}
-      </div>
-    </div>
-  </section>
-
-  <!-- OUTROS CASES -->
-  <section class="section-portfolio-intro">
-    <div class="portfolio-intro-row reveal">
-      <h2>{{ i18n.pt.moreCases }}</h2>
-      <a class="btn btn-dark" href="/cases">
-        {{ i18n.pt.allCases }}
-        <img class="btn-icon" src="/assets/icons/arrow-right.svg" alt="" />
-      </a>
-    </div>
-  </section>
-
-  <div class="portfolio-grid reveal-stagger">
-    {% for otherSlug in item.otherCases %}{{ card(cases | findCase(otherSlug), "pt", "", false) }}{% endfor %}
-  </div>
+{% include "partials/v2-case.njk" %}
