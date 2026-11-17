@@ -1299,7 +1299,7 @@ body.menu-open {
   align-items: center;
   flex-wrap: nowrap;
   gap: 48px;
-  animation: clients-marquee 70s linear infinite;
+  animation: clients-marquee 50s linear infinite;
 }
 @keyframes clients-marquee {
   from { transform: translateX(0); }
