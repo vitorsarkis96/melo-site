@@ -1,6 +1,6 @@
 {
-  "metaTitle": "Melo | Agência de comunicação corporativa",
-  "metaDescription": "Agência de comunicação corporativa em São Paulo. Estratégia, marca, cultura, comunicação institucional, digital e audiovisual sob uma única direção.",
+  "metaTitle": "Melo | Agência de comunicação corporativa em São Paulo",
+  "metaDescription": "Agência de comunicação corporativa que traduz autoridade técnica em autoridade de marca. Estratégia, marca, cultura, comunicação institucional, sites e audiovisual.",
   "nav": {
     "services": "Serviços",
     "cases": "Todos os cases",
@@ -168,8 +168,16 @@
       "a": "Cuida de como a empresa é percebida por clientes, parceiros, investidores e pelo próprio time. Na Melo isso inclui posicionamento, marca, cultura e comunicação interna, materiais institucionais, site e vídeo, todos sob a mesma direção."
     },
     {
+      "q": "O que significa traduzir autoridade técnica em autoridade de marca?",
+      "a": "Empresas técnicas costumam ser excelentes no que fazem, mas o mercado não percebe esse tamanho. Traduzir autoridade técnica em autoridade de marca é transformar conhecimento, processos e resultados em posicionamento, identidade, conteúdo e presença digital que clientes, investidores e o próprio time reconhecem."
+    },
+    {
       "q": "Vocês atendem só saúde, tecnologia e direito?",
       "a": "Não. Atendemos qualquer empresa que tenha dificuldade de transformar autoridade técnica em autoridade de marca. Saúde, tecnologia e direito são onde esse gap aparece com mais frequência."
+    },
+    {
+      "q": "Que tipo de empresa a Melo atende?",
+      "a": "Empresas B2B e técnicas que já entregam bem e precisam que a comunicação esteja à altura: clínicas e healthtechs, empresas de tecnologia e dados, escritórios de advocacia, instituições de ensino, indústria e engenharia. Entre os clientes estão Fleury, Mackenzie, Suzano, Cyrela (SYN) e brain4care."
     },
     {
       "q": "Como funciona o processo?",
@@ -239,7 +247,7 @@
   },
   "casesPage": {
     "title": "Trabalho que constrói autoridade de marca",
-    "lead": "Uma seleção de projetos entre mais de 3.000 entregas, do primeiro posicionamento à marca consolidada.",
+    "lead": "Cases de comunicação corporativa: empresas de saúde, tecnologia, direito e indústria que traduziram autoridade técnica em autoridade de marca. Uma seleção entre mais de 3.000 entregas.",
     "filters": [
       {
         "key": "todos",

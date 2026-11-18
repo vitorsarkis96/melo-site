@@ -2,35 +2,46 @@
 permalink: llms.txt
 eleventyExcludeFromCollections: true
 ---
-# Melo Creative
+# Melo
 
-> Brand authority agency. Melo closes the credibility gap for businesses, building the brand that makes the market see what they already deliver: branding, visual identity, high-end websites and film production, delivered end-to-end in-house.
+> Melo is a corporate communications agency in São Paulo, Brazil, that turns technical authority into brand authority. Melo é uma agência de comunicação corporativa em São Paulo que traduz autoridade técnica em autoridade de marca.
 
-Melo Creative is a creative agency based in São Paulo, Brazil, operating since 2020. It has delivered 3,000+ projects, accelerated 50+ brands, and works 100% in-house from strategy to final render. Its client roster is concentrated in health, tech and law businesses — companies whose credibility comes from technical or professional authority and that need a brand that matches it — but the agency isn't limited to those industries.
+Melo (also known as Melo Creative) works with B2B and technical companies that already deliver well but whose communication does not show it: healthcare and healthtech, technology and data, law firms, education, industry and engineering. Strategy, brand, culture, institutional communication, websites and film are handled under one direction, by an in-house team, since 2020. More than 3,000 deliveries and 50+ brands. Rated 5.0 on Google.
 
-## Services
+## What Melo does / O que a Melo faz
 
-- Strategy: positioning and market direction for the brand.
-- Brand: visual and verbal identity systems.
-- Websites & Systems: high-end websites, platforms and proprietary tools.
-- Film production: full audiovisual production, from script to final frame.
+{% for s in v2.en.services %}- {{ s.t }}: {{ s.d }} Deliverables: {{ s.l | join(', ') }}.
+{% endfor %}
+## In Portuguese / Em português
 
-## Site
+{% for s in v2.pt.services %}- {{ s.t }}: {{ s.d }}
+{% endfor %}
+## FAQ
 
-- [Homepage (Portuguese, default)](https://www.melocreative.com.br/): agency overview, services, process and results.
-- [Homepage (English)](https://www.melocreative.com.br/en/): English version of the site.
-- [Case studies](https://www.melocreative.com.br/cases): all published projects, filterable by service type.
-{% for c in cases %}- [{{ c.en.heroTitleLine1 | replace(' - ', '') | trim | safe }}]({{ site.baseUrl }}/{{ c.slug }}): {{ c.en.cardDesc | safe }}
-{% endfor %}- [Contact](https://www.melocreative.com.br/contato): request a quote for branding, a website or film.
-- [Terms & Conditions](https://www.melocreative.com.br/termos-e-condicoes) (Portuguese only)
-- [Privacy Policy](https://www.melocreative.com.br/politica-de-privacidade) (Portuguese only)
-- [Cookie Policy](https://www.melocreative.com.br/politica-de-cookies) (Portuguese only)
+{% for f in v2.en.faq %}### {{ f[0] }}
+{{ f[1] }}
+
+{% endfor %}{% for f in v2.pt.faq %}### {{ f[0] }}
+{{ f[1] }}
+
+{% endfor %}## Case studies
+
+{% for c in cases %}- [{{ c.en.heroTitleLine1 | trim | safe }}: {{ c.en.heroTitleLine2 | trim | safe }}]({{ site.baseUrl }}/en/{{ c.slug }}): {{ c.en.cardDesc | safe }} (Portuguese: {{ site.baseUrl }}/{{ c.slug }})
+{% endfor %}
+## Pages
+
+- [Home (Portuguese, default)]({{ site.baseUrl }}/)
+- [Home (English)]({{ site.baseUrl }}/en/)
+- [Cases]({{ site.baseUrl }}/cases) · [English]({{ site.baseUrl }}/en/cases)
+- [Contact / Contato]({{ site.baseUrl }}/contato) · [English]({{ site.baseUrl }}/en/contact)
 
 ## Contact
 
-- Website: https://www.melocreative.com.br/
-- Email: contato@melocreative.com.br
-- Phone / WhatsApp: +55 11 95438-7151
-- Address: Rua Conde do Pinhal 8 - Liberdade, São Paulo - SP, Brazil
-- Instagram: https://www.instagram.com/amelocreative/
-- LinkedIn: https://www.linkedin.com/company/amelocreative
+- Email: {{ site.email }}
+- WhatsApp: +55 11 95438-7151
+- Address: Rua Conde do Pinhal, 8, Liberdade, São Paulo, SP, Brazil
+- Instagram: {{ site.instagram }}
+- LinkedIn: {{ site.linkedin }}
+- Linktree: {{ v2.social.linktree }}
+- Upwork: {{ v2.social.upwork }}
+- Google reviews: {{ v2.social.maps }}
