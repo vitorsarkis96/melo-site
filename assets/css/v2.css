@@ -691,3 +691,4 @@ footer{padding:var(--s-9) 0 var(--s-6)}
 .folder-tabs button:hover .msi{color:var(--ink)}
 .folder-tabs button.on .msi{color:var(--orange)}
 .draft-bar{position:fixed;left:0;right:0;bottom:0;z-index:90;background:var(--orange);color:#fff;text-align:center;font-size:13px;font-weight:500;padding:8px}
+footer{border-top:1px solid var(--line)}
