@@ -49,7 +49,6 @@
       <span class="pl"><i>{{ PLAY | safe }}</i><span>{{ c.reelSec.label }}<small>{{ c.reelSec.watch }}</small></span></span>
     </button>
     <div class="reel-txt">
-      <span class="kicker rv"><b>01</b>{{ c.reelSec.kicker }}</span>
       <h2 class="h2 rv d1">{{ c.reelSec.title }}<span class="pt">.</span></h2>
       <p class="lead rv d2">{{ c.reelSec.lead }}</p>
       <div class="rv d3"><a class="btn btn-gray" href="#contato">{{ c.reelSec.cta }} {{ AR | safe }}</a></div>
@@ -61,7 +60,6 @@
 <section class="sec bg-g" id="servicos">
   <div class="wrap">
     <div class="sec-head">
-      <span class="kicker rv"><b>02</b>{{ c.servicesSec.kicker }}</span>
       <div class="right">
         <h2 class="h2 rv d1">{{ c.servicesSec.title }}<span class="pt">.</span></h2>
         <p class="lead rv d2">{{ c.servicesSec.lead }}</p>
@@ -69,12 +67,12 @@
     </div>
     <div class="rv">
       <div class="folder-tabs" role="tablist" id="tabs">
-        {% for s in c.services %}<button role="tab" aria-selected="{{ 'true' if loop.first else 'false' }}" data-i="{{ loop.index0 }}"{% if loop.first %} class="on"{% endif %}><span class="mono">{{ loop.index | pad2 }}</span>{{ s.tab }}</button>{% endfor %}
+        {% for s in c.services %}<button role="tab" aria-selected="{{ 'true' if loop.first else 'false' }}" data-i="{{ loop.index0 }}"{% if loop.first %} class="on"{% endif %}>{{ s.tab }}</button>{% endfor %}
       </div>
       {% for s in c.services %}{% set si = v2.serviceImages[s.key] %}
       <div class="folder" role="tabpanel" data-panel="{{ loop.index0 }}"{% if not loop.first %} hidden{% endif %}>
         <div class="doc">
-          <div class="doc-top"><span class="kicker"><b>{{ loop.index | pad2 }}</b>{{ s.s }}</span><h3 class="h3">{{ s.t }}<span class="pt">.</span></h3><p>{{ s.d }}</p></div>
+          <div class="doc-top"><h3 class="h3">{{ s.t }}<span class="pt">.</span></h3><p>{{ s.d }}</p></div>
           <ul class="deliv">{% for x in s.l %}<li>{{ x }}</li>{% endfor %}</ul>
           <div><a class="btn btn-gray" href="#contato">{{ c.servicesSec.talk }} {{ AR | safe }}</a></div>
         </div>
@@ -92,13 +90,11 @@
 <section class="sec" id="cases">
   <div class="wrap">
     <div class="sec-head">
-      <span class="kicker rv"><b>03</b>{{ c.casesSec.kicker }}</span>
       <div class="right"><h2 class="h2 rv d1">{{ c.casesSec.title }}<span class="pt">.</span></h2></div>
     </div>
     <div class="idx-list rv" id="idxList">
       {% for s in v2.homeCases %}{% set hc = cases | findCase(s) %}{% if hc %}
       <a class="idx-row" href="{{ P }}/{{ hc.slug }}" data-img="{{ hc.cardImage or hc.heroMedia.src }}"{% if hc.cardImagePosition %} data-pos="{{ hc.cardImagePosition }}"{% endif %}>
-        <span class="n">{{ loop.index | pad2 }}</span>
         <span class="thumb"><img src="{{ hc.cardImage or hc.heroMedia.src }}" alt="" loading="lazy"{% if hc.cardImagePosition %} style="object-position:{{ hc.cardImagePosition }}"{% endif %}></span>
         <span class="client">{{ hc[lang].heroTitleLine1 }}</span>
         <span class="proj">{{ hc[lang].heroTitleLine2 | trim }}</span>
@@ -117,18 +113,12 @@
 <section class="sec bg-g" id="numeros">
   <div class="wrap">
     <div class="sec-head">
-      <span class="kicker rv"><b>04</b>{{ c.numbersSec.kicker }}</span>
-      <div class="right"><h2 class="h2 rv d1">{{ c.numbersSec.title }}<span class="pt">.</span></h2></div>
-    </div>
-    <div class="nums rv">
-      {% for n in c.numbers %}<div class="num"><span class="mono">{{ n[0] }}</span><div class="v">{% if n[1] %}<em>{{ n[1] }}</em>{% endif %}<span class="cnt" data-to="{{ n[2] }}">{{ n[2] | formatNumber('thousand') }}</span>{% if n[3] %}<em>{{ n[3] }}</em>{% endif %}</div><p>{{ n[4] }}</p></div>{% endfor %}
+      <div class="right"><h2 class="h2 rv d1">{{ c.numbersSec.title }}<span class="pt">.</span></h2><p class="lead rv d2">{{ c.numbersSec.lead }}</p></div>
     </div>
     <div class="revs">
       <div class="revs-head rv">
         <div class="score"><b>5,0</b>{{ STARS | safe }}</div>
-        <span class="mono">{{ c.reviewsSec.count }}</span>
-        <a class="mono link" href="{{ v2.social.maps }}" target="_blank" rel="noopener">{{ c.reviewsSec.all }}</a>
-        <div class="rev-nav"><button class="sqb" id="revPrev" aria-label="{{ c.reviewsSec.prev }}"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M11 6H1M5 2L1 6l4 4"/></svg></button><span class="mono" id="revCount"></span><button class="sqb" id="revNext" aria-label="{{ c.reviewsSec.next }}">{{ AR | replace('class="ar" ', '') | safe }}</button></div>
+        <div class="rev-nav"><button class="sqb" id="revPrev" aria-label="{{ c.reviewsSec.prev }}"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M11 6H1M5 2L1 6l4 4"/></svg></button><button class="sqb" id="revNext" aria-label="{{ c.reviewsSec.next }}">{{ AR | replace('class="ar" ', '') | safe }}</button></div>
       </div>
       <div class="revs-grid">
         {% for r in c.reviews %}<figure class="rev rv">{{ STARS | safe }}<blockquote>“{{ r[2] }}”</blockquote><figcaption><b>{{ r[0] }}</b><span>{{ r[1] }}</span></figcaption></figure>{% endfor %}
@@ -142,15 +132,13 @@
 <section class="sec" id="faq">
   <div class="wrap faq">
     <div style="display:grid;gap:var(--stack);align-content:start">
-      <span class="kicker rv"><b>05</b>{{ c.faqSec.kicker }}</span>
       <h2 class="h2 rv d1">{{ c.faqSec.title }}<span class="pt">.</span></h2>
       <p class="lead rv d2">{{ c.faqSec.lead }} <a href="mailto:{{ site.email }}" style="border-bottom:1px solid var(--orange)">{{ site.email }}</a>.</p>
     </div>
     <div class="faq-list rv d1">
-      {% for f in c.faq %}<details{% if loop.first %} open{% endif %}><summary><span class="mono">{{ loop.index | pad2 }}</span>{{ f[0] }}<span class="pm"></span></summary><p>{{ f[1] }}</p></details>{% endfor %}
+      {% for f in c.faq %}<details{% if loop.first %} open{% endif %}><summary>{{ f[0] }}<span class="pm"></span></summary><p>{{ f[1] }}</p></details>{% endfor %}
     </div>
   </div>
 </section>
 
-{% set contactKicker = "07" %}
 {% include "partials/v2-contact.njk" %}

@@ -2,7 +2,6 @@
 {%- set cs = c.contactSec -%}
 <section class="contact" id="contato">
   <div class="wrap c-wrap">
-    <span class="kicker c-kick rv"><b>{{ contactKicker or "●" }}</b>{{ cs.kicker }}</span>
     <div class="c-left">
       {% if contactAsH1 %}<h1 class="h2 rv d1">{{ c.contactPage.title }}<span class="pt">.</span></h1>{% else %}<h2 class="h2 rv d1">{{ cs.title }}<span class="pt">.</span></h2>{% endif %}
       <p class="lead rv d2">{{ c.contactPage.lead if contactAsH1 else cs.lead }}</p>

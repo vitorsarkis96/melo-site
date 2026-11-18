@@ -72,7 +72,7 @@
       const b=e.target.closest('button[data-f]');if(!b)return;
       $$('#filters button').forEach(x=>x.classList.toggle('on',x===b));
       const f=b.dataset.f;let n=0;
-      cards.forEach(c=>{const ok=f==='all'||(c.dataset.svc||'').split(' ').includes(f);c.hidden=!ok;if(ok)n++});
+      cards.forEach(c=>{const ok=f==='all'||f==='todos'||(c.dataset.svc||'').split(' ').includes(f);c.hidden=!ok;if(ok){n++;c.classList.add('in')}});
       if(empty)empty.hidden=n>0;
     });
   }
@@ -131,7 +131,7 @@
     const cards=[...g.children],pv=$('#revPrev'),nx=$('#revNext'),cnt=$('#revCount');
     const step=()=>cards[1]?cards[1].offsetLeft-cards[0].offsetLeft:g.clientWidth;
     const upd=()=>{const i=Math.round(g.scrollLeft/step());const vis=Math.max(1,Math.round(g.clientWidth/step()));
-      const last=Math.min(cards.length,i+vis);cnt.textContent=(vis>1?pad2(i+1)+'–'+pad2(last):pad2(i+1))+' / '+pad2(cards.length);
+      const last=Math.min(cards.length,i+vis);if(cnt)cnt.textContent=(vis>1?pad2(i+1)+'–'+pad2(last):pad2(i+1))+' / '+pad2(cards.length);
       pv.disabled=g.scrollLeft<4;nx.disabled=g.scrollLeft+g.clientWidth>=g.scrollWidth-4};
     pv.onclick=()=>g.scrollBy({left:-step(),behavior:'smooth'});
     nx.onclick=()=>g.scrollBy({left:step(),behavior:'smooth'});
