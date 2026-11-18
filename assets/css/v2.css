@@ -646,3 +646,19 @@ footer{padding:var(--s-9) 0 var(--s-6)}
 .sheet .btn-gray:hover{background:var(--g200)}
 .idx-row{grid-template-columns:1.1fr 1.2fr 1fr 24px}
 @media(hover:none),(max-width:900px){.idx-row{grid-template-columns:1fr 16px;grid-template-areas:"thumb thumb" "client go" "proj go" "tags go"}}
+/* ===== formulário mais convidativo ===== */
+.sheet form{gap:var(--s-6)}
+.sheet .f-row{gap:var(--s-6) var(--s-5)}
+.sheet .fld{gap:10px}
+.sheet .fld label{font-family:var(--sans);font-size:15px;font-weight:500;color:#fff;letter-spacing:0}
+.sheet .fld input,.sheet .fld textarea{font-size:17px;font-weight:400;color:#fff;background:#1c1c1c;border:1.5px solid #4a4a4a;padding:16px 18px;transition:border-color .2s,background .2s}
+.sheet .fld textarea{min-height:150px}
+.sheet .fld input:hover,.sheet .fld textarea:hover{border-color:#777}
+.sheet .fld input:focus,.sheet .fld textarea:focus{border-color:var(--orange);background:#222;box-shadow:none}
+.sheet .fld input[aria-invalid=true]{border-color:var(--orange);box-shadow:none}
+.sheet .fld input::placeholder,.sheet .fld textarea::placeholder{color:#8a8a8a}
+.sheet .fld input:-webkit-autofill{-webkit-box-shadow:0 0 0 40px #1c1c1c inset}
+.sheet .f-foot .mono{font-family:var(--sans);font-size:14px;line-height:20px;color:rgba(255,255,255,.7);letter-spacing:0}
+.sheet .btn-gray{background:var(--orange);color:#fff;font-size:17px;font-weight:500;padding:18px 32px}
+.sheet .btn-gray .ar{color:#fff}
+.sheet .btn-gray:hover{background:#ff7a3d}
