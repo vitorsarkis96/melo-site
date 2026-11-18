@@ -73,7 +73,6 @@
         </div>
       </li>
       <li><a href="{{ '#cases' if isHome else (P + '/cases') | replace('//','/') }}"{{ ' class="cur"' | safe if navActive == 'cases' }}>{{ c.nav.cases }}</a></li>
-      <li><a href="{{ '#metodo' if isHome else home + '#metodo' }}">{{ c.nav.method }}</a></li>
       <li><a href="{{ '#faq' if isHome else home + '#faq' }}">{{ c.nav.faq }}</a></li>
     </ul>
     <div class="nav-r">
@@ -87,8 +86,7 @@
 <nav class="mpanel" aria-label="Menu">
   <a class="m" href="{{ '#servicos' if isHome else home + '#servicos' }}">{{ c.nav.services }} <span>01</span></a>
   <a class="m" href="{{ (P + '/cases') | replace('//','/') }}">{{ c.nav.cases }} <span>02</span></a>
-  <a class="m" href="{{ '#metodo' if isHome else home + '#metodo' }}">{{ c.nav.method }} <span>03</span></a>
-  <a class="m" href="{{ '#faq' if isHome else home + '#faq' }}">{{ c.nav.faq }} <span>04</span></a>
+  <a class="m" href="{{ '#faq' if isHome else home + '#faq' }}">{{ c.nav.faq }} <span>03</span></a>
   <a class="m" href="https://www.youtube.com/watch?v={{ v2.reel }}" data-reel>{{ c.nav.reel }} <span>▶</span></a>
   <div class="ctas">
     <a class="btn btn-gray" href="{{ '#contato' if isHome else t.contactPath }}">{{ c.nav.cta }}</a>
@@ -111,7 +109,6 @@
       <div><h4>{{ c.footer.melo }}</h4><ul>
         <li><a href="{{ (P + '/cases') | replace('//','/') }}">{{ c.nav.cases }}</a></li>
         <li><a href="https://www.youtube.com/watch?v={{ v2.reel }}" data-reel>{{ c.nav.reel }}</a></li>
-        <li><a href="{{ home }}#metodo">{{ c.nav.method }}</a></li>
         <li><a href="{{ home }}#faq">{{ c.nav.faq }}</a></li>
         <li><a href="{{ t.contactPath }}">{{ c.footer.contactPage }}</a></li>
         <li><a href="{{ altPath }}">{{ c.nav.english }}</a></li>
