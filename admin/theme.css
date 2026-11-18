@@ -15,7 +15,9 @@ body{background:var(--b)!important;color:var(--k)}
 [class*="AppHeaderNavLink"]{color:var(--g5)!important;font-weight:500!important}
 [class*="AppHeaderNavLink"].active,[class*="AppHeaderNavLink"][class*="Active"],[class*="AppHeaderNavLink"]:hover{color:var(--k)!important}
 [class*="AppHeaderNavLink"] svg,[class*="AppHeaderNavLink"] [class*="Icon"]{color:inherit!important}
-[class*="AppHeaderButton"],[class*="AppHeaderQuickNewButton"],[class*="StyledDropdownButton"]{background:var(--g)!important;color:#fff!important;border:0!important}
+[class*="AppHeaderQuickNewButton"]{background:var(--g)!important;color:#fff!important;border:0!important}
+[class*="AppHeaderButton"]{background:transparent!important}
+[class*="CollectionControls"] [class*="StyledDropdownButton"],[class*="ControlButton"]{background:#fff!important;color:var(--g7)!important;border:1px solid var(--l)!important}
 
 /* login */
 [class*="StyledAuthenticationPage"]{background:var(--b)!important}
@@ -45,7 +47,7 @@ body{background:var(--b)!important;color:var(--k)}
 /* editor de conteúdo */
 [class*="ToolbarContainer"]{background:#fff!important;border-bottom:1px solid var(--l)!important}
 [class*="ToolbarButton"],[class*="PublishedToolbarButton"],[class*="SaveButton"]{border-radius:0!important;box-shadow:none!important}
-[class*="PublishButton"],[class*="StyledDropdownButton"],[class*="SaveButton"]{background:var(--o)!important;color:#fff!important;border:0!important}
+[class*="ToolbarContainer"] [class*="StyledDropdownButton"],[class*="PublishButton"],[class*="SaveButton"]{background:var(--o)!important;color:#fff!important;border:0!important}
 [class*="PublishedToolbarButton"]{background:var(--b)!important;color:var(--g7)!important}
 [class*="ControlContainer"]{border:0!important}
 [class*="FieldLabel"]{background:var(--b)!important;color:var(--g7)!important;border:1px solid var(--l)!important;border-bottom:0!important;font-weight:500!important;text-transform:none!important;font-size:13px!important}
