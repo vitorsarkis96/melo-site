@@ -4,7 +4,6 @@
 {%- set AR = '<svg class="ar" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M1 6h10M7 2l4 4-4 4"/></svg>' -%}
 <section class="list-hero">
   <div class="wrap">
-    <span class="kicker rv"><b>●</b>{{ c.casesPage.kicker }}</span>
     <h1 class="h1 rv d1">{{ c.casesPage.title }}<span class="pt">.</span></h1>
     <p class="lead rv d2">{{ c.casesPage.lead }}</p>
   </div>
@@ -13,14 +12,14 @@
   <div class="wrap">
     <div class="filters rv" id="filters" role="group">
       {% for f in c.casesPage.filters %}
-      <button data-f="{{ f[0] }}"{% if loop.first %} class="on"{% endif %}>{{ f[1] }} <span class="mono">{{ cases | countService(f[0]) | pad2 }}</span></button>
+      <button data-f="{{ f[0] }}"{% if loop.first %} class="on"{% endif %}>{{ f[1] }}</button>
       {% endfor %}
     </div>
     <div class="cgrid">
       {% for cs in cases %}
       <a class="ccard rv" href="{{ P }}/{{ cs.slug }}" data-svc="{{ cs.dataService | join(' ') }}">
         <div class="pic"><img src="{{ cs.cardImage or cs.heroMedia.src }}" alt="{{ cs[lang].cardTitle }}"{% if loop.index > 3 %} loading="lazy"{% endif %}{% if cs.cardImagePosition %} style="object-position:{{ cs.cardImagePosition }}"{% endif %}></div>
-        <div class="row"><h3>{{ cs[lang].heroTitleLine1 }}</h3><span class="n">{{ loop.index | pad2 }}</span></div>
+        <div class="row"><h3>{{ cs[lang].heroTitleLine1 }}</h3></div>
         <p>{{ cs[lang].cardDesc }}</p>
         <span class="tags">{{ cs[lang].tags | join(' · ') }}{% if cs.year %} · {{ cs.year }}{% endif %}</span>
       </a>

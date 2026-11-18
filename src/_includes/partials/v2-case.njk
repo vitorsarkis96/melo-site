@@ -14,7 +14,7 @@
   <div class="hero-in">
     <div class="wrap hero-row">
       <div class="hero-txt">
-        <span class="crumb fade"><a href="{{ (P + '/cases') | replace('//','/') }}">{{ c.nav.cases }}</a><span>/</span><b>{{ cases | caseIndex(item.slug) | pad2 }}</b>{{ name }}</span>
+        <span class="crumb fade"><a href="{{ (P + '/cases') | replace('//','/') }}">{{ c.nav.cases }}</a><span>/</span>{{ name }}</span>
         <h1 class="h1 fade d1">{{ name }}<span class="pt">.</span></h1>
         <p class="lead fade d2">{{ project }}</p>
       </div>
@@ -31,14 +31,14 @@
   </div>
 
   <section class="case-txt">
-    <span class="kicker rv"><b>01</b>{{ c.casePage.challenge }}</span>
+    <span class="kicker rv">{{ c.casePage.challenge }}</span>
     <div class="right"><h2 class="h2 rv d1">{{ d.challengeHeading }}</h2><div class="rv d2"><p>{{ d.challengeDetail }}</p></div></div>
   </section>
 
   <div class="gal">{% for r in item.rowsBeforeApproach %}{{ row(r, name) }}{% endfor %}</div>
 
   <section class="case-txt">
-    <span class="kicker rv"><b>02</b>{{ c.casePage.approach }}</span>
+    <span class="kicker rv">{{ c.casePage.approach }}</span>
     <div class="right"><h2 class="h2 rv d1">{{ d.approachHeading }}</h2><div class="rv d2"><p>{{ d.approachDetail }}</p></div></div>
   </section>
 
@@ -50,7 +50,7 @@
 <a class="next" href="{{ P }}/{{ nx.slug }}">
   <img src="{{ nx.heroMedia.src }}" alt="" loading="lazy"{% if nx.cardImagePosition %} style="object-position:{{ nx.cardImagePosition }}"{% endif %}>
   <div class="wrap">
-    <span class="kicker"><b>→</b>{{ c.casePage.next }}</span>
+    <span class="kicker">{{ c.casePage.next }}</span>
     <span class="h1">{{ nx[lang].heroTitleLine1 }}<span class="pt">.</span></span>
     <span class="sub">{{ nx[lang].heroTitleLine2 | trim }} {{ AR | safe }}</span>
   </div>

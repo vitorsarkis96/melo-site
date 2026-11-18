@@ -69,7 +69,7 @@
       <li class="dd">
         <button aria-expanded="false">{{ c.nav.services }} <svg class="chev" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M2 4l3 3 3-3"/></svg></button>
         <div class="drop">
-          {% for s in c.services %}<a href="{{ '#servicos' if isHome else home + '#servicos' }}" data-tab="{{ loop.index0 }}"><span class="n">{{ loop.index | pad2 }}</span><b>{{ s.t }}</b><span>{{ s.s }}</span></a>{% endfor %}
+          {% for s in c.services %}<a href="{{ '#servicos' if isHome else home + '#servicos' }}" data-tab="{{ loop.index0 }}"><b>{{ s.t }}</b><span>{{ s.s }}</span></a>{% endfor %}
         </div>
       </li>
       <li><a href="{{ '#cases' if isHome else (P + '/cases') | replace('//','/') }}"{{ ' class="cur"' | safe if navActive == 'cases' }}>{{ c.nav.cases }}</a></li>
@@ -84,9 +84,9 @@
 </header>
 
 <nav class="mpanel" aria-label="Menu">
-  <a class="m" href="{{ '#servicos' if isHome else home + '#servicos' }}">{{ c.nav.services }} <span>01</span></a>
-  <a class="m" href="{{ (P + '/cases') | replace('//','/') }}">{{ c.nav.cases }} <span>02</span></a>
-  <a class="m" href="{{ '#faq' if isHome else home + '#faq' }}">{{ c.nav.faq }} <span>03</span></a>
+  <a class="m" href="{{ '#servicos' if isHome else home + '#servicos' }}">{{ c.nav.services }}</a>
+  <a class="m" href="{{ (P + '/cases') | replace('//','/') }}">{{ c.nav.cases }}</a>
+  <a class="m" href="{{ '#faq' if isHome else home + '#faq' }}">{{ c.nav.faq }}</a>
   <a class="m" href="https://www.youtube.com/watch?v={{ v2.reel }}" data-reel>{{ c.nav.reel }} <span>▶</span></a>
   <div class="ctas">
     <a class="btn btn-gray" href="{{ '#contato' if isHome else t.contactPath }}">{{ c.nav.cta }}</a>

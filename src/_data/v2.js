@@ -33,7 +33,7 @@ module.exports = {
   pt: {
     metaTitle: "Melo | Agência de comunicação corporativa",
     metaDescription: "Agência de comunicação corporativa em São Paulo. Estratégia, marca, cultura, comunicação institucional, digital e audiovisual sob uma única direção.",
-    nav: { services: "Serviços", cases: "Cases", method: "Método", faq: "FAQ", cta: "Fale com a Melo", reel: "Showreel", open: "Abrir menu", close: "Fechar", english: "English version", langOther: "EN", langCur: "PT" },
+    nav: { services: "Serviços", cases: "Todos os cases", method: "Método", faq: "FAQ", cta: "Fale conosco", reel: "Showreel", open: "Abrir menu", close: "Fechar", english: "English version", langOther: "EN", langCur: "PT" },
     hero: { l1: "Traduzimos autoridade técnica", l2: "em autoridade de marca", cases: "Ver cases" },
     meta: [["Desde", "2020, em São Paulo"], ["Entregas", "+3.000 realizadas"], ["Marcas", "+50 aceleradas"], ["Time", "100% in-house"]],
     reelSec: { kicker: "O que resolvemos", title: "Toda empresa técnica fala dois idiomas", lead: "O da operação, preciso e cheio de jargão. E o que o mercado entende. Empresas excelentes perdem contratos quando só falam o primeiro. A Melo faz a tradução.", cta: "Fale conosco", label: "Showreel", watch: "Assistir", aria: "Assistir ao showreel da Melo" },
@@ -56,7 +56,7 @@ module.exports = {
       ["Medição", "Acompanhamos os resultados contra a meta inicial.", "Leitura de resultado"],
       ["Correção", "Ajustamos com base em dados, não em opinião.", "Novo ciclo"],
     ],
-    numbersSec: { kicker: "Em números", title: "Seis anos construindo autoridade de marca" },
+    numbersSec: { kicker: "Em números", title: "Seis anos construindo autoridade de marca", lead: "Desde 2020, na Liberdade, em São Paulo. Mais de 3.000 entregas para mais de 50 marcas de saúde, tecnologia, direito, educação e indústria, com toda a produção feita pelo nosso time." },
     numbers: [
       ["Entregas", "+", 3000, "", "Entre marca, comunicação institucional, digital e audiovisual."],
       ["Marcas aceleradas", "+", 50, "", "Em saúde, tecnologia, direito, educação e indústria."],
@@ -80,7 +80,7 @@ module.exports = {
       ["Atendem empresas fora de São Paulo?", "Sim. Estamos na Liberdade, em São Paulo, e atendemos remotamente empresas em todo o Brasil e no exterior."],
       ["Quantas entregas vocês já fizeram?", "Mais de 3.000 entregas e mais de 50 marcas aceleradas em seis anos de mercado."],
     ],
-    contactSec: { kicker: "Contato", title: "Direção antes da criação. Começa por aqui", lead: "Deixe seu contato e conte o projeto. Respondemos com uma direção, não com um orçamento genérico.", sheet: "Fale com a Melo", time: "Leva 30 segundos", name: "Nome", namePh: "Seu nome", contact: "E-mail ou telefone", contactPh: "voce@empresa.com.br", project: "Qual é o seu projeto?", projectPh: "Conte em poucas linhas.", note: "Respondemos pelo contato que você deixar.", send: "Enviar", sending: "Enviando...", ok: "Recebido! Vamos responder em breve.", err: "Não foi possível enviar agora. Tente pelo WhatsApp.", errName: "Informe seu nome.", errContact: "Informe um e-mail ou telefone válido.", info: [["E-mail", "contato@melocreative.com.br", "mailto:contato@melocreative.com.br"], ["WhatsApp", "+55 11 95438-7151", "https://wa.me/5511954387151"], ["Estúdio", "Rua Conde do Pinhal, 8 · Liberdade, São Paulo", ""], ["Redes", "linktr.ee/amelocreative", "https://linktr.ee/amelocreative"]] },
+    contactSec: { kicker: "Contato", title: "Direção antes da criação. Começa por aqui", lead: "Deixe seu contato e conte o projeto. Respondemos com uma direção, não com um orçamento genérico.", sheet: "Fale conosco", time: "Leva 30 segundos", name: "Nome", namePh: "Seu nome", contact: "E-mail ou telefone", contactPh: "voce@empresa.com.br", project: "Qual é o seu projeto?", projectPh: "Conte em poucas linhas.", note: "Respondemos pelo contato que você deixar.", send: "Enviar", sending: "Enviando...", ok: "Recebido! Vamos responder em breve.", err: "Não foi possível enviar agora. Tente pelo WhatsApp.", errName: "Informe seu nome.", errContact: "Informe um e-mail ou telefone válido.", info: [["E-mail", "contato@melocreative.com.br", "mailto:contato@melocreative.com.br"], ["WhatsApp", "+55 11 95438-7151", "https://wa.me/5511954387151"], ["Estúdio", "Rua Conde do Pinhal, 8 · Liberdade, São Paulo", ""], ["Redes", "linktr.ee/amelocreative", "https://linktr.ee/amelocreative"]] },
     footer: { about: "Agência de comunicação corporativa. Traduzimos autoridade técnica em autoridade de marca.", services: "Serviços", melo: "Melo", contact: "Contato", contactPage: "Contato", terms: "Termos", privacy: "Privacidade", cookies: "Cookies" },
     casePage: { challenge: "O desafio", approach: "A abordagem", client: "Cliente", project: "Projeto", fronts: "Frentes", year: "Ano", next: "Próximo case", ctaTitle: "Do primeiro posicionamento à marca consolidada. Vamos conversar", allCases: "Todos os cases" },
     casesPage: { kicker: "Cases", title: "Trabalho que constrói autoridade de marca", lead: "Uma seleção de projetos entre mais de 3.000 entregas, do primeiro posicionamento à marca consolidada.", filters: [["todos", "Todos"], ["estrategia", "Estratégia"], ["marca", "Marca"], ["sites-sistemas", "Digital"], ["audiovisual", "Audiovisual"]], empty: "Ainda não temos cases publicados nessa categoria.", ctaTitle: "Seu projeto pode ser o próximo" },
@@ -90,7 +90,7 @@ module.exports = {
   en: {
     metaTitle: "Melo | Corporate communications agency",
     metaDescription: "Corporate communications agency in São Paulo. Strategy, brand, culture, institutional communication, digital and video under a single direction.",
-    nav: { services: "Services", cases: "Cases", method: "Method", faq: "FAQ", cta: "Talk to Melo", reel: "Showreel", open: "Open menu", close: "Close", english: "Versão em português", langOther: "PT", langCur: "EN" },
+    nav: { services: "Services", cases: "All cases", method: "Method", faq: "FAQ", cta: "Contact us", reel: "Showreel", open: "Open menu", close: "Close", english: "Versão em português", langOther: "PT", langCur: "EN" },
     hero: { l1: "We translate technical authority", l2: "into brand authority", cases: "See cases" },
     meta: [["Since", "2020, in São Paulo"], ["Deliveries", "3,000+ completed"], ["Brands", "50+ accelerated"], ["Team", "100% in-house"]],
     reelSec: { kicker: "What we solve", title: "Every technical company speaks two languages", lead: "The language of operations, precise and full of jargon. And the one the market understands. Excellent companies lose deals when they only speak the first. Melo does the translation.", cta: "Talk to us", label: "Showreel", watch: "Watch", aria: "Watch Melo's showreel" },
@@ -113,7 +113,7 @@ module.exports = {
       ["Measurement", "We track results against the initial goal.", "Results review"],
       ["Correction", "We adjust based on data, not opinion.", "New cycle"],
     ],
-    numbersSec: { kicker: "In numbers", title: "Six years building brand authority" },
+    numbersSec: { kicker: "In numbers", title: "Six years building brand authority", lead: "Since 2020, in Liberdade, São Paulo. More than 3,000 deliveries for over 50 brands in healthcare, technology, law, education and industry, all produced by our own team." },
     numbers: [
       ["Deliveries", "+", 3000, "", "Across brand, institutional communication, digital and video."],
       ["Brands accelerated", "+", 50, "", "In health, technology, law, education and industry."],
@@ -130,7 +130,7 @@ module.exports = {
       ["Do you work with companies outside São Paulo?", "Yes. We are based in Liberdade, São Paulo, and work remotely with companies across Brazil and abroad."],
       ["How many deliveries have you made?", "More than 3,000 deliveries and more than 50 brands accelerated in six years."],
     ],
-    contactSec: { kicker: "Contact", title: "Direction before creation. It starts here", lead: "Leave your contact and tell us about the project. We reply with a direction, not a generic quote.", sheet: "Talk to Melo", time: "Takes 30 seconds", name: "Name", namePh: "Your name", contact: "Email or phone", contactPh: "you@company.com", project: "What is your project?", projectPh: "Tell us in a few lines.", note: "We'll reply through the contact you leave.", send: "Send", sending: "Sending...", ok: "Received! We'll get back to you soon.", err: "Couldn't send right now. Try WhatsApp.", errName: "Please enter your name.", errContact: "Please enter a valid email or phone.", info: [["Email", "contato@melocreative.com.br", "mailto:contato@melocreative.com.br"], ["WhatsApp", "+55 11 95438-7151", "https://wa.me/5511954387151"], ["Studio", "Rua Conde do Pinhal, 8 · Liberdade, São Paulo, Brazil", ""], ["Links", "linktr.ee/amelocreative", "https://linktr.ee/amelocreative"]] },
+    contactSec: { kicker: "Contact", title: "Direction before creation. It starts here", lead: "Leave your contact and tell us about the project. We reply with a direction, not a generic quote.", sheet: "Contact us", time: "Takes 30 seconds", name: "Name", namePh: "Your name", contact: "Email or phone", contactPh: "you@company.com", project: "What is your project?", projectPh: "Tell us in a few lines.", note: "We'll reply through the contact you leave.", send: "Send", sending: "Sending...", ok: "Received! We'll get back to you soon.", err: "Couldn't send right now. Try WhatsApp.", errName: "Please enter your name.", errContact: "Please enter a valid email or phone.", info: [["Email", "contato@melocreative.com.br", "mailto:contato@melocreative.com.br"], ["WhatsApp", "+55 11 95438-7151", "https://wa.me/5511954387151"], ["Studio", "Rua Conde do Pinhal, 8 · Liberdade, São Paulo, Brazil", ""], ["Links", "linktr.ee/amelocreative", "https://linktr.ee/amelocreative"]] },
     footer: { about: "Corporate communications agency. We translate technical authority into brand authority.", services: "Services", melo: "Melo", contact: "Contact", contactPage: "Contact", terms: "Terms", privacy: "Privacy", cookies: "Cookies" },
     casePage: { challenge: "The challenge", approach: "The approach", client: "Client", project: "Project", fronts: "Fronts", year: "Year", next: "Next case", ctaTitle: "From first positioning to an established brand. Let's talk", allCases: "All cases" },
     casesPage: { kicker: "Cases", title: "Work that builds brand authority", lead: "A selection of projects among more than 3,000 deliveries, from first positioning to an established brand.", filters: [["todos", "All"], ["estrategia", "Strategy"], ["marca", "Brand"], ["sites-sistemas", "Digital"], ["audiovisual", "Video"]], empty: "No cases published in this category yet.", ctaTitle: "Your project could be next" },
