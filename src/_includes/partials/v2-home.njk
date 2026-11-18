@@ -4,8 +4,6 @@
 {%- set AR = '<svg class="ar" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M1 6h10M7 2l4 4-4 4"/></svg>' -%}
 {%- set PLAY = '<svg viewBox="0 0 12 12" fill="currentColor" aria-hidden="true"><path d="M3 1.5v9l7.5-4.5z"/></svg>' -%}
 {%- set STARS = '<span class="stars" aria-label="' + c.reviewsSec.stars + '">★★★★★</span>' -%}
-{% set orgSchema = { "@context": "https://schema.org", "@type": "Organization", "name": "Melo Creative", "url": site.baseUrl + "/", "logo": site.baseUrl + "/assets/icons/logo-melo.svg", "image": site.baseUrl + "/assets/img/cases/mev-hero-folder.jpg", "description": c.metaDescription, "email": site.email, "telephone": "+5511954387151", "address": { "@type": "PostalAddress", "streetAddress": "Rua Conde do Pinhal 8 - Liberdade", "addressLocality": "São Paulo", "addressRegion": "SP", "addressCountry": "BR" }, "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "reviewCount": "24" }, "sameAs": [site.instagram, site.linkedin, v2.social.facebook, v2.social.linktree, v2.social.upwork], "knowsAbout": ["Comunicação corporativa", "Autoridade de marca", "Branding e identidade visual", "Cultura e comunicação interna", "Sites institucionais", "Produção audiovisual"] } %}
-<script type="application/ld+json">{{ orgSchema | dump | safe }}</script>
 
 <!-- HERO -->
 <section class="hero" id="topo">

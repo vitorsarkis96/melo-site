@@ -6,8 +6,6 @@
 {%- set AR = '<svg class="ar" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M1 6h10M7 2l4 4-4 4"/></svg>' -%}
 {%- set name = d.heroTitleLine1 -%}
 {%- set project = d.heroTitleLine2 | trim -%}
-{% set caseSchema = { "@context": "https://schema.org", "@type": "CreativeWork", "name": name + " " + project, "description": d.metaDescription, "image": site.baseUrl + item.heroMedia.src, "url": site.baseUrl + P + "/" + item.slug, "creator": { "@type": "Organization", "name": "Melo Creative", "url": site.baseUrl + "/" }, "about": d.tags, "dateCreated": item.year, "inLanguage": t.htmlLang } %}
-<script type="application/ld+json">{{ caseSchema | dump | safe }}</script>
 
 <section class="hero case-hero">
   <div class="stage"><img class="on" src="{{ item.heroMedia.src }}" alt="{{ d.heroAlt or name }}" fetchpriority="high"{% if item.heroMedia.position or item.cardImagePosition %} style="object-position:{{ item.heroMedia.position or item.cardImagePosition }}"{% endif %}></div>
