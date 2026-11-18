@@ -415,42 +415,63 @@
 
   /* ---------- itens de lista ---------- */
   document.querySelectorAll("#itemBox [data-op]").forEach((b) => b.addEventListener("click", () => { if (state.sel && state.sel.item) itemOp(b.dataset.op, state.sel.item); }));
+  // troca o prefixo de um nó (e dos filhos) na prévia
+  function rekey(n, from, to) {
+    [n, ...n.querySelectorAll("[data-item],[data-e],[data-img],[data-media]")].forEach((x) => {
+      ["item", "e", "img", "media"].forEach((a) => { const v = x.dataset[a]; if (v && (v === from || v.startsWith(from + "."))) x.dataset[a] = to + v.slice(from.length); });
+    });
+  }
+  function renumber(prefix) {
+    const doc = frame();
+    const nodes = [...doc.querySelectorAll("[data-item]")].filter((n) => n.dataset.item.startsWith(prefix) && /^\d+$/.test(n.dataset.item.slice(prefix.length)));
+    nodes.forEach((n, i) => rekey(n, n.dataset.item, prefix + "tmp" + i));
+    nodes.forEach((n, i) => rekey(n, n.dataset.item, prefix + i));
+  }
   async function itemOp(op, itemKey) {
     const [file, ipath] = split(itemKey);
     const idx = +ipath.split(".").pop();
     const arrPath = ipath.replace(/\.\d+$/, "");
     const d = state.docs[file]; const arr = getP(d.data, arrPath);
     if (!Array.isArray(arr)) return;
-    if (op === "del") {
-      if (arr.length <= 1) { toast("A lista precisa ter pelo menos um item."); return; }
-      if (!(await confirmBox("Remover item?", "O item sai da página quando você publicar. Dá para desfazer com 'Descartar' antes de publicar.", "Remover"))) return;
-    }
     const doc = frame();
     const prefix = `${file}|${arrPath}.`;
-    const siblings = () => [...doc.querySelectorAll(`[data-item]`)].filter((n) => n.dataset.item.startsWith(prefix) && /^\d+$/.test(n.dataset.item.slice(prefix.length)));
-    const node = siblings().find((n) => n.dataset.item === itemKey);
-    let target = idx;
-    if (op === "up") { if (idx === 0) return; [arr[idx - 1], arr[idx]] = [arr[idx], arr[idx - 1]]; target = idx - 1; if (node && node.previousElementSibling) node.parentNode.insertBefore(node, node.previousElementSibling); }
-    if (op === "down") { if (idx >= arr.length - 1) return; [arr[idx + 1], arr[idx]] = [arr[idx], arr[idx + 1]]; target = idx + 1; if (node && node.nextElementSibling) node.parentNode.insertBefore(node.nextElementSibling, node); }
-    if (op === "dup") { arr.splice(idx + 1, 0, JSON.parse(JSON.stringify(arr[idx]))); target = idx + 1; if (node) node.after(node.cloneNode(true)); }
-    if (op === "del") { arr.splice(idx, 1); target = -1; if (node) node.remove(); }
-    // renumera os índices na prévia
-    siblings().forEach((n, i) => {
-      const from = n.dataset.item, to = prefix + i;
-      if (from === to) return;
-      [n, ...n.querySelectorAll("[data-item],[data-e],[data-img]")].forEach((x) => {
-        ["item", "e", "img"].forEach((a) => { const v = x.dataset[a]; if (v && (v === from || v.startsWith(from + "."))) x.dataset[a] = to + v.slice(from.length); });
-      });
-    });
+    const node = doc.querySelector(`[data-item="${CSS.escape(itemKey)}"]`);
+    const isGal = /rows(Before|After)Approach$/.test(arrPath);
+    if (op === "del") {
+      if (arr.length <= 1 && !isGal) { toast("A lista precisa ter pelo menos um item."); return; }
+      if (!(await confirmBox("Remover item?", "O item sai da página quando você publicar. Dá para desfazer com 'Descartar' antes de publicar.", "Remover"))) return;
+    }
+    let newKey = itemKey;
+    // nos cases, o bloco passa de um lado para o outro do texto "A abordagem"
+    const cross = isGal && ((op === "up" && idx === 0 && arrPath === "rowsAfterApproach") || (op === "down" && idx === arr.length - 1 && arrPath === "rowsBeforeApproach"));
+    if (cross) {
+      const toPath = arrPath === "rowsAfterApproach" ? "rowsBeforeApproach" : "rowsAfterApproach";
+      d.data[toPath] = d.data[toPath] || [];
+      const [x] = arr.splice(idx, 1);
+      const toPrefix = `${file}|${toPath}.`;
+      const gal = doc.querySelector(`[data-gal="${CSS.escape(file + "|" + toPath)}"]`);
+      if (toPath === "rowsBeforeApproach") { d.data[toPath].push(x); newKey = toPrefix + (d.data[toPath].length - 1); if (node && gal) gal.appendChild(node); }
+      else { d.data[toPath].unshift(x); newKey = toPrefix + "0"; if (node && gal) gal.prepend(node); }
+      if (node) rekey(node, itemKey, toPrefix + "moving");
+      renumber(prefix); renumber(toPrefix);
+      toast(toPath === "rowsBeforeApproach" ? "Bloco movido para antes de 'A abordagem'." : "Bloco movido para depois de 'A abordagem'.");
+    } else {
+      if (op === "up") { if (idx === 0) { toast("Este já é o primeiro."); return; } [arr[idx - 1], arr[idx]] = [arr[idx], arr[idx - 1]]; newKey = prefix + (idx - 1); if (node && node.previousElementSibling) node.parentNode.insertBefore(node, node.previousElementSibling); }
+      if (op === "down") { if (idx >= arr.length - 1) { toast("Este já é o último."); return; } [arr[idx + 1], arr[idx]] = [arr[idx], arr[idx + 1]]; newKey = prefix + (idx + 1); if (node && node.nextElementSibling) node.parentNode.insertBefore(node.nextElementSibling, node); }
+      if (op === "dup") { arr.splice(idx + 1, 0, JSON.parse(JSON.stringify(arr[idx]))); newKey = prefix + (idx + 1); if (node) node.after(node.cloneNode(true)); }
+      if (op === "del") { arr.splice(idx, 1); newKey = null; if (node) node.remove(); }
+      renumber(prefix);
+      toast(op === "del" ? "Item removido." : op === "dup" ? "Item adicionado abaixo. Edite o conteúdo da cópia." : "Ordem alterada.");
+    }
     markDirty(file);
     deselect();
-    if (target >= 0) {
-      const n = doc.querySelector(`[data-item="${CSS.escape(prefix + target)}"]`);
-      const first = n && n.querySelector("[data-e]");
-      if (first) { first.scrollIntoView({ block: "center", behavior: "smooth" }); select({ kind: "text", el: first }); }
+    if (newKey) {
+      const n = doc.querySelector(`[data-item="${CSS.escape(newKey)}"]`);
+      const first = n && (n.querySelector("[data-e]") || n.querySelector("[data-media]"));
+      if (first) { first.scrollIntoView({ block: "center", behavior: "smooth" }); select({ kind: first.dataset.e ? "text" : "media", el: first }); }
     }
-    toast(op === "del" ? "Item removido." : op === "dup" ? "Item adicionado abaixo. Edite o texto da cópia." : "Ordem alterada.");
   }
+
 
   /* ---------- publicar ---------- */
   async function publish() {
