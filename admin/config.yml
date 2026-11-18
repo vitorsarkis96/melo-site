@@ -639,7 +639,6 @@ collections:
                   - { label: "Título (opcional, pode usar <em>palavra</em> pra deixar em cinza claro)", name: heading, widget: string, required: false }
       - label: "Fotos e vídeos — depois de 'Nossa abordagem'"
         name: rowsAfterApproach
-        required: false
         widget: list
         required: false
         collapsed: false
