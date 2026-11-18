@@ -42,11 +42,15 @@
 <meta name="twitter:title" content="{{ metaTitle | safe }}" />
 <meta name="twitter:description" content="{{ metaDescription | safe }}" />
 <meta name="twitter:image" content="{{ site.baseUrl }}{{ ogImage | safe }}" />
-{% if structuredData %}
+{%- set seoKind = "case" if (item and item.slug) else ("home" if isHome else ("cases" if slug == "cases" else ("contact" if (slug == "contato" or slug == "contact") else "page"))) -%}
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+<meta name="author" content="Melo" />
+<meta name="geo.region" content="BR-SP" />
+<meta name="geo.placename" content="São Paulo" />
+<link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt" />
 <script type="application/ld+json">
-{{ structuredData | dump | safe }}
+{{ seo.graph({ lang: lang, url: canonicalUrl, title: metaTitle, description: metaDescription, image: site.baseUrl + ogImage, kind: seoKind, pageType: ("CollectionPage" if seoKind == "cases" else ("ContactPage" if seoKind == "contact" else "WebPage")), caseName: (item[lang].heroTitleLine1 if seoKind == "case" else ""), tags: (item[lang].tags if seoKind == "case" else []), year: (item.year if seoKind == "case" else "") }) | dump | safe }}
 </script>
-{% endif %}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />

@@ -1,6 +1,6 @@
 {
-  "metaTitle": "Melo | Corporate communications agency",
-  "metaDescription": "Corporate communications agency in São Paulo. Strategy, brand, culture, institutional communication, digital and video under a single direction.",
+  "metaTitle": "Melo | Corporate communications agency in São Paulo, Brazil",
+  "metaDescription": "Corporate communications agency that turns technical authority into brand authority. Strategy, brand, culture, institutional communication, websites and film.",
   "nav": {
     "services": "Services",
     "cases": "All cases",
@@ -136,8 +136,16 @@
       "a": "It shapes how the company is perceived by clients, partners, investors and its own team. At Melo that includes positioning, brand, culture and internal communication, institutional materials, website and video, all under the same direction."
     },
     {
+      "q": "What does it mean to turn technical authority into brand authority?",
+      "a": "Technical companies are often excellent at what they do, but the market doesn't see how big that is. Turning technical authority into brand authority means translating knowledge, processes and results into positioning, identity, content and digital presence that clients, investors and the team itself recognize."
+    },
+    {
       "q": "Do you only work with health, technology and law?",
       "a": "No. We work with any company struggling to turn technical authority into brand authority. Health, technology and law are where this gap shows up most often."
+    },
+    {
+      "q": "What kind of company does Melo work with?",
+      "a": "B2B and technical companies that already deliver well and need communication to match: clinics and healthtechs, technology and data companies, law firms, education institutions, industry and engineering. Clients include Fleury, Mackenzie, Suzano, Cyrela (SYN) and brain4care."
     },
     {
       "q": "How does the process work?",
@@ -207,7 +215,7 @@
   },
   "casesPage": {
     "title": "Work that builds brand authority",
-    "lead": "A selection of projects among more than 3,000 deliveries, from first positioning to an established brand.",
+    "lead": "Corporate communications cases: healthcare, technology, law and industrial companies that turned technical authority into brand authority. A selection from more than 3,000 deliveries.",
     "filters": [
       {
         "key": "todos",
