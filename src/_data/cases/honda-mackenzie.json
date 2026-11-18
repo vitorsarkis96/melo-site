@@ -1,0 +1,58 @@
+{
+  "slug": "honda-mackenzie",
+  "draft": true,
+  "order": 99,
+  "showOnHome": false,
+  "year": "2026",
+  "dataService": [
+    "audiovisual"
+  ],
+  "cardImage": "/assets/img/uploads/1795021970824-captura-de-tela-2026-11-18-as-12.09.23.jpg",
+  "otherCases": [],
+  "heroMedia": {
+    "type": "image",
+    "src": "/assets/img/uploads/1795021970824-captura-de-tela-2026-11-18-as-12.09.23.jpg"
+  },
+  "rowsBeforeApproach": [],
+  "rowsAfterApproach": [],
+  "en": {
+    "metaTitle": "Honda & Mackenzie: Video Production | Melo",
+    "metaDescription": "Video production by Melo documenting Honda's CMF design workshop with Mackenzie Design students.",
+    "heroTitleLine2": "Video production and workshop coverage",
+    "heroAlt": "Honda motorcycle design team conducting a CMF workshop at Mackenzie University",
+    "tags": [
+      "Video production",
+      "Event coverage",
+      "Corporate communications"
+    ],
+    "challengeHeading": "Documenting the interaction between Honda's design team and Mackenzie students.",
+    "challengeDetail": "Honda's motorcycle design department led a CMF (Color, Material & Finish) workshop for Design students at Mackenzie. The goal was to capture the practical and technical dynamics of the session with precision.",
+    "approachHeading": "Video production focused on the details of the creative process.",
+    "approachDetail": "Melo covered the workshop emphasizing the application of color, texture, and finish in motorcycle design. The final footage documented the collaboration between Honda experts and students, highlighting the brand's technical mastery.",
+    "cardTitle": "Honda & Mackenzie: Video Production",
+    "cardDesc": "Video coverage of the CMF workshop conducted by Honda for Mackenzie Design students.",
+    "heroTitleLine1": "Honda + Mackenzie",
+    "challengeTag": "The challenge",
+    "approachTag": "The approach"
+  },
+  "pt": {
+    "metaTitle": "Honda e Mackenzie: Cobertura Audiovisual | Melo",
+    "metaDescription": "Produção audiovisual da Melo para o workshop de CMF da Honda com os alunos de Design do Instituto Mackenzie.",
+    "heroTitleLine1": "Honda + Mackenzie",
+    "heroTitleLine2": "Produção Audiovisual",
+    "heroAlt": "Workshop de CMF realizado pelo departamento de design de motos da Honda na Universidade Mackenzie",
+    "tags": [
+      "Audiovisual",
+      "Documentação de evento",
+      "Comunicação institucional"
+    ],
+    "challengeTag": "O desafio",
+    "challengeHeading": "Registrar a conexão entre a equipe de design da Honda e os estudantes do Mackenzie.",
+    "challengeDetail": "O departamento de design de motos da Honda realizou um workshop de CMF (Color, Material & Finish) com estudantes de Design do Mackenzie. O desafio era capturar a dinâmica prática e técnica do evento sem perder a precisão do conteúdo ministrado.",
+    "approachTag": "A abordagem",
+    "approachHeading": "Produção audiovisual focada nos detalhes do processo criativo.",
+    "approachDetail": "A Melo registrou o workshop destacando a aplicação de cor, textura e acabamento no design automotivo. O material final documentou a troca entre os especialistas da marca e os alunos, consolidando a autoridade técnica do time de design da Honda.",
+    "cardTitle": "Honda e Mackenzie: Cobertura Audiovisual",
+    "cardDesc": "Registro audiovisual do workshop de CMF conduzido pela Honda para alunos de Design do Mackenzie."
+  }
+}
