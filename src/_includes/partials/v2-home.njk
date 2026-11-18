@@ -125,6 +125,8 @@
   </div>
 </section>
 
+{% include "partials/v2-contact.njk" %}
+
 <!-- FAQ -->
 <script type="application/ld+json">{{ { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": c.faq | faqPairs } | dump | safe }}</script>
 <section class="sec" id="faq">
@@ -139,4 +141,3 @@
   </div>
 </section>
 
-{% include "partials/v2-contact.njk" %}
