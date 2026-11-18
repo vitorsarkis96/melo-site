@@ -683,3 +683,4 @@ footer{padding:var(--s-9) 0 var(--s-6)}
 .sheet .f-foot .mono{font-family:var(--sans);font-size:13px;color:var(--ink-3);text-align:center;max-width:none}
 .sec-head .right{align-items:center}.sec-head .right .lead{margin:0}
 .hero-meta,.hero-meta div,.hero-meta div+div,.hero-meta div:nth-child(n+3){border:0!important}.logos{border-bottom:0}
+.hero-meta div,.hero-meta div+div{padding:var(--s-5) var(--s-4) var(--s-6)!important;text-align:center;justify-items:center}
