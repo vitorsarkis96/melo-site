@@ -25,6 +25,12 @@
 {% endmacro %}
 
 {% macro row(r, alt, path) %}
+{%- if r.layout == "text" %}
+<div class="gal-row gal-text rv" data-item="{{ path }}">
+  <h3 class="h3" data-e="{{ path }}.title">{{ r.title }}</h3>
+  <p data-e="{{ path }}.body">{{ r.body }}</p>
+</div>
+{%- else %}
 {% if r.layout == "carousel" %}
 <div class="spot rv" data-spot data-item="{{ path }}">
   <div class="spot-tabs" role="tablist">
@@ -47,4 +53,5 @@
   {% for it in r.items %}{{ item(it, alt, path + ".items." + loop.index0) }}{% endfor %}
 </div>
 {% endif %}
+{%- endif %}
 {% endmacro %}
