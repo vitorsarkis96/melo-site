@@ -498,7 +498,7 @@ collections:
     extension: json
     format: json
     identifier_field: slug
-    summary: "{{order}} — {{slug}}"
+    summary: "{{pt.heroTitleLine1}} · {{pt.heroTitleLine2}}"
     fields:
       - { label: "URL slug", name: slug, widget: string, hint: "Sem espaços/acentos, minúsculo. Define a URL da página — ex: 'redcap' → melocreative.com.br/redcap. NÃO altere num case já publicado sem avisar o dev, os links quebram." }
       - { label: "Posição na grade", name: order, widget: number, value_type: int, default: 99, hint: "Controla a ordem deste case na página /cases e, se marcado abaixo, na grade de cases da Home (menor = aparece antes). Não afeta o carrossel do banner — isso é configurado na página Home." }
