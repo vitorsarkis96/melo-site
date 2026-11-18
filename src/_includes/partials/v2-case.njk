@@ -33,14 +33,14 @@
     <div class="right"><h2 class="h2 rv d1" data-e="case:{{ item.slug }}|{{ lang }}.challengeHeading">{{ d.challengeHeading }}</h2><div class="rv d2"><p data-e="case:{{ item.slug }}|{{ lang }}.challengeDetail">{{ d.challengeDetail }}</p></div></div>
   </section>
 
-  <div class="gal">{% for r in item.rowsBeforeApproach %}{{ row(r, name) }}{% endfor %}</div>
+  <div class="gal" data-gal="case:{{ item.slug }}|rowsBeforeApproach">{% for r in item.rowsBeforeApproach %}{{ row(r, name, "case:" + item.slug + "|rowsBeforeApproach." + loop.index0) }}{% endfor %}</div>
 
   <section class="case-txt">
     <span class="kicker rv">{{ c.casePage.approach }}</span>
     <div class="right"><h2 class="h2 rv d1" data-e="case:{{ item.slug }}|{{ lang }}.approachHeading">{{ d.approachHeading }}</h2><div class="rv d2"><p data-e="case:{{ item.slug }}|{{ lang }}.approachDetail">{{ d.approachDetail }}</p></div></div>
   </section>
 
-  <div class="gal gal-end">{% for r in item.rowsAfterApproach %}{{ row(r, name) }}{% endfor %}</div>
+  <div class="gal gal-end" data-gal="case:{{ item.slug }}|rowsAfterApproach">{% for r in item.rowsAfterApproach %}{{ row(r, name, "case:" + item.slug + "|rowsAfterApproach." + loop.index0) }}{% endfor %}</div>
 </div>
 
 {%- set nx = cases | nextCase(item) -%}

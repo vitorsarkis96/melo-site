@@ -8,7 +8,7 @@
 <!-- HERO -->
 <section class="hero" id="topo">
   <div class="stage" id="figStage">
-    {% for s in v2.heroCases %}{% set hc = cases | findCase(s) %}{% if hc %}<img src="{{ hc.heroMedia.src }}" alt="{{ hc[lang].heroTitleLine1 }}"{% if not loop.first %} loading="lazy"{% else %} class="on" fetchpriority="high"{% endif %}{% if hc.heroMedia.position %} style="object-position:{{ hc.heroMedia.position }}"{% endif %}>{% endif %}{% endfor %}
+    {% for s in v2.heroCases %}{% set hc = cases | findCase(s) %}{% if hc %}<img data-img="case:{{ hc.slug }}|heroMedia.src" data-case-name="{{ hc[lang].heroTitleLine1 }}" src="{{ hc.heroMedia.src }}" alt="{{ hc[lang].heroTitleLine1 }}"{% if not loop.first %} loading="lazy"{% else %} class="on" fetchpriority="high"{% endif %}{% if hc.heroMedia.position %} style="object-position:{{ hc.heroMedia.position }}"{% endif %}>{% endif %}{% endfor %}
   </div>
   <div class="hero-in">
     <div class="wrap hero-row">
@@ -42,7 +42,7 @@
 <section class="sec" id="traducao">
   <span id="atuamos"></span>
   <div class="wrap reel-split">
-    <button class="reel-thumb rv" type="button" data-reel aria-label="{{ c.reelSec.aria }}">
+    <button class="reel-thumb rv" type="button" data-reel data-video="geral|reel" aria-label="{{ c.reelSec.aria }}">
       <img src="https://i.ytimg.com/vi/{{ v2.reel }}/maxresdefault.jpg" alt="" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='https://i.ytimg.com/vi/{{ v2.reel }}/hqdefault.jpg'}else{this.remove()}">
       <span class="pl"><i>{{ PLAY | safe }}</i><span><span data-e="{{ lang }}|reelSec.label">{{ c.reelSec.label }}</span><small><span data-e="{{ lang }}|reelSec.watch">{{ c.reelSec.watch }}</span></small></span></span>
     </button>

@@ -46,6 +46,7 @@
     </div>
     <div class="top-r">
       <span class="status" id="status"></span>
+      <button class="b b-ghost" id="newCaseBtn">+ Novo case</button>
       <button class="b b-ghost" id="discardBtn" disabled>Descartar</button>
       <button class="b b-orange" id="publishBtn" disabled>Publicar <span class="badge" id="count">0</span></button>
       <div class="menu-wrap">
@@ -61,6 +62,7 @@
 
   <aside class="side" id="side">
     <div class="side-empty" id="sideEmpty">
+      <div id="pagePanel"></div>
       <div class="hint-ill"><svg viewBox="0 0 48 48"><path d="M14 10l20 14-9 2 6 11-4 2-6-11-7 6z"/></svg></div>
       <h2>Clique para editar</h2>
       <p>Passe o mouse pela página: tudo que ficar com contorno laranja pode ser editado.</p>
@@ -93,6 +95,21 @@
         <input id="imgPath" type="text" />
       </div>
 
+      <div id="mediaBox" hidden>
+        <div class="seg seg-full" id="mediaType"><button data-t="image" class="on">Foto</button><button data-t="video">Vídeo do YouTube</button></div>
+        <div id="mediaImg">
+          <div class="imgprev"><img id="mediaPrev" alt="" /></div>
+          <label class="b b-dark b-block upl"><input type="file" id="mediaFile" accept="image/png,image/jpeg,image/webp,image/gif" hidden />Escolher foto do computador</label>
+          <p class="small">JPG, PNG ou WebP até 5 MB.</p>
+        </div>
+        <div id="mediaVid" hidden>
+          <label class="fl" for="mediaUrl">Link do vídeo no YouTube</label>
+          <input id="mediaUrl" type="text" placeholder="https://www.youtube.com/watch?v=..." />
+          <button class="b b-dark b-block" id="mediaUrlApply" style="margin-top:8px">Usar este vídeo</button>
+          <p class="small" style="margin-top:6px">Cole o link do vídeo. Ele aparece na prévia na hora.</p>
+        </div>
+      </div>
+
       <div class="itembox" id="itemBox" hidden>
         <span class="fl" id="itemLabel">Item da lista</span>
         <div class="itembtns">
@@ -123,8 +140,32 @@
   <div class="modal-card">
     <h3 id="modalTitle"></h3>
     <p id="modalText"></p>
+    <input id="modalInput" type="text" hidden />
     <div class="modal-acts"><button class="b b-ghost" id="modalNo">Cancelar</button><button class="b b-dark" id="modalYes">Confirmar</button></div>
   </div>
+</div>
+
+<!-- novo case -->
+<div class="modal" id="ncModal" hidden>
+  <form class="modal-card nc" id="ncForm">
+    <h3>Novo case</h3>
+    <p>Preencha o básico. Depois você edita textos, fotos e vídeos direto na página do case.</p>
+    <div class="nc-grid">
+      <label><span class="fl">Nome do cliente *</span><input name="name" required placeholder="Ex: Fleury" /></label>
+      <label><span class="fl">Projeto *</span><input name="project" required placeholder="Ex: Identidade de marca" /></label>
+      <label><span class="fl">Ano</span><input name="year" placeholder="2026" /></label>
+      <label><span class="fl">Endereço da página</span><input name="slug" placeholder="gerado pelo nome" /><span class="small" id="ncUrl"></span></label>
+    </div>
+    <label><span class="fl">Descrição curta (aparece no card) *</span><textarea name="desc" rows="3" required placeholder="Uma frase sobre o que a Melo fez."></textarea></label>
+    <div><span class="fl">Categorias (filtro da página de cases)</span><div class="chips" id="ncCats"></div></div>
+    <label class="chk"><input type="checkbox" name="home" /> Mostrar também na home</label>
+    <div><span class="fl">Foto de capa *</span>
+      <label class="b b-ghost b-block upl" id="ncCoverBtn"><input type="file" name="cover" accept="image/png,image/jpeg,image/webp" hidden />Escolher foto</label>
+      <div class="imgprev" id="ncCoverPrev" hidden><img alt="" /></div>
+    </div>
+    <p class="login-err" id="ncErr" hidden></p>
+    <div class="modal-acts"><button type="button" class="b b-ghost" id="ncCancel">Cancelar</button><button type="submit" class="b b-orange">Criar e publicar</button></div>
+  </form>
 </div>
 
 <script src="/admin/editor.js"></script>

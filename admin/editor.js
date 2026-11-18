@@ -30,9 +30,10 @@
   /* ---------- utilidades ---------- */
   const toast = (msg, ms = 3200) => { const t = $("#toast"); t.textContent = msg; t.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => (t.hidden = true), ms); };
   const setStatus = (msg, kind = "") => { const s = $("#status"); s.className = "status " + kind; s.innerHTML = msg ? `<span class="dot"></span><span>${msg}</span>` : ""; };
-  const confirmBox = (title, text, yes = "Confirmar") => new Promise((res) => {
+  const confirmBox = (title, text, yes = "Confirmar", input) => new Promise((res) => {
     $("#modalTitle").textContent = title; $("#modalText").textContent = text; $("#modalYes").textContent = yes; $("#modal").hidden = false;
-    const done = (v) => { $("#modal").hidden = true; $("#modalYes").onclick = $("#modalNo").onclick = null; res(v); };
+    const inp = $("#modalInput"); inp.hidden = input === undefined; if (input !== undefined) { inp.value = input; inp.placeholder = "https://www.youtube.com/watch?v=..."; setTimeout(() => inp.focus(), 30); }
+    const done = (v) => { $("#modal").hidden = true; $("#modalYes").onclick = $("#modalNo").onclick = null; res(v && input !== undefined ? inp.value.trim() : v); };
     $("#modalYes").onclick = () => done(true); $("#modalNo").onclick = () => done(false);
   });
   const b64enc = (str) => btoa(unescape(encodeURIComponent(str)));
@@ -172,16 +173,24 @@
     // páginas fora do site (ex.: link externo) não são editáveis
     try { doc.location.href; } catch (e) { $("#frameLoading").hidden = true; return; }
     injectFrame(doc);
-    const keys = [...doc.querySelectorAll("[data-e],[data-img],[data-item]")].map((el) => split(el.dataset.e || el.dataset.img || el.dataset.item)[0]);
+    const keys = [...doc.querySelectorAll("[data-e],[data-img],[data-item],[data-media],[data-video],[data-gal]")].map((el) => split(el.dataset.e || el.dataset.img || el.dataset.item || el.dataset.media || el.dataset.video || el.dataset.gal)[0]);
+    keys.push("geral");
+    const cur = state.pages.find((x) => x.v === $("#pageSel").value);
+    if (cur && cur.v.startsWith("case:")) keys.push(cur.v);
     await loadDocsFor(keys);
     paintAll();
     $("#frameLoading").hidden = true;
+    renderPagePanel();
   });
 
   function injectFrame(doc) {
     const st = doc.createElement("style");
     st.textContent = `
       .rv,.fade{opacity:1!important;transform:none!important}
+      [data-media],[data-video]{cursor:pointer;outline:1px dashed transparent;outline-offset:3px}
+      [data-media]:hover,[data-video]:hover{outline-color:#f66324!important}
+      [data-media].mel-sel,[data-video].mel-sel{outline:2px solid #f66324!important}
+      [data-media] iframe,[data-media] video{pointer-events:none}
       [data-e],[data-img]{cursor:text;outline:1px dashed transparent;outline-offset:3px;transition:outline-color .12s}
       [data-img]{cursor:pointer}
       [data-e]:hover,[data-img]:hover{outline-color:#f66324!important}
@@ -215,6 +224,9 @@
   function onFrameClick(e) {
     const t = e.target;
     const txt = t.closest("[data-e]");
+    const media = !txt && t.closest("[data-media]");
+    const video = !txt && !media && t.closest("[data-video]");
+    if (media || video) { e.preventDefault(); e.stopPropagation(); select({ kind: media ? "media" : "video", el: media || video }); return; }
     const img = !txt && t.closest("[data-img]");
     const link = t.closest("a[href]");
     const hero = !txt && !img && t.closest(".hero");
@@ -300,7 +312,7 @@
     [/heroTitleLine1$/, "Case", "Nome do cliente"], [/heroTitleLine2$/, "Case", "Projeto"], [/challengeHeading$/, "Case", "Desafio: título"], [/challengeDetail$/, "Case", "Desafio: texto"],
     [/cardDesc$/, "Case", "Descrição no card"], [/^cardImage$/, "Case", "Imagem do card"], [/approachHeading$/, "Case", "Abordagem: título"], [/approachDetail$/, "Case", "Abordagem: texto"], [/^heroMedia\.src$/, "Case", "Imagem principal"],
   ];
-  const ITEM_NAMES = { faq: "Pergunta do FAQ", reviews: "Avaliação", meta: "Dado do banner", "contactSec.info": "Informação de contato", services: "Serviço", l: "Entrega" };
+  const ITEM_NAMES = { rowsBeforeApproach: "Linha da galeria", rowsAfterApproach: "Linha da galeria", faq: "Pergunta do FAQ", reviews: "Avaliação", meta: "Dado do banner", "contactSec.info": "Informação de contato", services: "Serviço", l: "Entrega" };
   function labelFor(key) {
     const [file, path] = split(key);
     const p = file.startsWith("case:") ? path.replace(/^(pt|en)\./, "") : path;
@@ -314,14 +326,18 @@
     doc.querySelectorAll(".mel-sel").forEach((n) => { n.classList.remove("mel-sel"); if (n !== el) n.removeAttribute("contenteditable"); });
     doc.querySelectorAll(".mel-item").forEach((n) => n.classList.remove("mel-item"));
     el.classList.add("mel-sel");
-    const key = kind === "text" ? el.dataset.e : el.dataset.img;
+    const key = kind === "text" ? el.dataset.e : kind === "media" ? el.dataset.media : kind === "video" ? el.dataset.video : el.dataset.img;
     const item = el.closest("[data-item]");
     state.sel = { kind, key, el, item: item ? item.dataset.item : null };
     if (item) item.classList.add("mel-item");
-    const [crumb, name] = labelFor(key);
+    let [crumb, name] = labelFor(key);
+    if (kind === "media") { crumb = "Case · galeria"; name = "Foto ou vídeo"; }
+    if (kind === "video") { crumb = "Showreel"; name = "Vídeo do showreel"; }
+    if (kind === "img" && el.dataset.caseName && $("#pageSel").value === "home") { crumb = "Banner"; name = "Foto do banner"; }
     $("#crumbs").textContent = crumb; $("#fieldName").textContent = name;
     $("#sideEmpty").hidden = true; $("#sideEdit").hidden = false;
-    $("#textBox").hidden = kind !== "text"; $("#imgBox").hidden = kind !== "img";
+    $("#textBox").hidden = kind !== "text"; $("#imgBox").hidden = kind !== "img"; $("#mediaBox").hidden = kind !== "media" && kind !== "video";
+    if (kind === "media" || kind === "video") fillMedia();
     if (kind === "text") {
       if (!el.isContentEditable) { el.setAttribute("contenteditable", "plaintext-only"); if (el.contentEditable !== "plaintext-only") el.setAttribute("contenteditable", "true"); }
       el.focus();
@@ -330,9 +346,10 @@
       $("#fieldText").rows = isMultiline(el) ? 7 : 2;
       countChars();
       $("#revertBtn").hidden = !isChanged(key);
-    } else {
+    } else if (kind === "img") {
       const [f, p] = split(key); const v = getP((state.docs[f] || {}).data || {}, p) || el.getAttribute("src");
       $("#imgPath").value = v; $("#imgPrev").src = state.previews[v] || v;
+      if (el.dataset.caseName && $("#pageSel").value === "home") toast("Esta foto também é a capa do case " + el.dataset.caseName + ".", 4000);
     }
     if (item) {
       const [, ip] = split(item.dataset.item);
@@ -346,6 +363,7 @@
     const doc = frame();
     if (doc) { doc.querySelectorAll(".mel-sel").forEach((n) => { n.classList.remove("mel-sel"); n.removeAttribute("contenteditable"); }); doc.querySelectorAll(".mel-item").forEach((n) => n.classList.remove("mel-item")); }
     state.sel = null; $("#sideEmpty").hidden = false; $("#sideEdit").hidden = true;
+    if (frame()) renderPagePanel();
   }
   const countChars = () => { const n = $("#fieldText").value.length; $("#charCount").textContent = n + (n === 1 ? " caractere" : " caracteres"); };
 
@@ -433,6 +451,7 @@
     try {
       // confere se ninguém mudou os arquivos no meio do caminho
       for (const k of files) {
+        if (!state.docs[k].sha) continue;
         const cur = await gh(`/repos/${REPO}/contents/${FILES(k)}?ref=${BRANCH}`);
         if (cur.sha !== state.docs[k].sha) {
           const ok = await confirmBox("Arquivo alterado por outra pessoa", `${FILES(k)} mudou desde que você abriu o editor (talvez pelo modo avançado). Publicar mesmo assim substitui essa versão.`, "Publicar mesmo assim");
@@ -469,7 +488,11 @@
     const tick = async () => {
       try {
         const st = await gh(`/repos/${REPO}/commits/${sha}/status`);
-        if (st.state === "success") { setStatus("No ar. Site atualizado.", "ok"); toast("Publicado! O site já está atualizado."); state.previews = {}; saveDraft(); openPage($("#pageSel").value, true); return; }
+        if (st.state === "success") {
+          setStatus("No ar. Site atualizado.", "ok"); toast("Publicado! O site já está atualizado."); state.previews = {}; saveDraft();
+          if (state.openAfter) { await loadPages(); $("#pageSel").value = state.openAfter; state.openAfter = null; }
+          openPage($("#pageSel").value, true); return;
+        }
         if (st.state === "failure" || st.state === "error") { setStatus("A atualização do site falhou. Veja no modo avançado ou peça ajuda.", "err"); return; }
       } catch (e) {}
       if (Date.now() - t0 > 6 * 60 * 1000) { setStatus("Enviado. O site deve atualizar em instantes.", "ok"); return; }
@@ -509,6 +532,202 @@
     if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "s") { e.preventDefault(); if (!$("#publishBtn").disabled) publish(); }
   });
   window.addEventListener("beforeunload", (e) => { if (state.dirty.size) { e.preventDefault(); e.returnValue = ""; } });
+
+
+  /* ---------- vídeo e mídia da galeria ---------- */
+  const ytId = (u) => { const m = String(u || "").match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/); return m ? m[1] : /^[\w-]{11}$/.test(u || "") ? u : null; };
+  const ytEmbed = (id) => `<iframe src="https://www.youtube-nocookie.com/embed/${id}?rel=0&modestbranding=1&playsinline=1" title="Vídeo" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen style="pointer-events:none"></iframe>`;
+  const pickFile = () => new Promise((res) => { const i = document.createElement("input"); i.type = "file"; i.accept = "image/png,image/jpeg,image/webp,image/gif"; i.onchange = () => res(i.files[0] || null); i.click(); });
+  async function stageUpload(file) {
+    if (!file) return null;
+    if (file.size > 5 * 1024 * 1024) { toast("Imagem acima de 5 MB. Reduza o tamanho e tente de novo."); return null; }
+    const dataURL = await new Promise((r) => { const fr = new FileReader(); fr.onload = () => r(fr.result); fr.readAsDataURL(file); });
+    const clean = file.name.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9.]+/g, "-").replace(/-+/g, "-");
+    const publicPath = `/assets/img/uploads/${Date.now()}-${clean}`;
+    state.uploads[publicPath.slice(1)] = dataURL.split(",")[1];
+    state.previews[publicPath] = dataURL;
+    return publicPath;
+  }
+  const curVal = (key) => { const [f, p] = split(key); return getP((state.docs[f] || {}).data || {}, p); };
+  const setVal = (key, v) => { const [f, p] = split(key); setP(state.docs[f].data, p, v); markDirty(f); };
+
+  function setMediaTab(t) {
+    document.querySelectorAll("#mediaType button").forEach((b) => b.classList.toggle("on", b.dataset.t === t));
+    $("#mediaImg").hidden = t !== "image"; $("#mediaVid").hidden = t !== "video";
+  }
+  function fillMedia() {
+    const sel = state.sel;
+    if (sel.kind === "video") {
+      $("#mediaType").hidden = true; setMediaTab("video");
+      const id = curVal(sel.key); $("#mediaUrl").value = id ? "https://www.youtube.com/watch?v=" + id : "";
+      return;
+    }
+    $("#mediaType").hidden = false;
+    const it = curVal(sel.key) || {};
+    const isVid = it.type === "video";
+    setMediaTab(isVid ? "video" : "image");
+    $("#mediaUrl").value = isVid ? it.src : "";
+    $("#mediaPrev").src = !isVid ? state.previews[it.src] || it.src || "" : "";
+  }
+  document.querySelectorAll("#mediaType button").forEach((b) => (b.onclick = () => setMediaTab(b.dataset.t)));
+  function paintMedia(el, it) {
+    if (it.type === "video") {
+      const id = ytId(it.src);
+      const box = el.ownerDocument.createElement("div"); box.className = "vid"; box.dataset.media = el.dataset.media;
+      box.innerHTML = id ? ytEmbed(id) : `<video src="${it.src}" controls></video>`;
+      el.replaceWith(box); return box;
+    }
+    let fig = el;
+    if (el.tagName !== "FIGURE") { fig = el.ownerDocument.createElement("figure"); fig.dataset.media = el.dataset.media; el.replaceWith(fig); }
+    let im = fig.querySelector("img"); if (!im) { im = el.ownerDocument.createElement("img"); fig.innerHTML = ""; fig.appendChild(im); }
+    im.src = state.previews[it.src] || it.src; return fig;
+  }
+  $("#mediaFile").addEventListener("change", async (e) => {
+    const f = e.target.files[0]; e.target.value = "";
+    if (!state.sel || state.sel.kind !== "media") return;
+    const path = await stageUpload(f); if (!path) return;
+    const it = { ...(curVal(state.sel.key) || {}), type: "image", src: path }; delete it.loop; delete it.poster;
+    setVal(state.sel.key, it);
+    const el = paintMedia(state.sel.el, it); state.sel.el = el; el.classList.add("mel-sel");
+    $("#mediaPrev").src = state.previews[path];
+    toast("Foto trocada. Ela vai para o site quando você publicar.");
+  });
+  $("#mediaUrlApply").onclick = () => {
+    if (!state.sel) return;
+    const id = ytId($("#mediaUrl").value.trim());
+    if (!id) { toast("Não reconheci esse link do YouTube."); return; }
+    if (state.sel.kind === "video") {
+      setVal(state.sel.key, id);
+      const im = state.sel.el.querySelector("img"); if (im) im.src = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+      toast("Showreel trocado."); return;
+    }
+    const it = { type: "video", src: "https://youtu.be/" + id };
+    setVal(state.sel.key, it);
+    const el = paintMedia(state.sel.el, it); state.sel.el = el; el.classList.add("mel-sel");
+    toast("Vídeo colocado.");
+  };
+
+  /* ---------- painel da página (nada selecionado) ---------- */
+  const caseList = () => state.pages.filter((p) => p.v.startsWith("case:")).map((p) => ({ slug: p.v.slice(5), name: p.label }));
+  function listManager(title, key, hint) {
+    const arr = curVal(key) || [];
+    const opts = caseList();
+    const wrap = document.createElement("div"); wrap.className = "pp-sec";
+    wrap.innerHTML = `<b>${title}</b>${hint ? `<span class="small">${hint}</span>` : ""}<div class="lm"></div><button class="b b-ghost b-block" data-add>+ Adicionar case</button>`;
+    const lm = wrap.querySelector(".lm");
+    const draw = () => {
+      const a = curVal(key) || [];
+      lm.innerHTML = a.map((slug, i) => `<div class="lm-row"><select data-i="${i}">${opts.map((o) => `<option value="${o.slug}"${o.slug === slug ? " selected" : ""}>${o.name}</option>`).join("")}</select><button data-up="${i}" title="Subir">↑</button><button data-down="${i}" title="Descer">↓</button><button data-del="${i}" title="Remover">×</button></div>`).join("");
+    };
+    const commit = (a) => { setVal(key, a); draw(); if (key === "geral|heroCases") previewHero(); };
+    wrap.addEventListener("change", (e) => { const i = e.target.dataset.i; if (i === undefined) return; const a = [...curVal(key)]; a[+i] = e.target.value; commit(a); });
+    wrap.addEventListener("click", (e) => {
+      const b = e.target.closest("button"); if (!b) return; const a = [...(curVal(key) || [])];
+      if (b.dataset.add !== undefined) { const free = opts.find((o) => !a.includes(o.slug)); if (!free) return; a.push(free.slug); }
+      else if (b.dataset.up) { const i = +b.dataset.up; if (!i) return; [a[i - 1], a[i]] = [a[i], a[i - 1]]; }
+      else if (b.dataset.down) { const i = +b.dataset.down; if (i >= a.length - 1) return; [a[i + 1], a[i]] = [a[i], a[i + 1]]; }
+      else if (b.dataset.del) { if (a.length <= 1) { toast("Deixe pelo menos um case."); return; } a.splice(+b.dataset.del, 1); }
+      commit(a);
+    });
+    draw(); return wrap;
+  }
+  async function previewHero() {
+    const stage = frame() && frame().querySelector("#figStage"); if (!stage) return;
+    const slugs = curVal("geral|heroCases") || [];
+    await loadDocsFor(slugs.map((s) => "case:" + s));
+    stage.innerHTML = slugs.map((s, i) => { const d = state.docs["case:" + s]; if (!d) return ""; const src = d.data.heroMedia && d.data.heroMedia.src; return `<img data-img="case:${s}|heroMedia.src" data-case-name="${(d.data.pt || {}).heroTitleLine1 || s}" src="${state.previews[src] || src}"${i === 0 ? ' class="on"' : ""}>`; }).join("");
+  }
+  function renderPagePanel() {
+    const box = $("#pagePanel"); box.innerHTML = "";
+    const v = $("#pageSel").value;
+    if (!state.docs.geral) return;
+    const pp = document.createElement("div"); pp.className = "pp";
+    if (v === "home") {
+      pp.innerHTML = `<h3>Configurações da home</h3>`;
+      pp.appendChild(listManager("Fotos do banner", "geral|heroCases", "As fotos do banner são as capas destes cases, na ordem. Para trocar uma foto, clique nela na página."));
+      pp.appendChild(listManager("Cases na home", "geral|homeCases", "A lista de cases da home aparece atualizada depois de publicar."));
+      const rv = document.createElement("div"); rv.className = "pp-sec";
+      rv.innerHTML = `<b>Showreel</b><span class="small">Cole o link do YouTube ou clique no vídeo na página.</span><input type="text" id="ppReel" value="https://www.youtube.com/watch?v=${curVal("geral|reel") || ""}"><button class="b b-ghost b-block" id="ppReelOk">Trocar showreel</button>`;
+      pp.appendChild(rv);
+      rv.querySelector("#ppReelOk").onclick = () => {
+        const id = ytId(rv.querySelector("#ppReel").value.trim()); if (!id) { toast("Não reconheci esse link do YouTube."); return; }
+        setVal("geral|reel", id); const im = frame().querySelector("[data-video] img"); if (im) im.src = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`; toast("Showreel trocado.");
+      };
+    } else if (v.startsWith("case:")) {
+      const k = v; const d = state.docs[k]; if (!d) return;
+      const slug = v.slice(5);
+      const cats = ((state.docs[state.lang] || state.docs.pt || {}).data || {}).casesPage;
+      const filters = cats ? cats.filters.filter((f) => f.key !== "todos") : [];
+      const home = (curVal("geral|homeCases") || []).includes(slug);
+      pp.innerHTML = `<h3>Configurações do case</h3>
+        <div class="pp-2"><label><span class="fl">Ano</span><input type="text" id="ppYear" value="${d.data.year || ""}"></label><label><span class="fl">Endereço</span><input type="text" value="/${slug}" disabled></label></div>
+        <div class="pp-sec"><b>Categorias</b><div class="chips">${filters.map((f) => `<label><input type="checkbox" value="${f.key}"${(d.data.dataService || []).includes(f.key) ? " checked" : ""}> ${f.label}</label>`).join("")}</div></div>
+        <label class="chk"><input type="checkbox" id="ppHome"${home ? " checked" : ""}> Mostrar na home</label>
+        <div class="pp-sec"><b>Galeria</b><span class="small">Adicione fotos ou vídeos no fim da página. Clique numa foto ou vídeo para trocar, mover ou remover.</span>
+        <div class="pp-2"><button class="b b-ghost" id="ppAddImg">+ Foto</button><button class="b b-ghost" id="ppAddVid">+ Vídeo</button></div></div>
+        <span class="small">Para trocar a foto de capa, clique nela no topo da página.</span>`;
+      pp.querySelector("#ppYear").onchange = (e) => { d.data.year = e.target.value.trim(); markDirty(k); };
+      pp.querySelectorAll(".chips input").forEach((c) => (c.onchange = () => { d.data.dataService = [...pp.querySelectorAll(".chips input:checked")].map((x) => x.value); markDirty(k); }));
+      pp.querySelector("#ppHome").onchange = (e) => { const a = [...(curVal("geral|homeCases") || [])]; const i = a.indexOf(slug); if (e.target.checked && i < 0) a.push(slug); if (!e.target.checked && i >= 0) a.splice(i, 1); setVal("geral|homeCases", a); };
+      pp.querySelector("#ppAddImg").onclick = async () => { const path = await stageUpload(await pickFile()); if (path) addGalleryRow(k, { type: "image", src: path }); };
+      pp.querySelector("#ppAddVid").onclick = async () => { const link = await confirmBox("Adicionar vídeo", "Cole o link do vídeo no YouTube.", "Adicionar", ""); if (!link) return; const id = ytId(link); if (!id) { toast("Não reconheci esse link do YouTube."); return; } addGalleryRow(k, { type: "video", src: "https://youtu.be/" + id }); };
+    } else return;
+    box.appendChild(pp);
+  }
+  function addGalleryRow(k, it) {
+    const d = state.docs[k]; d.data.rowsAfterApproach = d.data.rowsAfterApproach || [];
+    const i = d.data.rowsAfterApproach.push({ layout: "single", items: [it] }) - 1;
+    markDirty(k);
+    const gal = frame().querySelector(`[data-gal="${CSS.escape(k + "|rowsAfterApproach")}"]`);
+    if (gal) {
+      const row = frame().createElement("div"); row.className = "gal-row c1 rv in"; row.dataset.item = `${k}|rowsAfterApproach.${i}`;
+      const ph = frame().createElement("figure"); ph.dataset.media = `${k}|rowsAfterApproach.${i}.items.0`; row.appendChild(ph); gal.appendChild(row);
+      const el = paintMedia(ph, it); el.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+    toast("Adicionado no fim da galeria. Publique para ir ao ar.");
+  }
+
+  /* ---------- novo case ---------- */
+  const slugify = (t) => t.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  let ncCover = null;
+  $("#newCaseBtn").onclick = async () => {
+    await loadDocsFor(["pt", "geral"]);
+    const f = $("#ncForm"); f.reset(); ncCover = null; $("#ncCoverPrev").hidden = true; $("#ncErr").hidden = true; $("#ncUrl").textContent = "";
+    const filters = state.docs.pt.data.casesPage.filters.filter((x) => x.key !== "todos");
+    $("#ncCats").innerHTML = filters.map((x) => `<label><input type="checkbox" value="${x.key}"> ${x.label}</label>`).join("");
+    f.year.value = new Date().getFullYear();
+    $("#ncModal").hidden = false; f.name.focus();
+  };
+  $("#ncCancel").onclick = () => ($("#ncModal").hidden = true);
+  $("#ncForm").name.addEventListener("input", (e) => { const f = $("#ncForm"); if (!f.slug.dataset.touched) f.slug.value = slugify(e.target.value); $("#ncUrl").textContent = "melocreative.com.br/" + (f.slug.value || ""); });
+  $("#ncForm").slug.addEventListener("input", (e) => { e.target.dataset.touched = 1; e.target.value = slugify(e.target.value); $("#ncUrl").textContent = "melocreative.com.br/" + e.target.value; });
+  $("#ncForm").cover.addEventListener("change", async (e) => {
+    const file = e.target.files[0]; if (!file) return; ncCover = file;
+    const url = URL.createObjectURL(file); $("#ncCoverPrev").querySelector("img").src = url; $("#ncCoverPrev").hidden = false;
+  });
+  $("#ncForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const f = e.target; const err = (m) => { $("#ncErr").textContent = m; $("#ncErr").hidden = false; };
+    const name = f.name.value.trim(), project = f.project.value.trim(), desc = f.desc.value.trim();
+    const slug = slugify(f.slug.value || name);
+    if (!name || !project || !desc) return err("Preencha nome, projeto e descrição.");
+    if (!ncCover) return err("Escolha uma foto de capa.");
+    if (state.pages.some((p) => p.v === "case:" + slug) || ["cases", "contato", "en", "admin", "assets", "api"].includes(slug)) return err("Já existe uma página com esse endereço. Mude o endereço.");
+    const cover = await stageUpload(ncCover); if (!cover) return;
+    const cats = [...f.querySelectorAll("#ncCats input:checked")].map((x) => x.value);
+    const year = f.year.value.trim();
+    const pt = { metaTitle: `${name}: ${project} | Melo`, metaDescription: desc, heroTitleLine1: name, heroTitleLine2: project, heroAlt: `${name}, ${project}`, tags: [project], challengeTag: "O desafio", challengeHeading: "Escreva aqui o desafio do projeto.", challengeDetail: "Conte o contexto e o problema de negócio que a empresa precisava resolver.", approachTag: "A abordagem", approachHeading: "Escreva aqui como a Melo resolveu.", approachDetail: "Conte a solução, as entregas e o resultado.", cardTitle: `${name}: ${project}`, cardDesc: desc };
+    const en = { ...pt, challengeTag: "The challenge", approachTag: "The approach", tags: [project] };
+    const data = { slug, order: 99, showOnHome: false, year, dataService: cats, cardImage: cover, otherCases: [], heroMedia: { type: "image", src: cover }, rowsBeforeApproach: [], rowsAfterApproach: [], en, pt };
+    const key = "case:" + slug;
+    state.docs[key] = { data, sha: null, original: "" };
+    if (f.home.checked) { const a = [...(curVal("geral|homeCases") || [])]; a.push(slug); setVal("geral|homeCases", a); }
+    markDirty(key);
+    $("#ncModal").hidden = true;
+    state.openAfter = key;
+    toast("Criando o case e publicando…", 5000);
+    publish();
+  });
 
   /* ---------- início ---------- */
   const tok = savedToken();
