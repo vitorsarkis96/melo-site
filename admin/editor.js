@@ -109,6 +109,13 @@
         return { v: "case:" + slug, pt: "/" + slug, en: "/en/" + slug, label: name || slug };
       });
     } catch (e) {}
+    try {
+      const dir = await gh(`/repos/${REPO}/contents/src/_data/cases?ref=${BRANCH}`);
+      dir.filter((f) => f.name.endsWith(".json")).forEach((f) => {
+        const slug = f.name.replace(/\.json$/, "");
+        if (!cases.some((c) => c.v === "case:" + slug)) cases.push({ v: "case:" + slug, pt: "/" + slug, en: "/en/" + slug, label: "Rascunho: " + slug, draft: true });
+      });
+    } catch (e) {}
     state.pages = [...base, ...cases];
     const sel = $("#pageSel");
     sel.innerHTML = `<optgroup label="Páginas">${base.map((p) => `<option value="${p.v}">${p.label}</option>`).join("")}</optgroup>` +
@@ -659,13 +666,18 @@
       const cats = ((state.docs[state.lang] || state.docs.pt || {}).data || {}).casesPage;
       const filters = cats ? cats.filters.filter((f) => f.key !== "todos") : [];
       const home = (curVal("geral|homeCases") || []).includes(slug);
-      pp.innerHTML = `<h3>Configurações do case</h3>
+      pp.innerHTML = (d.data.draft ? `<div class="draft-box"><b>Rascunho</b><span>Este case ainda não aparece no site. Edite textos, fotos e vídeos e, quando estiver aprovado, publique.</span><button class="b b-orange b-block" id="ppGoLive">Publicar este case no site</button></div>` : "") + `<h3>Configurações do case</h3>
         <div class="pp-2"><label><span class="fl">Ano</span><input type="text" id="ppYear" value="${d.data.year || ""}"></label><label><span class="fl">Endereço</span><input type="text" value="/${slug}" disabled></label></div>
         <div class="pp-sec"><b>Categorias</b><div class="chips">${filters.map((f) => `<label><input type="checkbox" value="${f.key}"${(d.data.dataService || []).includes(f.key) ? " checked" : ""}> ${f.label}</label>`).join("")}</div></div>
         <label class="chk"><input type="checkbox" id="ppHome"${home ? " checked" : ""}> Mostrar na home</label>
         <div class="pp-sec"><b>Galeria</b><span class="small">Adicione fotos ou vídeos no fim da página. Clique numa foto ou vídeo para trocar, mover ou remover.</span>
         <div class="pp-2"><button class="b b-ghost" id="ppAddImg">+ Foto</button><button class="b b-ghost" id="ppAddVid">+ Vídeo</button></div></div>
         <span class="small">Para trocar a foto de capa, clique nela no topo da página.</span>`;
+      const gl = pp.querySelector("#ppGoLive");
+      if (gl) gl.onclick = async () => {
+        if (!(await confirmBox("Publicar o case?", "Ele passa a aparecer na página de cases, no Google e, se marcado, na home. Todas as alterações pendentes também vão ao ar.", "Publicar"))) return;
+        d.data.draft = false; markDirty(k); publish();
+      };
       pp.querySelector("#ppYear").onchange = (e) => { d.data.year = e.target.value.trim(); markDirty(k); };
       pp.querySelectorAll(".chips input").forEach((c) => (c.onchange = () => { d.data.dataService = [...pp.querySelectorAll(".chips input:checked")].map((x) => x.value); markDirty(k); }));
       pp.querySelector("#ppHome").onchange = (e) => { const a = [...(curVal("geral|homeCases") || [])]; const i = a.indexOf(slug); if (e.target.checked && i < 0) a.push(slug); if (!e.target.checked && i >= 0) a.splice(i, 1); setVal("geral|homeCases", a); };
@@ -693,12 +705,12 @@
   $("#ncAi").onclick = async () => {
     const f = $("#ncForm"); const err = (m) => { $("#ncErr").textContent = m; $("#ncErr").hidden = false; };
     $("#ncErr").hidden = true;
-    if (!f.name.value.trim()) return err("Escreva o nome do cliente antes de gerar.");
+    if (!f.elements.name.value.trim()) return err("Escreva o nome do cliente antes de gerar.");
     if (f.context.value.trim().length < 30) return err("Escreva um contexto com pelo menos algumas frases.");
     const btn = $("#ncAi"); btn.disabled = true; btn.textContent = "Escrevendo… (até 1 minuto)";
     try {
       const r = await fetch("/api/gerar-case", { method: "POST", headers: { "Content-Type": "application/json", Authorization: "token " + state.token },
-        body: JSON.stringify({ name: f.name.value.trim(), project: f.project.value.trim(), year: f.year.value.trim(), context: f.context.value.trim(), categories: [...f.querySelectorAll("#ncCats input:checked")].map((x) => x.parentNode.textContent.trim()) }) });
+        body: JSON.stringify({ name: f.elements.name.value.trim(), project: f.project.value.trim(), year: f.year.value.trim(), context: f.context.value.trim(), categories: [...f.querySelectorAll("#ncCats input:checked")].map((x) => x.parentNode.textContent.trim()) }) });
       const j = await r.json().catch(() => ({}));
       if (!r.ok) throw new Error(j.error || "Não consegui gerar agora.");
       ncAi = j;
@@ -715,10 +727,10 @@
     const filters = state.docs.pt.data.casesPage.filters.filter((x) => x.key !== "todos");
     $("#ncCats").innerHTML = filters.map((x) => `<label><input type="checkbox" value="${x.key}"> ${x.label}</label>`).join("");
     f.year.value = new Date().getFullYear();
-    $("#ncModal").hidden = false; f.name.focus();
+    $("#ncModal").hidden = false; f.elements.name.focus();
   };
   $("#ncCancel").onclick = () => ($("#ncModal").hidden = true);
-  $("#ncForm").name.addEventListener("input", (e) => { const f = $("#ncForm"); if (!f.slug.dataset.touched) f.slug.value = slugify(e.target.value); $("#ncUrl").textContent = "melocreative.com.br/" + (f.slug.value || ""); });
+  $("#ncForm").elements.name.addEventListener("input", (e) => { const f = $("#ncForm"); if (!f.slug.dataset.touched) f.slug.value = slugify(e.target.value); $("#ncUrl").textContent = "melocreative.com.br/" + (f.slug.value || ""); });
   $("#ncForm").slug.addEventListener("input", (e) => { e.target.dataset.touched = 1; e.target.value = slugify(e.target.value); $("#ncUrl").textContent = "melocreative.com.br/" + e.target.value; });
   $("#ncForm").cover.addEventListener("change", async (e) => {
     const file = e.target.files[0]; if (!file) return; ncCover = file;
@@ -727,7 +739,7 @@
   $("#ncForm").addEventListener("submit", async (e) => {
     e.preventDefault();
     const f = e.target; const err = (m) => { $("#ncErr").textContent = m; $("#ncErr").hidden = false; };
-    const name = f.name.value.trim(), project = f.project.value.trim(), desc = f.desc.value.trim();
+    const name = f.elements.name.value.trim(), project = f.project.value.trim(), desc = f.desc.value.trim();
     const slug = slugify(f.slug.value || name);
     if (!name || !project || !desc) return err("Preencha nome, projeto e descrição.");
     if (!ncCover) return err("Escolha uma foto de capa.");
@@ -742,14 +754,14 @@
       Object.assign(pt, ncAi.pt, edited, { heroTitleLine1: name, heroTitleLine2: project, cardDesc: desc, challengeTag: "O desafio", approachTag: "A abordagem" });
       en = { ...ncAi.en, heroTitleLine1: name, challengeTag: "The challenge", approachTag: "The approach" };
     }
-    const data = { slug, order: 99, showOnHome: false, year, dataService: cats, cardImage: cover, otherCases: [], heroMedia: { type: "image", src: cover }, rowsBeforeApproach: [], rowsAfterApproach: [], en, pt };
+    const data = { slug, draft: true, order: 99, showOnHome: false, year, dataService: cats, cardImage: cover, otherCases: [], heroMedia: { type: "image", src: cover }, rowsBeforeApproach: [], rowsAfterApproach: [], en, pt };
     const key = "case:" + slug;
     state.docs[key] = { data, sha: null, original: "" };
     if (f.home.checked) { const a = [...(curVal("geral|homeCases") || [])]; a.push(slug); setVal("geral|homeCases", a); }
     markDirty(key);
     $("#ncModal").hidden = true;
     state.openAfter = key;
-    toast("Criando o case e publicando…", 5000);
+    toast("Criando o rascunho. Em cerca de 1 minuto ele abre aqui para você editar.", 6000);
     publish();
   });
 

@@ -3,7 +3,7 @@
 // Variáveis na Vercel: GEMINI_API_KEY (obrigatória) e GEMINI_MODEL (opcional).
 const REPO = "vitorsarkis96/melo-site";
 // Se o modelo principal estiver sobrecarregado, tenta os seguintes.
-const MODELS = [process.env.GEMINI_MODEL || "gemini-3.8-flash", "gemini-3.6-flash", "gemini-3.5-flash-lite"].filter((m, i, a) => a.indexOf(m) === i);
+const MODELS = [process.env.GEMINI_MODEL || "gemini-3.8-flash", "gemini-3.6-flash", "gemini-3.5-flash-lite", "gemini-3.1-flash-lite"].filter((m, i, a) => a.indexOf(m) === i);
 
 const FIELDS = {
   metaTitle: "título para o Google, até 60 caracteres, termina com ' | Melo'",
@@ -82,7 +82,7 @@ ${Object.entries(FIELDS).map(([k, v]) => `- ${k}: ${v}`).join("\n")}`;
           responseSchema: { type: "OBJECT", properties: { pt: langSchema, en: langSchema }, required: ["pt", "en"] },
         },
       });
-    let r, j, MODEL;
+    let r, j, MODEL; const tries = [];
     for (const m of MODELS) {
       MODEL = m;
       const ctl = new AbortController(); const timer = setTimeout(() => ctl.abort(), 22000);
@@ -95,11 +95,12 @@ ${Object.entries(FIELDS).map(([k, v]) => `- ${k}: ${v}`).join("\n")}`;
         r = { ok: false, status: 504 }; j = { error: { message: "high demand (timeout em " + m + ")" } };
       } finally { clearTimeout(timer); }
       const busy = r.status === 504 || r.status === 503 || r.status === 429 || r.status === 404 || /high demand|overloaded|not found/i.test((j.error && j.error.message) || "");
+      tries.push(m + ": " + r.status + " " + String((j.error && j.error.message) || "").slice(0, 80));
       if (r.ok || !busy) break;
     }
     if (!r.ok) {
       const msg = (j.error && j.error.message) || r.status;
-      return res.status(502).json({ error: /high demand|overloaded/i.test(msg) ? "O Gemini está sobrecarregado agora. Tente de novo em alguns minutos." : "O Gemini recusou o pedido: " + msg });
+      return res.status(502).json({ error: /high demand|overloaded/i.test(msg) ? "O Gemini está sobrecarregado agora. Tente de novo em alguns minutos." : "O Gemini recusou o pedido: " + msg, tries });
     }
     const text = (((j.candidates || [])[0] || {}).content || {}).parts?.map((p) => p.text || "").join("") || "";
     let out;

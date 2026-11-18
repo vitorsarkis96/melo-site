@@ -43,7 +43,7 @@
 <meta name="twitter:description" content="{{ metaDescription | safe }}" />
 <meta name="twitter:image" content="{{ site.baseUrl }}{{ ogImage | safe }}" />
 {%- set seoKind = "case" if (item and item.slug) else ("home" if isHome else ("cases" if slug == "cases" else ("contact" if (slug == "contato" or slug == "contact") else "page"))) -%}
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+{% if item and item.draft %}<meta name="robots" content="noindex, nofollow" />{% else %}<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />{% endif %}
 <meta name="author" content="Melo" />
 <meta name="geo.region" content="BR-SP" />
 <meta name="geo.placename" content="São Paulo" />

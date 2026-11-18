@@ -7,6 +7,7 @@
 {%- set name = d.heroTitleLine1 -%}
 {%- set project = d.heroTitleLine2 | trim -%}
 
+{% if item.draft %}<div class="draft-bar">Rascunho: esta página ainda não aparece no site.</div>{% endif %}
 <section class="hero case-hero">
   <div class="stage"><img class="on" data-img="case:{{ item.slug }}|heroMedia.src" src="{{ item.heroMedia.src }}" alt="{{ d.heroAlt or name }}" fetchpriority="high"{% if item.heroMedia.position or item.cardImagePosition %} style="object-position:{{ item.heroMedia.position or item.cardImagePosition }}"{% endif %}></div>
   <div class="hero-in">
