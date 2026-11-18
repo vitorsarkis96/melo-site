@@ -662,3 +662,22 @@ footer{padding:var(--s-9) 0 var(--s-6)}
 .sheet .btn-gray{background:var(--orange);color:#fff;font-size:17px;font-weight:500;padding:18px 32px}
 .sheet .btn-gray .ar{color:#fff}
 .sheet .btn-gray:hover{background:#ff7a3d}
+/* ===== formulário: referência cartão claro ===== */
+.contact{background:var(--g200)}
+.sheet{background:#fff;border:0;color:var(--ink);padding:clamp(24px,3vw,40px)}
+.sheet form{padding:0;gap:var(--s-5)}
+.sheet .f-row{gap:var(--s-5) var(--s-4)}
+.sheet .fld{gap:8px}
+.sheet .fld label{font-family:var(--sans);font-size:14px;font-weight:500;color:var(--ink);letter-spacing:0}
+.sheet .fld input,.sheet .fld textarea{font-size:16px;color:var(--ink);background:var(--g100);border:1px solid transparent;padding:15px 16px}
+.sheet .fld textarea{min-height:160px}
+.sheet .fld input:hover,.sheet .fld textarea:hover{border-color:var(--g300)}
+.sheet .fld input:focus,.sheet .fld textarea:focus{background:#fff;border-color:var(--ink);box-shadow:none}
+.sheet .fld input[aria-invalid=true]{border-color:var(--orange)}
+.sheet .fld input::placeholder,.sheet .fld textarea::placeholder{color:var(--g500)}
+.sheet .fld input:-webkit-autofill{-webkit-box-shadow:0 0 0 40px var(--g100) inset;-webkit-text-fill-color:var(--ink)}
+.sheet .f-foot{flex-direction:column-reverse;align-items:stretch;gap:var(--s-3);padding-top:0}
+.sheet .btn-gray{width:100%;justify-content:center;background:var(--black);color:#fff;font-size:16px;padding:17px 24px}
+.sheet .btn-gray .ar{color:var(--orange)}
+.sheet .btn-gray:hover{background:var(--g800)}
+.sheet .f-foot .mono{font-family:var(--sans);font-size:13px;color:var(--ink-3);text-align:center;max-width:none}
