@@ -2,7 +2,8 @@
 // Só responde para quem está logado no editor com uma conta do GitHub que pode editar o site.
 // Variáveis na Vercel: GEMINI_API_KEY (obrigatória) e GEMINI_MODEL (opcional).
 const REPO = "vitorsarkis96/melo-site";
-const MODEL = process.env.GEMINI_MODEL || "gemini-3.8-flash";
+// Se o modelo principal estiver sobrecarregado, tenta os seguintes.
+const MODELS = [process.env.GEMINI_MODEL || "gemini-3.8-flash", "gemini-3.6-flash", "gemini-3.5-flash-lite"].filter((m, i, a) => a.indexOf(m) === i);
 
 const FIELDS = {
   metaTitle: "título para o Google, até 60 caracteres, termina com ' | Melo'",
@@ -71,10 +72,7 @@ Gere os campos do case em "pt" e "en":
 ${Object.entries(FIELDS).map(([k, v]) => `- ${k}: ${v}`).join("\n")}`;
 
   try {
-    const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(MODEL)}:generateContent`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json", "x-goog-api-key": key },
-      body: JSON.stringify({
+    const payload = JSON.stringify({
         systemInstruction: { parts: [{ text: SYSTEM }] },
         contents: [{ role: "user", parts: [{ text: prompt }] }],
         generationConfig: {
@@ -82,10 +80,21 @@ ${Object.entries(FIELDS).map(([k, v]) => `- ${k}: ${v}`).join("\n")}`;
           responseMimeType: "application/json",
           responseSchema: { type: "OBJECT", properties: { pt: langSchema, en: langSchema }, required: ["pt", "en"] },
         },
-      }),
-    });
-    const j = await r.json();
-    if (!r.ok) return res.status(502).json({ error: "O Gemini recusou o pedido: " + ((j.error && j.error.message) || r.status) });
+      });
+    let r, j, MODEL;
+    for (const m of MODELS) {
+      MODEL = m;
+      r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(m)}:generateContent`, {
+        method: "POST", headers: { "Content-Type": "application/json", "x-goog-api-key": key }, body: payload,
+      });
+      j = await r.json().catch(() => ({}));
+      const busy = r.status === 503 || r.status === 429 || r.status === 404 || /high demand|overloaded|not found/i.test((j.error && j.error.message) || "");
+      if (r.ok || !busy) break;
+    }
+    if (!r.ok) {
+      const msg = (j.error && j.error.message) || r.status;
+      return res.status(502).json({ error: /high demand|overloaded/i.test(msg) ? "O Gemini está sobrecarregado agora. Tente de novo em alguns minutos." : "O Gemini recusou o pedido: " + msg });
+    }
     const text = (((j.candidates || [])[0] || {}).content || {}).parts?.map((p) => p.text || "").join("") || "";
     let out;
     try { out = JSON.parse(text); } catch (e) { return res.status(502).json({ error: "O Gemini não devolveu um texto válido. Tente de novo." }); }
