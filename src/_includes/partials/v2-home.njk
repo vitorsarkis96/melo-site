@@ -65,7 +65,7 @@
     </div>
     <div class="rv">
       <div class="folder-tabs" role="tablist" id="tabs">
-        {% for s in c.services %}<button role="tab" aria-selected="{{ 'true' if loop.first else 'false' }}" data-i="{{ loop.index0 }}"{% if loop.first %} class="on"{% endif %}><span data-e="{{ lang }}|services.{{ loop.index0 }}.tab">{{ s.tab }}</span></button>{% endfor %}
+        {% for s in c.services %}<button role="tab" aria-selected="{{ 'true' if loop.first else 'false' }}" data-i="{{ loop.index0 }}"{% if loop.first %} class="on"{% endif %}><span class="msi" aria-hidden="true">{{ ({ estrategia: "explore", marca: "diamond", cultura: "groups", institucional: "apartment", digital: "devices", audiovisual: "movie" })[s.key] or "circle" }}</span><span data-e="{{ lang }}|services.{{ loop.index0 }}.tab">{{ s.tab }}</span></button>{% endfor %}
       </div>
       {% for s in c.services %}{% set si = v2.serviceImages[s.key] %}
       <div class="folder" role="tabpanel" data-panel="{{ loop.index0 }}" data-item="{{ lang }}|services.{{ loop.index0 }}"{% if not loop.first %} hidden{% endif %}>
