@@ -398,12 +398,8 @@
   $("#imgFile").addEventListener("change", async (e) => {
     const file = e.target.files[0]; e.target.value = "";
     if (!file || !state.sel || state.sel.kind !== "img") return;
-    if (file.size > 5 * 1024 * 1024) { toast("Imagem acima de 5 MB. Reduza o tamanho e tente de novo."); return; }
-    const dataURL = await new Promise((r) => { const fr = new FileReader(); fr.onload = () => r(fr.result); fr.readAsDataURL(file); });
-    const clean = file.name.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9.]+/g, "-").replace(/-+/g, "-");
-    const publicPath = `/assets/img/uploads/${Date.now()}-${clean}`;
-    state.uploads[publicPath.slice(1)] = dataURL.split(",")[1];
-    state.previews[publicPath] = dataURL;
+    const publicPath = await stageUpload(file); if (!publicPath) return;
+    const dataURL = state.previews[publicPath];
     const [f, p] = split(state.sel.key); setP(state.docs[f].data, p, publicPath); markDirty(f);
     $("#imgPath").value = publicPath; $("#imgPrev").src = dataURL; paintAll();
     toast("Imagem trocada. Ela vai para o site quando você publicar.");
@@ -545,11 +541,30 @@
   const ytId = (u) => { const m = String(u || "").match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/); return m ? m[1] : /^[\w-]{11}$/.test(u || "") ? u : null; };
   const ytEmbed = (id) => `<iframe src="https://www.youtube-nocookie.com/embed/${id}?rel=0&modestbranding=1&playsinline=1" title="Vídeo" allow="encrypted-media; picture-in-picture; fullscreen" allowfullscreen style="pointer-events:none"></iframe>`;
   const pickFile = () => new Promise((res) => { const i = document.createElement("input"); i.type = "file"; i.accept = "image/png,image/jpeg,image/webp,image/gif"; i.onchange = () => res(i.files[0] || null); i.click(); });
+  // Reduz fotos grandes no navegador (máx. 2400 px, JPEG) para o upload ficar leve.
+  async function shrink(file) {
+    if (!/^image\/(jpeg|png|webp)$/.test(file.type)) return null;
+    const url = URL.createObjectURL(file);
+    try {
+      const img = await new Promise((ok, no) => { const i = new Image(); i.onload = () => ok(i); i.onerror = no; i.src = url; });
+      const max = 2400, k = Math.min(1, max / Math.max(img.naturalWidth, img.naturalHeight));
+      if (k === 1 && file.size < 1.5 * 1024 * 1024) return null;
+      const c = document.createElement("canvas"); c.width = Math.round(img.naturalWidth * k); c.height = Math.round(img.naturalHeight * k);
+      const g = c.getContext("2d");
+      const keepPng = file.type === "image/png" && file.size < 3 * 1024 * 1024;
+      if (!keepPng) { g.fillStyle = "#fff"; g.fillRect(0, 0, c.width, c.height); }
+      g.drawImage(img, 0, 0, c.width, c.height);
+      return { dataURL: c.toDataURL(keepPng ? "image/png" : "image/jpeg", 0.85), ext: keepPng ? "png" : "jpg" };
+    } catch (e) { return null; } finally { URL.revokeObjectURL(url); }
+  }
   async function stageUpload(file) {
     if (!file) return null;
-    if (file.size > 5 * 1024 * 1024) { toast("Imagem acima de 5 MB. Reduza o tamanho e tente de novo."); return null; }
-    const dataURL = await new Promise((r) => { const fr = new FileReader(); fr.onload = () => r(fr.result); fr.readAsDataURL(file); });
-    const clean = file.name.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9.]+/g, "-").replace(/-+/g, "-");
+    if (file.size > 40 * 1024 * 1024) { toast("Arquivo acima de 40 MB. Use uma imagem menor."); return null; }
+    const small = await shrink(file);
+    const dataURL = small ? small.dataURL : await new Promise((r) => { const fr = new FileReader(); fr.onload = () => r(fr.result); fr.readAsDataURL(file); });
+    if (dataURL.length > 14 * 1024 * 1024) { toast("Imagem muito pesada mesmo depois de reduzida. Use uma versão menor."); return null; }
+    const base = file.name.replace(/\.[^.]+$/, "");
+    const clean = (small ? base + "." + small.ext : file.name).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9.]+/g, "-").replace(/-+/g, "-");
     const publicPath = `/assets/img/uploads/${Date.now()}-${clean}`;
     state.uploads[publicPath.slice(1)] = dataURL.split(",")[1];
     state.previews[publicPath] = dataURL;
@@ -736,15 +751,22 @@
     const file = e.target.files[0]; if (!file) return; ncCover = file;
     const url = URL.createObjectURL(file); $("#ncCoverPrev").querySelector("img").src = url; $("#ncCoverPrev").hidden = false;
   });
-  $("#ncForm").addEventListener("submit", async (e) => {
+  $("#ncForm").addEventListener("submit", (e) => {
     e.preventDefault();
-    const f = e.target; const err = (m) => { $("#ncErr").textContent = m; $("#ncErr").hidden = false; };
+    createCase(e.target).catch((x) => { $("#ncErr").textContent = "Não consegui criar: " + x.message; $("#ncErr").hidden = false; $("#ncErr").scrollIntoView({ block: "center" }); });
+  });
+  async function createCase(f) {
+    const err = (m) => { $("#ncErr").textContent = m; $("#ncErr").hidden = false; $("#ncErr").scrollIntoView({ block: "center" }); };
+    const btn = f.querySelector("button[type=submit]");
     const name = f.elements.name.value.trim(), project = f.project.value.trim(), desc = f.desc.value.trim();
     const slug = slugify(f.slug.value || name);
     if (!name || !project || !desc) return err("Preencha nome, projeto e descrição.");
     if (!ncCover) return err("Escolha uma foto de capa.");
     if (state.pages.some((p) => p.v === "case:" + slug) || ["cases", "contato", "en", "admin", "assets", "api"].includes(slug)) return err("Já existe uma página com esse endereço. Mude o endereço.");
-    const cover = await stageUpload(ncCover); if (!cover) return;
+    btn.disabled = true; btn.textContent = "Preparando…";
+    const cover = await stageUpload(ncCover);
+    btn.disabled = false; btn.textContent = "Criar rascunho";
+    if (!cover) return err("Não consegui usar essa foto de capa. Tente outra imagem (JPG ou PNG).");
     const cats = [...f.querySelectorAll("#ncCats input:checked")].map((x) => x.value);
     const year = f.year.value.trim();
     const pt = { metaTitle: `${name}: ${project} | Melo`, metaDescription: desc, heroTitleLine1: name, heroTitleLine2: project, heroAlt: `${name}, ${project}`, tags: [project], challengeTag: "O desafio", challengeHeading: "Escreva aqui o desafio do projeto.", challengeDetail: "Conte o contexto e o problema de negócio que a empresa precisava resolver.", approachTag: "A abordagem", approachHeading: "Escreva aqui como a Melo resolveu.", approachDetail: "Conte a solução, as entregas e o resultado.", cardTitle: `${name}: ${project}`, cardDesc: desc };
@@ -762,8 +784,8 @@
     $("#ncModal").hidden = true;
     state.openAfter = key;
     toast("Criando o rascunho. Em cerca de 1 minuto ele abre aqui para você editar.", 6000);
-    publish();
-  });
+    await publish();
+  }
 
   /* ---------- início ---------- */
   const tok = savedToken();
