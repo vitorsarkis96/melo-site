@@ -13,10 +13,10 @@
   <div class="hero-in">
     <div class="wrap hero-row">
       <div class="hero-txt">
-        <h1 class="h1 fade d1">{{ c.hero.l1 }} <span class="l2">{{ c.hero.l2 }}<span class="pt">.</span></span></h1>
+        <h1 class="h1 fade d1"><span data-e="{{ lang }}|hero.l1">{{ c.hero.l1 }}</span> <span class="l2"><span data-e="{{ lang }}|hero.l2">{{ c.hero.l2 }}</span><span class="pt">.</span></span></h1>
         <div class="hero-ctas fade d3">
-          <a class="btn btn-gray" href="#contato">{{ c.nav.cta }} {{ AR | safe }}</a>
-          <a class="btn btn-ghost" href="#cases">{{ c.hero.cases }}</a>
+          <a class="btn btn-gray" href="#contato"><span data-e="{{ lang }}|nav.cta">{{ c.nav.cta }}</span> {{ AR | safe }}</a>
+          <a class="btn btn-ghost" href="#cases"><span data-e="{{ lang }}|hero.cases">{{ c.hero.cases }}</span></a>
         </div>
       </div>
     </div>
@@ -26,7 +26,7 @@
 <div class="meta-band">
   <div class="wrap">
     <div class="hero-meta rv">
-      {% for m in c.meta %}<div><span class="mono">{{ m[0] }}</span>{{ m[1] }}</div>{% endfor %}
+      {% for m in c.meta %}<div data-item="{{ lang }}|meta.{{ loop.index0 }}"><span class="mono" data-e="{{ lang }}|meta.{{ loop.index0 }}.label">{{ m[0] }}</span><span data-e="{{ lang }}|meta.{{ loop.index0 }}.value">{{ m[1] }}</span></div>{% endfor %}
     </div>
   </div>
 </div>
@@ -44,12 +44,12 @@
   <div class="wrap reel-split">
     <button class="reel-thumb rv" type="button" data-reel aria-label="{{ c.reelSec.aria }}">
       <img src="https://i.ytimg.com/vi/{{ v2.reel }}/maxresdefault.jpg" alt="" loading="lazy" onerror="if(!this.dataset.f){this.dataset.f=1;this.src='https://i.ytimg.com/vi/{{ v2.reel }}/hqdefault.jpg'}else{this.remove()}">
-      <span class="pl"><i>{{ PLAY | safe }}</i><span>{{ c.reelSec.label }}<small>{{ c.reelSec.watch }}</small></span></span>
+      <span class="pl"><i>{{ PLAY | safe }}</i><span><span data-e="{{ lang }}|reelSec.label">{{ c.reelSec.label }}</span><small><span data-e="{{ lang }}|reelSec.watch">{{ c.reelSec.watch }}</span></small></span></span>
     </button>
     <div class="reel-txt">
-      <h2 class="h2 rv d1">{{ c.reelSec.title }}<span class="pt">.</span></h2>
-      <p class="lead rv d2">{{ c.reelSec.lead }}</p>
-      <div class="rv d3"><a class="btn btn-gray" href="#contato">{{ c.reelSec.cta }} {{ AR | safe }}</a></div>
+      <h2 class="h2 rv d1"><span data-e="{{ lang }}|reelSec.title">{{ c.reelSec.title }}</span><span class="pt">.</span></h2>
+      <p class="lead rv d2"><span data-e="{{ lang }}|reelSec.lead">{{ c.reelSec.lead }}</span></p>
+      <div class="rv d3"><a class="btn btn-gray" href="#contato"><span data-e="{{ lang }}|reelSec.cta">{{ c.reelSec.cta }}</span> {{ AR | safe }}</a></div>
     </div>
   </div>
 </section>
@@ -59,23 +59,23 @@
   <div class="wrap">
     <div class="sec-head">
       <div class="right">
-        <h2 class="h2 rv d1">{{ c.servicesSec.title }}<span class="pt">.</span></h2>
-        <p class="lead rv d2">{{ c.servicesSec.lead }}</p>
+        <h2 class="h2 rv d1"><span data-e="{{ lang }}|servicesSec.title">{{ c.servicesSec.title }}</span><span class="pt">.</span></h2>
+        <p class="lead rv d2"><span data-e="{{ lang }}|servicesSec.lead">{{ c.servicesSec.lead }}</span></p>
       </div>
     </div>
     <div class="rv">
       <div class="folder-tabs" role="tablist" id="tabs">
-        {% for s in c.services %}<button role="tab" aria-selected="{{ 'true' if loop.first else 'false' }}" data-i="{{ loop.index0 }}"{% if loop.first %} class="on"{% endif %}>{{ s.tab }}</button>{% endfor %}
+        {% for s in c.services %}<button role="tab" aria-selected="{{ 'true' if loop.first else 'false' }}" data-i="{{ loop.index0 }}"{% if loop.first %} class="on"{% endif %}><span data-e="{{ lang }}|services.{{ loop.index0 }}.tab">{{ s.tab }}</span></button>{% endfor %}
       </div>
       {% for s in c.services %}{% set si = v2.serviceImages[s.key] %}
-      <div class="folder" role="tabpanel" data-panel="{{ loop.index0 }}"{% if not loop.first %} hidden{% endif %}>
+      <div class="folder" role="tabpanel" data-panel="{{ loop.index0 }}" data-item="{{ lang }}|services.{{ loop.index0 }}"{% if not loop.first %} hidden{% endif %}>
         <div class="doc">
-          <div class="doc-top"><h3 class="h3">{{ s.t }}<span class="pt">.</span></h3><p>{{ s.d }}</p></div>
-          <ul class="deliv">{% for x in s.l %}<li>{{ x }}</li>{% endfor %}</ul>
-          <div><a class="btn btn-gray" href="#contato">{{ c.servicesSec.talk }} {{ AR | safe }}</a></div>
+          {% set si0 = loop.index0 %}<div class="doc-top"><h3 class="h3"><span data-e="{{ lang }}|services.{{ loop.index0 }}.t">{{ s.t }}</span><span class="pt">.</span></h3><p><span data-e="{{ lang }}|services.{{ loop.index0 }}.d">{{ s.d }}</span></p></div>
+          <ul class="deliv">{% for x in s.l %}<li data-item="{{ lang }}|services.{{ si0 }}.l.{{ loop.index0 }}"><span data-e="{{ lang }}|services.{{ si0 }}.l.{{ loop.index0 }}">{{ x }}</span></li>{% endfor %}</ul>
+          <div><a class="btn btn-gray" href="#contato"><span data-e="{{ lang }}|servicesSec.talk">{{ c.servicesSec.talk }}</span> {{ AR | safe }}</a></div>
         </div>
         <div class="pic">
-          <div class="crop"><i></i><i></i><i></i><i></i><span class="reg"></span><img src="{{ si.img }}" alt="{{ si.name }}" loading="lazy"{% if si.pos %} style="object-position:{{ si.pos }}"{% endif %}></div>
+          <div class="crop"><i></i><i></i><i></i><i></i><span class="reg"></span><img data-img="geral|serviceImages.{{ s.key }}.img" src="{{ si.img }}" alt="{{ si.name }}" loading="lazy"{% if si.pos %} style="object-position:{{ si.pos }}"{% endif %}></div>
           <a class="mono rel" href="{{ P }}/{{ si.slug }}">{{ c.servicesSec.related }} · {{ si.name }} →</a>
         </div>
       </div>
@@ -88,7 +88,7 @@
 <section class="sec" id="cases">
   <div class="wrap">
     <div class="sec-head">
-      <div class="right"><h2 class="h2 rv d1">{{ c.casesSec.title }}<span class="pt">.</span></h2></div>
+      <div class="right"><h2 class="h2 rv d1"><span data-e="{{ lang }}|casesSec.title">{{ c.casesSec.title }}</span><span class="pt">.</span></h2></div>
     </div>
     <div class="idx-list rv" id="idxList">
       {% for s in v2.homeCases %}{% set hc = cases | findCase(s) %}{% if hc %}
@@ -101,7 +101,7 @@
       </a>{% endif %}{% endfor %}
     </div>
     <div class="idx-after rv">
-      <a class="btn btn-ghost" href="{{ (P + '/cases') | replace('//','/') }}">{{ c.casesSec.all }} {{ AR | safe }}</a>
+      <a class="btn btn-ghost" href="{{ (P + '/cases') | replace('//','/') }}"><span data-e="{{ lang }}|casesSec.all">{{ c.casesSec.all }}</span> {{ AR | safe }}</a>
     </div>
   </div>
   <div class="preview" id="preview" aria-hidden="true"><div class="crop"><i></i><i></i><i></i><i></i><span class="reg"></span><img id="previewImg" alt=""></div></div>
@@ -111,7 +111,7 @@
 <section class="sec bg-g" id="numeros">
   <div class="wrap">
     <div class="sec-head">
-      <div class="right"><h2 class="h2 rv d1">{{ c.numbersSec.title }}<span class="pt">.</span></h2><p class="lead rv d2">{{ c.numbersSec.lead }}</p></div>
+      <div class="right"><h2 class="h2 rv d1"><span data-e="{{ lang }}|numbersSec.title">{{ c.numbersSec.title }}</span><span class="pt">.</span></h2><p class="lead rv d2"><span data-e="{{ lang }}|numbersSec.lead">{{ c.numbersSec.lead }}</span></p></div>
     </div>
     <div class="revs">
       <div class="revs-head rv">
@@ -119,7 +119,7 @@
         <div class="rev-nav"><button class="sqb" id="revPrev" aria-label="{{ c.reviewsSec.prev }}"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M11 6H1M5 2L1 6l4 4"/></svg></button><button class="sqb" id="revNext" aria-label="{{ c.reviewsSec.next }}">{{ AR | replace('class="ar" ', '') | safe }}</button></div>
       </div>
       <div class="revs-grid">
-        {% for r in c.reviews %}<figure class="rev rv">{{ STARS | safe }}<blockquote>“{{ r[2] }}”</blockquote><figcaption><b>{{ r[0] }}</b><span>{{ r[1] }}</span></figcaption></figure>{% endfor %}
+        {% for r in c.reviews %}<figure class="rev rv" data-item="pt|reviews.{{ loop.index0 }}">{{ STARS | safe }}<blockquote>“<span data-e="pt|reviews.{{ loop.index0 }}.text">{{ r[2] }}</span>”</blockquote><figcaption><b data-e="pt|reviews.{{ loop.index0 }}.name">{{ r[0] }}</b><span data-e="pt|reviews.{{ loop.index0 }}.company">{{ r[1] }}</span></figcaption></figure>{% endfor %}
       </div>
     </div>
   </div>
@@ -132,11 +132,11 @@
 <section class="sec" id="faq">
   <div class="wrap faq">
     <div style="display:grid;gap:var(--stack);align-content:start">
-      <h2 class="h2 rv d1">{{ c.faqSec.title }}<span class="pt">.</span></h2>
-      <p class="lead rv d2">{{ c.faqSec.lead }} <a href="mailto:{{ site.email }}" style="border-bottom:1px solid var(--orange)">{{ site.email }}</a>.</p>
+      <h2 class="h2 rv d1"><span data-e="{{ lang }}|faqSec.title">{{ c.faqSec.title }}</span><span class="pt">.</span></h2>
+      <p class="lead rv d2"><span data-e="{{ lang }}|faqSec.lead">{{ c.faqSec.lead }}</span> <a href="mailto:{{ site.email }}" style="border-bottom:1px solid var(--orange)">{{ site.email }}</a>.</p>
     </div>
     <div class="faq-list rv d1">
-      {% for f in c.faq %}<details{% if loop.first %} open{% endif %}><summary>{{ f[0] }}<span class="pm"></span></summary><p>{{ f[1] }}</p></details>{% endfor %}
+      {% for f in c.faq %}<details{% if loop.first %} open{% endif %} data-item="{{ lang }}|faq.{{ loop.index0 }}"><summary><span data-e="{{ lang }}|faq.{{ loop.index0 }}.q">{{ f[0] }}</span><span class="pm"></span></summary><p data-e="{{ lang }}|faq.{{ loop.index0 }}.a">{{ f[1] }}</p></details>{% endfor %}
     </div>
   </div>
 </section>

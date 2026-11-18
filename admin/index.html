@@ -1,18 +1,132 @@
 <!doctype html>
-<html>
+<html lang="pt-BR">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Melo — Painel de Conteúdo</title>
+<meta name="robots" content="noindex, nofollow" />
+<title>Melo · Editor do site</title>
 <link rel="icon" href="/favicon.ico" sizes="any" />
-<link rel="cms-config-url" type="text/yaml" href="/admin/config.yml" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/admin/theme.css" />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/admin/editor.css" />
 </head>
 <body>
-<script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-<script src="/admin/preview-templates.js"></script>
+
+<!-- LOGIN -->
+<div class="login" id="login" hidden>
+  <div class="login-card">
+    <img src="/assets/icons/logo-melo.svg" alt="Melo" class="login-logo" />
+    <h1>Editor do site</h1>
+    <p>Edite textos e imagens clicando direto na página. Entre com a conta do GitHub que tem acesso ao site.</p>
+    <button class="b b-dark b-lg" id="loginBtn">Entrar com GitHub</button>
+    <p class="login-err" id="loginErr" hidden></p>
+  </div>
+</div>
+
+<!-- APP -->
+<div class="app" id="app" hidden>
+  <header class="top">
+    <div class="top-l">
+      <img src="/assets/icons/logo-melo.svg" alt="Melo" class="logo" />
+      <span class="sep"></span>
+      <label class="sel">
+        <span class="sel-k">Página</span>
+        <select id="pageSel"></select>
+      </label>
+      <div class="seg" id="langSeg" role="group" aria-label="Idioma">
+        <button data-lang="pt" class="on">PT</button><button data-lang="en">EN</button>
+      </div>
+    </div>
+    <div class="top-c">
+      <div class="seg" id="devSeg" role="group" aria-label="Tamanho da tela">
+        <button data-dev="desk" class="on" title="Computador"><svg viewBox="0 0 20 20"><rect x="2" y="3.5" width="16" height="10.5" rx="0"/><path d="M7 17h6M10 14v3"/></svg></button>
+        <button data-dev="mob" title="Celular"><svg viewBox="0 0 20 20"><rect x="6" y="2" width="8" height="16"/><path d="M9 15.5h2"/></svg></button>
+      </div>
+    </div>
+    <div class="top-r">
+      <span class="status" id="status"></span>
+      <button class="b b-ghost" id="discardBtn" disabled>Descartar</button>
+      <button class="b b-orange" id="publishBtn" disabled>Publicar <span class="badge" id="count">0</span></button>
+      <div class="menu-wrap">
+        <button class="b b-icon" id="moreBtn" aria-label="Mais opções"><svg viewBox="0 0 20 20"><circle cx="4" cy="10" r="1.5"/><circle cx="10" cy="10" r="1.5"/><circle cx="16" cy="10" r="1.5"/></svg></button>
+        <div class="menu" id="moreMenu" hidden>
+          <a href="/" target="_blank" rel="noopener">Abrir o site</a>
+          <a href="/admin/avancado/">Modo avançado (cases, galerias, configurações)</a>
+          <button id="logoutBtn">Sair</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <aside class="side" id="side">
+    <div class="side-empty" id="sideEmpty">
+      <div class="hint-ill"><svg viewBox="0 0 48 48"><path d="M14 10l20 14-9 2 6 11-4 2-6-11-7 6z"/></svg></div>
+      <h2>Clique para editar</h2>
+      <p>Passe o mouse pela página: tudo que ficar com contorno laranja pode ser editado.</p>
+      <ul class="tips">
+        <li><b>Textos</b>clique e digite direto na página.</li>
+        <li><b>Imagens</b>clique e troque pelo painel.</li>
+        <li><b>Listas</b>(FAQ, avaliações, entregas) duplique, mova ou remova itens.</li>
+        <li><b>Publicar</b>quando terminar. O site atualiza em cerca de 1 minuto.</li>
+      </ul>
+    </div>
+
+    <div class="side-edit" id="sideEdit" hidden>
+      <div class="crumbs" id="crumbs"></div>
+      <h2 id="fieldName">Campo</h2>
+
+      <div id="textBox">
+        <label class="fl" for="fieldText">Texto</label>
+        <textarea id="fieldText" rows="5"></textarea>
+        <div class="fmeta"><span id="charCount">0 caracteres</span><button class="lnk" id="revertBtn" hidden>Desfazer alteração</button></div>
+      </div>
+
+      <div id="imgBox" hidden>
+        <div class="imgprev"><img id="imgPrev" alt="" /></div>
+        <label class="b b-dark b-block upl">
+          <input type="file" id="imgFile" accept="image/png,image/jpeg,image/webp,image/gif" hidden />
+          Trocar imagem
+        </label>
+        <p class="small">JPG, PNG ou WebP até 5 MB. Para fotos grandes, prefira imagens com até 2400 px de largura.</p>
+        <label class="fl" for="imgPath">Caminho da imagem</label>
+        <input id="imgPath" type="text" />
+      </div>
+
+      <div class="itembox" id="itemBox" hidden>
+        <span class="fl" id="itemLabel">Item da lista</span>
+        <div class="itembtns">
+          <button class="b b-ghost" data-op="up" title="Mover para cima">↑ Subir</button>
+          <button class="b b-ghost" data-op="down" title="Mover para baixo">↓ Descer</button>
+          <button class="b b-ghost" data-op="dup">Duplicar</button>
+          <button class="b b-ghost b-danger" data-op="del">Remover</button>
+        </div>
+        <p class="small" id="itemNote">Mudanças na ordem e itens novos aparecem na prévia na hora. A página final é gerada ao publicar.</p>
+      </div>
+
+      <button class="lnk back" id="deselect">← Voltar</button>
+    </div>
+  </aside>
+
+  <main class="canvas" id="canvas">
+    <div class="frame-wrap" id="frameWrap">
+      <iframe id="frame" title="Prévia do site"></iframe>
+      <div class="frame-loading" id="frameLoading">Carregando página…</div>
+    </div>
+  </main>
+
+  <div class="toast" id="toast" hidden></div>
+</div>
+
+<!-- confirmações -->
+<div class="modal" id="modal" hidden>
+  <div class="modal-card">
+    <h3 id="modalTitle"></h3>
+    <p id="modalText"></p>
+    <div class="modal-acts"><button class="b b-ghost" id="modalNo">Cancelar</button><button class="b b-dark" id="modalYes">Confirmar</button></div>
+  </div>
+</div>
+
+<script src="/admin/editor.js"></script>
 </body>
 </html>
