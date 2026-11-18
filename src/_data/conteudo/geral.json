@@ -1,0 +1,120 @@
+{
+  "reel": "5Geme6sM6HU",
+  "heroCases": [
+    "mev",
+    "skintec",
+    "4research",
+    "rondon",
+    "ekoenergy"
+  ],
+  "homeCases": [
+    "mev",
+    "syn",
+    "ekoenergy",
+    "skintec",
+    "gallianos-appendi",
+    "4research"
+  ],
+  "clients": [
+    {
+      "file": "4research",
+      "name": "4Research"
+    },
+    {
+      "file": "brain4care",
+      "name": "brain4care"
+    },
+    {
+      "file": "btl",
+      "name": "BTL"
+    },
+    {
+      "file": "fcamara",
+      "name": "Grupo F.Camara"
+    },
+    {
+      "file": "fleury",
+      "name": "Fleury"
+    },
+    {
+      "file": "great",
+      "name": "GREAT"
+    },
+    {
+      "file": "gupy",
+      "name": "Gupy"
+    },
+    {
+      "file": "ilikia",
+      "name": "Ilikia"
+    },
+    {
+      "file": "ipvm",
+      "name": "IPVM"
+    },
+    {
+      "file": "keyaccess",
+      "name": "KeyAccess"
+    },
+    {
+      "file": "mackenzie",
+      "name": "Mackenzie"
+    },
+    {
+      "file": "polo",
+      "name": "Polo"
+    },
+    {
+      "file": "skintec",
+      "name": "Skintec"
+    },
+    {
+      "file": "syn",
+      "name": "SYN"
+    },
+    {
+      "file": "underdogs",
+      "name": "Underdogs"
+    }
+  ],
+  "social": {
+    "whatsapp": "https://wa.me/5511954387151",
+    "linktree": "https://linktr.ee/amelocreative",
+    "facebook": "https://www.facebook.com/amelocreative",
+    "upwork": "https://www.upwork.com/agencies/1765018796883423232/",
+    "maps": "https://maps.app.goo.gl/7Todx4NstVtVNy8B8"
+  },
+  "serviceImages": {
+    "estrategia": {
+      "img": "/assets/img/cases/4RESEARCH_BILLBOARDRUA.jpg",
+      "slug": "4research",
+      "name": "4Research"
+    },
+    "marca": {
+      "img": "/assets/img/cases/mev-hero-folder.jpg",
+      "slug": "mev",
+      "name": "MEV"
+    },
+    "cultura": {
+      "img": "/assets/img/syn_thumb.jpg",
+      "pos": "right top",
+      "slug": "syn",
+      "name": "SYN"
+    },
+    "institucional": {
+      "img": "/assets/img/cases/galliano-hero.jpg",
+      "slug": "gallianos-appendi",
+      "name": "Galliano's Appendi"
+    },
+    "digital": {
+      "img": "/assets/img/cases/skin-hero.jpg",
+      "slug": "skintec",
+      "name": "Skintec"
+    },
+    "audiovisual": {
+      "img": "/assets/img/cases/brain4care-hero-portrait.jpg",
+      "slug": "brain4care",
+      "name": "brain4care"
+    }
+  }
+}

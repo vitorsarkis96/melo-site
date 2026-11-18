@@ -1,0 +1,258 @@
+{
+  "metaTitle": "Melo | Corporate communications agency",
+  "metaDescription": "Corporate communications agency in São Paulo. Strategy, brand, culture, institutional communication, digital and video under a single direction.",
+  "nav": {
+    "services": "Services",
+    "cases": "All cases",
+    "faq": "FAQ",
+    "cta": "Contact us",
+    "reel": "Showreel"
+  },
+  "hero": {
+    "l1": "We translate technical authority",
+    "l2": "into brand authority",
+    "cases": "See cases"
+  },
+  "reelSec": {
+    "title": "Every technical company speaks two languages",
+    "lead": "The language of operations, precise and full of jargon. And the one the market understands. Excellent companies lose deals when they only speak the first. Melo does the translation.",
+    "cta": "Talk to us",
+    "label": "Showreel",
+    "watch": "Watch"
+  },
+  "servicesSec": {
+    "title": "Six fronts, one direction",
+    "lead": "Strategy, brand, culture, institutional communication, digital and video come from the same table. Outward, to the market. Inward, to your team. No repeated briefings, no rework between vendors.",
+    "related": "Related case",
+    "talk": "Talk about this service"
+  },
+  "services": [
+    {
+      "key": "estrategia",
+      "tab": "Strategy",
+      "t": "Strategy and positioning",
+      "s": "Why the brand exists and where it competes.",
+      "d": "We map how the company is perceived today, define the positioning and the goals each communication deliverable needs to move.",
+      "l": [
+        "Perception audit",
+        "Positioning",
+        "Brand architecture",
+        "Communication plan",
+        "Key messages",
+        "Goals and metrics"
+      ]
+    },
+    {
+      "key": "marca",
+      "tab": "Brand",
+      "t": "Brand and identity",
+      "s": "How the company is recognized.",
+      "d": "Visual and verbal systems that turn the technical complexity of your service into instant recognition, with clear rules for your team.",
+      "l": [
+        "Visual identity",
+        "Verbal identity",
+        "Tone of voice",
+        "Brand guidelines",
+        "Rebranding",
+        "Applications"
+      ]
+    },
+    {
+      "key": "cultura",
+      "tab": "Culture",
+      "t": "Culture and internal communication",
+      "s": "How the company talks to its own team.",
+      "d": "We turn values and purpose into communication the team recognizes and practices. For SYN, part of Cyrela, we translated culture into a video manifesto that builds pride and belonging.",
+      "l": [
+        "Culture audit",
+        "Values narrative",
+        "Video manifesto",
+        "Internal campaigns",
+        "Onboarding",
+        "Internal content and video"
+      ]
+    },
+    {
+      "key": "institucional",
+      "tab": "Institutional",
+      "t": "Institutional communication",
+      "s": "What the company delivers in writing.",
+      "d": "Materials that support meetings, sales and relationships: from the sales deck to the catalog, always in the brand's voice.",
+      "l": [
+        "Presentations and decks",
+        "Catalogs and brochures",
+        "Institutional reports",
+        "Event materials",
+        "Copy and content",
+        "Investor communication"
+      ]
+    },
+    {
+      "key": "digital",
+      "tab": "Digital",
+      "t": "Websites and systems",
+      "s": "Where the brand operates online.",
+      "d": "Corporate websites, landing pages and custom platforms built to start conversations and easy for your team to maintain.",
+      "l": [
+        "Corporate websites",
+        "Landing pages",
+        "HubSpot integrations",
+        "Custom platforms",
+        "SEO",
+        "Maintenance"
+      ]
+    },
+    {
+      "key": "audiovisual",
+      "tab": "Video",
+      "t": "Video production",
+      "s": "What the market watches.",
+      "d": "End-to-end production, from shooting to post, under the same direction that shaped the brand. To explain complex things in a few minutes.",
+      "l": [
+        "Corporate videos",
+        "Filming and photography",
+        "Art direction",
+        "Motion design",
+        "Editing and post",
+        "Recurring content"
+      ]
+    }
+  ],
+  "casesSec": {
+    "title": "Brands that turned technical authority into brand",
+    "all": "All cases"
+  },
+  "numbersSec": {
+    "title": "Six years building brand authority",
+    "lead": "Since 2020, in Liberdade, São Paulo. More than 3,000 deliveries for over 50 brands in healthcare, technology, law, education and industry, all produced by our own team."
+  },
+  "faqSec": {
+    "title": "Before the first conversation",
+    "lead": "Can't find what you're looking for? Write to"
+  },
+  "faq": [
+    {
+      "q": "What does a corporate communications agency do?",
+      "a": "It shapes how the company is perceived by clients, partners, investors and its own team. At Melo that includes positioning, brand, culture and internal communication, institutional materials, website and video, all under the same direction."
+    },
+    {
+      "q": "Do you only work with health, technology and law?",
+      "a": "No. We work with any company struggling to turn technical authority into brand authority. Health, technology and law are where this gap shows up most often."
+    },
+    {
+      "q": "How does the process work?",
+      "a": "Six steps: pain mapping, solution alignment, creation, delivery, measurement and correction. The cycle repeats until results hit the goal set at the start."
+    },
+    {
+      "q": "Do you work with companies outside São Paulo?",
+      "a": "Yes. We are based in Liberdade, São Paulo, and work remotely with companies across Brazil and abroad."
+    },
+    {
+      "q": "How many deliveries have you made?",
+      "a": "More than 3,000 deliveries and more than 50 brands accelerated in six years."
+    }
+  ],
+  "contactSec": {
+    "title": "Direction before creation. It starts here",
+    "lead": "Leave your contact and tell us about the project. We reply with a direction, not a generic quote.",
+    "name": "Name",
+    "namePh": "Your name",
+    "contact": "Email or phone",
+    "contactPh": "you@company.com",
+    "project": "What is your project?",
+    "projectPh": "Tell us in a few lines.",
+    "note": "We'll reply through the contact you leave.",
+    "send": "Send",
+    "sending": "Sending...",
+    "ok": "Received! We'll get back to you soon.",
+    "err": "Couldn't send right now. Try WhatsApp.",
+    "errName": "Please enter your name.",
+    "errContact": "Please enter a valid email or phone.",
+    "info": [
+      {
+        "label": "Email",
+        "value": "contato@melocreative.com.br",
+        "link": "mailto:contato@melocreative.com.br"
+      },
+      {
+        "label": "WhatsApp",
+        "value": "+55 11 95438-7151",
+        "link": "https://wa.me/5511954387151"
+      },
+      {
+        "label": "Studio",
+        "value": "Rua Conde do Pinhal, 8 · Liberdade, São Paulo, Brazil",
+        "link": ""
+      },
+      {
+        "label": "Links",
+        "value": "linktr.ee/amelocreative",
+        "link": "https://linktr.ee/amelocreative"
+      }
+    ]
+  },
+  "footer": {
+    "about": "Corporate communications agency. We translate technical authority into brand authority."
+  },
+  "casePage": {
+    "challenge": "The challenge",
+    "approach": "The approach",
+    "client": "Client",
+    "project": "Project",
+    "fronts": "Fronts",
+    "year": "Year",
+    "next": "Next case",
+    "ctaTitle": "From first positioning to an established brand. Let's talk",
+    "allCases": "All cases"
+  },
+  "casesPage": {
+    "title": "Work that builds brand authority",
+    "lead": "A selection of projects among more than 3,000 deliveries, from first positioning to an established brand.",
+    "filters": [
+      {
+        "key": "todos",
+        "label": "All"
+      },
+      {
+        "key": "estrategia",
+        "label": "Strategy"
+      },
+      {
+        "key": "marca",
+        "label": "Brand"
+      },
+      {
+        "key": "sites-sistemas",
+        "label": "Digital"
+      },
+      {
+        "key": "audiovisual",
+        "label": "Video"
+      }
+    ],
+    "empty": "No cases published in this category yet.",
+    "ctaTitle": "Your project could be next"
+  },
+  "contactPage": {
+    "title": "Let's talk about your company's communication",
+    "lead": "Leave your contact and tell us about the project. We reply with a direction, not a generic quote."
+  },
+  "meta": [
+    {
+      "label": "Since",
+      "value": "2020, in São Paulo"
+    },
+    {
+      "label": "Deliveries",
+      "value": "3,000+ completed"
+    },
+    {
+      "label": "Brands",
+      "value": "50+ accelerated"
+    },
+    {
+      "label": "Team",
+      "value": "100% in-house"
+    }
+  ]
+}

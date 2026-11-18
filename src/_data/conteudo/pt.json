@@ -1,0 +1,290 @@
+{
+  "metaTitle": "Melo | Agência de comunicação corporativa",
+  "metaDescription": "Agência de comunicação corporativa em São Paulo. Estratégia, marca, cultura, comunicação institucional, digital e audiovisual sob uma única direção.",
+  "nav": {
+    "services": "Serviços",
+    "cases": "Todos os cases",
+    "faq": "FAQ",
+    "cta": "Fale conosco",
+    "reel": "Showreel"
+  },
+  "hero": {
+    "l1": "Traduzimos autoridade técnica",
+    "l2": "em autoridade de marca",
+    "cases": "Ver cases"
+  },
+  "reelSec": {
+    "title": "Toda empresa técnica fala dois idiomas",
+    "lead": "O da operação, preciso e cheio de jargão. E o que o mercado entende. Empresas excelentes perdem contratos quando só falam o primeiro. A Melo faz a tradução.",
+    "cta": "Fale conosco",
+    "label": "Showreel",
+    "watch": "Assistir"
+  },
+  "servicesSec": {
+    "title": "Seis frentes, uma direção",
+    "lead": "Estratégia, marca, cultura, comunicação institucional, digital e audiovisual saem da mesma mesa. Para fora, para o mercado. Para dentro, para o seu time. Sem briefing repetido, sem retrabalho entre fornecedores.",
+    "related": "Case relacionado",
+    "talk": "Conversar sobre este serviço"
+  },
+  "services": [
+    {
+      "key": "estrategia",
+      "tab": "Estratégia",
+      "t": "Estratégia e posicionamento",
+      "s": "Por que a marca existe e onde ela compete.",
+      "d": "Mapeamos como a empresa é percebida hoje, definimos o posicionamento e as metas que cada entrega de comunicação precisa mover.",
+      "l": [
+        "Diagnóstico de percepção",
+        "Posicionamento",
+        "Arquitetura de marca",
+        "Plano de comunicação",
+        "Mensagens-chave",
+        "Metas e indicadores"
+      ]
+    },
+    {
+      "key": "marca",
+      "tab": "Marca",
+      "t": "Marca e identidade",
+      "s": "Como a empresa é reconhecida.",
+      "d": "Sistemas visuais e verbais que traduzem a complexidade técnica do seu serviço em reconhecimento imediato, com regras claras para o time aplicar.",
+      "l": [
+        "Identidade visual",
+        "Identidade verbal",
+        "Tom de voz",
+        "Manual de marca",
+        "Rebranding",
+        "Aplicações"
+      ]
+    },
+    {
+      "key": "cultura",
+      "tab": "Cultura",
+      "t": "Cultura e comunicação interna",
+      "s": "Como a empresa se comunica com o próprio time.",
+      "d": "Transformamos valores e propósito em comunicação que o time reconhece e pratica. Para a SYN, braço da Cyrela, traduzimos a cultura em um manifesto em vídeo que gera orgulho e senso de pertencimento.",
+      "l": [
+        "Diagnóstico de cultura",
+        "Narrativa de valores",
+        "Manifesto em vídeo",
+        "Campanhas internas",
+        "Onboarding",
+        "Conteúdo e vídeo interno"
+      ]
+    },
+    {
+      "key": "institucional",
+      "tab": "Institucional",
+      "t": "Comunicação institucional",
+      "s": "O que a empresa entrega por escrito.",
+      "d": "Materiais que sustentam reuniões, vendas e relacionamento: da apresentação comercial ao catálogo, sempre na mesma voz da marca.",
+      "l": [
+        "Apresentações e decks",
+        "Catálogos e folders",
+        "Relatórios institucionais",
+        "Materiais para eventos",
+        "Copy e conteúdo",
+        "Comunicação com investidores"
+      ]
+    },
+    {
+      "key": "digital",
+      "tab": "Digital",
+      "t": "Sites e sistemas",
+      "s": "Onde a marca opera no digital.",
+      "d": "Sites institucionais, landing pages e plataformas sob medida, construídos para gerar conversa e para o seu time conseguir manter.",
+      "l": [
+        "Sites institucionais",
+        "Landing pages",
+        "Integrações HubSpot",
+        "Plataformas sob medida",
+        "SEO",
+        "Manutenção"
+      ]
+    },
+    {
+      "key": "audiovisual",
+      "tab": "Audiovisual",
+      "t": "Audiovisual",
+      "s": "O que o mercado assiste.",
+      "d": "Produção de ponta a ponta, da captação à pós, sob a mesma direção que desenhou a marca. Para explicar o que é complexo em poucos minutos.",
+      "l": [
+        "Vídeos institucionais",
+        "Captação e fotografia",
+        "Direção de arte",
+        "Motion design",
+        "Edição e pós",
+        "Conteúdo recorrente"
+      ]
+    }
+  ],
+  "casesSec": {
+    "title": "Marcas que traduziram autoridade técnica em marca",
+    "all": "Todos os cases"
+  },
+  "numbersSec": {
+    "title": "Seis anos construindo autoridade de marca",
+    "lead": "Desde 2020, na Liberdade, em São Paulo. Mais de 3.000 entregas para mais de 50 marcas de saúde, tecnologia, direito, educação e indústria, com toda a produção feita pelo nosso time."
+  },
+  "reviews": [
+    {
+      "name": "Keith Helena dos Santos",
+      "company": "KHS Advocacia & Consultoria",
+      "text": "Melhor equipe de marketing que poderia ter. Conseguiram pegar a essência do escritório e concretizar a nossa marca. Recomendo muito!"
+    },
+    {
+      "name": "Rebeca Fogaça",
+      "company": "Suzano",
+      "text": "Excelente experiência num projeto desenvolvido para a Suzano, com um painel para um dos maiores eventos da área de Planejamento Financeiro (FP&A)! Muito elogiados!!!"
+    },
+    {
+      "name": "Martinho de Moraes Netto",
+      "company": "FUNDABOM, Fundação de Apoio ao Corpo de Bombeiros",
+      "text": "Teve participação fundamental no desenvolvimento e impulsionamento dos projetos da Fundação de Apoio ao Corpo de Bombeiros [...]. Sua postura com relação às solicitações sempre foi de Parceria Positiva e Colaborativa."
+    },
+    {
+      "name": "Marília Hildebrand",
+      "company": "Polo Planejamento",
+      "text": "O trabalho da equipe da Melo foi extremamente profissional. Estiveram preocupados em atender nossos prazos e orientações do início ao fim."
+    },
+    {
+      "name": "Eva Furtado",
+      "company": "Data Machina",
+      "text": "Prestam atenção com carinho nas nossas necessidades para entregar soluções audiovisuais de primeira! Também deram uma força com o gerenciamento das nossas redes sociais."
+    },
+    {
+      "name": "Carolina Queiroz",
+      "company": "SYN",
+      "text": "Equipe extremamente profissional e comprometida com a entrega. Sempre ágil nas respostas e atenta aos detalhes, recomendo!"
+    }
+  ],
+  "faqSec": {
+    "title": "Antes da primeira conversa",
+    "lead": "Não achou o que procura? Escreva para"
+  },
+  "faq": [
+    {
+      "q": "O que faz uma agência de comunicação corporativa?",
+      "a": "Cuida de como a empresa é percebida por clientes, parceiros, investidores e pelo próprio time. Na Melo isso inclui posicionamento, marca, cultura e comunicação interna, materiais institucionais, site e vídeo, todos sob a mesma direção."
+    },
+    {
+      "q": "Vocês atendem só saúde, tecnologia e direito?",
+      "a": "Não. Atendemos qualquer empresa que tenha dificuldade de transformar autoridade técnica em autoridade de marca. Saúde, tecnologia e direito são onde esse gap aparece com mais frequência."
+    },
+    {
+      "q": "Como funciona o processo?",
+      "a": "Seis etapas: mapeamento da dor, alinhamento da solução, criação, entrega, medição e correção. O ciclo se repete até o resultado bater a meta definida no início."
+    },
+    {
+      "q": "Atendem empresas fora de São Paulo?",
+      "a": "Sim. Estamos na Liberdade, em São Paulo, e atendemos remotamente empresas em todo o Brasil e no exterior."
+    },
+    {
+      "q": "Quantas entregas vocês já fizeram?",
+      "a": "Mais de 3.000 entregas e mais de 50 marcas aceleradas em seis anos de mercado."
+    }
+  ],
+  "contactSec": {
+    "title": "Direção antes da criação. Começa por aqui",
+    "lead": "Deixe seu contato e conte o projeto. Respondemos com uma direção, não com um orçamento genérico.",
+    "name": "Nome",
+    "namePh": "Seu nome",
+    "contact": "E-mail ou telefone",
+    "contactPh": "voce@empresa.com.br",
+    "project": "Qual é o seu projeto?",
+    "projectPh": "Conte em poucas linhas.",
+    "note": "Respondemos pelo contato que você deixar.",
+    "send": "Enviar",
+    "sending": "Enviando...",
+    "ok": "Recebido! Vamos responder em breve.",
+    "err": "Não foi possível enviar agora. Tente pelo WhatsApp.",
+    "errName": "Informe seu nome.",
+    "errContact": "Informe um e-mail ou telefone válido.",
+    "info": [
+      {
+        "label": "E-mail",
+        "value": "contato@melocreative.com.br",
+        "link": "mailto:contato@melocreative.com.br"
+      },
+      {
+        "label": "WhatsApp",
+        "value": "+55 11 95438-7151",
+        "link": "https://wa.me/5511954387151"
+      },
+      {
+        "label": "Estúdio",
+        "value": "Rua Conde do Pinhal, 8 · Liberdade, São Paulo",
+        "link": ""
+      },
+      {
+        "label": "Redes",
+        "value": "linktr.ee/amelocreative",
+        "link": "https://linktr.ee/amelocreative"
+      }
+    ]
+  },
+  "footer": {
+    "about": "Agência de comunicação corporativa. Traduzimos autoridade técnica em autoridade de marca."
+  },
+  "casePage": {
+    "challenge": "O desafio",
+    "approach": "A abordagem",
+    "client": "Cliente",
+    "project": "Projeto",
+    "fronts": "Frentes",
+    "year": "Ano",
+    "next": "Próximo case",
+    "ctaTitle": "Do primeiro posicionamento à marca consolidada. Vamos conversar",
+    "allCases": "Todos os cases"
+  },
+  "casesPage": {
+    "title": "Trabalho que constrói autoridade de marca",
+    "lead": "Uma seleção de projetos entre mais de 3.000 entregas, do primeiro posicionamento à marca consolidada.",
+    "filters": [
+      {
+        "key": "todos",
+        "label": "Todos"
+      },
+      {
+        "key": "estrategia",
+        "label": "Estratégia"
+      },
+      {
+        "key": "marca",
+        "label": "Marca"
+      },
+      {
+        "key": "sites-sistemas",
+        "label": "Digital"
+      },
+      {
+        "key": "audiovisual",
+        "label": "Audiovisual"
+      }
+    ],
+    "empty": "Ainda não temos cases publicados nessa categoria.",
+    "ctaTitle": "Seu projeto pode ser o próximo"
+  },
+  "contactPage": {
+    "title": "Vamos conversar sobre a comunicação da sua empresa",
+    "lead": "Deixe seu contato e conte o projeto. Respondemos com uma direção, não com um orçamento genérico."
+  },
+  "meta": [
+    {
+      "label": "Desde",
+      "value": "2020, em São Paulo"
+    },
+    {
+      "label": "Entregas",
+      "value": "+3.000 realizadas"
+    },
+    {
+      "label": "Marcas",
+      "value": "+50 aceleradas"
+    },
+    {
+      "label": "Time",
+      "value": "100% in-house"
+    }
+  ]
+}

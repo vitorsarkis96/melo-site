@@ -1,141 +1,32 @@
-// Conteúdo do redesign (nov/2026): agência de comunicação corporativa.
-// Textos da home, serviços, método, números, avaliações e FAQ em PT e EN.
-// Os cases continuam vindo de src/_data/cases/*.json (editáveis pelo CMS).
+// Conteúdo do site (redesign nov/2026). Os textos ficam em src/_data/conteudo/*.json
+// e são editados pelo painel /admin. Aqui só convertemos para o formato que os templates usam.
+const geral = require("./conteudo/geral.json");
+const pt = require("./conteudo/pt.json");
+const en = require("./conteudo/en.json");
+// Textos fixos de interface (acessibilidade, rótulos), fora do painel.
+const fixos = require("./conteudo/_fixos.json");
 
-const reel = "5Geme6sM6HU";
+const merge = (base, over) => {
+  if (!over || typeof over !== "object" || Array.isArray(over)) return over === undefined ? base : over;
+  const out = { ...(base || {}) };
+  for (const k of Object.keys(over)) out[k] = merge(out[k], over[k]);
+  return out;
+};
+
+const shape = (raw, lang, reviews) => { const c = merge(fixos[lang], raw); return {
+  ...c,
+  meta: (c.meta || []).map((m) => [m.label, m.value]),
+  faq: (c.faq || []).map((f) => [f.q, f.a]),
+  reviews: (reviews || []).map((r) => [r.name, r.company, r.text]),
+  contactSec: { ...c.contactSec, info: (c.contactSec.info || []).map((i) => [i.label, i.value, i.link || ""]) },
+  casesPage: { ...c.casesPage, filters: (c.casesPage.filters || []).map((f) => [f.key, f.label]) },
+  services: (c.services || []).map((s) => ({ ...s, l: s.l || [] })),
+}; };
 
 module.exports = {
-  reel,
-  heroCases: ["mev", "skintec", "4research", "rondon", "ekoenergy"],
-  homeCases: ["mev", "syn", "ekoenergy", "skintec", "gallianos-appendi", "4research"],
-  clients: [
-    ["4research", "4Research"], ["brain4care", "brain4care"], ["btl", "BTL"], ["fcamara", "Grupo F.Camara"],
-    ["fleury", "Fleury"], ["great", "GREAT"], ["gupy", "Gupy"], ["ilikia", "Ilikia"], ["ipvm", "IPVM"],
-    ["keyaccess", "KeyAccess"], ["mackenzie", "Mackenzie"], ["polo", "Polo"], ["skintec", "Skintec"],
-    ["syn", "SYN"], ["underdogs", "Underdogs"],
-  ],
-  social: {
-    whatsapp: "https://wa.me/5511954387151",
-    linktree: "https://linktr.ee/amelocreative",
-    facebook: "https://www.facebook.com/amelocreative",
-    upwork: "https://www.upwork.com/agencies/1765018796883423232/",
-    maps: "https://maps.app.goo.gl/7Todx4NstVtVNy8B8",
-  },
-  serviceImages: {
-    estrategia: { img: "/assets/img/cases/4RESEARCH_BILLBOARDRUA.jpg", slug: "4research", name: "4Research" },
-    marca: { img: "/assets/img/cases/mev-hero-folder.jpg", slug: "mev", name: "MEV" },
-    cultura: { img: "/assets/img/syn_thumb.jpg", pos: "right top", slug: "syn", name: "SYN" },
-    institucional: { img: "/assets/img/cases/galliano-hero.jpg", slug: "gallianos-appendi", name: "Galliano's Appendi" },
-    digital: { img: "/assets/img/cases/skin-hero.jpg", slug: "skintec", name: "Skintec" },
-    audiovisual: { img: "/assets/img/cases/brain4care-hero-portrait.jpg", slug: "brain4care", name: "brain4care" },
-  },
-
-  pt: {
-    metaTitle: "Melo | Agência de comunicação corporativa",
-    metaDescription: "Agência de comunicação corporativa em São Paulo. Estratégia, marca, cultura, comunicação institucional, digital e audiovisual sob uma única direção.",
-    nav: { services: "Serviços", cases: "Todos os cases", method: "Método", faq: "FAQ", cta: "Fale conosco", reel: "Showreel", open: "Abrir menu", close: "Fechar", english: "English version", langOther: "EN", langCur: "PT" },
-    hero: { l1: "Traduzimos autoridade técnica", l2: "em autoridade de marca", cases: "Ver cases" },
-    meta: [["Desde", "2020, em São Paulo"], ["Entregas", "+3.000 realizadas"], ["Marcas", "+50 aceleradas"], ["Time", "100% in-house"]],
-    reelSec: { kicker: "O que resolvemos", title: "Toda empresa técnica fala dois idiomas", lead: "O da operação, preciso e cheio de jargão. E o que o mercado entende. Empresas excelentes perdem contratos quando só falam o primeiro. A Melo faz a tradução.", cta: "Fale conosco", label: "Showreel", watch: "Assistir", aria: "Assistir ao showreel da Melo" },
-    servicesSec: { kicker: "Serviços", title: "Seis frentes, uma direção", lead: "Estratégia, marca, cultura, comunicação institucional, digital e audiovisual saem da mesma mesa. Para fora, para o mercado. Para dentro, para o seu time. Sem briefing repetido, sem retrabalho entre fornecedores.", related: "Case relacionado", talk: "Conversar sobre este serviço" },
-    services: [
-      { key: "estrategia", tab: "Estratégia", t: "Estratégia e posicionamento", s: "Por que a marca existe e onde ela compete.", d: "Mapeamos como a empresa é percebida hoje, definimos o posicionamento e as metas que cada entrega de comunicação precisa mover.", l: ["Diagnóstico de percepção", "Posicionamento", "Arquitetura de marca", "Plano de comunicação", "Mensagens-chave", "Metas e indicadores"] },
-      { key: "marca", tab: "Marca", t: "Marca e identidade", s: "Como a empresa é reconhecida.", d: "Sistemas visuais e verbais que traduzem a complexidade técnica do seu serviço em reconhecimento imediato, com regras claras para o time aplicar.", l: ["Identidade visual", "Identidade verbal", "Tom de voz", "Manual de marca", "Rebranding", "Aplicações"] },
-      { key: "cultura", tab: "Cultura", t: "Cultura e comunicação interna", s: "Como a empresa se comunica com o próprio time.", d: "Transformamos valores e propósito em comunicação que o time reconhece e pratica. Para a SYN, braço da Cyrela, traduzimos a cultura em um manifesto em vídeo que gera orgulho e senso de pertencimento.", l: ["Diagnóstico de cultura", "Narrativa de valores", "Manifesto em vídeo", "Campanhas internas", "Onboarding", "Conteúdo e vídeo interno"] },
-      { key: "institucional", tab: "Institucional", t: "Comunicação institucional", s: "O que a empresa entrega por escrito.", d: "Materiais que sustentam reuniões, vendas e relacionamento: da apresentação comercial ao catálogo, sempre na mesma voz da marca.", l: ["Apresentações e decks", "Catálogos e folders", "Relatórios institucionais", "Materiais para eventos", "Copy e conteúdo", "Comunicação com investidores"] },
-      { key: "digital", tab: "Digital", t: "Sites e sistemas", s: "Onde a marca opera no digital.", d: "Sites institucionais, landing pages e plataformas sob medida, construídos para gerar conversa e para o seu time conseguir manter.", l: ["Sites institucionais", "Landing pages", "Integrações HubSpot", "Plataformas sob medida", "SEO", "Manutenção"] },
-      { key: "audiovisual", tab: "Audiovisual", t: "Audiovisual", s: "O que o mercado assiste.", d: "Produção de ponta a ponta, da captação à pós, sob a mesma direção que desenhou a marca. Para explicar o que é complexo em poucos minutos.", l: ["Vídeos institucionais", "Captação e fotografia", "Direção de arte", "Motion design", "Edição e pós", "Conteúdo recorrente"] },
-    ],
-    casesSec: { kicker: "Cases", title: "Marcas que traduziram autoridade técnica em marca", all: "Todos os cases" },
-    methodSec: { kicker: "Método", title: "Direção antes da criação", lead: "Seis etapas em ciclo. O projeto não termina na entrega: termina quando o resultado bate a meta que definimos juntos.", head: ["Etapa", "", "O que acontece", "Saída"], cycle: "Ao fim da etapa 06, o ciclo volta para o mapeamento." },
-    method: [
-      ["Mapeamento da dor", "Entendemos o problema de negócio antes de abrir qualquer arquivo.", "Diagnóstico"],
-      ["Alinhamento da solução", "Definimos o que será resolvido e como o sucesso vai ser medido.", "Escopo e metas"],
-      ["Criação", "A estratégia vira marca, conteúdo e produto.", "Sistema de comunicação"],
-      ["Entrega", "Implementamos e documentamos para o seu time operar.", "Arquivos e guias"],
-      ["Medição", "Acompanhamos os resultados contra a meta inicial.", "Leitura de resultado"],
-      ["Correção", "Ajustamos com base em dados, não em opinião.", "Novo ciclo"],
-    ],
-    numbersSec: { kicker: "Em números", title: "Seis anos construindo autoridade de marca", lead: "Desde 2020, na Liberdade, em São Paulo. Mais de 3.000 entregas para mais de 50 marcas de saúde, tecnologia, direito, educação e indústria, com toda a produção feita pelo nosso time." },
-    numbers: [
-      ["Entregas", "+", 3000, "", "Entre marca, comunicação institucional, digital e audiovisual."],
-      ["Marcas aceleradas", "+", 50, "", "Em saúde, tecnologia, direito, educação e indústria."],
-      ["Anos de mercado", "+", 6, "", "Desde 2020, na Liberdade, em São Paulo."],
-      ["Produção", "", 100, "%", "In-house. Nada terceirizado entre a estratégia e o play."],
-    ],
-    reviewsSec: { count: "24 avaliações no Google", all: "Ver todas no Google →", prev: "Avaliação anterior", next: "Próxima avaliação", stars: "5 de 5 estrelas" },
-    reviews: [
-      ["Keith Helena dos Santos", "KHS Advocacia & Consultoria", "Melhor equipe de marketing que poderia ter. Conseguiram pegar a essência do escritório e concretizar a nossa marca. Recomendo muito!"],
-      ["Rebeca Fogaça", "Suzano", "Excelente experiência num projeto desenvolvido para a Suzano, com um painel para um dos maiores eventos da área de Planejamento Financeiro (FP&A)! Muito elogiados!!!"],
-      ["Martinho de Moraes Netto", "FUNDABOM, Fundação de Apoio ao Corpo de Bombeiros", "Teve participação fundamental no desenvolvimento e impulsionamento dos projetos da Fundação de Apoio ao Corpo de Bombeiros [...]. Sua postura com relação às solicitações sempre foi de Parceria Positiva e Colaborativa."],
-      ["Marília Hildebrand", "Polo Planejamento", "O trabalho da equipe da Melo foi extremamente profissional. Estiveram preocupados em atender nossos prazos e orientações do início ao fim."],
-      ["Eva Furtado", "Data Machina", "Prestam atenção com carinho nas nossas necessidades para entregar soluções audiovisuais de primeira! Também deram uma força com o gerenciamento das nossas redes sociais."],
-      ["Carolina Queiroz", "SYN", "Equipe extremamente profissional e comprometida com a entrega. Sempre ágil nas respostas e atenta aos detalhes, recomendo!"],
-    ],
-    faqSec: { kicker: "Perguntas frequentes", title: "Antes da primeira conversa", lead: "Não achou o que procura? Escreva para" },
-    faq: [
-      ["O que faz uma agência de comunicação corporativa?", "Cuida de como a empresa é percebida por clientes, parceiros, investidores e pelo próprio time. Na Melo isso inclui posicionamento, marca, cultura e comunicação interna, materiais institucionais, site e vídeo, todos sob a mesma direção."],
-      ["Vocês atendem só saúde, tecnologia e direito?", "Não. Atendemos qualquer empresa que tenha dificuldade de transformar autoridade técnica em autoridade de marca. Saúde, tecnologia e direito são onde esse gap aparece com mais frequência."],
-      ["Como funciona o processo?", "Seis etapas: mapeamento da dor, alinhamento da solução, criação, entrega, medição e correção. O ciclo se repete até o resultado bater a meta definida no início."],
-      ["Atendem empresas fora de São Paulo?", "Sim. Estamos na Liberdade, em São Paulo, e atendemos remotamente empresas em todo o Brasil e no exterior."],
-      ["Quantas entregas vocês já fizeram?", "Mais de 3.000 entregas e mais de 50 marcas aceleradas em seis anos de mercado."],
-    ],
-    contactSec: { kicker: "Contato", title: "Direção antes da criação. Começa por aqui", lead: "Deixe seu contato e conte o projeto. Respondemos com uma direção, não com um orçamento genérico.", sheet: "Fale conosco", time: "Leva 30 segundos", name: "Nome", namePh: "Seu nome", contact: "E-mail ou telefone", contactPh: "voce@empresa.com.br", project: "Qual é o seu projeto?", projectPh: "Conte em poucas linhas.", note: "Respondemos pelo contato que você deixar.", send: "Enviar", sending: "Enviando...", ok: "Recebido! Vamos responder em breve.", err: "Não foi possível enviar agora. Tente pelo WhatsApp.", errName: "Informe seu nome.", errContact: "Informe um e-mail ou telefone válido.", info: [["E-mail", "contato@melocreative.com.br", "mailto:contato@melocreative.com.br"], ["WhatsApp", "+55 11 95438-7151", "https://wa.me/5511954387151"], ["Estúdio", "Rua Conde do Pinhal, 8 · Liberdade, São Paulo", ""], ["Redes", "linktr.ee/amelocreative", "https://linktr.ee/amelocreative"]] },
-    footer: { about: "Agência de comunicação corporativa. Traduzimos autoridade técnica em autoridade de marca.", services: "Serviços", melo: "Melo", contact: "Contato", contactPage: "Contato", terms: "Termos", privacy: "Privacidade", cookies: "Cookies" },
-    casePage: { challenge: "O desafio", approach: "A abordagem", client: "Cliente", project: "Projeto", fronts: "Frentes", year: "Ano", next: "Próximo case", ctaTitle: "Do primeiro posicionamento à marca consolidada. Vamos conversar", allCases: "Todos os cases" },
-    casesPage: { kicker: "Cases", title: "Trabalho que constrói autoridade de marca", lead: "Uma seleção de projetos entre mais de 3.000 entregas, do primeiro posicionamento à marca consolidada.", filters: [["todos", "Todos"], ["estrategia", "Estratégia"], ["marca", "Marca"], ["sites-sistemas", "Digital"], ["audiovisual", "Audiovisual"]], empty: "Ainda não temos cases publicados nessa categoria.", ctaTitle: "Seu projeto pode ser o próximo" },
-    contactPage: { title: "Vamos conversar sobre a comunicação da sua empresa", lead: "Deixe seu contato e conte o projeto. Respondemos com uma direção, não com um orçamento genérico." },
-  },
-
-  en: {
-    metaTitle: "Melo | Corporate communications agency",
-    metaDescription: "Corporate communications agency in São Paulo. Strategy, brand, culture, institutional communication, digital and video under a single direction.",
-    nav: { services: "Services", cases: "All cases", method: "Method", faq: "FAQ", cta: "Contact us", reel: "Showreel", open: "Open menu", close: "Close", english: "Versão em português", langOther: "PT", langCur: "EN" },
-    hero: { l1: "We translate technical authority", l2: "into brand authority", cases: "See cases" },
-    meta: [["Since", "2020, in São Paulo"], ["Deliveries", "3,000+ completed"], ["Brands", "50+ accelerated"], ["Team", "100% in-house"]],
-    reelSec: { kicker: "What we solve", title: "Every technical company speaks two languages", lead: "The language of operations, precise and full of jargon. And the one the market understands. Excellent companies lose deals when they only speak the first. Melo does the translation.", cta: "Talk to us", label: "Showreel", watch: "Watch", aria: "Watch Melo's showreel" },
-    servicesSec: { kicker: "Services", title: "Six fronts, one direction", lead: "Strategy, brand, culture, institutional communication, digital and video come from the same table. Outward, to the market. Inward, to your team. No repeated briefings, no rework between vendors.", related: "Related case", talk: "Talk about this service" },
-    services: [
-      { key: "estrategia", tab: "Strategy", t: "Strategy and positioning", s: "Why the brand exists and where it competes.", d: "We map how the company is perceived today, define the positioning and the goals each communication deliverable needs to move.", l: ["Perception audit", "Positioning", "Brand architecture", "Communication plan", "Key messages", "Goals and metrics"] },
-      { key: "marca", tab: "Brand", t: "Brand and identity", s: "How the company is recognized.", d: "Visual and verbal systems that turn the technical complexity of your service into instant recognition, with clear rules for your team.", l: ["Visual identity", "Verbal identity", "Tone of voice", "Brand guidelines", "Rebranding", "Applications"] },
-      { key: "cultura", tab: "Culture", t: "Culture and internal communication", s: "How the company talks to its own team.", d: "We turn values and purpose into communication the team recognizes and practices. For SYN, part of Cyrela, we translated culture into a video manifesto that builds pride and belonging.", l: ["Culture audit", "Values narrative", "Video manifesto", "Internal campaigns", "Onboarding", "Internal content and video"] },
-      { key: "institucional", tab: "Institutional", t: "Institutional communication", s: "What the company delivers in writing.", d: "Materials that support meetings, sales and relationships: from the sales deck to the catalog, always in the brand's voice.", l: ["Presentations and decks", "Catalogs and brochures", "Institutional reports", "Event materials", "Copy and content", "Investor communication"] },
-      { key: "digital", tab: "Digital", t: "Websites and systems", s: "Where the brand operates online.", d: "Corporate websites, landing pages and custom platforms built to start conversations and easy for your team to maintain.", l: ["Corporate websites", "Landing pages", "HubSpot integrations", "Custom platforms", "SEO", "Maintenance"] },
-      { key: "audiovisual", tab: "Video", t: "Video production", s: "What the market watches.", d: "End-to-end production, from shooting to post, under the same direction that shaped the brand. To explain complex things in a few minutes.", l: ["Corporate videos", "Filming and photography", "Art direction", "Motion design", "Editing and post", "Recurring content"] },
-    ],
-    casesSec: { kicker: "Cases", title: "Brands that turned technical authority into brand", all: "All cases" },
-    methodSec: { kicker: "Method", title: "Direction before creation", lead: "Six steps in a cycle. A project doesn't end at delivery: it ends when results hit the goal we set together.", head: ["Step", "", "What happens", "Output"], cycle: "After step 06, the cycle returns to mapping." },
-    method: [
-      ["Pain mapping", "We understand the business problem before opening any file.", "Diagnosis"],
-      ["Solution alignment", "We define what will be solved and how success will be measured.", "Scope and goals"],
-      ["Creation", "Strategy becomes brand, content and product.", "Communication system"],
-      ["Delivery", "We implement and document so your team can run it.", "Files and guides"],
-      ["Measurement", "We track results against the initial goal.", "Results review"],
-      ["Correction", "We adjust based on data, not opinion.", "New cycle"],
-    ],
-    numbersSec: { kicker: "In numbers", title: "Six years building brand authority", lead: "Since 2020, in Liberdade, São Paulo. More than 3,000 deliveries for over 50 brands in healthcare, technology, law, education and industry, all produced by our own team." },
-    numbers: [
-      ["Deliveries", "+", 3000, "", "Across brand, institutional communication, digital and video."],
-      ["Brands accelerated", "+", 50, "", "In health, technology, law, education and industry."],
-      ["Years in business", "+", 6, "", "Since 2020, in Liberdade, São Paulo."],
-      ["Production", "", 100, "%", "In-house. Nothing outsourced between strategy and play."],
-    ],
-    reviewsSec: { count: "24 reviews on Google", all: "See all on Google →", prev: "Previous review", next: "Next review", stars: "5 out of 5 stars" },
-    reviews: null,
-    faqSec: { kicker: "FAQ", title: "Before the first conversation", lead: "Can't find what you're looking for? Write to" },
-    faq: [
-      ["What does a corporate communications agency do?", "It shapes how the company is perceived by clients, partners, investors and its own team. At Melo that includes positioning, brand, culture and internal communication, institutional materials, website and video, all under the same direction."],
-      ["Do you only work with health, technology and law?", "No. We work with any company struggling to turn technical authority into brand authority. Health, technology and law are where this gap shows up most often."],
-      ["How does the process work?", "Six steps: pain mapping, solution alignment, creation, delivery, measurement and correction. The cycle repeats until results hit the goal set at the start."],
-      ["Do you work with companies outside São Paulo?", "Yes. We are based in Liberdade, São Paulo, and work remotely with companies across Brazil and abroad."],
-      ["How many deliveries have you made?", "More than 3,000 deliveries and more than 50 brands accelerated in six years."],
-    ],
-    contactSec: { kicker: "Contact", title: "Direction before creation. It starts here", lead: "Leave your contact and tell us about the project. We reply with a direction, not a generic quote.", sheet: "Contact us", time: "Takes 30 seconds", name: "Name", namePh: "Your name", contact: "Email or phone", contactPh: "you@company.com", project: "What is your project?", projectPh: "Tell us in a few lines.", note: "We'll reply through the contact you leave.", send: "Send", sending: "Sending...", ok: "Received! We'll get back to you soon.", err: "Couldn't send right now. Try WhatsApp.", errName: "Please enter your name.", errContact: "Please enter a valid email or phone.", info: [["Email", "contato@melocreative.com.br", "mailto:contato@melocreative.com.br"], ["WhatsApp", "+55 11 95438-7151", "https://wa.me/5511954387151"], ["Studio", "Rua Conde do Pinhal, 8 · Liberdade, São Paulo, Brazil", ""], ["Links", "linktr.ee/amelocreative", "https://linktr.ee/amelocreative"]] },
-    footer: { about: "Corporate communications agency. We translate technical authority into brand authority.", services: "Services", melo: "Melo", contact: "Contact", contactPage: "Contact", terms: "Terms", privacy: "Privacy", cookies: "Cookies" },
-    casePage: { challenge: "The challenge", approach: "The approach", client: "Client", project: "Project", fronts: "Fronts", year: "Year", next: "Next case", ctaTitle: "From first positioning to an established brand. Let's talk", allCases: "All cases" },
-    casesPage: { kicker: "Cases", title: "Work that builds brand authority", lead: "A selection of projects among more than 3,000 deliveries, from first positioning to an established brand.", filters: [["todos", "All"], ["estrategia", "Strategy"], ["marca", "Brand"], ["sites-sistemas", "Digital"], ["audiovisual", "Video"]], empty: "No cases published in this category yet.", ctaTitle: "Your project could be next" },
-    contactPage: { title: "Let's talk about your company's communication", lead: "Leave your contact and tell us about the project. We reply with a direction, not a generic quote." },
-  },
+  ...merge(fixos.geral, geral),
+  clients: (geral.clients || []).map((c) => [c.file, c.name]),
+  pt: shape(pt, "pt", pt.reviews),
+  // Avaliações são depoimentos reais em português; a versão EN mostra os mesmos textos.
+  en: shape(en, "en", pt.reviews),
 };
-// Avaliações são depoimentos reais em português; a versão EN mostra os mesmos textos originais.
-module.exports.en.reviews = module.exports.pt.reviews;
