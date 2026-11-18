@@ -8,13 +8,13 @@
 {%- set project = d.heroTitleLine2 | trim -%}
 
 <section class="hero case-hero">
-  <div class="stage"><img class="on" src="{{ item.heroMedia.src }}" alt="{{ d.heroAlt or name }}" fetchpriority="high"{% if item.heroMedia.position or item.cardImagePosition %} style="object-position:{{ item.heroMedia.position or item.cardImagePosition }}"{% endif %}></div>
+  <div class="stage"><img class="on" data-img="case:{{ item.slug }}|heroMedia.src" src="{{ item.heroMedia.src }}" alt="{{ d.heroAlt or name }}" fetchpriority="high"{% if item.heroMedia.position or item.cardImagePosition %} style="object-position:{{ item.heroMedia.position or item.cardImagePosition }}"{% endif %}></div>
   <div class="hero-in">
     <div class="wrap hero-row">
       <div class="hero-txt">
         <span class="crumb fade"><a href="{{ (P + '/cases') | replace('//','/') }}">{{ c.nav.cases }}</a><span>/</span>{{ name }}</span>
-        <h1 class="h1 fade d1">{{ name }}<span class="pt">.</span></h1>
-        <p class="lead fade d2">{{ project }}</p>
+        <h1 class="h1 fade d1"><span data-e="case:{{ item.slug }}|{{ lang }}.heroTitleLine1">{{ name }}</span><span class="pt">.</span></h1>
+        <p class="lead fade d2"><span data-e="case:{{ item.slug }}|{{ lang }}.heroTitleLine2">{{ project }}</span></p>
       </div>
     </div>
   </div>
@@ -30,14 +30,14 @@
 
   <section class="case-txt">
     <span class="kicker rv">{{ c.casePage.challenge }}</span>
-    <div class="right"><h2 class="h2 rv d1">{{ d.challengeHeading }}</h2><div class="rv d2"><p>{{ d.challengeDetail }}</p></div></div>
+    <div class="right"><h2 class="h2 rv d1" data-e="case:{{ item.slug }}|{{ lang }}.challengeHeading">{{ d.challengeHeading }}</h2><div class="rv d2"><p data-e="case:{{ item.slug }}|{{ lang }}.challengeDetail">{{ d.challengeDetail }}</p></div></div>
   </section>
 
   <div class="gal">{% for r in item.rowsBeforeApproach %}{{ row(r, name) }}{% endfor %}</div>
 
   <section class="case-txt">
     <span class="kicker rv">{{ c.casePage.approach }}</span>
-    <div class="right"><h2 class="h2 rv d1">{{ d.approachHeading }}</h2><div class="rv d2"><p>{{ d.approachDetail }}</p></div></div>
+    <div class="right"><h2 class="h2 rv d1" data-e="case:{{ item.slug }}|{{ lang }}.approachHeading">{{ d.approachHeading }}</h2><div class="rv d2"><p data-e="case:{{ item.slug }}|{{ lang }}.approachDetail">{{ d.approachDetail }}</p></div></div>
   </section>
 
   <div class="gal gal-end">{% for r in item.rowsAfterApproach %}{{ row(r, name) }}{% endfor %}</div>
@@ -57,7 +57,7 @@
 
 <section class="cta-band">
   <div class="wrap">
-    <h2 class="h2 rv">{{ c.casePage.ctaTitle }}<span class="pt">.</span></h2>
+    <h2 class="h2 rv"><span data-e="{{ lang }}|casePage.ctaTitle">{{ c.casePage.ctaTitle }}</span><span class="pt">.</span></h2>
     <div class="hero-ctas rv d1"><a class="btn btn-gray" href="{{ t.contactPath }}">{{ c.nav.cta }} {{ AR | safe }}</a><a class="btn btn-ghost" href="{{ (P + '/cases') | replace('//','/') }}">{{ c.casePage.allCases }}</a></div>
   </div>
 </section>
