@@ -423,7 +423,7 @@
   }
   function renumber(prefix) {
     const doc = frame();
-    const nodes = [...doc.querySelectorAll("[data-item]")].filter((n) => n.dataset.item.startsWith(prefix) && /^\d+$/.test(n.dataset.item.slice(prefix.length)));
+    const nodes = [...doc.querySelectorAll("[data-item]")].filter((n) => n.dataset.item.startsWith(prefix) && /^-?\d+$/.test(n.dataset.item.slice(prefix.length)));
     nodes.forEach((n, i) => rekey(n, n.dataset.item, prefix + "tmp" + i));
     nodes.forEach((n, i) => rekey(n, n.dataset.item, prefix + i));
   }
@@ -452,7 +452,7 @@
       const gal = doc.querySelector(`[data-gal="${CSS.escape(file + "|" + toPath)}"]`);
       if (toPath === "rowsBeforeApproach") { d.data[toPath].push(x); newKey = toPrefix + (d.data[toPath].length - 1); if (node && gal) gal.appendChild(node); }
       else { d.data[toPath].unshift(x); newKey = toPrefix + "0"; if (node && gal) gal.prepend(node); }
-      if (node) rekey(node, itemKey, toPrefix + "moving");
+      if (node) rekey(node, itemKey, toPrefix + (toPath === "rowsBeforeApproach" ? "999999" : "-1"));
       renumber(prefix); renumber(toPrefix);
       toast(toPath === "rowsBeforeApproach" ? "Bloco movido para antes de 'A abordagem'." : "Bloco movido para depois de 'A abordagem'.");
     } else {
