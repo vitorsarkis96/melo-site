@@ -113,29 +113,11 @@
   <div class="preview" id="preview" aria-hidden="true"><div class="crop"><i></i><i></i><i></i><i></i><span class="reg"></span><img id="previewImg" alt=""></div></div>
 </section>
 
-<!-- MÉTODO -->
-<section class="sec bg-dark" id="metodo">
-  <div class="wrap">
-    <div class="sec-head">
-      <span class="kicker rv"><b>04</b>{{ c.methodSec.kicker }}</span>
-      <div class="right">
-        <h2 class="h2 rv d1">{{ c.methodSec.title }}<span class="pt">.</span></h2>
-        <p class="lead rv d2">{{ c.methodSec.lead }}</p>
-      </div>
-    </div>
-    <div class="proto rv">
-      <div class="proto-head">{% for h in c.methodSec.head %}<span>{{ h }}</span>{% endfor %}</div>
-      {% for m in c.method %}<div class="proto-row"><span class="n">{{ loop.index | pad2 }}</span><h3>{{ m[0] }}</h3><p>{{ m[1] }}</p><span class="out">{{ m[2] }}</span></div>{% endfor %}
-    </div>
-    <p class="cycle rv"><svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 7a5 5 0 11-1.5-3.6M12 1.5v2.5H9.5"/></svg>{{ c.methodSec.cycle }}</p>
-  </div>
-</section>
-
 <!-- NÚMEROS + AVALIAÇÕES -->
 <section class="sec bg-g" id="numeros">
   <div class="wrap">
     <div class="sec-head">
-      <span class="kicker rv"><b>05</b>{{ c.numbersSec.kicker }}</span>
+      <span class="kicker rv"><b>04</b>{{ c.numbersSec.kicker }}</span>
       <div class="right"><h2 class="h2 rv d1">{{ c.numbersSec.title }}<span class="pt">.</span></h2></div>
     </div>
     <div class="nums rv">
@@ -160,7 +142,7 @@
 <section class="sec" id="faq">
   <div class="wrap faq">
     <div style="display:grid;gap:var(--stack);align-content:start">
-      <span class="kicker rv"><b>06</b>{{ c.faqSec.kicker }}</span>
+      <span class="kicker rv"><b>05</b>{{ c.faqSec.kicker }}</span>
       <h2 class="h2 rv d1">{{ c.faqSec.title }}<span class="pt">.</span></h2>
       <p class="lead rv d2">{{ c.faqSec.lead }} <a href="mailto:{{ site.email }}" style="border-bottom:1px solid var(--orange)">{{ site.email }}</a>.</p>
     </div>
