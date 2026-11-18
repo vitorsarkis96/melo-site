@@ -38,6 +38,7 @@
   </div></div>
 </div>
 
+{%- set sec_reel -%}
 <!-- SHOWREEL + O QUE RESOLVEMOS -->
 <section class="sec" id="traducao">
   <span id="atuamos"></span>
@@ -53,7 +54,8 @@
     </div>
   </div>
 </section>
-
+{%- endset %}
+{%- set sec_servicos -%}
 <!-- SERVIÇOS -->
 <section class="sec bg-g" id="servicos">
   <div class="wrap">
@@ -83,7 +85,8 @@
     </div>
   </div>
 </section>
-
+{%- endset %}
+{%- set sec_cases -%}
 <!-- CASES -->
 <section class="sec" id="cases">
   <div class="wrap">
@@ -106,7 +109,8 @@
   </div>
   <div class="preview" id="preview" aria-hidden="true"><div class="crop"><i></i><i></i><i></i><i></i><span class="reg"></span><img id="previewImg" alt=""></div></div>
 </section>
-
+{%- endset %}
+{%- set sec_numeros -%}
 <!-- NÚMEROS + AVALIAÇÕES -->
 <section class="sec bg-g" id="numeros">
   <div class="wrap">
@@ -124,9 +128,11 @@
     </div>
   </div>
 </section>
-
+{%- endset %}
+{%- set sec_contato -%}
 {% include "partials/v2-contact.njk" %}
-
+{%- endset %}
+{%- set sec_faq -%}
 <!-- FAQ -->
 <script type="application/ld+json">{{ { "@context": "https://schema.org", "@type": "FAQPage", "mainEntity": c.faq | faqPairs } | dump | safe }}</script>
 <section class="sec" id="faq">
@@ -140,4 +146,10 @@
     </div>
   </div>
 </section>
+{%- endset %}
+{%- set order = v2.homeSections or [{key:"reel",show:true},{key:"servicos",show:true},{key:"cases",show:true},{key:"numeros",show:true},{key:"contato",show:true},{key:"faq",show:true}] -%}
+{%- for s in order %}{% if s.show != false %}
+<div class="home-sec" data-section="{{ s.key }}">
+{%- if s.key == "reel" %}{{ sec_reel | safe }}{% elif s.key == "servicos" %}{{ sec_servicos | safe }}{% elif s.key == "cases" %}{{ sec_cases | safe }}{% elif s.key == "numeros" %}{{ sec_numeros | safe }}{% elif s.key == "contato" %}{{ sec_contato | safe }}{% elif s.key == "faq" %}{{ sec_faq | safe }}{% endif -%}
+</div>{% endif %}{% endfor %}
 

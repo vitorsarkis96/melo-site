@@ -692,3 +692,10 @@ footer{padding:var(--s-9) 0 var(--s-6)}
 .folder-tabs button.on .msi{color:var(--orange)}
 .draft-bar{position:fixed;left:0;right:0;bottom:0;z-index:90;background:var(--orange);color:#fff;text-align:center;font-size:13px;font-weight:500;padding:8px}
 footer{border-top:1px solid var(--line)}
+
+/* conteúdo editável pelo painel */
+[data-e]{white-space:pre-line}
+p:empty,.lead:empty,h3:empty{display:none}
+.gal-text{display:grid;grid-template-columns:.42fr .58fr;gap:var(--s-5);padding:var(--s-7) 0;align-items:start}
+.gal-text p{color:var(--ink-2);line-height:1.65;font-size:17px}
+@media(max-width:900px){.gal-text{grid-template-columns:1fr}}

@@ -205,10 +205,17 @@
       [data-e][contenteditable]{cursor:text;caret-color:#f66324}
       [data-e]:empty::before{content:"(vazio)";opacity:.4}
       .mel-item{outline:1px solid rgba(246,99,36,.35);outline-offset:6px}
+      .mel-hover{outline:1px dashed rgba(246,99,36,.6)!important;outline-offset:6px}
+      #melTb{position:absolute;z-index:2147483000;display:none;align-items:center;gap:2px;background:#0d0d0d;color:#fff;padding:3px;font:500 12px/1 Geist,system-ui,sans-serif;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+      #melTb .t{padding:0 8px;color:#bbb;white-space:nowrap}
+      #melTb button{background:none;border:0;color:#fff;font:inherit;height:26px;padding:0 9px;cursor:pointer}
+      #melTb button:hover{background:#f66324}
+      #melTb[data-kind=item] [data-a=hide],#melTb[data-kind=sec] [data-a=dup],#melTb[data-kind=sec] [data-a=del]{display:none}
       .mel-changed{box-shadow:inset 0 -2px 0 rgba(246,99,36,.55)}
       a{cursor:default}
     `;
     doc.head.appendChild(st);
+    setupToolbar(doc);
     // a imagem de fundo do hero tem conteúdo por cima: seleciona pelo clique no espaço livre
     doc.addEventListener("click", onFrameClick, true);
     doc.addEventListener("input", onFrameInput, true);
@@ -226,7 +233,7 @@
       doc.execCommand("insertText", false, isMultiline(el) ? txt : txt.replace(/\s*\n\s*/g, " "));
     }, true);
   }
-  const isMultiline = (el) => /(\.d|\.a|\.lead|\.text|Detail|\.about)$/.test(split(el.dataset.e)[1]);
+  const isMultiline = (el) => /(\.d|\.a|\.lead|\.text|Detail|\.about|\.body)$/.test(split(el.dataset.e)[1]);
 
   function onFrameClick(e) {
     const t = e.target;
@@ -301,6 +308,7 @@
 
   /* ---------- seleção e painel ---------- */
   const LABELS = [
+    [/rows(Before|After)Approach\.\d+\.title$/, "Case · bloco de texto", "Título"], [/rows(Before|After)Approach\.\d+\.body$/, "Case · bloco de texto", "Texto"],
     [/^hero\.l1$/, "Banner", "Título, linha 1"], [/^hero\.l2$/, "Banner", "Título, linha 2"], [/^hero\.cases$/, "Banner", "Botão de cases"],
     [/^nav\.cta$/, "Geral", "Botão de contato"], [/^meta\.\d+\.label$/, "Banner", "Dado: rótulo"], [/^meta\.\d+\.value$/, "Banner", "Dado: valor"],
     [/^reelSec\.title$/, "Showreel", "Título"], [/^reelSec\.lead$/, "Showreel", "Texto"], [/^reelSec\.cta$/, "Showreel", "Botão"], [/^reelSec\.label$/, "Showreel", "Legenda do vídeo"], [/^reelSec\.watch$/, "Showreel", "Texto 'Assistir'"],
@@ -319,7 +327,7 @@
     [/heroTitleLine1$/, "Case", "Nome do cliente"], [/heroTitleLine2$/, "Case", "Projeto"], [/challengeHeading$/, "Case", "Desafio: título"], [/challengeDetail$/, "Case", "Desafio: texto"],
     [/cardDesc$/, "Case", "Descrição no card"], [/^cardImage$/, "Case", "Imagem do card"], [/approachHeading$/, "Case", "Abordagem: título"], [/approachDetail$/, "Case", "Abordagem: texto"], [/^heroMedia\.src$/, "Case", "Imagem principal"],
   ];
-  const ITEM_NAMES = { rowsBeforeApproach: "Linha da galeria", rowsAfterApproach: "Linha da galeria", faq: "Pergunta do FAQ", reviews: "Avaliação", meta: "Dado do banner", "contactSec.info": "Informação de contato", services: "Serviço", l: "Entrega" };
+  const ITEM_NAMES = { rowsBeforeApproach: "Bloco da galeria", rowsAfterApproach: "Bloco da galeria", faq: "Pergunta do FAQ", reviews: "Avaliação", meta: "Dado do banner", "contactSec.info": "Informação de contato", services: "Serviço", l: "Entrega" };
   function labelFor(key) {
     const [file, path] = split(key);
     const p = file.startsWith("case:") ? path.replace(/^(pt|en)\./, "") : path;
@@ -406,10 +414,9 @@
   });
 
   /* ---------- itens de lista ---------- */
-  document.querySelectorAll("#itemBox [data-op]").forEach((b) => b.addEventListener("click", async () => {
-    if (!state.sel || !state.sel.item) return;
-    const op = b.dataset.op;
-    const [file, ipath] = split(state.sel.item);
+  document.querySelectorAll("#itemBox [data-op]").forEach((b) => b.addEventListener("click", () => { if (state.sel && state.sel.item) itemOp(b.dataset.op, state.sel.item); }));
+  async function itemOp(op, itemKey) {
+    const [file, ipath] = split(itemKey);
     const idx = +ipath.split(".").pop();
     const arrPath = ipath.replace(/\.\d+$/, "");
     const d = state.docs[file]; const arr = getP(d.data, arrPath);
@@ -421,7 +428,7 @@
     const doc = frame();
     const prefix = `${file}|${arrPath}.`;
     const siblings = () => [...doc.querySelectorAll(`[data-item]`)].filter((n) => n.dataset.item.startsWith(prefix) && /^\d+$/.test(n.dataset.item.slice(prefix.length)));
-    const node = siblings().find((n) => n.dataset.item === state.sel.item);
+    const node = siblings().find((n) => n.dataset.item === itemKey);
     let target = idx;
     if (op === "up") { if (idx === 0) return; [arr[idx - 1], arr[idx]] = [arr[idx], arr[idx - 1]]; target = idx - 1; if (node && node.previousElementSibling) node.parentNode.insertBefore(node, node.previousElementSibling); }
     if (op === "down") { if (idx >= arr.length - 1) return; [arr[idx + 1], arr[idx]] = [arr[idx], arr[idx + 1]]; target = idx + 1; if (node && node.nextElementSibling) node.parentNode.insertBefore(node.nextElementSibling, node); }
@@ -442,8 +449,8 @@
       const first = n && n.querySelector("[data-e]");
       if (first) { first.scrollIntoView({ block: "center", behavior: "smooth" }); select({ kind: "text", el: first }); }
     }
-    toast(op === "del" ? "Item removido." : op === "dup" ? "Item duplicado. Edite o texto da cópia." : "Ordem alterada.");
-  }));
+    toast(op === "del" ? "Item removido." : op === "dup" ? "Item adicionado abaixo. Edite o texto da cópia." : "Ordem alterada.");
+  }
 
   /* ---------- publicar ---------- */
   async function publish() {
@@ -629,6 +636,91 @@
     toast("Vídeo colocado.");
   };
 
+  /* ---------- barra flutuante (ordem, adicionar, remover) ---------- */
+  const SEC_NAMES = { reel: "Showreel", servicos: "Serviços", cases: "Cases", numeros: "Números e avaliações", contato: "Contato", faq: "FAQ" };
+  function itemName(itemKey) {
+    const [, ip] = split(itemKey); const arr = ip.replace(/\.\d+$/, "");
+    return ITEM_NAMES[arr] || ITEM_NAMES[arr.split(".").pop()] || "Item";
+  }
+  function setupToolbar(doc) {
+    const tb = doc.createElement("div"); tb.id = "melTb";
+    tb.innerHTML = `<span class="t"></span><button data-a="up" title="Subir">↑</button><button data-a="down" title="Descer">↓</button><button data-a="dup" title="Adicionar uma cópia logo abaixo">+ Adicionar</button><button data-a="del" title="Remover">Remover</button><button data-a="hide" title="Ocultar seção">Ocultar</button>`;
+    doc.body.appendChild(tb);
+    let target = null, kind = null, hideT;
+    const place = () => {
+      if (!target || !target.isConnected) { tb.style.display = "none"; return; }
+      const r = target.getBoundingClientRect(), w = doc.defaultView;
+      tb.style.display = "flex";
+      tb.style.top = Math.max(w.scrollY + 64, r.top + w.scrollY - 34) + "px";
+      tb.style.left = Math.max(8, Math.min(w.innerWidth - tb.offsetWidth - 8, r.right + w.scrollX - tb.offsetWidth)) + "px";
+    };
+    const show = (el, k) => {
+      clearTimeout(hideT);
+      if (target === el) return place();
+      if (target) target.classList.remove("mel-hover");
+      target = el; kind = k; el.classList.add("mel-hover");
+      tb.dataset.kind = k;
+      tb.querySelector(".t").textContent = k === "sec" ? "Seção: " + (SEC_NAMES[el.dataset.section] || el.dataset.section) : itemName(el.dataset.item);
+      place();
+    };
+    doc.addEventListener("mouseover", (e) => {
+      if (tb.contains(e.target)) { clearTimeout(hideT); return; }
+      const it = e.target.closest("[data-item]");
+      if (it) return show(it, "item");
+      const sec = e.target.closest("[data-section]");
+      if (sec) return show(sec, "sec");
+      hideT = setTimeout(() => { if (target) target.classList.remove("mel-hover"); target = null; place(); }, 250);
+    });
+    doc.defaultView.addEventListener("scroll", place, { passive: true });
+    tb.addEventListener("click", (e) => {
+      e.preventDefault(); e.stopPropagation();
+      const a = e.target.closest("button"); if (!a || !target) return;
+      const op = a.dataset.a;
+      if (kind === "item") itemOp(op === "dup" ? "dup" : op, target.dataset.item);
+      else secOp(op, target.dataset.section);
+      setTimeout(place, 50);
+    }, true);
+  }
+
+  function secOp(op, key) {
+    const arr = curVal("geral|homeSections"); if (!Array.isArray(arr)) return;
+    const i = arr.findIndex((s) => s.key === key); if (i < 0) return;
+    const doc = frame(); const node = doc.querySelector(`[data-section="${key}"]`);
+    const vis = (j) => arr[j] && arr[j].show !== false;
+    if (op === "up") { let j = i - 1; while (j >= 0 && !vis(j)) j--; if (j < 0) return; const [x] = arr.splice(i, 1); arr.splice(j, 0, x); const prev = doc.querySelector(`[data-section="${arr[j + 1].key}"]`); if (node && prev) prev.before(node); }
+    if (op === "down") { let j = i + 1; while (j < arr.length && !vis(j)) j++; if (j >= arr.length) return; const [x] = arr.splice(i, 1); arr.splice(j, 0, x); const next = doc.querySelector(`[data-section="${arr[j - 1].key}"]`); if (node && next) next.after(node); }
+    if (op === "hide" || op === "del") { arr[i].show = false; if (node) node.style.display = "none"; toast("Seção oculta. Para mostrar de novo, use 'Seções da home' no painel."); }
+    setVal("geral|homeSections", arr);
+    if (node && node.style.display !== "none") node.scrollIntoView({ behavior: "smooth", block: "start" });
+    renderPagePanel();
+  }
+  function sectionsManager() {
+    const wrap = document.createElement("div"); wrap.className = "pp-sec";
+    wrap.innerHTML = `<b>Seções da home</b><span class="small">Mude a ordem, mostre ou oculte. Também dá para fazer pela barra que aparece ao passar o mouse na página.</span><div class="lm"></div>`;
+    const lm = wrap.querySelector(".lm");
+    const draw = () => {
+      const a = curVal("geral|homeSections") || [];
+      lm.innerHTML = a.map((s, i) => `<div class="lm-row sec-row"><label class="chk"><input type="checkbox" data-show="${i}"${s.show !== false ? " checked" : ""}> ${SEC_NAMES[s.key] || s.key}</label><button data-up="${i}" title="Subir">↑</button><button data-down="${i}" title="Descer">↓</button><span></span></div>`).join("");
+    };
+    wrap.addEventListener("change", (e) => {
+      const i = e.target.dataset.show; if (i === undefined) return;
+      const a = curVal("geral|homeSections"); a[+i].show = e.target.checked; setVal("geral|homeSections", a);
+      const node = frame().querySelector(`[data-section="${a[+i].key}"]`);
+      if (node) node.style.display = e.target.checked ? "" : "none";
+      else if (e.target.checked) toast("A seção volta a aparecer depois de publicar.");
+    });
+    wrap.addEventListener("click", (e) => {
+      const b = e.target.closest("button"); if (!b) return;
+      const a = curVal("geral|homeSections"); const i = +(b.dataset.up || b.dataset.down);
+      const j = b.dataset.up !== undefined ? i - 1 : i + 1; if (j < 0 || j >= a.length) return;
+      [a[i], a[j]] = [a[j], a[i]]; setVal("geral|homeSections", a);
+      const doc = frame(); const ni = doc.querySelector(`[data-section="${a[j].key}"]`), nj = doc.querySelector(`[data-section="${a[i].key}"]`);
+      if (ni && nj) { if (j < i) nj.before(ni); else nj.after(ni); }
+      draw();
+    });
+    draw(); return wrap;
+  }
+
   /* ---------- painel da página (nada selecionado) ---------- */
   const caseList = () => state.pages.filter((p) => p.v.startsWith("case:")).map((p) => ({ slug: p.v.slice(5), name: p.label }));
   function listManager(title, key, hint) {
@@ -666,6 +758,7 @@
     const pp = document.createElement("div"); pp.className = "pp";
     if (v === "home") {
       pp.innerHTML = `<h3>Configurações da home</h3>`;
+      pp.appendChild(sectionsManager());
       pp.appendChild(listManager("Fotos do banner", "geral|heroCases", "As fotos do banner são as capas destes cases, na ordem. Para trocar uma foto, clique nela na página."));
       pp.appendChild(listManager("Cases na home", "geral|homeCases", "A lista de cases da home aparece atualizada depois de publicar."));
       const rv = document.createElement("div"); rv.className = "pp-sec";
@@ -686,7 +779,7 @@
         <div class="pp-sec"><b>Categorias</b><div class="chips">${filters.map((f) => `<label><input type="checkbox" value="${f.key}"${(d.data.dataService || []).includes(f.key) ? " checked" : ""}> ${f.label}</label>`).join("")}</div></div>
         <label class="chk"><input type="checkbox" id="ppHome"${home ? " checked" : ""}> Mostrar na home</label>
         <div class="pp-sec"><b>Galeria</b><span class="small">Adicione fotos ou vídeos no fim da página. Clique numa foto ou vídeo para trocar, mover ou remover.</span>
-        <div class="pp-2"><button class="b b-ghost" id="ppAddImg">+ Foto</button><button class="b b-ghost" id="ppAddVid">+ Vídeo</button></div></div>
+        <div class="pp-3"><button class="b b-ghost" id="ppAddImg">+ Foto</button><button class="b b-ghost" id="ppAddVid">+ Vídeo</button><button class="b b-ghost" id="ppAddTxt">+ Texto</button></div></div>
         <span class="small">Para trocar a foto de capa, clique nela no topo da página.</span>`;
       const gl = pp.querySelector("#ppGoLive");
       if (gl) gl.onclick = async () => {
@@ -696,10 +789,25 @@
       pp.querySelector("#ppYear").onchange = (e) => { d.data.year = e.target.value.trim(); markDirty(k); };
       pp.querySelectorAll(".chips input").forEach((c) => (c.onchange = () => { d.data.dataService = [...pp.querySelectorAll(".chips input:checked")].map((x) => x.value); markDirty(k); }));
       pp.querySelector("#ppHome").onchange = (e) => { const a = [...(curVal("geral|homeCases") || [])]; const i = a.indexOf(slug); if (e.target.checked && i < 0) a.push(slug); if (!e.target.checked && i >= 0) a.splice(i, 1); setVal("geral|homeCases", a); };
+      pp.querySelector("#ppAddTxt").onclick = () => addTextRow(k);
       pp.querySelector("#ppAddImg").onclick = async () => { const path = await stageUpload(await pickFile()); if (path) addGalleryRow(k, { type: "image", src: path }); };
       pp.querySelector("#ppAddVid").onclick = async () => { const link = await confirmBox("Adicionar vídeo", "Cole o link do vídeo no YouTube.", "Adicionar", ""); if (!link) return; const id = ytId(link); if (!id) { toast("Não reconheci esse link do YouTube."); return; } addGalleryRow(k, { type: "video", src: "https://youtu.be/" + id }); };
     } else return;
     box.appendChild(pp);
+  }
+  function addTextRow(k) {
+    const d = state.docs[k]; d.data.rowsAfterApproach = d.data.rowsAfterApproach || [];
+    const i = d.data.rowsAfterApproach.push({ layout: "text", title: "Título do bloco", body: "Escreva aqui o texto." }) - 1;
+    markDirty(k);
+    const gal = frame().querySelector(`[data-gal="${CSS.escape(k + "|rowsAfterApproach")}"]`);
+    if (gal) {
+      const p = `${k}|rowsAfterApproach.${i}`;
+      const row = frame().createElement("div"); row.className = "gal-row gal-text rv in"; row.dataset.item = p;
+      row.innerHTML = `<h3 class="h3" data-e="${p}.title">Título do bloco</h3><p data-e="${p}.body">Escreva aqui o texto.</p>`;
+      gal.appendChild(row); row.scrollIntoView({ behavior: "smooth", block: "center" });
+      select({ kind: "text", el: row.querySelector("h3") });
+    }
+    toast("Bloco de texto adicionado no fim. Use a barra preta para mudar a posição.");
   }
   function addGalleryRow(k, it) {
     const d = state.docs[k]; d.data.rowsAfterApproach = d.data.rowsAfterApproach || [];

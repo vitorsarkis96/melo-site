@@ -116,5 +116,31 @@
       "slug": "brain4care",
       "name": "brain4care"
     }
-  }
+  },
+  "homeSections": [
+    {
+      "key": "reel",
+      "show": true
+    },
+    {
+      "key": "servicos",
+      "show": true
+    },
+    {
+      "key": "cases",
+      "show": true
+    },
+    {
+      "key": "numeros",
+      "show": true
+    },
+    {
+      "key": "contato",
+      "show": true
+    },
+    {
+      "key": "faq",
+      "show": true
+    }
+  ]
 }
