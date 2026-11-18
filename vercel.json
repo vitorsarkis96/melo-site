@@ -4,15 +4,31 @@
   "buildCommand": "npm run build",
   "outputDirectory": "_site",
   "redirects": [
-    { "source": "/pt", "destination": "/", "permanent": true },
-    { "source": "/pt/:path*", "destination": "/:path*", "permanent": true }
+    {
+      "source": "/pt",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/pt/:path*",
+      "destination": "/:path*",
+      "permanent": true
+    }
   ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
-        { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains; preload" }
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=63072000; includeSubDomains; preload"
+        }
       ]
     }
-  ]
+  ],
+  "functions": {
+    "api/gerar-case.js": {
+      "maxDuration": 60
+    }
+  }
 }

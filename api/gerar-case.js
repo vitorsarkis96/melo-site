@@ -77,6 +77,7 @@ ${Object.entries(FIELDS).map(([k, v]) => `- ${k}: ${v}`).join("\n")}`;
         contents: [{ role: "user", parts: [{ text: prompt }] }],
         generationConfig: {
           temperature: 0.6,
+          thinkingConfig: { thinkingLevel: "low" },
           responseMimeType: "application/json",
           responseSchema: { type: "OBJECT", properties: { pt: langSchema, en: langSchema }, required: ["pt", "en"] },
         },
@@ -84,11 +85,16 @@ ${Object.entries(FIELDS).map(([k, v]) => `- ${k}: ${v}`).join("\n")}`;
     let r, j, MODEL;
     for (const m of MODELS) {
       MODEL = m;
-      r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(m)}:generateContent`, {
-        method: "POST", headers: { "Content-Type": "application/json", "x-goog-api-key": key }, body: payload,
-      });
-      j = await r.json().catch(() => ({}));
-      const busy = r.status === 503 || r.status === 429 || r.status === 404 || /high demand|overloaded|not found/i.test((j.error && j.error.message) || "");
+      const ctl = new AbortController(); const timer = setTimeout(() => ctl.abort(), 22000);
+      try {
+        r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(m)}:generateContent`, {
+          method: "POST", headers: { "Content-Type": "application/json", "x-goog-api-key": key }, body: payload, signal: ctl.signal,
+        });
+        j = await r.json().catch(() => ({}));
+      } catch (e) {
+        r = { ok: false, status: 504 }; j = { error: { message: "high demand (timeout em " + m + ")" } };
+      } finally { clearTimeout(timer); }
+      const busy = r.status === 504 || r.status === 503 || r.status === 429 || r.status === 404 || /high demand|overloaded|not found/i.test((j.error && j.error.message) || "");
       if (r.ok || !busy) break;
     }
     if (!r.ok) {

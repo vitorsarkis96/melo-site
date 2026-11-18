@@ -695,7 +695,7 @@
     $("#ncErr").hidden = true;
     if (!f.name.value.trim()) return err("Escreva o nome do cliente antes de gerar.");
     if (f.context.value.trim().length < 30) return err("Escreva um contexto com pelo menos algumas frases.");
-    const btn = $("#ncAi"); btn.disabled = true; btn.textContent = "Escrevendo…";
+    const btn = $("#ncAi"); btn.disabled = true; btn.textContent = "Escrevendo… (até 1 minuto)";
     try {
       const r = await fetch("/api/gerar-case", { method: "POST", headers: { "Content-Type": "application/json", Authorization: "token " + state.token },
         body: JSON.stringify({ name: f.name.value.trim(), project: f.project.value.trim(), year: f.year.value.trim(), context: f.context.value.trim(), categories: [...f.querySelectorAll("#ncCats input:checked")].map((x) => x.parentNode.textContent.trim()) }) });
