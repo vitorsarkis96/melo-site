@@ -681,3 +681,4 @@ footer{padding:var(--s-9) 0 var(--s-6)}
 .sheet .btn-gray .ar{color:var(--orange)}
 .sheet .btn-gray:hover{background:var(--g800)}
 .sheet .f-foot .mono{font-family:var(--sans);font-size:13px;color:var(--ink-3);text-align:center;max-width:none}
+.sec-head .right{align-items:center}.sec-head .right .lead{margin:0}
