@@ -689,10 +689,29 @@
 
   /* ---------- novo case ---------- */
   const slugify = (t) => t.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
-  let ncCover = null;
+  let ncCover = null; let ncAi = null;
+  $("#ncAi").onclick = async () => {
+    const f = $("#ncForm"); const err = (m) => { $("#ncErr").textContent = m; $("#ncErr").hidden = false; };
+    $("#ncErr").hidden = true;
+    if (!f.name.value.trim()) return err("Escreva o nome do cliente antes de gerar.");
+    if (f.context.value.trim().length < 30) return err("Escreva um contexto com pelo menos algumas frases.");
+    const btn = $("#ncAi"); btn.disabled = true; btn.textContent = "Escrevendo…";
+    try {
+      const r = await fetch("/api/gerar-case", { method: "POST", headers: { "Content-Type": "application/json", Authorization: "token " + state.token },
+        body: JSON.stringify({ name: f.name.value.trim(), project: f.project.value.trim(), year: f.year.value.trim(), context: f.context.value.trim(), categories: [...f.querySelectorAll("#ncCats input:checked")].map((x) => x.parentNode.textContent.trim()) }) });
+      const j = await r.json().catch(() => ({}));
+      if (!r.ok) throw new Error(j.error || "Não consegui gerar agora.");
+      ncAi = j;
+      if (!f.project.value.trim()) f.project.value = j.pt.heroTitleLine2;
+      f.desc.value = j.pt.cardDesc;
+      ["challengeHeading", "challengeDetail", "approachHeading", "approachDetail"].forEach((k) => (f[k].value = j.pt[k]));
+      $("#ncAiOut").hidden = false; btn.textContent = "✦ Gerar de novo";
+    } catch (e) { err(e.message); btn.textContent = "✦ Gerar textos com IA"; }
+    btn.disabled = false;
+  };
   $("#newCaseBtn").onclick = async () => {
     await loadDocsFor(["pt", "geral"]);
-    const f = $("#ncForm"); f.reset(); ncCover = null; $("#ncCoverPrev").hidden = true; $("#ncErr").hidden = true; $("#ncUrl").textContent = "";
+    const f = $("#ncForm"); f.reset(); ncCover = null; ncAi = null; $("#ncAiOut").hidden = true; $("#ncAi").textContent = "✦ Gerar textos com IA"; $("#ncCoverPrev").hidden = true; $("#ncErr").hidden = true; $("#ncUrl").textContent = "";
     const filters = state.docs.pt.data.casesPage.filters.filter((x) => x.key !== "todos");
     $("#ncCats").innerHTML = filters.map((x) => `<label><input type="checkbox" value="${x.key}"> ${x.label}</label>`).join("");
     f.year.value = new Date().getFullYear();
@@ -717,7 +736,12 @@
     const cats = [...f.querySelectorAll("#ncCats input:checked")].map((x) => x.value);
     const year = f.year.value.trim();
     const pt = { metaTitle: `${name}: ${project} | Melo`, metaDescription: desc, heroTitleLine1: name, heroTitleLine2: project, heroAlt: `${name}, ${project}`, tags: [project], challengeTag: "O desafio", challengeHeading: "Escreva aqui o desafio do projeto.", challengeDetail: "Conte o contexto e o problema de negócio que a empresa precisava resolver.", approachTag: "A abordagem", approachHeading: "Escreva aqui como a Melo resolveu.", approachDetail: "Conte a solução, as entregas e o resultado.", cardTitle: `${name}: ${project}`, cardDesc: desc };
-    const en = { ...pt, challengeTag: "The challenge", approachTag: "The approach", tags: [project] };
+    let en = { ...pt, challengeTag: "The challenge", approachTag: "The approach", tags: [project] };
+    if (ncAi) {
+      const edited = Object.fromEntries(["challengeHeading", "challengeDetail", "approachHeading", "approachDetail"].map((k) => [k, f[k].value.trim() || ncAi.pt[k]]));
+      Object.assign(pt, ncAi.pt, edited, { heroTitleLine1: name, heroTitleLine2: project, cardDesc: desc, challengeTag: "O desafio", approachTag: "A abordagem" });
+      en = { ...ncAi.en, heroTitleLine1: name, challengeTag: "The challenge", approachTag: "The approach" };
+    }
     const data = { slug, order: 99, showOnHome: false, year, dataService: cats, cardImage: cover, otherCases: [], heroMedia: { type: "image", src: cover }, rowsBeforeApproach: [], rowsAfterApproach: [], en, pt };
     const key = "case:" + slug;
     state.docs[key] = { data, sha: null, original: "" };
