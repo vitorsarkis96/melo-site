@@ -59,276 +59,434 @@ collections:
                   - { label: "Mensagem de erro", name: errorMessage, widget: string }
                   - { label: "Texto alternativo do botão fechar", name: dismissAria, widget: string }
 
-  - name: home
-    label: "Home"
+  - name: conteudo
+    label: "Textos do site"
+    editor: { preview: false }
     files:
-      - name: home
-        label: "Home"
-        file: "src/_data/pages/home.json"
+      - label: "Geral (vídeo, cases em destaque, redes)"
+        name: geral
+        file: "src/_data/conteudo/geral.json"
         fields:
-          - { label: "Imagem de fundo do hero (reserva, usada só se a lista \"Carrossel do banner principal\" abaixo estiver vazia)", name: heroImage, widget: image, media_folder: "/assets/img", public_folder: "/assets/img" }
-          - label: "Carrossel do banner principal (topo da Home)"
-            name: heroCarousel
-            widget: object
-            hint: "Tudo relacionado ao banner grande do topo da Home fica aqui: quais cases aparecem, em que ordem e o tempo entre eles."
-            fields:
-              - { label: "Tempo entre slides (segundos)", name: autoplaySeconds, widget: number, value_type: int, min: 2, max: 30, default: 6 }
-              - label: "Cases no carrossel"
-                name: slides
-                widget: list
-                collapsed: false
-                summary: "{{fields.case}}"
-                hint: "Adicione os cases que devem aparecer no banner, na ordem desejada. Arraste os itens pelo ícone à esquerda pra reordenar."
-                fields:
-                  - { label: "Case", name: case, widget: relation, collection: cases, search_fields: [slug], value_field: "slug", display_fields: [slug], hint: "Escolha um case já cadastrado na aba Cases." }
-                  - label: "Zoom da imagem"
-                    name: zoom
-                    widget: select
-                    default: 100
-                    options:
-                      - { label: "Padrão (sem zoom)", value: 100 }
-                      - { label: "Aproximar um pouco", value: 125 }
-                      - { label: "Aproximar bastante", value: 150 }
-                    hint: "Use quando a foto do case tiver muito espaço vazio ao redor do assunto principal."
-                  - label: "Parte da imagem em destaque"
-                    name: focus
-                    widget: select
-                    default: center
-                    options:
-                      - { label: "Centro (padrão)", value: center }
-                      - { label: "Topo", value: top }
-                      - { label: "Base", value: bottom }
-                    hint: "Qual parte da imagem fica visível ao aplicar o zoom acima. Só tem efeito no desktop — no celular o banner já é bem mais estreito e a foto se ajusta sozinha."
-          - { label: "Imagem da seção de fotografia", name: photoHeroImage, widget: image, media_folder: "/assets/img", public_folder: "/assets/img" }
-          - { label: "URL embed do showreel", name: showreelUrl, widget: string, hint: "Cole a URL embed do YouTube, não a URL curta youtu.be." }
+          - { label: "ID do showreel no YouTube", name: reel, widget: string, hint: "Só o código depois de watch?v= . Ex: 5Geme6sM6HU" }
+          - { label: "Cases no banner (slugs, em ordem)", name: heroCases, widget: list, hint: "Slug do case, ex: mev, skintec" }
+          - { label: "Cases na home (slugs, em ordem)", name: homeCases, widget: list, hint: "Slug do case, ex: mev, syn" }
           - label: "Logos de clientes"
-            name: clientLogos
+            name: clients
             widget: list
-            collapsed: false
-            summary: "{{altEn}}"
+            collapsed: true
+            summary: "{{fields.name}}"
+            hint: "O arquivo fica em /assets/img/clients/NOME.png"
             fields:
-              - { label: "Classe CSS (avançado, não altere)", name: class, widget: string }
-              - { label: "Imagem do logo", name: src, widget: image, media_folder: "/assets/img", public_folder: "/assets/img" }
-              - { label: "Texto alternativo (Inglês)", name: altEn, widget: string }
-              - { label: "Texto alternativo (Português)", name: altPt, widget: string }
-          - label: "Conteúdo em Inglês"
-            name: en
+              - { label: "Arquivo (sem .png)", name: file, widget: string }
+              - { label: "Nome do cliente", name: name, widget: string }
+          - label: "Redes e links"
+            name: social
             widget: object
             collapsed: true
             fields:
-              - { label: "Título SEO", name: metaTitle, widget: string }
-              - { label: "Descrição SEO", name: metaDescription, widget: text }
-              - { label: "Imagem de compartilhamento (redes sociais)", name: ogImage, widget: image, media_folder: "/assets/img", public_folder: "/assets/img" }
-              - { label: "Descrição para dados estruturados (SEO, avançado)", name: structuredDataDescription, widget: text }
-              - { label: "Texto alternativo da imagem do hero", name: heroAlt, widget: string }
-              - { label: "Título principal (headline)", name: heroHeadline, widget: text }
-              - { label: "Rótulo \"Empresas que confiam na Melo\" (topo)", name: clientsTopLabel, widget: string }
-              - { label: "Tag \"Como atuamos\"", name: atuamosTag, widget: string }
-              - { label: "Texto de introdução", name: introStatement, widget: text }
-              - { label: "Texto alternativo da foto", name: photoHeroAlt, widget: string }
-              - { label: "Título da seção de fotografia", name: photoHeroTitle, widget: string }
-              - { label: "Descrição da seção de fotografia", name: photoHeroDesc, widget: string }
-              - { label: "Tag do showreel", name: showreelTag, widget: string }
-              - { label: "Título do showreel", name: showreelTitle, widget: string }
-              - { label: "Descrição do showreel", name: showreelDesc, widget: text }
-              - { label: "Tag \"O que fazemos\"", name: whatWeDoTag, widget: string }
-              - label: "Serviços"
-                name: services
-                widget: list
-                fields:
-                  - { label: "Título", name: title, widget: string }
-                  - { label: "Descrição", name: desc, widget: text }
-              - { label: "Tag \"Nossos números\"", name: numbersTag, widget: string }
-              - { label: "Valor do número grande", name: bigNumberValue, widget: string, hint: "ex: 3000" }
-              - { label: "Formato do número grande", name: bigNumberFormat, widget: select, options: ["", thousand], required: false, hint: "'thousand' mostra 3.000 em vez de 3000" }
-              - { label: "Rótulo do número grande", name: bigNumberLabel, widget: string }
-              - { label: "Descrição dos números", name: numbersDesc, widget: text }
-              - label: "Estatísticas pequenas (3)"
-                name: stats
-                widget: list
-                fields:
-                  - { label: "Valor", name: value, widget: string }
-                  - { label: "Sufixo (ex: ' years' ou '%')", name: suffix, widget: string, required: false }
-                  - { label: "Classe do sufixo (avançado — use 'pct' só para %)", name: suffixClass, widget: string, required: false }
-                  - { label: "Mostrar prefixo '+'", name: showPlus, widget: boolean, default: true, required: false }
-                  - { label: "Rótulo", name: label, widget: string }
-                  - { label: "Descrição", name: desc, widget: text }
-                  - { label: "Destacar em laranja", name: orange, widget: boolean, default: false, required: false }
-              - { label: "Título da seção de portfólio", name: portfolioIntroTitle, widget: string }
-              - { label: "Título \"Conheça a Melo\"", name: aboutMeloHeading, widget: string }
-              - { label: "Texto do botão \"Mais sobre nós\"", name: aboutMeloMoreLabel, widget: string }
-              - { label: "Texto do botão \"Nossa apresentação\"", name: aboutMeloDeckLabel, widget: string }
-              - { label: "Sobre a Melo — parágrafo 1", name: aboutMeloText1, widget: text }
-              - { label: "Sobre a Melo — parágrafo 2", name: aboutMeloText2, widget: text }
-              - { label: "Título da seção de entregas", name: deliverHeading, widget: string }
-              - label: "Etapas de entrega (6)"
-                name: deliverSteps
-                widget: list
-                fields:
-                  - { label: "Título", name: title, widget: string }
-                  - { label: "Descrição", name: desc, widget: text }
-              - { label: "Tag da seção de FAQ", name: faqTag, widget: string }
-              - { label: "Título da seção de FAQ", name: faqHeading, widget: string }
-              - label: "Perguntas frequentes"
-                name: faq
-                widget: list
-                summary: "{{q}}"
-                fields:
-                  - { label: "Pergunta", name: q, widget: string }
-                  - { label: "Resposta", name: a, widget: text }
-              - { label: "Rótulo \"Empresas que confiam na Melo\" (rodapé)", name: clientsBottomLabel, widget: string }
-          - label: "Conteúdo em Português"
-            name: pt
+              - { label: "WhatsApp", name: whatsapp, widget: string }
+              - { label: "Linktree", name: linktree, widget: string }
+              - { label: "Facebook", name: facebook, widget: string }
+              - { label: "Upwork", name: upwork, widget: string }
+              - { label: "Google Maps (avaliações)", name: maps, widget: string }
+          - label: "Imagem de cada serviço"
+            name: serviceImages
             widget: object
             collapsed: true
             fields:
-              - { label: "Título SEO", name: metaTitle, widget: string }
-              - { label: "Descrição SEO", name: metaDescription, widget: text }
-              - { label: "Imagem de compartilhamento (redes sociais)", name: ogImage, widget: image, media_folder: "/assets/img", public_folder: "/assets/img" }
-              - { label: "Descrição para dados estruturados (SEO, avançado)", name: structuredDataDescription, widget: text }
-              - { label: "Texto alternativo da imagem do hero", name: heroAlt, widget: string }
-              - { label: "Título principal (headline)", name: heroHeadline, widget: text }
-              - { label: "Rótulo \"Empresas que confiaram na Melo\" (topo)", name: clientsTopLabel, widget: string }
-              - { label: "Tag \"Como atuamos\"", name: atuamosTag, widget: string }
-              - { label: "Texto de introdução", name: introStatement, widget: text }
-              - { label: "Texto alternativo da foto", name: photoHeroAlt, widget: string }
-              - { label: "Título da seção de fotografia", name: photoHeroTitle, widget: string }
-              - { label: "Descrição da seção de fotografia", name: photoHeroDesc, widget: string }
-              - { label: "Tag do showreel", name: showreelTag, widget: string }
-              - { label: "Título do showreel", name: showreelTitle, widget: string }
-              - { label: "Descrição do showreel", name: showreelDesc, widget: text }
-              - { label: "Tag \"Onde atuamos\"", name: whatWeDoTag, widget: string }
-              - label: "Serviços"
-                name: services
-                widget: list
+              - label: "Estratégia"
+                name: estrategia
+                widget: object
+                collapsed: true
                 fields:
-                  - { label: "Título", name: title, widget: string }
-                  - { label: "Descrição", name: desc, widget: text }
-              - { label: "Tag \"Nossos números\"", name: numbersTag, widget: string }
-              - { label: "Valor do número grande", name: bigNumberValue, widget: string }
-              - { label: "Formato do número grande", name: bigNumberFormat, widget: select, options: ["", thousand], required: false }
-              - { label: "Rótulo do número grande", name: bigNumberLabel, widget: string }
-              - { label: "Descrição dos números", name: numbersDesc, widget: text }
-              - label: "Estatísticas pequenas (3)"
-                name: stats
-                widget: list
+                  - { label: "Imagem", name: img, widget: image }
+                  - { label: "Enquadramento (opcional)", name: pos, widget: string, required: false, hint: "Ex: center, right top" }
+                  - { label: "Slug do case relacionado", name: slug, widget: string }
+                  - { label: "Nome do case", name: name, widget: string }
+              - label: "Marca"
+                name: marca
+                widget: object
+                collapsed: true
                 fields:
-                  - { label: "Valor", name: value, widget: string }
-                  - { label: "Sufixo", name: suffix, widget: string, required: false }
-                  - { label: "Classe do sufixo (avançado)", name: suffixClass, widget: string, required: false }
-                  - { label: "Mostrar prefixo '+'", name: showPlus, widget: boolean, default: true, required: false }
-                  - { label: "Rótulo", name: label, widget: string }
-                  - { label: "Descrição", name: desc, widget: text }
-                  - { label: "Destacar em laranja", name: orange, widget: boolean, default: false, required: false }
-              - { label: "Título da seção de portfólio", name: portfolioIntroTitle, widget: string }
-              - { label: "Título \"Conheça a Melo\"", name: aboutMeloHeading, widget: string }
-              - { label: "Texto do botão \"Mais sobre nós\"", name: aboutMeloMoreLabel, widget: string }
-              - { label: "Texto do botão \"Nossa apresentação\"", name: aboutMeloDeckLabel, widget: string }
-              - { label: "Sobre a Melo — parágrafo 1", name: aboutMeloText1, widget: text }
-              - { label: "Sobre a Melo — parágrafo 2", name: aboutMeloText2, widget: text }
-              - { label: "Título da seção de entregas", name: deliverHeading, widget: string }
-              - label: "Etapas de entrega (6)"
-                name: deliverSteps
-                widget: list
+                  - { label: "Imagem", name: img, widget: image }
+                  - { label: "Enquadramento (opcional)", name: pos, widget: string, required: false, hint: "Ex: center, right top" }
+                  - { label: "Slug do case relacionado", name: slug, widget: string }
+                  - { label: "Nome do case", name: name, widget: string }
+              - label: "Cultura"
+                name: cultura
+                widget: object
+                collapsed: true
                 fields:
-                  - { label: "Título", name: title, widget: string }
-                  - { label: "Descrição", name: desc, widget: text }
-              - { label: "Tag da seção de FAQ", name: faqTag, widget: string }
-              - { label: "Título da seção de FAQ", name: faqHeading, widget: string }
-              - label: "Perguntas frequentes"
-                name: faq
-                widget: list
-                summary: "{{q}}"
+                  - { label: "Imagem", name: img, widget: image }
+                  - { label: "Enquadramento (opcional)", name: pos, widget: string, required: false, hint: "Ex: center, right top" }
+                  - { label: "Slug do case relacionado", name: slug, widget: string }
+                  - { label: "Nome do case", name: name, widget: string }
+              - label: "Institucional"
+                name: institucional
+                widget: object
+                collapsed: true
                 fields:
-                  - { label: "Pergunta", name: q, widget: string }
-                  - { label: "Resposta", name: a, widget: text }
-              - { label: "Rótulo \"Empresas que confiaram na Melo\" (rodapé)", name: clientsBottomLabel, widget: string }
-
-  - name: cases_page
-    label: "Página de Cases"
-    files:
-      - name: cases_page
-        label: "Cases (página de listagem)"
-        file: "src/_data/pages/cases.json"
+                  - { label: "Imagem", name: img, widget: image }
+                  - { label: "Enquadramento (opcional)", name: pos, widget: string, required: false, hint: "Ex: center, right top" }
+                  - { label: "Slug do case relacionado", name: slug, widget: string }
+                  - { label: "Nome do case", name: name, widget: string }
+              - label: "Digital"
+                name: digital
+                widget: object
+                collapsed: true
+                fields:
+                  - { label: "Imagem", name: img, widget: image }
+                  - { label: "Enquadramento (opcional)", name: pos, widget: string, required: false, hint: "Ex: center, right top" }
+                  - { label: "Slug do case relacionado", name: slug, widget: string }
+                  - { label: "Nome do case", name: name, widget: string }
+              - label: "Audiovisual"
+                name: audiovisual
+                widget: object
+                collapsed: true
+                fields:
+                  - { label: "Imagem", name: img, widget: image }
+                  - { label: "Enquadramento (opcional)", name: pos, widget: string, required: false, hint: "Ex: center, right top" }
+                  - { label: "Slug do case relacionado", name: slug, widget: string }
+                  - { label: "Nome do case", name: name, widget: string }
+      - label: "Português"
+        name: pt
+        file: "src/_data/conteudo/pt.json"
         fields:
-          - { label: "Imagem de compartilhamento (redes sociais)", name: ogImage, widget: image, media_folder: "/assets/img", public_folder: "/assets/img" }
-          - label: "Conteúdo em Inglês"
-            name: en
+          - { label: "Título da aba do navegador (SEO)", name: metaTitle, widget: string }
+          - { label: "Descrição para o Google (SEO)", name: metaDescription, widget: text }
+          - label: "Menu"
+            name: nav
             widget: object
             collapsed: true
             fields:
-              - { label: "Título SEO", name: metaTitle, widget: string }
-              - { label: "Descrição SEO", name: metaDescription, widget: text }
-              - { label: "Título da página", name: heroTitle, widget: string }
-              - { label: "Filtro: Todos", name: filterAll, widget: string }
-              - { label: "Filtro: Estratégia", name: filterEstrategia, widget: string }
-              - { label: "Filtro: Marca", name: filterMarca, widget: string }
-              - { label: "Filtro: Sites & Sistemas", name: filterSites, widget: string }
-              - { label: "Filtro: Audiovisual", name: filterAudiovisual, widget: string }
-              - { label: "Mensagem de lista vazia", name: emptyState, widget: text }
-          - label: "Conteúdo em Português"
-            name: pt
+              - { label: "Serviços", name: services, widget: string }
+              - { label: "Cases", name: cases, widget: string }
+              - { label: "FAQ", name: faq, widget: string }
+              - { label: "Botão de contato", name: cta, widget: string }
+              - { label: "Showreel", name: reel, widget: string }
+          - label: "Banner (hero)"
+            name: hero
             widget: object
             collapsed: true
             fields:
-              - { label: "Título SEO", name: metaTitle, widget: string }
-              - { label: "Descrição SEO", name: metaDescription, widget: text }
-              - { label: "Título da página", name: heroTitle, widget: string }
-              - { label: "Filtro: Todos", name: filterAll, widget: string }
-              - { label: "Filtro: Estratégia", name: filterEstrategia, widget: string }
-              - { label: "Filtro: Marca", name: filterMarca, widget: string }
-              - { label: "Filtro: Sites & Sistemas", name: filterSites, widget: string }
-              - { label: "Filtro: Audiovisual", name: filterAudiovisual, widget: string }
-              - { label: "Mensagem de lista vazia", name: emptyState, widget: text }
-
-  - name: contact_page
-    label: "Página de Contato"
-    files:
-      - name: contact_page
-        label: "Contato"
-        file: "src/_data/pages/contact.json"
+              - { label: "Título, linha 1", name: l1, widget: string }
+              - { label: "Título, linha 2", name: l2, widget: string }
+              - { label: "Botão de cases", name: cases, widget: string }
+          - label: "Dados no banner"
+            name: meta
+            widget: list
+            collapsed: true
+            summary: "{{fields.label}}: {{fields.value}}"
+            fields:
+              - { label: "Rótulo", name: label, widget: string }
+              - { label: "Valor", name: value, widget: string }
+          - label: "Showreel"
+            name: reelSec
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Título", name: title, widget: string }
+              - { label: "Texto", name: lead, widget: text }
+              - { label: "Botão", name: cta, widget: string }
+              - { label: "Legenda do vídeo", name: label, widget: string }
+              - { label: "Texto 'Assistir'", name: watch, widget: string }
+          - label: "Serviços: cabeçalho"
+            name: servicesSec
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Título", name: title, widget: string }
+              - { label: "Texto", name: lead, widget: text }
+              - { label: "Texto 'Case relacionado'", name: related, widget: string }
+              - { label: "Botão", name: talk, widget: string }
+          - label: "Serviços (abas)"
+            name: services
+            widget: list
+            collapsed: true
+            summary: "{{fields.t}}"
+            fields:
+              - { label: "Código interno (não altere)", name: key, widget: string, hint: "Liga o serviço à imagem e ao filtro. Ex: estrategia" }
+              - { label: "Nome da aba", name: tab, widget: string }
+              - { label: "Título", name: t, widget: string }
+              - { label: "Subtítulo", name: s, widget: string }
+              - { label: "Descrição", name: d, widget: text }
+              - { label: "Entregas", name: l, widget: list, field: { label: "Entrega", name: item, widget: string } }
+          - label: "Cases na home: cabeçalho"
+            name: casesSec
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Título", name: title, widget: string }
+              - { label: "Botão 'Todos os cases'", name: all, widget: string }
+          - label: "Seção de números e avaliações"
+            name: numbersSec
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Título", name: title, widget: string }
+              - { label: "Texto", name: lead, widget: text }
+          - label: "Avaliações (aparecem também na versão em inglês)"
+            name: reviews
+            widget: list
+            collapsed: true
+            summary: "{{fields.name}} · {{fields.company}}"
+            fields:
+              - { label: "Nome", name: name, widget: string }
+              - { label: "Empresa", name: company, widget: string }
+              - { label: "Depoimento", name: text, widget: text }
+          - label: "FAQ: cabeçalho"
+            name: faqSec
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Título", name: title, widget: string }
+              - { label: "Texto antes do e-mail", name: lead, widget: string }
+          - label: "FAQ: perguntas"
+            name: faq
+            widget: list
+            collapsed: true
+            summary: "{{fields.q}}"
+            fields:
+              - { label: "Pergunta", name: q, widget: string }
+              - { label: "Resposta", name: a, widget: text }
+          - label: "Contato e formulário"
+            name: contactSec
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Título", name: title, widget: string }
+              - { label: "Texto", name: lead, widget: text }
+              - { label: "Rótulo do nome", name: name, widget: string }
+              - { label: "Exemplo no campo nome", name: namePh, widget: string }
+              - { label: "Rótulo do contato", name: contact, widget: string }
+              - { label: "Exemplo no campo contato", name: contactPh, widget: string }
+              - { label: "Rótulo do projeto", name: project, widget: string }
+              - { label: "Exemplo no campo projeto", name: projectPh, widget: string }
+              - { label: "Nota ao lado do botão", name: note, widget: string }
+              - { label: "Botão enviar", name: send, widget: string }
+              - { label: "Mensagem: enviando", name: sending, widget: string }
+              - { label: "Mensagem: enviado", name: ok, widget: string }
+              - { label: "Mensagem: erro", name: err, widget: string }
+              - { label: "Erro: falta nome", name: errName, widget: string }
+              - { label: "Erro: contato inválido", name: errContact, widget: string }
+              - label: "Informações de contato"
+                name: info
+                widget: list
+                collapsed: true
+                summary: "{{fields.label}}"
+                fields:
+                  - { label: "Rótulo", name: label, widget: string }
+                  - { label: "Texto", name: value, widget: string }
+                  - { label: "Link (opcional)", name: link, widget: string, required: false }
+          - label: "Página de cases"
+            name: casesPage
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Título", name: title, widget: string }
+              - { label: "Texto", name: lead, widget: text }
+              - { label: "Texto quando o filtro não tem cases", name: empty, widget: string }
+              - { label: "Título do bloco final", name: ctaTitle, widget: string }
+              - label: "Filtros"
+                name: filters
+                widget: list
+                collapsed: true
+                summary: "{{fields.label}}"
+                fields:
+                  - { label: "Código (não altere)", name: key, widget: string }
+                  - { label: "Nome", name: label, widget: string }
+          - label: "Página de case (rótulos)"
+            name: casePage
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "O desafio", name: challenge, widget: string }
+              - { label: "A abordagem", name: approach, widget: string }
+              - { label: "Cliente", name: client, widget: string }
+              - { label: "Projeto", name: project, widget: string }
+              - { label: "Frentes", name: fronts, widget: string }
+              - { label: "Ano", name: year, widget: string }
+              - { label: "Próximo case", name: next, widget: string }
+              - { label: "Título do bloco final", name: ctaTitle, widget: string }
+              - { label: "Todos os cases", name: allCases, widget: string }
+          - label: "Página de contato"
+            name: contactPage
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Título", name: title, widget: string }
+              - { label: "Texto", name: lead, widget: text }
+          - label: "Rodapé"
+            name: footer
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Texto sobre a Melo", name: about, widget: text }
+      - label: "Inglês"
+        name: en
+        file: "src/_data/conteudo/en.json"
         fields:
-          - { label: "Imagem de compartilhamento (redes sociais)", name: ogImage, widget: image, media_folder: "/assets/img", public_folder: "/assets/img" }
-          - label: "Conteúdo em Inglês"
-            name: en
+          - { label: "Título da aba do navegador (SEO)", name: metaTitle, widget: string }
+          - { label: "Descrição para o Google (SEO)", name: metaDescription, widget: text }
+          - label: "Menu"
+            name: nav
             widget: object
             collapsed: true
             fields:
-              - { label: "Título SEO", name: metaTitle, widget: string }
-              - { label: "Descrição SEO", name: metaDescription, widget: text }
-              - { label: "Título da página", name: heroTitle, widget: string }
-              - { label: "Descrição da página", name: heroDesc, widget: text }
-              - { label: "Rótulo do campo Nome", name: labelName, widget: string }
-              - { label: "Rótulo do campo E-mail", name: labelEmail, widget: string }
-              - { label: "Rótulo do campo Telefone", name: labelPhone, widget: string }
-              - { label: "Rótulo do campo Mensagem", name: labelMessage, widget: string }
-              - { label: "Texto do botão de envio", name: submitLabel, widget: string }
-              - { label: "Título de sucesso (não usado visualmente, reservado)", name: successTitle, widget: string, required: false }
-              - { label: "Mensagem de sucesso", name: successMessage, widget: text }
-              - { label: "Mensagem de erro", name: errorMessage, widget: text }
-              - { label: "Título do bloco de WhatsApp", name: whatsappTitle, widget: string }
-              - { label: "Descrição do bloco de WhatsApp", name: whatsappDesc, widget: text }
-              - { label: "Texto do botão do WhatsApp", name: whatsappCta, widget: string }
-          - label: "Conteúdo em Português"
-            name: pt
+              - { label: "Serviços", name: services, widget: string }
+              - { label: "Cases", name: cases, widget: string }
+              - { label: "FAQ", name: faq, widget: string }
+              - { label: "Botão de contato", name: cta, widget: string }
+              - { label: "Showreel", name: reel, widget: string }
+          - label: "Banner (hero)"
+            name: hero
             widget: object
             collapsed: true
             fields:
-              - { label: "Título SEO", name: metaTitle, widget: string }
-              - { label: "Descrição SEO", name: metaDescription, widget: text }
-              - { label: "Título da página", name: heroTitle, widget: string }
-              - { label: "Descrição da página", name: heroDesc, widget: text }
-              - { label: "Rótulo do campo Nome", name: labelName, widget: string }
-              - { label: "Rótulo do campo E-mail", name: labelEmail, widget: string }
-              - { label: "Rótulo do campo Telefone", name: labelPhone, widget: string }
-              - { label: "Rótulo do campo Mensagem", name: labelMessage, widget: string }
-              - { label: "Texto do botão de envio", name: submitLabel, widget: string }
-              - { label: "Título de sucesso (não usado visualmente, reservado)", name: successTitle, widget: string, required: false }
-              - { label: "Mensagem de sucesso", name: successMessage, widget: text }
-              - { label: "Mensagem de erro", name: errorMessage, widget: text }
-              - { label: "Título do bloco de WhatsApp", name: whatsappTitle, widget: string }
-              - { label: "Descrição do bloco de WhatsApp", name: whatsappDesc, widget: text }
-              - { label: "Texto do botão do WhatsApp", name: whatsappCta, widget: string }
+              - { label: "Título, linha 1", name: l1, widget: string }
+              - { label: "Título, linha 2", name: l2, widget: string }
+              - { label: "Botão de cases", name: cases, widget: string }
+          - label: "Dados no banner"
+            name: meta
+            widget: list
+            collapsed: true
+            summary: "{{fields.label}}: {{fields.value}}"
+            fields:
+              - { label: "Rótulo", name: label, widget: string }
+              - { label: "Valor", name: value, widget: string }
+          - label: "Showreel"
+            name: reelSec
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Título", name: title, widget: string }
+              - { label: "Texto", name: lead, widget: text }
+              - { label: "Botão", name: cta, widget: string }
+              - { label: "Legenda do vídeo", name: label, widget: string }
+              - { label: "Texto 'Assistir'", name: watch, widget: string }
+          - label: "Serviços: cabeçalho"
+            name: servicesSec
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Título", name: title, widget: string }
+              - { label: "Texto", name: lead, widget: text }
+              - { label: "Texto 'Case relacionado'", name: related, widget: string }
+              - { label: "Botão", name: talk, widget: string }
+          - label: "Serviços (abas)"
+            name: services
+            widget: list
+            collapsed: true
+            summary: "{{fields.t}}"
+            fields:
+              - { label: "Código interno (não altere)", name: key, widget: string, hint: "Liga o serviço à imagem e ao filtro. Ex: estrategia" }
+              - { label: "Nome da aba", name: tab, widget: string }
+              - { label: "Título", name: t, widget: string }
+              - { label: "Subtítulo", name: s, widget: string }
+              - { label: "Descrição", name: d, widget: text }
+              - { label: "Entregas", name: l, widget: list, field: { label: "Entrega", name: item, widget: string } }
+          - label: "Cases na home: cabeçalho"
+            name: casesSec
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Título", name: title, widget: string }
+              - { label: "Botão 'Todos os cases'", name: all, widget: string }
+          - label: "Seção de números e avaliações"
+            name: numbersSec
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Título", name: title, widget: string }
+              - { label: "Texto", name: lead, widget: text }
+          - label: "FAQ: cabeçalho"
+            name: faqSec
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Título", name: title, widget: string }
+              - { label: "Texto antes do e-mail", name: lead, widget: string }
+          - label: "FAQ: perguntas"
+            name: faq
+            widget: list
+            collapsed: true
+            summary: "{{fields.q}}"
+            fields:
+              - { label: "Pergunta", name: q, widget: string }
+              - { label: "Resposta", name: a, widget: text }
+          - label: "Contato e formulário"
+            name: contactSec
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Título", name: title, widget: string }
+              - { label: "Texto", name: lead, widget: text }
+              - { label: "Rótulo do nome", name: name, widget: string }
+              - { label: "Exemplo no campo nome", name: namePh, widget: string }
+              - { label: "Rótulo do contato", name: contact, widget: string }
+              - { label: "Exemplo no campo contato", name: contactPh, widget: string }
+              - { label: "Rótulo do projeto", name: project, widget: string }
+              - { label: "Exemplo no campo projeto", name: projectPh, widget: string }
+              - { label: "Nota ao lado do botão", name: note, widget: string }
+              - { label: "Botão enviar", name: send, widget: string }
+              - { label: "Mensagem: enviando", name: sending, widget: string }
+              - { label: "Mensagem: enviado", name: ok, widget: string }
+              - { label: "Mensagem: erro", name: err, widget: string }
+              - { label: "Erro: falta nome", name: errName, widget: string }
+              - { label: "Erro: contato inválido", name: errContact, widget: string }
+              - label: "Informações de contato"
+                name: info
+                widget: list
+                collapsed: true
+                summary: "{{fields.label}}"
+                fields:
+                  - { label: "Rótulo", name: label, widget: string }
+                  - { label: "Texto", name: value, widget: string }
+                  - { label: "Link (opcional)", name: link, widget: string, required: false }
+          - label: "Página de cases"
+            name: casesPage
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Título", name: title, widget: string }
+              - { label: "Texto", name: lead, widget: text }
+              - { label: "Texto quando o filtro não tem cases", name: empty, widget: string }
+              - { label: "Título do bloco final", name: ctaTitle, widget: string }
+              - label: "Filtros"
+                name: filters
+                widget: list
+                collapsed: true
+                summary: "{{fields.label}}"
+                fields:
+                  - { label: "Código (não altere)", name: key, widget: string }
+                  - { label: "Nome", name: label, widget: string }
+          - label: "Página de case (rótulos)"
+            name: casePage
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "O desafio", name: challenge, widget: string }
+              - { label: "A abordagem", name: approach, widget: string }
+              - { label: "Cliente", name: client, widget: string }
+              - { label: "Projeto", name: project, widget: string }
+              - { label: "Frentes", name: fronts, widget: string }
+              - { label: "Ano", name: year, widget: string }
+              - { label: "Próximo case", name: next, widget: string }
+              - { label: "Título do bloco final", name: ctaTitle, widget: string }
+              - { label: "Todos os cases", name: allCases, widget: string }
+          - label: "Página de contato"
+            name: contactPage
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Título", name: title, widget: string }
+              - { label: "Texto", name: lead, widget: text }
+          - label: "Rodapé"
+            name: footer
+            widget: object
+            collapsed: true
+            fields:
+              - { label: "Texto sobre a Melo", name: about, widget: text }
 
   - name: cases
     label: "Cases"

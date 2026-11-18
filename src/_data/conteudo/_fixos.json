@@ -1,0 +1,103 @@
+{
+  "geral": {},
+  "pt": {
+    "nav": {
+      "method": "Método",
+      "open": "Abrir menu",
+      "close": "Fechar",
+      "english": "English version",
+      "langOther": "EN",
+      "langCur": "PT"
+    },
+    "reelSec": {
+      "kicker": "O que resolvemos",
+      "aria": "Assistir ao showreel da Melo"
+    },
+    "servicesSec": {
+      "kicker": "Serviços"
+    },
+    "casesSec": {
+      "kicker": "Cases"
+    },
+    "numbersSec": {
+      "kicker": "Em números"
+    },
+    "reviewsSec": {
+      "count": "24 avaliações no Google",
+      "all": "Ver todas no Google →",
+      "prev": "Avaliação anterior",
+      "next": "Próxima avaliação",
+      "stars": "5 de 5 estrelas"
+    },
+    "faqSec": {
+      "kicker": "Perguntas frequentes"
+    },
+    "contactSec": {
+      "kicker": "Contato",
+      "sheet": "Fale conosco",
+      "time": "Leva 30 segundos"
+    },
+    "footer": {
+      "services": "Serviços",
+      "melo": "Melo",
+      "contact": "Contato",
+      "contactPage": "Contato",
+      "terms": "Termos",
+      "privacy": "Privacidade",
+      "cookies": "Cookies"
+    },
+    "casesPage": {
+      "kicker": "Cases"
+    }
+  },
+  "en": {
+    "nav": {
+      "method": "Method",
+      "open": "Open menu",
+      "close": "Close",
+      "english": "Versão em português",
+      "langOther": "PT",
+      "langCur": "EN"
+    },
+    "reelSec": {
+      "kicker": "What we solve",
+      "aria": "Watch Melo's showreel"
+    },
+    "servicesSec": {
+      "kicker": "Services"
+    },
+    "casesSec": {
+      "kicker": "Cases"
+    },
+    "numbersSec": {
+      "kicker": "In numbers"
+    },
+    "reviewsSec": {
+      "count": "24 reviews on Google",
+      "all": "See all on Google →",
+      "prev": "Previous review",
+      "next": "Next review",
+      "stars": "5 out of 5 stars"
+    },
+    "faqSec": {
+      "kicker": "FAQ"
+    },
+    "contactSec": {
+      "kicker": "Contact",
+      "sheet": "Contact us",
+      "time": "Takes 30 seconds"
+    },
+    "footer": {
+      "services": "Services",
+      "melo": "Melo",
+      "contact": "Contact",
+      "contactPage": "Contact",
+      "terms": "Terms",
+      "privacy": "Privacy",
+      "cookies": "Cookies"
+    },
+    "casesPage": {
+      "kicker": "Cases"
+    }
+  }
+}
