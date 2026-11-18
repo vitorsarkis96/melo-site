@@ -128,3 +128,7 @@ svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.5}
 .lm-row button:hover{border-color:var(--ink)}
 .pp .b{height:34px}
 .pp-2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ai{display:grid;gap:10px;padding:14px;background:var(--g50);border:1px solid var(--line)}
+.ai textarea{background:#fff}
+#ncAiOut{display:grid;gap:10px}
+#ncAi:disabled{opacity:.6}

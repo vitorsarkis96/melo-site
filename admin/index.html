@@ -156,6 +156,18 @@
       <label><span class="fl">Ano</span><input name="year" placeholder="2026" /></label>
       <label><span class="fl">Endereço da página</span><input name="slug" placeholder="gerado pelo nome" /><span class="small" id="ncUrl"></span></label>
     </div>
+    <div class="ai">
+      <label><span class="fl">Contexto do projeto (para a IA escrever os textos)</span><textarea name="context" rows="5" placeholder="Conte com suas palavras: quem é o cliente, qual era o problema, o que a Melo fez, entregas, resultados e números reais. Pode colar o briefing ou anotações."></textarea></label>
+      <button type="button" class="b b-dark b-block" id="ncAi">✦ Gerar textos com IA</button>
+      <p class="small" id="ncAiNote">A IA (Gemini) escreve desafio, abordagem, descrição, tags e SEO em português e inglês. Você revisa antes de criar.</p>
+      <div id="ncAiOut" hidden>
+        <label><span class="fl">O desafio (título)</span><textarea name="challengeHeading" rows="2"></textarea></label>
+        <label><span class="fl">O desafio (texto)</span><textarea name="challengeDetail" rows="3"></textarea></label>
+        <label><span class="fl">A abordagem (título)</span><textarea name="approachHeading" rows="2"></textarea></label>
+        <label><span class="fl">A abordagem (texto)</span><textarea name="approachDetail" rows="3"></textarea></label>
+        <p class="small">Também foram gerados tags, textos de SEO e a versão em inglês. Tudo pode ser editado depois na página do case.</p>
+      </div>
+    </div>
     <label><span class="fl">Descrição curta (aparece no card) *</span><textarea name="desc" rows="3" required placeholder="Uma frase sobre o que a Melo fez."></textarea></label>
     <div><span class="fl">Categorias (filtro da página de cases)</span><div class="chips" id="ncCats"></div></div>
     <label class="chk"><input type="checkbox" name="home" /> Mostrar também na home</label>
