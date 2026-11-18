@@ -613,3 +613,4 @@ footer{padding:var(--s-9) 0 var(--s-6)}
 .legal-content ul{padding-left:1.2em}
 .legal-content a{text-decoration:underline;text-underline-offset:3px}
 [hidden]{display:none!important}
+.gal-end{margin-bottom:var(--sec-y)}.gal:last-child{margin-bottom:var(--sec-y)}
