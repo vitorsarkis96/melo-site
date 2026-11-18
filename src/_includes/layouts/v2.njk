@@ -72,7 +72,7 @@
           {% for s in c.services %}<a href="{{ '#servicos' if isHome else home + '#servicos' }}" data-tab="{{ loop.index0 }}"><b>{{ s.t }}</b><span>{{ s.s }}</span></a>{% endfor %}
         </div>
       </li>
-      <li><a href="{{ '#cases' if isHome else (P + '/cases') | replace('//','/') }}"{{ ' class="cur"' | safe if navActive == 'cases' }}>{{ c.nav.cases }}</a></li>
+      <li><a href="{{ (P + '/cases') | replace('//','/') }}"{{ ' class="cur"' | safe if navActive == 'cases' }}>{{ c.nav.cases }}</a></li>
       <li><a href="{{ '#faq' if isHome else home + '#faq' }}">{{ c.nav.faq }}</a></li>
     </ul>
     <div class="nav-r">
