@@ -66,11 +66,11 @@ module.exports = {
     reviewsSec: { count: "24 avaliações no Google", all: "Ver todas no Google →", prev: "Avaliação anterior", next: "Próxima avaliação", stars: "5 de 5 estrelas" },
     reviews: [
       ["Keith Helena dos Santos", "KHS Advocacia & Consultoria", "Melhor equipe de marketing que poderia ter. Conseguiram pegar a essência do escritório e concretizar a nossa marca. Recomendo muito!"],
-      ["Rebeca Fogaça", "Projeto para a Suzano", "Excelente experiência num projeto desenvolvido para a Suzano, com um painel para um dos maiores eventos da área de Planejamento Financeiro (FP&A)! Muito elogiados!!!"],
+      ["Rebeca Fogaça", "Suzano", "Excelente experiência num projeto desenvolvido para a Suzano, com um painel para um dos maiores eventos da área de Planejamento Financeiro (FP&A)! Muito elogiados!!!"],
       ["Martinho de Moraes Netto", "FUNDABOM, Fundação de Apoio ao Corpo de Bombeiros", "Teve participação fundamental no desenvolvimento e impulsionamento dos projetos da Fundação de Apoio ao Corpo de Bombeiros [...]. Sua postura com relação às solicitações sempre foi de Parceria Positiva e Colaborativa."],
-      ["Marília Hildebrand", "Avaliação no Google", "O trabalho da equipe da Melo foi extremamente profissional. Estiveram preocupados em atender nossos prazos e orientações do início ao fim."],
-      ["Eva Furtado", "Avaliação no Google", "Prestam atenção com carinho nas nossas necessidades para entregar soluções audiovisuais de primeira! Também deram uma força com o gerenciamento das nossas redes sociais."],
-      ["Carolina Queiroz", "Avaliação no Google", "Equipe extremamente profissional e comprometida com a entrega. Sempre ágil nas respostas e atenta aos detalhes, recomendo!"],
+      ["Marília Hildebrand", "Polo Planejamento", "O trabalho da equipe da Melo foi extremamente profissional. Estiveram preocupados em atender nossos prazos e orientações do início ao fim."],
+      ["Eva Furtado", "Data Machina", "Prestam atenção com carinho nas nossas necessidades para entregar soluções audiovisuais de primeira! Também deram uma força com o gerenciamento das nossas redes sociais."],
+      ["Carolina Queiroz", "SYN", "Equipe extremamente profissional e comprometida com a entrega. Sempre ágil nas respostas e atenta aos detalhes, recomendo!"],
     ],
     faqSec: { kicker: "Perguntas frequentes", title: "Antes da primeira conversa", lead: "Não achou o que procura? Escreva para" },
     faq: [
