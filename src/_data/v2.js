@@ -46,7 +46,7 @@ module.exports = {
       { key: "digital", tab: "Digital", t: "Sites e sistemas", s: "Onde a marca opera no digital.", d: "Sites institucionais, landing pages e plataformas sob medida, construídos para gerar conversa e para o seu time conseguir manter.", l: ["Sites institucionais", "Landing pages", "Integrações HubSpot", "Plataformas sob medida", "SEO", "Manutenção"] },
       { key: "audiovisual", tab: "Audiovisual", t: "Audiovisual", s: "O que o mercado assiste.", d: "Produção de ponta a ponta, da captação à pós, sob a mesma direção que desenhou a marca. Para explicar o que é complexo em poucos minutos.", l: ["Vídeos institucionais", "Captação e fotografia", "Direção de arte", "Motion design", "Edição e pós", "Conteúdo recorrente"] },
     ],
-    casesSec: { kicker: "Cases", title: "Marcas que hoje comunicam o tamanho real do que entregam", all: "Todos os cases" },
+    casesSec: { kicker: "Cases", title: "Marcas que traduziram autoridade técnica em marca", all: "Todos os cases" },
     methodSec: { kicker: "Método", title: "Direção antes da criação", lead: "Seis etapas em ciclo. O projeto não termina na entrega: termina quando o resultado bate a meta que definimos juntos.", head: ["Etapa", "", "O que acontece", "Saída"], cycle: "Ao fim da etapa 06, o ciclo volta para o mapeamento." },
     method: [
       ["Mapeamento da dor", "Entendemos o problema de negócio antes de abrir qualquer arquivo.", "Diagnóstico"],
@@ -103,7 +103,7 @@ module.exports = {
       { key: "digital", tab: "Digital", t: "Websites and systems", s: "Where the brand operates online.", d: "Corporate websites, landing pages and custom platforms built to start conversations and easy for your team to maintain.", l: ["Corporate websites", "Landing pages", "HubSpot integrations", "Custom platforms", "SEO", "Maintenance"] },
       { key: "audiovisual", tab: "Video", t: "Video production", s: "What the market watches.", d: "End-to-end production, from shooting to post, under the same direction that shaped the brand. To explain complex things in a few minutes.", l: ["Corporate videos", "Filming and photography", "Art direction", "Motion design", "Editing and post", "Recurring content"] },
     ],
-    casesSec: { kicker: "Cases", title: "Brands that now communicate the real size of what they deliver", all: "All cases" },
+    casesSec: { kicker: "Cases", title: "Brands that turned technical authority into brand", all: "All cases" },
     methodSec: { kicker: "Method", title: "Direction before creation", lead: "Six steps in a cycle. A project doesn't end at delivery: it ends when results hit the goal we set together.", head: ["Step", "", "What happens", "Output"], cycle: "After step 06, the cycle returns to mapping." },
     method: [
       ["Pain mapping", "We understand the business problem before opening any file.", "Diagnosis"],
