@@ -113,11 +113,9 @@ header.site.light .glass{background:rgba(255,255,255,.68);border-color:rgba(0,0,
 .menu li.open .chev{transform:rotate(180deg)}
 .drop{position:absolute;top:calc(100% + 18px);left:-20px;width:560px;color:var(--ink);background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(24px) saturate(180%);backdrop-filter:blur(24px) saturate(180%);box-shadow:0 24px 48px -20px rgba(0,0,0,.3);border:1px solid var(--line);opacity:0;visibility:hidden;transform:translateY(-4px);transition:.25s var(--out)}
 .menu li.open .drop{opacity:1;visibility:visible;transform:none}
-.drop a{display:grid;grid-template-columns:36px 1fr;gap:4px 10px;padding:16px 20px;border-bottom:1px solid var(--line);transition:background .2s}
+.drop a{display:flex;flex-direction:column;gap:4px;padding:16px 20px;border-bottom:1px solid var(--line);transition:background .2s}
 .drop a:last-child{border-bottom:0}
 .drop a:hover{background:rgba(0,0,0,.04)}
-.drop .n{font-family:var(--mono);font-size:12px;color:var(--ink-3);grid-row:span 2;padding-top:2px}
-.drop a:hover .n{color:var(--orange)}
 .drop b{font-weight:500;font-size:15px}
 .drop span{font-size:13px;color:var(--ink-3);line-height:18px}
 .nav-r{display:flex;justify-content:flex-end;align-items:center;gap:14px}
