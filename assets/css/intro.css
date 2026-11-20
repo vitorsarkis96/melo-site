@@ -1,17 +1,18 @@
 /* =========================================================
    VINHETA "PRANCHETA" · só na home, uma vez por sessão
-   A folha técnica se monta, projeta as entregas e as caixas
+   A folha técnica (escura, emenda no hero) se monta, projeta as entregas e as caixas
    pousam no hero real. Fica oculta por padrão: só aparece
    quando o script do <head> marca <html class="intro-on">.
    ========================================================= */
 .bp{display:none}
 .intro-on .bp{
-  --bp-bg:var(--g50);--bp-line:var(--g200);--bp-frame:var(--g500);
+  --bp-bg:var(--black);--bp-line:rgba(255,255,255,.07);--bp-frame:rgba(255,255,255,.32);
+  --bp-ink:#f2f2f2;--bp-mute:rgba(255,255,255,.45);
   display:block;position:fixed;inset:0;z-index:9999;overflow:hidden;
-  background-color:var(--bp-bg);color:var(--ink);
+  background-color:var(--bp-bg);color:var(--bp-ink);
   transition:background-color .9s var(--ease)
 }
-.bp.is-out{background-color:rgba(250,250,250,0);pointer-events:none}
+.bp.is-out{background-color:rgba(13,13,13,0);pointer-events:none}
 
 /* hero espera a vinheta terminar pra fazer a própria entrada */
 .intro-wait .hero .fade{animation:none;opacity:0;transform:none}
@@ -25,7 +26,7 @@
 
 /* marcas de corte */
 .bp-crop{position:absolute;width:18px;height:18px;opacity:0;transition:opacity .6s .5s}
-.bp-crop::before,.bp-crop::after{content:"";position:absolute;background:var(--ink)}
+.bp-crop::before,.bp-crop::after{content:"";position:absolute;background:var(--bp-ink)}
 .bp-crop::before{width:18px;height:1px;top:0}
 .bp-crop::after{width:1px;height:18px;left:0}
 .bp-crop.tl{top:20px;left:20px}
@@ -38,11 +39,11 @@
 /* carimbo de folha técnica */
 .bp-stamp{position:absolute;left:var(--pad);bottom:48px;display:grid;grid-template-columns:auto auto;
   border:1px solid var(--bp-frame);background:var(--bp-bg);
-  font:10px/1 var(--mono);letter-spacing:.12em;color:var(--ink-3);opacity:0;transition:opacity .6s .8s}
+  font:10px/1 var(--mono);letter-spacing:.12em;color:var(--bp-mute);opacity:0;transition:opacity .6s .8s}
 .bp-stamp span{padding:8px 12px;border-right:1px solid var(--bp-frame);border-bottom:1px solid var(--bp-frame)}
 .bp-stamp span:nth-child(2n){border-right:0}
 .bp-stamp span:nth-child(n+3){border-bottom:0}
-.bp-stamp b{color:var(--ink);font-weight:500}
+.bp-stamp b{color:var(--bp-ink);font-weight:500}
 .bp.is-grid .bp-stamp{opacity:1}
 .bp.is-morph .bp-stamp,.bp.is-out .bp-stamp{opacity:0;transition-delay:0s}
 
@@ -52,11 +53,11 @@
 .bp-frame{position:absolute;inset:0;border:1px solid var(--bp-frame);clip-path:inset(0 100% 0 0);
   transition:clip-path .8s var(--ease),border-color .6s ease}
 .bp-reg{position:absolute;left:-3px;top:-3px;width:6px;height:6px;border-radius:50%;background:var(--orange);transform:scale(0);transition:transform .3s .6s}
-.bp-meta{position:absolute;top:12px;left:14px;font:10px/1 var(--mono);letter-spacing:.1em;color:var(--ink-3);white-space:nowrap}
-.bp-word{position:absolute;left:14px;bottom:12px;font-size:clamp(20px,2.4vw,34px);font-weight:500;letter-spacing:-.03em;color:var(--ink);white-space:nowrap}
+.bp-meta{position:absolute;top:12px;left:14px;font:10px/1 var(--mono);letter-spacing:.1em;color:var(--bp-mute);white-space:nowrap}
+.bp-word{position:absolute;left:14px;bottom:12px;font-size:clamp(20px,2.4vw,34px);font-weight:500;letter-spacing:-.03em;color:var(--bp-ink);white-space:nowrap}
 .bp-dim{position:absolute;left:0;right:0;top:calc(100% + 10px);height:9px;border-left:1px solid var(--bp-frame);border-right:1px solid var(--bp-frame)}
 .bp-dim::before{content:"";position:absolute;left:0;right:0;top:4px;height:1px;background:var(--bp-frame)}
-.bp-dim span{position:absolute;left:50%;top:-1px;transform:translateX(-50%);padding:0 6px;background:var(--bp-bg);font:10px/1 var(--mono);color:var(--ink-3)}
+.bp-dim span{position:absolute;left:50%;top:-1px;transform:translateX(-50%);padding:0 6px;background:var(--bp-bg);font:10px/1 var(--mono);color:var(--bp-mute)}
 .bp-meta,.bp-word,.bp-dim{opacity:0;transform:translateY(4px);transition:opacity .45s,transform .45s}
 .bp-box.is-on .bp-frame{clip-path:inset(0 0 0 0)}
 .bp-box.is-on .bp-reg{transform:scale(1)}
@@ -64,13 +65,12 @@
 .bp-box.is-on .bp-word{opacity:1;transform:none;transition-delay:.55s}
 .bp-box.is-on .bp-dim{opacity:1;transform:none;transition-delay:.7s}
 .bp.is-morph .bp-meta,.bp.is-morph .bp-word,.bp.is-morph .bp-dim{opacity:0;transition-delay:0s}
-/* ao revelar o hero escuro, as molduras clareiam e somem por último */
-.bp.is-out .bp-frame{border-color:rgba(255,255,255,.55)}
+/* ao revelar o hero, as molduras somem por último */
 .bp.is-out .bp-box{opacity:0;transition-delay:.7s}
 
-.bp-skip{position:absolute;right:var(--pad);top:36px;background:var(--bp-bg);border:1px solid var(--bp-frame);color:var(--ink-3);
+.bp-skip{position:absolute;right:var(--pad);top:36px;background:var(--bp-bg);border:1px solid var(--bp-frame);color:var(--bp-mute);
   font:10px/1 var(--mono);letter-spacing:.15em;text-transform:uppercase;padding:9px 12px;cursor:pointer;transition:opacity .3s}
-.bp-skip:hover{color:var(--ink);border-color:var(--ink)}
+.bp-skip:hover{color:var(--bp-ink);border-color:var(--bp-ink)}
 .bp.is-out .bp-skip{opacity:0}
 
 @media(max-width:759px){.bp-stamp{display:none}}
