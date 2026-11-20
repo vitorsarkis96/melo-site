@@ -1,0 +1,77 @@
+/* =========================================================
+   VINHETA "PRANCHETA" · só na home, uma vez por sessão
+   A folha técnica se monta, projeta as entregas e as caixas
+   pousam no hero real. Fica oculta por padrão: só aparece
+   quando o script do <head> marca <html class="intro-on">.
+   ========================================================= */
+.bp{display:none}
+.intro-on .bp{
+  --bp-bg:var(--g50);--bp-line:var(--g200);--bp-frame:var(--g500);
+  display:block;position:fixed;inset:0;z-index:9999;overflow:hidden;
+  background-color:var(--bp-bg);color:var(--ink);
+  transition:background-color .9s var(--ease)
+}
+.bp.is-out{background-color:rgba(250,250,250,0);pointer-events:none}
+
+/* hero espera a vinheta terminar pra fazer a própria entrada */
+.intro-wait .hero .fade{animation:none;opacity:0;transform:none}
+
+/* grade de construção */
+.bp-v,.bp-h{position:absolute;background:var(--bp-line);transition:transform 1.3s var(--ease),opacity .6s ease}
+.bp-v{top:0;bottom:0;width:1px;transform:scaleY(0);transform-origin:top}
+.bp-h{left:0;right:0;height:1px;transform:scaleX(0);transform-origin:left}
+.bp.is-grid .bp-v,.bp.is-grid .bp-h{transform:none}
+.bp.is-out .bp-v,.bp.is-out .bp-h{opacity:0}
+
+/* marcas de corte */
+.bp-crop{position:absolute;width:18px;height:18px;opacity:0;transition:opacity .6s .5s}
+.bp-crop::before,.bp-crop::after{content:"";position:absolute;background:var(--ink)}
+.bp-crop::before{width:18px;height:1px;top:0}
+.bp-crop::after{width:1px;height:18px;left:0}
+.bp-crop.tl{top:20px;left:20px}
+.bp-crop.tr{top:20px;right:20px;transform:scaleX(-1)}
+.bp-crop.bl{bottom:20px;left:20px;transform:scaleY(-1)}
+.bp-crop.br{bottom:20px;right:20px;transform:scale(-1)}
+.bp.is-grid .bp-crop{opacity:1}
+.bp.is-morph .bp-crop,.bp.is-out .bp-crop{opacity:0;transition-delay:0s}
+
+/* carimbo de folha técnica */
+.bp-stamp{position:absolute;left:var(--pad);bottom:48px;display:grid;grid-template-columns:auto auto;
+  border:1px solid var(--bp-frame);background:var(--bp-bg);
+  font:10px/1 var(--mono);letter-spacing:.12em;color:var(--ink-3);opacity:0;transition:opacity .6s .8s}
+.bp-stamp span{padding:8px 12px;border-right:1px solid var(--bp-frame);border-bottom:1px solid var(--bp-frame)}
+.bp-stamp span:nth-child(2n){border-right:0}
+.bp-stamp span:nth-child(n+3){border-bottom:0}
+.bp-stamp b{color:var(--ink);font-weight:500}
+.bp.is-grid .bp-stamp{opacity:1}
+.bp.is-morph .bp-stamp,.bp.is-out .bp-stamp{opacity:0;transition-delay:0s}
+
+/* caixas de entrega */
+.bp-box{position:absolute;transition:left 1s cubic-bezier(.77,0,.18,1),top 1s cubic-bezier(.77,0,.18,1),
+  width 1s cubic-bezier(.77,0,.18,1),height 1s cubic-bezier(.77,0,.18,1),opacity .5s ease}
+.bp-frame{position:absolute;inset:0;border:1px solid var(--bp-frame);clip-path:inset(0 100% 0 0);
+  transition:clip-path .8s var(--ease),border-color .6s ease}
+.bp-reg{position:absolute;left:-3px;top:-3px;width:6px;height:6px;border-radius:50%;background:var(--orange);transform:scale(0);transition:transform .3s .6s}
+.bp-meta{position:absolute;top:12px;left:14px;font:10px/1 var(--mono);letter-spacing:.1em;color:var(--ink-3);white-space:nowrap}
+.bp-word{position:absolute;left:14px;bottom:12px;font-size:clamp(20px,2.4vw,34px);font-weight:500;letter-spacing:-.03em;color:var(--ink);white-space:nowrap}
+.bp-dim{position:absolute;left:0;right:0;top:calc(100% + 10px);height:9px;border-left:1px solid var(--bp-frame);border-right:1px solid var(--bp-frame)}
+.bp-dim::before{content:"";position:absolute;left:0;right:0;top:4px;height:1px;background:var(--bp-frame)}
+.bp-dim span{position:absolute;left:50%;top:-1px;transform:translateX(-50%);padding:0 6px;background:var(--bp-bg);font:10px/1 var(--mono);color:var(--ink-3)}
+.bp-meta,.bp-word,.bp-dim{opacity:0;transform:translateY(4px);transition:opacity .45s,transform .45s}
+.bp-box.is-on .bp-frame{clip-path:inset(0 0 0 0)}
+.bp-box.is-on .bp-reg{transform:scale(1)}
+.bp-box.is-on .bp-meta{opacity:1;transform:none;transition-delay:.4s}
+.bp-box.is-on .bp-word{opacity:1;transform:none;transition-delay:.55s}
+.bp-box.is-on .bp-dim{opacity:1;transform:none;transition-delay:.7s}
+.bp.is-morph .bp-meta,.bp.is-morph .bp-word,.bp.is-morph .bp-dim{opacity:0;transition-delay:0s}
+/* ao revelar o hero escuro, as molduras clareiam e somem por último */
+.bp.is-out .bp-frame{border-color:rgba(255,255,255,.55)}
+.bp.is-out .bp-box{opacity:0;transition-delay:.7s}
+
+.bp-skip{position:absolute;right:var(--pad);top:36px;background:var(--bp-bg);border:1px solid var(--bp-frame);color:var(--ink-3);
+  font:10px/1 var(--mono);letter-spacing:.15em;text-transform:uppercase;padding:9px 12px;cursor:pointer;transition:opacity .3s}
+.bp-skip:hover{color:var(--ink);border-color:var(--ink)}
+.bp.is-out .bp-skip{opacity:0}
+
+@media(max-width:759px){.bp-stamp{display:none}}
+@media(prefers-reduced-motion:reduce){.bp{display:none!important}}
