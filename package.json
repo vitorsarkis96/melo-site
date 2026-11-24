@@ -5,7 +5,6 @@
   "scripts": {
     "build": "eleventy",
     "start": "eleventy --serve",
-    "cms": "decap-server",
     "translate-case": "node --env-file=.env scripts/translate-case.js"
   },
   "devDependencies": {

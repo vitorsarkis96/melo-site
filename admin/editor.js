@@ -11,6 +11,7 @@
 
   const FILES = (key) => {
     if (key === "pt" || key === "en" || key === "geral") return `src/_data/conteudo/${key}.json`;
+    if (key === "site") return "src/_data/site.json";
     if (key.startsWith("case:")) return `src/_data/cases/${key.slice(5)}.json`;
     throw new Error("Arquivo desconhecido: " + key);
   };
@@ -98,6 +99,7 @@
       { v: "home", pt: "/", en: "/en/", label: "Início" },
       { v: "cases", pt: "/cases", en: "/en/cases", label: "Todos os cases" },
       { v: "contato", pt: "/contato", en: "/en/contact", label: "Contato" },
+      { v: "config", pt: "/contato", en: "/en/contact", label: "Configurações do site" },
     ];
     let cases = [];
     try {
@@ -181,7 +183,7 @@
     try { doc.location.href; } catch (e) { $("#frameLoading").hidden = true; return; }
     injectFrame(doc);
     const keys = [...doc.querySelectorAll("[data-e],[data-img],[data-item],[data-media],[data-video],[data-gal]")].map((el) => split(el.dataset.e || el.dataset.img || el.dataset.item || el.dataset.media || el.dataset.video || el.dataset.gal)[0]);
-    keys.push("geral");
+    keys.push("geral", "site");
     const cur = state.pages.find((x) => x.v === $("#pageSel").value);
     if (cur && cur.v.startsWith("case:")) keys.push(cur.v);
     await loadDocsFor(keys);
@@ -485,7 +487,7 @@
         if (!state.docs[k].sha) continue;
         const cur = await gh(`/repos/${REPO}/contents/${FILES(k)}?ref=${BRANCH}`);
         if (cur.sha !== state.docs[k].sha) {
-          const ok = await confirmBox("Arquivo alterado por outra pessoa", `${FILES(k)} mudou desde que você abriu o editor (talvez pelo modo avançado). Publicar mesmo assim substitui essa versão.`, "Publicar mesmo assim");
+          const ok = await confirmBox("Arquivo alterado por outra pessoa", `${FILES(k)} mudou desde que você abriu o editor (talvez em outra aba ou por outra pessoa). Publicar mesmo assim substitui essa versão.`, "Publicar mesmo assim");
           if (!ok) throw new Error("Publicação cancelada.");
         }
       }
@@ -498,7 +500,7 @@
       }
       for (const k of files) tree.push({ path: FILES(k), mode: "100644", type: "blob", content: JSON.stringify(state.docs[k].data, null, 2) + "\n" });
       const newTree = await gh(`/repos/${REPO}/git/trees`, { method: "POST", body: JSON.stringify({ base_tree: head.tree.sha, tree }) });
-      const what = files.map((k) => (k.startsWith("case:") ? "case " + k.slice(5) : k === "geral" ? "geral" : "textos " + k.toUpperCase())).join(", ");
+      const what = files.map((k) => (k.startsWith("case:") ? "case " + k.slice(5) : k === "geral" ? "geral" : k === "site" ? "configurações" : "textos " + k.toUpperCase())).join(", ");
       const commit = await gh(`/repos/${REPO}/git/commits`, { method: "POST", body: JSON.stringify({ message: `Editor visual: ${what}${ups.length ? ` + ${ups.length} imagem(ns)` : ""}`, tree: newTree.sha, parents: [head.sha] }) });
       await gh(`/repos/${REPO}/git/refs/heads/${BRANCH}`, { method: "PATCH", body: JSON.stringify({ sha: commit.sha }) });
       // atualiza a base local
@@ -822,6 +824,37 @@
         const id = ytId(rv.querySelector("#ppReel").value.trim()); if (!id) { toast("Não reconheci esse link do YouTube."); return; }
         setVal("geral|reel", id); const im = frame().querySelector("[data-video] img"); if (im) im.src = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`; toast("Showreel trocado.");
       };
+    } else if (v === "config") {
+      if (!state.docs.site) return;
+      pp.innerHTML = `<h3>Configurações do site</h3><span class="small">Valem para o site todo, em PT e EN. Publique para aplicar.</span>`;
+      const groups = [
+        ["Contato", [
+          ["site|email", "E-mail"],
+          ["site|phone", "Telefone"],
+          ["site|addressLine", "Endereço"],
+          ["site|formspreeId", "ID do formulário de contato (Formspree)", "Só o código depois de formspree.io/f/. Sem ele o formulário de contato não envia e-mail."],
+        ]],
+        ["Redes e links", [
+          ["geral|social.whatsapp", "WhatsApp (link)"],
+          ["site|instagram", "Instagram"],
+          ["site|linkedin", "LinkedIn"],
+          ["geral|social.facebook", "Facebook"],
+          ["geral|social.linktree", "Linktree"],
+          ["geral|social.upwork", "Upwork"],
+          ["geral|social.maps", "Google Maps (avaliações)"],
+        ]],
+        ["Dados da empresa", [
+          ["site|legalName", "Razão social", "Aparece na política de privacidade."],
+          ["site|cnpj", "CNPJ"],
+        ]],
+      ];
+      const esc = (t) => String(t == null ? "" : t).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+      groups.forEach(([title, fields]) => {
+        const sec = document.createElement("div"); sec.className = "pp-sec pp-form";
+        sec.innerHTML = `<b>${title}</b>` + fields.map(([key, label, hint]) => `<label><span class="fl">${label}</span><input type="text" data-k="${key}" value="${esc(curVal(key))}">${hint ? `<span class="small">${hint}</span>` : ""}</label>`).join("");
+        sec.addEventListener("change", (e) => { const k = e.target.dataset.k; if (k) setVal(k, e.target.value.trim()); });
+        pp.appendChild(sec);
+      });
     } else if (v.startsWith("case:")) {
       const k = v; const d = state.docs[k]; if (!d) return;
       const slug = v.slice(5);
@@ -834,12 +867,17 @@
         <label class="chk"><input type="checkbox" id="ppHome"${home ? " checked" : ""}> Mostrar na home</label>
         <div class="pp-sec"><b>Galeria</b><span class="small">Adicione fotos ou vídeos no fim da página. Clique numa foto ou vídeo para trocar, mover ou remover.</span>
         <div class="pp-3"><button class="b b-ghost" id="ppAddImg">+ Foto</button><button class="b b-ghost" id="ppAddVid">+ Vídeo</button><button class="b b-ghost" id="ppAddTxt">+ Texto</button></div></div>
+        <div class="pp-sec"><b>Imagem de compartilhamento</b><span class="small">Aparece quando o link do case é enviado no WhatsApp, LinkedIn etc. Se ficar vazia, usa a capa. Vale definir quando a capa for vídeo ou GIF.</span>
+        <div class="og-prev">${d.data.heroMedia && d.data.heroMedia.ogSrc ? `<img src="${state.previews[d.data.heroMedia.ogSrc] || d.data.heroMedia.ogSrc}" alt="">` : `<span class="small">Usando a capa</span>`}</div>
+        <div class="pp-2"><button class="b b-ghost" id="ppOg">Escolher imagem</button><button class="b b-ghost" id="ppOgDel"${d.data.heroMedia && d.data.heroMedia.ogSrc ? "" : " disabled"}>Usar a capa</button></div></div>
         <span class="small">Para trocar a foto de capa, clique nela no topo da página.</span>`;
       const gl = pp.querySelector("#ppGoLive");
       if (gl) gl.onclick = async () => {
         if (!(await confirmBox("Publicar o case?", "Ele passa a aparecer na página de cases, no Google e, se marcado, na home. Todas as alterações pendentes também vão ao ar.", "Publicar"))) return;
         d.data.draft = false; markDirty(k); publish();
       };
+      pp.querySelector("#ppOg").onclick = async () => { const path = await stageUpload(await pickFile()); if (!path) return; d.data.heroMedia = d.data.heroMedia || {}; d.data.heroMedia.ogSrc = path; markDirty(k); renderPagePanel(); toast("Imagem de compartilhamento definida."); };
+      pp.querySelector("#ppOgDel").onclick = () => { if (!d.data.heroMedia) return; delete d.data.heroMedia.ogSrc; markDirty(k); renderPagePanel(); };
       pp.querySelector("#ppYear").onchange = (e) => { d.data.year = e.target.value.trim(); markDirty(k); };
       pp.querySelectorAll(".chips input").forEach((c) => (c.onchange = () => { d.data.dataService = [...pp.querySelectorAll(".chips input:checked")].map((x) => x.value); markDirty(k); }));
       pp.querySelector("#ppHome").onchange = (e) => { const a = [...(curVal("geral|homeCases") || [])]; const i = a.indexOf(slug); if (e.target.checked && i < 0) a.push(slug); if (!e.target.checked && i >= 0) a.splice(i, 1); setVal("geral|homeCases", a); };

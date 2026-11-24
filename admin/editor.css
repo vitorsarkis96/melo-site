@@ -139,3 +139,8 @@ svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.5}
 #ncAi:disabled{opacity:.6}
 .draft-box{display:grid;gap:8px;padding:14px;background:#fff4ee;border:1px solid #f9c3aa}.draft-box b{color:var(--orange)}.draft-box span{color:var(--ink2);line-height:1.45;font-size:13px}
 .pp-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px}.sec-row{grid-template-columns:1fr 30px 30px 0}.sec-row .chk{height:34px;border:1px solid var(--line);padding:0 8px;background:var(--g50)}
+
+.pp-form label{display:grid;gap:4px}
+.pp-form .small{margin-top:-2px}
+.og-prev{border:1px solid var(--line);background:var(--g50);height:96px;display:grid;place-items:center;overflow:hidden}
+.og-prev img{width:100%;height:100%;object-fit:cover}
