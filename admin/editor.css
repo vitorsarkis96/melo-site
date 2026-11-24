@@ -126,6 +126,11 @@ svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.5}
 .lm-row select,.pp select,.pp input[type=text]{height:34px;border:1px solid var(--line);background:var(--g50);padding:0 8px;width:100%;outline:none}
 .lm-row button{height:34px;border:1px solid var(--line);background:#fff;cursor:pointer}
 .lm-row button:hover{border-color:var(--ink)}
+.lm-row.lm-logo{grid-template-columns:18px 56px 1fr 30px 30px;align-items:center;background:#fff;border:1px solid var(--line);padding:3px 3px 3px 6px;cursor:grab}
+.lm-logo img{width:56px;height:26px;object-fit:contain;filter:grayscale(1)}
+.lm-logo .lm-name{font-size:13px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-left:8px}
+.lm-grip{color:#999;font-size:12px;letter-spacing:-2px;user-select:none}
+.lm-logo.drag{opacity:.4}.lm-logo.over{border-color:var(--ink)}
 .pp .b{height:34px}
 .pp-2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
 .ai{display:grid;gap:10px;padding:14px;background:var(--g50);border:1px solid var(--line)}

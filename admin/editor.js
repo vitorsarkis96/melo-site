@@ -766,6 +766,38 @@
     });
     draw(); return wrap;
   }
+  function logosManager() {
+    const key = "geral|clients";
+    const wrap = document.createElement("div"); wrap.className = "pp-sec";
+    wrap.innerHTML = `<b>Logos de clientes</b><span class="small">Ordem do carrossel. Arraste ou use as setas.</span><div class="lm lm-logos"></div>`;
+    const lm = wrap.querySelector(".lm");
+    const esc = (t) => String(t || "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+    const draw = () => {
+      const a = curVal(key) || [];
+      lm.innerHTML = a.map((c, i) => `<div class="lm-row lm-logo" draggable="true" data-i="${i}"><span class="lm-grip" title="Arrastar">⋮⋮</span><img src="/assets/img/clients/${esc(c.file)}.png" alt=""><span class="lm-name">${esc(c.name)}</span><button data-up="${i}" title="Subir">↑</button><button data-down="${i}" title="Descer">↓</button></div>`).join("");
+    };
+    const preview = () => {
+      const tr = frame() && frame().querySelector(".logos-track"); if (!tr) return;
+      const a = curVal(key) || [];
+      const one = (k) => a.map((c) => `<span class="lg"${k ? ' aria-hidden="true"' : ""}><img src="/assets/img/clients/${esc(c.file)}.png" alt="${k ? "" : esc(c.name)}"></span>`).join("");
+      tr.innerHTML = one(0) + one(1);
+    };
+    const move = (from, to) => {
+      const a = [...(curVal(key) || [])]; if (from === to || to < 0 || to >= a.length) return;
+      const [it] = a.splice(from, 1); a.splice(to, 0, it); setVal(key, a); draw(); preview();
+    };
+    wrap.addEventListener("click", (e) => {
+      const b = e.target.closest("button"); if (!b) return;
+      if (b.dataset.up) move(+b.dataset.up, +b.dataset.up - 1);
+      else if (b.dataset.down) move(+b.dataset.down, +b.dataset.down + 1);
+    });
+    let dragI = null;
+    lm.addEventListener("dragstart", (e) => { const r = e.target.closest(".lm-logo"); if (!r) return; dragI = +r.dataset.i; r.classList.add("drag"); e.dataTransfer.effectAllowed = "move"; });
+    lm.addEventListener("dragend", () => { dragI = null; lm.querySelectorAll(".drag,.over").forEach((x) => x.classList.remove("drag", "over")); });
+    lm.addEventListener("dragover", (e) => { const r = e.target.closest(".lm-logo"); if (!r || dragI === null) return; e.preventDefault(); lm.querySelectorAll(".over").forEach((x) => x.classList.remove("over")); r.classList.add("over"); });
+    lm.addEventListener("drop", (e) => { const r = e.target.closest(".lm-logo"); if (!r || dragI === null) return; e.preventDefault(); move(dragI, +r.dataset.i); });
+    draw(); return wrap;
+  }
   async function previewHero() {
     const stage = frame() && frame().querySelector("#figStage"); if (!stage) return;
     const slugs = curVal("geral|heroCases") || [];
@@ -782,6 +814,7 @@
       pp.appendChild(sectionsManager());
       pp.appendChild(listManager("Fotos do banner", "geral|heroCases", "As fotos do banner são as capas destes cases, na ordem. Para trocar uma foto, clique nela na página."));
       pp.appendChild(listManager("Cases na home", "geral|homeCases", "A lista de cases da home aparece atualizada depois de publicar."));
+      pp.appendChild(logosManager());
       const rv = document.createElement("div"); rv.className = "pp-sec";
       rv.innerHTML = `<b>Showreel</b><span class="small">Cole o link do YouTube ou clique no vídeo na página.</span><input type="text" id="ppReel" value="https://www.youtube.com/watch?v=${curVal("geral|reel") || ""}"><button class="b b-ghost b-block" id="ppReelOk">Trocar showreel</button>`;
       pp.appendChild(rv);
