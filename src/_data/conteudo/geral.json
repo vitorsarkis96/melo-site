@@ -38,36 +38,36 @@
       "name": "Fleury"
     },
     {
-      "file": "avantto",
-      "name": "Avantto"
-    },
-    {
-      "file": "gupy",
-      "name": "Gupy"
-    },
-    {
-      "file": "mackenzie",
-      "name": "Mackenzie"
-    },
-    {
       "file": "great",
       "name": "GREAT"
     },
     {
-      "file": "ipvm",
-      "name": "IPVM"
+      "file": "avantto",
+      "name": "Avantto"
     },
     {
       "file": "ilikia",
       "name": "Ilikia"
     },
     {
-      "file": "keyaccess",
-      "name": "KeyAccess"
+      "file": "gupy",
+      "name": "Gupy"
     },
     {
       "file": "polo",
       "name": "Polo"
+    },
+    {
+      "file": "mackenzie",
+      "name": "Mackenzie"
+    },
+    {
+      "file": "keyaccess",
+      "name": "KeyAccess"
+    },
+    {
+      "file": "ipvm",
+      "name": "IPVM"
     },
     {
       "file": "skintec",
