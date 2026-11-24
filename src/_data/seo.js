@@ -47,12 +47,12 @@ function org(lang) {
   return {
     "@type": ["Organization", "ProfessionalService"],
     "@id": ORG,
-    name: "Melo",
-    alternateName: ["Melo Creative", "Melo Agência de Comunicação Corporativa"],
+    name: "Melo Creative",
+    alternateName: ["Melo", "Melo Agência de Comunicação Corporativa"],
     legalName: site.legalName,
     taxID: site.cnpj,
     url: `${BASE}/`,
-    logo: { "@type": "ImageObject", url: `${BASE}/assets/icons/logo-melo.svg` },
+    logo: { "@type": "ImageObject", url: `${BASE}/assets/icons/favicon-512x512.png` },
     image: `${BASE}/assets/img/cases/mev-hero-folder.jpg`,
     description: t.desc,
     slogan: t.slogan,
@@ -92,7 +92,7 @@ function graph(p) {
   const homeUrl = lang === "en" ? `${BASE}/en/` : `${BASE}/`;
   const nodes = [
     org(lang),
-    { "@type": "WebSite", "@id": WEB, url: `${BASE}/`, name: "Melo", description: t.desc, publisher: { "@id": ORG }, inLanguage: ["pt-BR", "en"] },
+    { "@type": "WebSite", "@id": WEB, url: `${BASE}/`, name: "Melo Creative", alternateName: ["Melo", "melocreative.com.br"], description: t.desc, publisher: { "@id": ORG }, inLanguage: ["pt-BR", "en"] },
   ];
   const page = {
     "@type": p.pageType || "WebPage",

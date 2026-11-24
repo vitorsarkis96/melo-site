@@ -59,24 +59,6 @@ eleventyExcludeFromCollections: true
     <xhtml:link rel="alternate" hreflang="en" href="{{ site.baseUrl }}/en/contact" />
     <xhtml:link rel="alternate" hreflang="x-default" href="{{ site.baseUrl }}/contato" />
   </url>
-  <url>
-    <loc>{{ site.baseUrl }}/termos-e-condicoes</loc>
-    <lastmod>{{ build.date }}</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>{{ site.baseUrl }}/politica-de-privacidade</loc>
-    <lastmod>{{ build.date }}</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  <url>
-    <loc>{{ site.baseUrl }}/politica-de-cookies</loc>
-    <lastmod>{{ build.date }}</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.2</priority>
-  </url>
 {% for c in cases %}
   <url>
     <loc>{{ site.baseUrl }}/{{ c.slug }}</loc>

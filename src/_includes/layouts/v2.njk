@@ -23,6 +23,8 @@
 <meta name="color-scheme" content="only light" />
 <meta name="p:domain_verify" content="9efdd9fe62752d6bb5dddbc895f56a76" />
 <link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg" />
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/favicon-192x192.png" />
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png" />
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png" />
 <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png" />
@@ -32,7 +34,7 @@
 <link rel="alternate" hreflang="x-default" href="{{ ptUrl }}" />
 {% endif %}
 <meta property="og:type" content="{{ ogType or 'website' }}" />
-<meta property="og:site_name" content="Melo" />
+<meta property="og:site_name" content="Melo Creative" />
 <meta property="og:locale" content="{{ t.ogLocale }}" />
 <meta property="og:title" content="{{ metaTitle | safe }}" />
 <meta property="og:description" content="{{ metaDescription | safe }}" />
@@ -43,8 +45,8 @@
 <meta name="twitter:description" content="{{ metaDescription | safe }}" />
 <meta name="twitter:image" content="{{ site.baseUrl }}{{ ogImage | safe }}" />
 {%- set seoKind = "case" if (item and item.slug) else ("home" if isHome else ("cases" if slug == "cases" else ("contact" if (slug == "contato" or slug == "contact") else "page"))) -%}
-{% if item and item.draft %}<meta name="robots" content="noindex, nofollow" />{% else %}<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />{% endif %}
-<meta name="author" content="Melo" />
+{% if item and item.draft %}<meta name="robots" content="noindex, nofollow" />{% elif noindex %}<meta name="robots" content="noindex, follow" />{% else %}<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />{% endif %}
+<meta name="author" content="Melo Creative" />
 <meta name="geo.region" content="BR-SP" />
 <meta name="geo.placename" content="São Paulo" />
 <link rel="alternate" type="text/plain" href="/llms.txt" title="llms.txt" />
