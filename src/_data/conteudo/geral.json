@@ -22,14 +22,6 @@
       "name": "4Research"
     },
     {
-      "file": "avantto",
-      "name": "Avantto"
-    },
-    {
-      "file": "brain4care",
-      "name": "brain4care"
-    },
-    {
       "file": "btl",
       "name": "BTL"
     },
@@ -38,32 +30,40 @@
       "name": "Grupo F.Camara"
     },
     {
+      "file": "brain4care",
+      "name": "brain4care"
+    },
+    {
       "file": "fleury",
       "name": "Fleury"
     },
     {
-      "file": "great",
-      "name": "GREAT"
+      "file": "avantto",
+      "name": "Avantto"
     },
     {
       "file": "gupy",
       "name": "Gupy"
     },
     {
-      "file": "ilikia",
-      "name": "Ilikia"
+      "file": "mackenzie",
+      "name": "Mackenzie"
+    },
+    {
+      "file": "great",
+      "name": "GREAT"
     },
     {
       "file": "ipvm",
       "name": "IPVM"
     },
     {
-      "file": "keyaccess",
-      "name": "KeyAccess"
+      "file": "ilikia",
+      "name": "Ilikia"
     },
     {
-      "file": "mackenzie",
-      "name": "Mackenzie"
+      "file": "keyaccess",
+      "name": "KeyAccess"
     },
     {
       "file": "polo",
