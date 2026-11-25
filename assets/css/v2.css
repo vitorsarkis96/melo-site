@@ -274,7 +274,7 @@ body.hero-cta header.site:not(.cta-on) .nav-r .btn-gray{max-width:0;padding-left
 }
 
 /* ---------- grafismo 3: pastas (abas de documento) ---------- */
-.folder-tabs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;position:relative;z-index:1}
+.folder-tabs{display:flex;gap:4px;overflow-x:auto;overflow-y:hidden;overscroll-behavior:contain;touch-action:pan-x pan-y;-webkit-overflow-scrolling:touch;scrollbar-width:none;position:relative;z-index:1;padding-bottom:1px;margin-bottom:-1px}
 .folder-tabs::-webkit-scrollbar{display:none}
 .folder-tabs button{flex:none;display:flex;gap:10px;align-items:baseline;padding:12px 18px 13px;background:var(--g200);color:var(--ink-2);font-size:14px;font-weight:500;border:1px solid var(--g200);border-bottom:0;position:relative;transition:background .25s,color .25s}
 .folder-tabs button .mono{font-size:11px;color:var(--ink-3)}
