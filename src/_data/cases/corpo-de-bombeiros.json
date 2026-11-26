@@ -1,0 +1,60 @@
+{
+  "slug": "corpo-de-bombeiros",
+  "draft": true,
+  "order": 99,
+  "showOnHome": false,
+  "year": "2023",
+  "dataService": [
+    "estrategia",
+    "marca",
+    "sites-sistemas"
+  ],
+  "cardImage": "/assets/img/uploads/1795701755770-vir-6492.jpg",
+  "otherCases": [],
+  "heroMedia": {
+    "type": "image",
+    "src": "/assets/img/uploads/1795701755770-vir-6492.jpg"
+  },
+  "rowsBeforeApproach": [],
+  "rowsAfterApproach": [],
+  "en": {
+    "metaTitle": "Fire Department | Melo",
+    "metaDescription": "How Melo structured the visual identity and brand ecosystem for the Firefighters Run, intermediated by FUNDABOM, in 2023.",
+    "heroTitleLine2": "Firefighters Run Identity",
+    "heroAlt": "Visual identity materials for the Firefighters Run created by Melo",
+    "tags": [
+      "Visual identity",
+      "Print design",
+      "Digital"
+    ],
+    "challengeHeading": "Providing institutional visibility and visual unity for the 2023 Firefighters Run.",
+    "challengeDetail": "The event needed a strong identity representing the corporation to the general public. The demand required consistent application across physical and digital materials, intermediated by FUNDABOM.",
+    "approachHeading": "We created a cohesive visual system applied to all event pieces.",
+    "approachDetail": "We developed the identity for the twenty-sixth edition of the run and applied it to start line prints, medals, t-shirts, finish line, bags, banners, and digital pieces. The result was the complete delivery of the event visual ecosystem.",
+    "cardTitle": "Fire Department: Event Identity",
+    "cardDesc": "Creation of the complete visual identity and brand ecosystem for the Firefighters Run.",
+    "heroTitleLine1": "Corpo de Bombeiros",
+    "challengeTag": "The challenge",
+    "approachTag": "The approach"
+  },
+  "pt": {
+    "metaTitle": "Corpo de Bombeiros | Melo",
+    "metaDescription": "Como a Melo estruturou a identidade visual e o ecossistema de marca para a Corrida do Bombeiro, intermediado pela FUNDABOM, em 2023.",
+    "heroTitleLine1": "Corpo de Bombeiros",
+    "heroTitleLine2": "Identidade e Ecossistema de Marca",
+    "heroAlt": "Materiais de identidade visual da Corrida do Bombeiro criados pela Melo",
+    "tags": [
+      "Identidade visual",
+      "Design impresso",
+      "Digital"
+    ],
+    "challengeTag": "O desafio",
+    "challengeHeading": "Dar visibilidade institucional e unidade visual para a Corrida do Bombeiro de 2023.",
+    "challengeDetail": "O evento precisava de uma identidade forte que representasse a corporação para o público geral. A demanda exigia aplicação consistente em diversos materiais físicos e digitais, com intermediação da FUNDABOM.",
+    "approachTag": "A abordagem",
+    "approachHeading": "Criamos um sistema visual coeso aplicado a todas as peças do evento.",
+    "approachDetail": "Desenvolvemos a identidade da vigésima sexta edição da corrida e aplicamos em impressos para pórtico, medalhas, camisetas, linha de chegada, sacolas, banners e peças digitais. O resultado foi a entrega completa do ecossistema visual da prova.",
+    "cardTitle": "Corpo de Bombeiros: Identidade de Evento",
+    "cardDesc": "Criação da identidade visual completa e ecossistema de marca para a Corrida do Bombeiro."
+  }
+}
