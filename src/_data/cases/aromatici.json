@@ -102,6 +102,15 @@
           "src": "/assets/img/cases/aro-full2.jpg"
         }
       ]
+    },
+    {
+      "layout": "single",
+      "items": [
+        {
+          "type": "image",
+          "src": "/assets/img/uploads/1795708019680-vir-6673.jpg"
+        }
+      ]
     }
   ],
   "slug": "aromatici",
