@@ -4,9 +4,9 @@
     "mev",
     "honda-mackenzie",
     "ekoenergy",
+    "corpo-de-bombeiros",
     "skintec",
-    "4research",
-    "rondon"
+    "4research"
   ],
   "homeCases": [
     "mev",
@@ -15,7 +15,8 @@
     "ekoenergy",
     "skintec",
     "gallianos-appendi",
-    "4research"
+    "4research",
+    "corpo-de-bombeiros"
   ],
   "clients": [
     {
